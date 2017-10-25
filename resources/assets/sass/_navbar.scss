@@ -1,0 +1,53 @@
+nav.navbar{
+    z-index: 11;
+    margin-bottom: 0;
+    position:absolute;
+    width:100%;
+    background-color: rgba(255,255,255,.2);
+    border: 0;
+    color:white;
+    @include mobile{
+        background-color: rgba(0,0,0,.8);
+    }
+    @include tablet{
+        background-color: rgba(0,0,0,.8);
+    }
+    .glyphicon-menu-hamburger{
+        font-size: 20px;
+    }
+    button{
+        @include mobile{
+            margin-top: 24px;
+        }
+        @include tablet{
+            margin-top: 24px;
+        }
+    }
+    ul
+    {
+        >li{
+            >a{
+                //make all the buttons in be in the middle (Vertically)
+                line-height: 87px;
+            }
+        }
+    }
+    a{
+        color:white !important;
+        font-size: 24px;
+        transition: .3s ease;
+        &:hover{
+            background-color: rgba(0,0,0,.4) !important;
+        }
+    }
+    .navbar-header
+    {
+        margin-left:25px;
+        .navbar-brand{
+            height:auto;
+            img{
+                width:250px;
+            }
+        }
+    }
+}

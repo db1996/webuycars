@@ -1,0 +1,71 @@
+$pink-col-rgb: 238, 42, 123;
+$pink-col-hex: #ee2a7b;
+$mobile-width: 480px;
+$tablet-width:768px;
+$buttonsborder: 2px solid white;
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width+1}) and (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin custom($custommin, $custommax) {
+     @media (min-width: #{$custommin}) and (max-width: #{$custommax}) {
+      @content;
+    }
+}
+
+@mixin div-same-size-as-background-img($url, $h, $w) {
+    background-image: url($url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: percentage($h / $w);
+}
+@mixin setflex($direction, $align-items, $justify-content){
+    display:flex;
+    flex-direction: $direction;
+    align-items:  $align-items;
+    justify-content: $justify-content;
+}
+@mixin setbackgrounds(){
+    @include mobile {
+        background-image: url('http://localhost:3000/webuycars/public/img/header-mobile.png');
+    }
+    @include tablet{
+        background-image: url('http://localhost:3000/webuycars/public/img/header-tablet2.png');
+    }
+    @include desktop {
+        background-image: url('http://localhost:3000/webuycars/public/img/header.png');
+    }
+}
+@mixin button {
+    padding: 25px 15px;
+    border: $buttonsborder;
+    transition: .3s ease;
+    &:hover{
+        background-color: rgba(0,0,0,.4) !important;
+        border: $buttonsborder !important;
+    }
+    &:focus{
+        background-color: rgba(0,0,0,.7) !important;
+        border: $buttonsborder !important;
+    }
+    &:active{
+        background-color: rgba(0,0,0,1) !important;
+        border: $buttonsborder !important;
+    }
+}

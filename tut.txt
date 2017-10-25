@@ -1,0 +1,11 @@
+install node.js
+
+in package.json edit packages
+
+npm install
+
+gulpfile.js edit proxy
+
+gulpfile.js edit files to watch
+
+gulp to watch etc 

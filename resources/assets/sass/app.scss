@@ -1,0 +1,17 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
+// Laravel's Variables
+@import 'variables';
+
+// Custom Variables
+@import 'custom_variables';
+
+//custom styles
+@import 'navbar';
+
+// NOTE: In this case 'homepage' is also devided in subcategories so there is a subfolder called 'homepage' which contains all the subcats. Homepage is not in any subfolder
+@import 'homepage';
+
+@import 'step1';
