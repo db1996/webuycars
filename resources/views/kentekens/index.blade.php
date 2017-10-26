@@ -72,4 +72,21 @@
             </div>
         </div>
     </div>
+    <div class="reviews"> 
+            <div class="container">
+                <div class="col col-sm-12">
+                    <h1>Onze tevreden klanten aan het woord</h1>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <div class="col col-sm-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
