@@ -1,5 +1,5 @@
 @php
-$year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
+    $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
     function type_versnelling($str){
         if ($str == 'A') {
             return 'Automaat';
@@ -12,7 +12,12 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
         }
     }
     $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
-    $type_versnelling = type_versnelling($versnellingsdata->type_versnellingsbak);
+    $type_versnelling = '';
+    if (isset($versnellingsdata->type_versnellingsbak))
+    {
+        $type_versnelling = type_versnelling($versnellingsdata->type_versnellingsbak);
+    }
+
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
@@ -62,7 +67,7 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
                     </button>
                     <div id="carroserie" class="collapse in collapse-div">
                         <div class="row">
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-3 nopad-col">
                                 <h4>Carrosserietype: </h2>
                             </div>
                             <div class="col col-sm-9">
@@ -70,7 +75,7 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-3 nopad-col">
                                 <h4>Omschrijving:</h2>
                             </div>
                             <div class="col col-sm-9">
@@ -89,7 +94,20 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
                     </button>
                     <div id="versnelling" class="collapse in collapse-div">
                         <div class="row">
-                            {{ $type_versnelling }}
+                            <div class="col col-sm-3 nopad-col">
+                                <h4 data-toggle="tooltip" title="Meestal 'Automaat' of 'Handmatig'">type:</h2>
+                            </div>
+                            <div class="col col-sm-9">
+                                <input type="text" name="" value="{{ $type_versnelling or ''}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-sm-3 nopad-col">
+                                <h4>Aantal versnellingen:</h2>
+                            </div>
+                            <div class="col col-sm-9">
+                                <input type="text" name="" value="{{ $versnellingsdata->aantal_versnellingen_bovengrens or ''}}">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,9 +119,9 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div id="kleur" class="collapse in collapse-div">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="col col-sm-9">
+                            <input type="text" name="" value="{{ $data->eerste_kleur or ''}}">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -16,6 +16,7 @@
     background-color: rgba(64,64,65,.8);
     height: 20px;
 }
+
 .info{
     background-image: url($imagelocation +  'stappenplan-background.png');
     background-repeat: no-repeat;
@@ -38,10 +39,16 @@
         }
     }
     .collapse-div{
-        //margin-bottom: 25px;
         .row{
             display: flex;
             align-items: center;
+            margin-left: 0 !important;
+            .nopad-col{
+                padding:0;
+                h4{
+                    text-align: right;
+                }
+            }
             .col{
                 display: flex;
                 align-items: center;
