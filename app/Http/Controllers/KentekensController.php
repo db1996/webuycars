@@ -23,6 +23,9 @@ class KentekensController extends Controller
         $carroseriedata = json_decode(file_get_contents('https://opendata.rdw.nl/resource/vezc-m2t6.json?$limit=5000&$$app_token=R71sAZV5Xbq0c7WG1lD5Zmn0t&kenteken=' . $kenteken));
         $carroseriedata = $carroseriedata[0];
 
-        return view('kentekens.step2', compact('data', 'brandstof_data', 'carroseriedata'));
+        $versnellingsdata = json_decode(file_get_contents('https://opendata.rdw.nl/resource/2ei8-phf6.json?$limit=5000&$$app_token=R71sAZV5Xbq0c7WG1lD5Zmn0t&eeg_variantcode=' . $data->variant . '&eeg_uitvoeringscode=' . $data->uitvoering));
+        $versnellingsdata = $versnellingsdata[0];
+
+        return view('kentekens.step2', compact('data', 'brandstof_data', 'carroseriedata', 'versnellingsdata'));
     }
 }

@@ -1,5 +1,18 @@
 @php
 $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
+    function type_versnelling($str){
+        if ($str == 'A') {
+            return 'Automaat';
+        }
+        elseif ($str == 'H') {
+            return 'Handmatig';
+        }
+        else{
+            return 'Niet Bekend';
+        }
+    }
+    $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
+    $type_versnelling = type_versnelling($versnellingsdata->type_versnellingsbak);
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
@@ -76,7 +89,7 @@ $year = date('Y', strtotime($data->datum_eerste_afgifte_nederland or '' ));
                     </button>
                     <div id="versnelling" class="collapse in collapse-div">
                         <div class="row">
-
+                            {{ $type_versnelling }}
                         </div>
                     </div>
                 </div>
