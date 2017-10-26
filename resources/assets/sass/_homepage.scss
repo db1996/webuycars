@@ -160,6 +160,8 @@
 
 .reviews {
     background-image: url('http://localhost:3000/webuycars/public/img/reviewachtergrond.png');
+    height: auto;
+    display: flex;
     .col {
         text-align: center;
         color: white;
