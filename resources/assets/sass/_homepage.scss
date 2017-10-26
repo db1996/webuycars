@@ -116,9 +116,9 @@
         justify-content: center;
         align-items: center;
     }
-    background-image: url('http://localhost:3000/webuycars/public/img/cardoor.png');
+    background-image: url($imagelocation + 'cardoor.png');
     @include custom(0px, 900px){
-        background-image: url('http://localhost:3000/webuycars/public/img/cardoor-900x1500.png');
+        background-image: url($imagelocation + 'cardoor-900x1500.png');
     }
     background-repeat:no-repeat;
     .col{
@@ -159,9 +159,84 @@
 
 
 .reviews {
-    background-image: url('http://localhost:3000/webuycars/public/img/reviewachtergrond.png');
+    background-image: url($imagelocation + 'reviewachtergrond.png');
+    height: auto;
+    display: flex;
     .col {
         text-align: center;
         color: white;
+        .reviewbox {
+            margin: 40px 0px 90px 20px;
+            height: 640px;
+            background-color: white;
+        }
+        .foto {
+            background-image: url($imagelocation + 'blauwepolo.png') !important;  
+            background-repeat:no-repeat !important;
+            height: 0 !important;
+            padding: 0; /* remove any pre-existing padding, just in case */
+            padding-bottom: 62% !important; /* for a 4:3 aspect ratio */
+            background-position: top center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+        } 
+        .foto2 {
+            background-image: url($imagelocation + 'blauwepoloRes.png') !important;  
+            background-repeat:no-repeat !important;
+            height: 0 !important;
+            padding: 0; /* remove any pre-existing padding, just in case */
+            padding-bottom: 62% !important; /* for a 4:3 aspect ratio */
+            background-position: top center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+        } 
+        .fotoOnderlijn{
+            height: 10px;
+            background-color: #ee2a7b;
+        }
+        .tekst-naam {
+            color: black;
+            margin: 50px 20px 0px 20px;
+        }
+        .tekst {
+            color: black;
+            margin: 0px 20px 0px 20px;
+        }
+        .tekstOnderlijn {
+            height: 2px;
+            background-color: black;
+            margin: 20px 40px 0px 40px;
+
+        }
+        .rating {
+            background-image: url($imagelocation + 'review1Score.png') !important;
+            background-repeat:no-repeat !important;
+            height: 0 !important;
+            padding: 0; /* remove any pre-existing padding, just in case */
+            padding-bottom: 14% !important; /* for a 4:3 aspect ratio */
+            background-position: top center;
+            background-size: 70%;
+            background-repeat: no-repeat;
+            margin: 30px 0px 30px 0px;
+        }
+        .rating2 {
+            background-image: url($imagelocation + 'review2Score.png') !important;
+            background-repeat:no-repeat !important;
+            height: 0 !important;
+            padding: 0; /* remove any pre-existing padding, just in case */
+            padding-bottom: 14% !important; /* for a 4:3 aspect ratio */
+            background-position: top center;
+            background-size: 70%;
+            background-repeat: no-repeat;
+            margin: 30px 0px 30px 0px;
+        }
     }
+}
+
+.footer {
+    height: 200px;
+    width: 100%;
+    background-color: #ee2a7b;
 }

@@ -79,14 +79,42 @@
                 </div>
                 <div class="row">
                     <div class="col col-sm-6">
-                        <div>
-                            
+                        <div class="reviewbox">
+                            <div class="foto"></div>
+                            <div class="fotoOnderlijn"></div>
+                            <div class="tekst-naam">
+                                <h2>Twan van Asten</h2>
+                            </div>
+                            <div class="tekst">
+                                Een collega van me had me verteld over ‘Webuycars’ en twee dagen later had ik mijn blauwe volkswagen polo verkocht.
+                            </div>
+                            <div class="tekstOnderlijn"></div>
+                            <div class="rating">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="col col-sm-6">
-                        
+                        <div class="reviewbox">
+                            <div class="foto2"></div>
+                            <div class="fotoOnderlijn"></div>
+                            <div class="tekst-naam">
+                                <h2>Cliff van soest</h2>
+                            </div>
+                            <div class="tekst">
+                                Een collega van me had me verteld over ‘Webuycars’ en twee dagen later had ik mijn blauwe volkswagen polo verkocht.
+                            </div>
+                            <div class="tekstOnderlijn"></div>
+                            <div class="rating2">
+                                
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="footer">
+            
         </div>
 @endsection
