@@ -18,7 +18,7 @@
     </div>
     <div class="vrijblijvend">
         <h1>Verkoop <span>razend snel</span> uw auto</h1>
-        <h2>ontvang nu vrijblijvend een bod</h2>
+        <h2>ontvang nu vrijblijvend kek een bod</h2>
     </div>
     <div class="instructies">
         <div class="col col-sm-4">
