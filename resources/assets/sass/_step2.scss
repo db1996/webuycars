@@ -17,7 +17,7 @@
     height: 20px;
 }
 .info{
-    background-image: url('http://localhost:3000/webuycars/public/img/stappenplan-background.png');
+    background-image: url($imagelocation +  'stappenplan-background.png');
     background-repeat: no-repeat;
     background-size: cover;
     .row, .col{

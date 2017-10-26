@@ -3,6 +3,7 @@ $pink-col-hex: #ee2a7b;
 $mobile-width: 480px;
 $tablet-width:768px;
 $buttonsborder: 2px solid white;
+$imagelocation: 'http://localhost:3000/webuycars/public/img/'
 @mixin mobile {
   @media (max-width: #{$mobile-width}) {
     @content;
@@ -43,13 +44,13 @@ $buttonsborder: 2px solid white;
 }
 @mixin setbackgrounds(){
     @include mobile {
-        background-image: url('http://localhost:3000/webuycars/public/img/header-mobile.png');
+        background-image: url($imagelocation + 'header-mobile.png');
     }
     @include tablet{
-        background-image: url('http://localhost:3000/webuycars/public/img/header-tablet2.png');
+        background-image: url($imagelocation +  'header-tablet2.png');
     }
     @include desktop {
-        background-image: url('http://localhost:3000/webuycars/public/img/header.png');
+        background-image: url($imagelocation + 'header.png');
     }
 }
 @mixin button {
