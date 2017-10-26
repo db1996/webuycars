@@ -16,7 +16,6 @@
         <li><a href="{{ url('/') }}">Modellen</a></li>
         <li><a href="{{ url('/') }}">Over ons</a></li>
         <li><a href="{{ url('/') }}">Contact</a></li>
-        <li><a href="#" onclick="blaaah();">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 

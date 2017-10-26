@@ -57,7 +57,7 @@ gulp.task('build-css', function() {
         .pipe(sass()).on('error', handleError)
         .pipe(sourcemaps.write()) // Add the map to modified source.
         .pipe(gulp.dest('public/css'))
-        .pipe(connect.reload());
+        .pipe(connect.reload().on( 'error', gutil.log ));
         // .pipe(browserSync.stream({match: '**/*.css'}));
 });
 

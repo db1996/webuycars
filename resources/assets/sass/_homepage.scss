@@ -21,7 +21,7 @@
         .row{
             @include setflex(column,flex-end, flex-end);
             width:100%;
-                form{
+            form{
                 @include mobile{
                     @include setflex(column,center, center);
                     width:auto;
