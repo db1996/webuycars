@@ -17,7 +17,10 @@
     {
         $type_versnelling = type_versnelling($versnellingsdata->type_versnellingsbak);
     }
-
+    $tweede_kleur = $data->tweede_kleur;
+    if ($tweede_kleur == 'Niet geregistreerd'){
+        $tweede_kleur = $data->eerste_kleur;
+    }
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
@@ -41,9 +44,19 @@
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div id="kmstand" class="collapse in collapse-div">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <select class="form-control" id="sel1">
+                            <option value="5000">Tot 5.000</option>
+                            <option value="10000">Tot 10.000</option>
+                            <option value="20000">Tot 20.000</option>
+                            <option value="30000">Tot 30.000</option>
+                            <option value="40000">Tot 40.000</option>
+                            <option value="60000">Tot 60.000</option>
+                            <option value="80000">Tot 80.000</option>
+                            <option value="100000">Tot 100.000</option>
+                            <option value="125000">Tot 125.000</option>
+                            <option value="150000">Tot 150.000</option>
+                            <option value="200000">Meer dan 150.000</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -59,26 +72,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div>
-                <div class="col col-sm-6">
+                <div class="col col-sm-3"></div><div class="col col-sm-6">
                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#carroserie">
                         <p>Carroserie</p>
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div id="carroserie" class="collapse in collapse-div">
                         <div class="row">
-                            <div class="col col-sm-3 nopad-col">
+                            <div class="col col-sm-4 nopad-col">
                                 <h4>Carrosserietype: </h2>
                             </div>
-                            <div class="col col-sm-9">
+                            <div class="col col-sm-8">
                                 <input type="text" name="" value="{{ $carroseriedata->carrosserietype  or '' }}">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col col-sm-3 nopad-col">
+                            <div class="col col-sm-4 nopad-col">
                                 <h4>Omschrijving:</h2>
                             </div>
-                            <div class="col col-sm-9">
+                            <div class="col col-sm-8">
                                 <input type="text" name="" value="{{ $carroseriedata->type_carrosserie_europese_omschrijving  or '' }}">
                             </div>
                         </div>
@@ -94,18 +106,18 @@
                     </button>
                     <div id="versnelling" class="collapse in collapse-div">
                         <div class="row">
-                            <div class="col col-sm-3 nopad-col">
+                            <div class="col col-sm-4 nopad-col">
                                 <h4 data-toggle="tooltip" title="Meestal 'Automaat' of 'Handmatig'">type:</h2>
                             </div>
-                            <div class="col col-sm-9">
+                            <div class="col col-sm-8">
                                 <input type="text" name="" value="{{ $type_versnelling or ''}}">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col col-sm-3 nopad-col">
+                            <div class="col col-sm-4 nopad-col">
                                 <h4>Aantal versnellingen:</h2>
                             </div>
-                            <div class="col col-sm-9">
+                            <div class="col col-sm-8">
                                 <input type="text" name="" value="{{ $versnellingsdata->aantal_versnellingen_bovengrens or ''}}">
                             </div>
                         </div>
@@ -119,12 +131,33 @@
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div id="kleur" class="collapse in collapse-div">
-                        <div class="col col-sm-9">
-                            <input type="text" name="" value="{{ $data->eerste_kleur or ''}}">
+                        <div class="row">
+                            <div class="col col-sm-4 nopad-col">
+                                <h4>Eerste kleur</h2>
+                            </div>
+                            <div class="col col-sm-8">
+                                <input type="text" name="" value="{{ $data->eerste_kleur or ''}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-sm-4 nopad-col">
+                                <h4>Huidige Kleur</h2>
+                            </div>
+                            <div class="col col-sm-8">
+                                <input type="text" name="" value="{{ $tweede_kleur or ''}}">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                    <button type="button" class="btn btn-info volgende-stap" >
+                        <p>Kleur</p>
+                    </button>
+                </div>
+            </div>
+            @include('partials.steps')
         </div>
     </div>
 @endsection
