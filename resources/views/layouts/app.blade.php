@@ -31,6 +31,7 @@ if (isset($data)) {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    @include('partials.flashmessage')
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

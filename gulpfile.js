@@ -1,14 +1,13 @@
 var gulp  = require('gulp'),
- gutil = require('gulp-util');
- jshint = require('gulp-jshint');
- sass   = require('gulp-sass');
- concat = require('gulp-concat');
- uglify = require('gulp-uglifyjs');
- sourcemaps = require('gulp-sourcemaps');
- imagemin = require('gulp-imagemin');
+gutil = require('gulp-util');
+jshint = require('gulp-jshint');
+sass   = require('gulp-sass');
+concat = require('gulp-concat');
+uglify = require('gulp-uglifyjs');
+sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
- cleanCSS = require('gulp-clean-css');
- connect = require('gulp-connect');
+cleanCSS = require('gulp-clean-css');
+connect = require('gulp-connect');
 
 
 
@@ -43,20 +42,21 @@ gulp.task('connect', function() {
 });
 // Build CSS
 gulp.task('build-css', function() {
-    return gulp.src('resources/assets/sass/app.scss')
+    return gulp.src(srcs.scss)
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', handleError)
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public/css'))
+        .pipe(gulp.dest(dests.css))
         .pipe(connect.reload().on( 'error', gutil.log ));
 });
+
 // Build JS
 gulp.task('build-js', function() {
-    return gulp.src('resources/assets/js/*.js')
+    return gulp.src(srcs.js)
     .pipe(sourcemaps.init())
-    .pipe(concat('main.js'))
+    .pipe(concat(filenames.js))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/js'))
+    .pipe(gulp.dest(dests.js))
     .pipe(connect.reload().on( 'error', gutil.log ));
 });
 // Handle errors
@@ -66,18 +66,25 @@ function handleError(err) {
 }
 
 var srcs = {
-    scss: 'resources/assets/sass/**/*.scss',
+    scss: 'resources/assets/sass/app.scss',
     js: 'resources/assets/js/*.js',
-    images: ['public/img/**/*.png', 'public/img/**/*.gif', 'public/img/**/*.jpg', 'public/img/**/*.svg'],
 },
 dests = {
-    scss: 'public/css/',
+    css: 'public/css/',
     js: 'public/js/',
+},
+buildwatch = {
+    scss: 'resources/assets/sass/**/*.scss',
+    js: 'resources/assets/js/*.js',
 },
 watchs = {
     scss: 'public/css/**/*.css',
     js: 'public/js/**/*.js',
     php: ['resources/views/**/*.php', 'routes/web.php', 'App/Http/Controllers/**/*.php'],
+    images: ['public/img/**/*.png', 'public/img/**/*.gif', 'public/img/**/*.jpg', 'public/img/**/*.svg'],
+},
+filenames = {
+    js: 'main.js',
 };
 
 gulp.task('watch', function() {
@@ -87,10 +94,9 @@ gulp.task('watch', function() {
         notify: false,
         host:"192.168.56.1"
     });
-    gulp.watch(srcs.scss, ['build-css']);
-    gulp.watch(srcs.images).on('change', browserSync.reload);
-    gulp.watch(srcs.js, ['build-js']);
-    //gulp.watch(watchs.js).on('change', browserSync.reload);
+    gulp.watch(buildwatch.scss, ['build-css']);
+    gulp.watch(buildwatch.js, ['build-js']);
+    gulp.watch(watchs.images).on('change', browserSync.reload);
     gulp.watch(watchs.php).on('change', browserSync.reload);
 })
 

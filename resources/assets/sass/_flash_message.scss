@@ -1,0 +1,16 @@
+#flash-mes{
+    position: absolute;
+    min-width: 200px;
+    text-align: center;
+    top: 180px;
+    z-index: 10;
+    animation: flash-mes-comein 1s forwards ,flash-mes-fade  .5s forwards 10s;
+}
+@keyframes flash-mes-fade {
+    0%   {opacity: 1;}
+    100% {opacity: 0; display:none;}
+}
+@keyframes flash-mes-comein {
+    0%   {right:-500px; }
+    100%  {right:20px;}
+}

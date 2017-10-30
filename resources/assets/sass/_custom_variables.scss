@@ -54,19 +54,46 @@ $imagelocation: 'http://localhost:3000/webuycars/public/img/';
     }
 }
 @mixin button {
-    padding: 25px 15px;
+    padding: 15px 15px;
     border: $buttonsborder;
     transition: .3s ease;
     &:hover{
-        background-color: rgba(0,0,0,.4) !important;
+        background-color: rgba(0,0,0,.8) !important;
         border: $buttonsborder !important;
     }
-    &:focus{
-        background-color: rgba(0,0,0,.7) !important;
-        border: $buttonsborder !important;
-    }
-    &:active{
+    &:focus,&:active{
         background-color: rgba(0,0,0,1) !important;
-        border: $buttonsborder !important;
+    }
+}
+@mixin volgende-knop{
+    .row.numbers-and-dashes{
+        margin-top: 25px;
+        .col{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            .tablenr{
+                p{
+                    padding:0;
+                    margin:0;
+                }
+                border:4px solid black;
+                height: 80px;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 48px;
+                background-color: white;
+                color: black
+            }
+            .tablenr.active{
+
+                background-color: black;
+                color: white;
+            }
+            .tabledash{
+                border: 5px solid black;
+            }
+        }
     }
 }

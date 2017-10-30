@@ -12,7 +12,11 @@
 */
 
 Route::get('/', "KentekensController@index");
-Route::get('/kenteken', 'KentekensController@test');
+Route::post('/kenteken/stap1', 'KentekensController@stap1');
+Route::get('/kenteken/stap1', 'KentekensController@stap1');
+Route::post('/kenteken/stap2', 'KentekensController@stap2');
+Route::get('/kenteken/stap2', 'KentekensController@stap2');
+
 Auth::routes();
 Route::get('password/reset', [
   'as' => 'password.request',

@@ -1,12 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="top-image">
         <div class="container">
             <img src="" alt="">
             <div class="row">
                 <div class="col col-sm-6 col-offset-sm-4">
-                    <form class="" action="{{url('/kenteken')}}"  method="get">
+                    <form class="" action="{{url('/kenteken/stap1')}}"  method="post">
+                        {{ csrf_field() }}
                         <p>Voer hier je kenteken in:</p>
                         <input id="blah" name="kenteken" class="plate" type="text">
                         <button class="nextbtn" type="submit">Volgende</button>
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="reviews"> 
+    <div class="reviews">
             <div class="container">
                 <div class="col col-sm-12">
                     <h1>Onze tevreden klanten aan het woord</h1>
@@ -90,7 +90,7 @@
                             </div>
                             <div class="tekstOnderlijn"></div>
                             <div class="rating">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="tekstOnderlijn"></div>
                             <div class="rating2">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -115,6 +115,6 @@
             </div>
         </div>
         <div class="footer">
-            
+
         </div>
 @endsection
