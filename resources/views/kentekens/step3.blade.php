@@ -6,19 +6,19 @@
         <h2>Vul hier je contact gegevens in.</h2>
     </div>
     <div class="grey-between"></div>
-    <div class="info-step2">
+    <div class="info-step3">
         <div class="container">
             <form action="{{url('/kenteken/stap3')}}" method="post">
                 {!! csrf_field() !!}
                 <div class="row">
                     <div class="col col-sm-3"></div><div class="col col-sm-6">
+                        <div id="filechoosing">
+                            <input multiple type="file" name="file" id="file" class="inputfile" />
+                            <label for="file">Foto bestanden kiezen</label>
+                            <label class="align-right" for="file"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-camera" aria-hidden="true"></i></label>
 
-                        <input required type="text" value="<?php
-                        $first_name = session('contact');
-                        if (isset($first_name['voornaam'])){
-                            echo $first_name['voornaam'];
-                        }
-                        ?>" name="voornaam" placeholder="Voornaam...">
+                        </div>
+                        <img id="blah" src="#" alt="your image" />
                     </div>
                 </div>
                 <div class="row">
@@ -55,7 +55,7 @@
                     <div class="col col-sm-3"></div><div class="col col-sm-6">
                         <input required type="text" value="<?php
                         $first_name = session('contact');
-                        if (isset($first_name['postcode'])){ 
+                        if (isset($first_name['postcode'])){
                             echo $first_name['postcode'];
                         }
                         ?>" name="postcode" placeholder="Postcode...">
@@ -70,7 +70,7 @@
                 </div>
             </form>
             @include('partials.steps')
-            <?php createsteps(4, 1, 6, 3);?>
+            <?php createsteps(4, 2, 6, 3);?>
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">

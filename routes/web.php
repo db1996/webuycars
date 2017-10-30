@@ -16,6 +16,8 @@ Route::post('/kenteken/stap1', 'KentekensController@stap1');
 Route::get('/kenteken/stap1', 'KentekensController@stap1');
 Route::post('/kenteken/stap2', 'KentekensController@stap2');
 Route::get('/kenteken/stap2', 'KentekensController@stap2');
+Route::post('/kenteken/stap3', 'KentekensController@stap3');
+Route::get('/kenteken/stap3', 'KentekensController@stap3');
 
 Auth::routes();
 Route::get('password/reset', [

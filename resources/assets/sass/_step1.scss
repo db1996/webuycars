@@ -137,9 +137,17 @@
                 margin-right:20px;
             }
         }
+        #selectside2
+        {
+            height: 110px !important;
+            i{
+                margin-right: 25px;
+            }
+        }
         .select-side:checked{
             background-color: red !important;
         }
     }
+
     @include volgende-knop;
 }

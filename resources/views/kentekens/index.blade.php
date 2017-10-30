@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="top-image">
         <div class="container">
             <img src="" alt="">
@@ -8,7 +9,8 @@
                     <form class="" action="{{url('/kenteken/stap1')}}"  method="post">
                         {{ csrf_field() }}
                         <p>Voer hier je kenteken in:</p>
-                        <input id="blah" name="kenteken" class="plate" type="text">
+                        <input id="test50"
+                        oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="plate" type="text">
                         <button class="nextbtn" type="submit">Volgende</button>
                     </form>
                     {{-- <button class="nextbtn" onclick="combi($('#blah').val())">Volgende</button> --}}

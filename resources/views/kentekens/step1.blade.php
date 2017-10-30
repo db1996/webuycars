@@ -1,19 +1,10 @@
 @php
 // dd(session()->all());
 $year = substr($date, -4);
-if (isset($ses)){
-    $type_versnelling = '';
-    if (isset($versnelling->type))
-    {
-        $type_versnelling = type_versnelling($versnelling->type);
-    }
-}
-else{
-    $type_versnelling = '';
-    if (isset($versnelling->type))
-    {
-        $type_versnelling = type_versnelling($versnelling->type);
-    }
+$type_versnelling = '';
+if (isset($versnelling->type))
+{
+    $type_versnelling = type_versnelling($versnelling->type);
 }
 function type_versnelling($str){
     if ($str == 'A') {
@@ -79,7 +70,7 @@ function type_versnelling($str){
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div id="uitvoering" class="collapse in collapse-div">
-                        <input type="text" name="uitvoering[naam]" value="{{ $uitvoering or '' }}">
+                        <input required type="text" name="uitvoering[naam]" value="{{ $uitvoering or '' }}">
                     </div>
                 </div>
             </div>
@@ -95,7 +86,7 @@ function type_versnelling($str){
                                 <h4>Carrosserie type: </h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="carrosserie[type]" value="{{ $carrosserie['type']  or '' }}">
+                                <input required type="text" name="carrosserie[type]" value="{{ $carrosserie['type']  or '' }}">
                             </div>
                         </div>
                         <div class="row">
@@ -103,7 +94,7 @@ function type_versnelling($str){
                                 <h4>Omschrijving:</h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="carrosserie[omschrijving]" value="{{ $carrosserie['omschrijving']   or '' }}">
+                                <input required type="text" name="carrosserie[omschrijving]" value="{{ $carrosserie['omschrijving']   or '' }}">
                             </div>
                         </div>
 
@@ -122,7 +113,13 @@ function type_versnelling($str){
                                 <h4 data-toggle="tooltip" title="Meestal 'Automaat' of 'Handmatig'">type:</h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="versnelling[type]" value="{{$versnelling['type'] or ''}}">
+                                <div id="selectside2" class="select-side">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                                <select class="" name="versnelling[type]">
+                                    <option <?php if(isset($versnelling[ 'type'])){ if ($versnelling[ 'type']=="A" ) { echo 'selected'; } } ?> value="A">Automaat</option>
+                                    <option <?php if(isset($versnelling[ 'type'])){ if ($versnelling[ 'type']=="H" ) { echo 'selected'; } } ?> value="H">Handmatig</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -130,7 +127,7 @@ function type_versnelling($str){
                                 <h4>Aantal versnellingen:</h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="versnelling[aantal]" value="{{ $versnelling['aantal']or ''}}">
+                                <input required type="text" name="versnelling[aantal]" value="{{ $versnelling['aantal'] or ''}}">
                             </div>
                         </div>
                     </div>
@@ -148,7 +145,7 @@ function type_versnelling($str){
                                 <h4>Eerste kleur</h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="kleur[first]" value="{{ $kleur['first'] or ''}}">
+                                <input required type="text" name="kleur[first]" value="{{ $kleur['first'] or ''}}">
                             </div>
                         </div>
                         <div class="row">
@@ -156,7 +153,7 @@ function type_versnelling($str){
                                 <h4>Huidige Kleur</h2>
                             </div>
                             <div class="col col-sm-8">
-                                <input type="text" name="kleur[current]" value="{{ $kleur['current'] or ''}}">
+                                <input required type="text" name="kleur[current]" value="{{ $kleur['current'] or ''}}">
                             </div>
                         </div>
                     </div>
@@ -172,6 +169,7 @@ function type_versnelling($str){
 
             </form>
             @include('partials.steps')
+            <?php createsteps(4, 0, 6, 3);?>
         </div>
     </div>
 @endsection
