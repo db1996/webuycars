@@ -1,3 +1,11 @@
+@import "dropzone_step3";
+body{
+    margin:0;
+}
+.border-col{
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
 .info-step3{
     background-image: url($imagelocation +'stappenplan-background.jpg') !important;
     background-repeat: no-repeat;
@@ -12,84 +20,103 @@
         border: none;
         background-color: $pink-col-hex;
         width: 100%;
-        &:hover{
+        &:hover, &:focus, &:active{
             background-color: $pink-col-hex !important;
-            border: none !important;
-        }
-        &:focus{
-            background-color: $pink-col-hex !important;
-            border: none !important;
-        }
-        &:active{
-            background-color:  $pink-col-hex !important;
             border: none !important;
         }
     }
-    input{
-        transition: .2s ease;
-        font-size: 18px;
-        margin-top: 20px;
-        width:100%;
+    .radio-wrap{
         display:flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
         background-color: rgba(0,0,0,1);
+        font-size: 18px;
+        margin-top: 20px;
+        width:100%;
+        @include desktop{
+            width: 80%;
+        }
         color:white;
-        @include button;
-        &:active, &:focus, &:hover
-        {
-            background-color: rgba(0,0,0,1) !important;
-            //border:0;
-            color: white !important;
-        }
-    }
-    #filechoosing{
-        transition: .2s ease;
-        font-size: 18px;
-        margin-top: 20px;
-        width:100%;
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(0,0,0,1);
-        color: white;
-        border: $buttonsborder;
-        padding: 0 15px;
-        &:hover{
-            background-color: rgba(0,0,0,.8) !important;
-            border: $buttonsborder !important;
-        }
-        &:focus,&:active{
-            background-color: rgba(0,0,0,1) !important;
-        }
-        input{
-            display:none;
-        }
-        label{
-            height:100%;
-            width:100%;
+        box-sizing: border-box;
+        p{
+            padding: 15px 0 15px 15px;
             margin:0;
-            padding: 15px 0;
         }
-        .align-right{
-            text-align: right;
+        .radios{
+            display:flex;
+            flex-direction: row;
+            width: 40%;
+            justify-content: flex-end;
+
+            .single-radio{
+                height:100%;
+                input{
+                    display: none;
+                }
+                label {
+                    @include mobile{
+                        display: flex;
+                        align-items: center;
+                    }
+                    text-align: center;
+                    padding: 15px 15px 15px 15px;
+                    height:100%;
+                    border-left: 2px solid white;
+                    margin:0;
+                    border-radius: 2;
+                    display: block;
+                    line-height: 22px;
+                    text-align: center;
+                    color: white;
+                    cursor: pointer;
+                    background: black;
+                    position: relative;
+                }
+                input:checked+label{
+                    color: $pink-col-hex;
+                }
+            }
+            .single-radio.yes{
+                label
+                {
+                    padding: 15px 18px 15px 18px;
+                }
+            }
         }
     }
-    @include volgende-knop;
-    .vorige-stap{
-        margin-top:25px;
-        background-color: rgba(0,0,0,0);
-        color: black;
-        border:0;
-        transition: .2s ease;
+    .normalinput, .puretextinput, .currency{
         p{
             margin:0;
         }
-        &:hover{
+        @include button;
+    }
+    .currency{
+        justify-content: flex-start;
+        input{
+            border:0;
             background-color: rgba(0,0,0,1);
-            color:white;
+            width:100%;
+            margin-left:7px;
+            &:hover, &:focus, &:active{
+                background-color: rgba(0,0,0,1) !important;
+                border: none !important;
+                outline:none;
+            }
         }
     }
+    .starinput{
+        padding: 5px 15px !important;
+        @include mobile{
+            display:flex;
+            flex-direction: column;
+            .stars{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    @include volgende-knop;
+    @include vorige-knop;
 }

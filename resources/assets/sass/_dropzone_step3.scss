@@ -1,0 +1,29 @@
+@keyframes dropzone-mes-fade {
+    0%   {opacity: 1;}
+    100% {
+        opacity: 0;
+
+    }
+}
+@keyframes dropzone-mes-delete {
+    0%   {}
+    100% {
+        position: absolute;
+        visibility: hidden;
+    }
+}
+#dropzone-step3{
+    transition: .2s ease;
+    border: 2px solid black;
+    #dz-ms{
+        font-size: 18px;
+        display:flex;
+        justify-content: space-around;
+        transition: .2s ease;
+    }
+}
+.dz-started{
+     #dz-ms{
+        animation: dropzone-mes-fade 1s forwards ,dropzone-mes-delete  .5s forwards .5s;
+     }
+}

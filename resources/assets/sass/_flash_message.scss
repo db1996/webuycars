@@ -4,7 +4,11 @@
     text-align: center;
     top: 180px;
     z-index: 10;
+    transition: .2s ease;
     animation: flash-mes-comein 1s forwards ,flash-mes-fade  .5s forwards 10s;
+}
+.flash-ms{
+    position: fixed !important;
 }
 @keyframes flash-mes-fade {
     0%   {opacity: 1;}

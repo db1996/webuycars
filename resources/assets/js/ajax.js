@@ -21,20 +21,20 @@ function combi(Licenseplate){
         }
     }
 }
-function readURL(input) {
-
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    var fullPath = document.getElementById('file').value;
-    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-    var filename = fullPath.substring(startIndex);
-    reader.onload = function(e) {
-      $('#blah').attr('src', e.target.result);
-    }
-    console.log(filename);
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-$("#file").change(function() {
-  readURL(this);
-});
+// function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//     var fullPath = document.getElementById('file').value;
+//     var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+//     var filename = fullPath.substring(startIndex);
+//     reader.onload = function(e) {
+//       $('#blah').attr('src', e.target.result);
+//     }
+//     console.log(filename);
+//     reader.readAsDataURL(input.files[0]);
+//   }
+// }
+// $("#file").change(function() {
+//   readURL(this);
+// });
