@@ -1,10 +1,8 @@
-<div id="step1" class="tab-pane active">
+<div id="step1" class="tab-pane active ">
     <div class="info-step1 info">
-        <form action="{{url('/kenteken/stap2')}}" method="post">
-        {!! csrf_field() !!}
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col col-sm-12">
                     <h2>Info over jouw auto</h2>
                 </div>
             </div>
@@ -134,13 +132,9 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <button type="submit" class="btn btn-info volgende-stap" >
-                        <p>Volgende</p>
-                    </button>
+                    <a class="btn btn-info volgende-stap" onclick="window.scrollTo(0, 0);" href="#step2" data-toggle="tab">Volgende</a>
                 </div>
             </div>
-
-            </form>
             @include('partials.steps')
             <?php createsteps(4, 0, 6, 3);?>
         </div>

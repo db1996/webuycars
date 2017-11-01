@@ -26,21 +26,25 @@ function type_versnelling($str){
         <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}</h2>
     </div>
     <div class="grey-between"></div>
-    <div class="container">
+    <div class="container tabs-nav">
         <div class="row">
             <div class="col-sm-3"></div><div class="col-sm-6">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#step1" data-toggle="tab">Tab title</a></li>
-                    <li><a href="#step2" data-toggle="tab">Tab title</a></li>
-                    <li><a href="#step3" data-toggle="tab">Tab title</a></li>
+                    <li class="active"><a id="tab-step1-button" href="#step1" data-toggle="tab">Tab title</a></li>
+                    <li><a id="tab-step2-button" href="#step2" data-toggle="tab">Tab title</a></li>
+                    <li><a id="tab-step3-button" href="#step3" data-toggle="tab">Tab title</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="tab-content clearfix">
-    @include('kentekens.step1')
-    @include('kentekens.step2')
-    @include('kentekens.step3')
-    </div>
+    <form action="{{url('/kenteken/store')}}" enctype="multipart/form-data" method="POST">
+        {{ csrf_field() }}
+        <div class="tab-content clearfix">
+            @include('kentekens.step1')
+            @include('kentekens.step2')
+            @include('kentekens.step3')
+        </div>
+    </form>
+
 
 @endsection

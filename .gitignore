@@ -3,6 +3,7 @@
 /public/storage
 /public/css/app.css
 /storage/*.key
+/storage
 /vendor
 /.idea
 /.vagrant

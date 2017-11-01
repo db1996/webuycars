@@ -1,3 +1,6 @@
+.tabs-nav{
+    // display: none;
+}
 #jouwauto-page{
     nav.navbar{
         position: relative;
@@ -45,7 +48,7 @@ button{
     background-image: url($imagelocation +'stappenplan-background.jpg') !important;
     background-repeat: no-repeat;
     padding: 50px 0px;
-    .row, .col{
+     .col:not(.tablenr){
         color: black;
         text-align: center;
     }

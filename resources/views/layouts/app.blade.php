@@ -9,7 +9,6 @@ if (isset($data)) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://use.fontawesome.com/ad9e1c6f38.js"></script>
@@ -20,7 +19,7 @@ if (isset($data)) {
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-
+    <script src="{{asset('js/plupload.full.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
@@ -36,31 +35,7 @@ if (isset($data)) {
     });
     </script>
     @include('partials.flashmessage')
-
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
-    <script type="text/javascript">
-
-    Dropzone.options.dropzoneStep3 = {
-        paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 5, // MB
-        init: function()
-        {
-            this.on("complete", function(file) {
-                if (file.size > 5*1024*1024) {
-                    $("#app").append("<div id='flash-mes' class='flash-ms alert alert-danger' role='alert'>Het bestand kan maximaal 5MB zijn</div>")
-                    return false;
-                }
-                if(!file.type.match('image.*')) {
-                    this.removeFile(file);
-                    alert('Not an image')
-                    return false;
-                }
-            });
-        },
-
-    };
-    </script>
-
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
