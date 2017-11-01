@@ -1,12 +1,5 @@
-@extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
-@section('content')
-    <div class="title-container">
-        <h1>Contact gegevens</h1>
-        <h2>Vul hier je contact gegevens in.</h2>
-    </div>
-    <div class="grey-between"></div>
-    <div class="info-step2">
+<div id="step2" class="tab-pane">
+    <div class="info-step2 info">
         <div class="container">
             <form action="{{url('/kenteken/stap3')}}" method="post">
                 {!! csrf_field() !!}
@@ -55,7 +48,7 @@
                     <div class="col col-sm-3"></div><div class="col col-sm-6">
                         <input required type="text" value="<?php
                         $first_name = session('contact');
-                        if (isset($first_name['postcode'])){ 
+                        if (isset($first_name['postcode'])){
                             echo $first_name['postcode'];
                         }
                         ?>" name="postcode" placeholder="Postcode...">
@@ -69,7 +62,6 @@
                     </div>
                 </div>
             </form>
-            @include('partials.steps')
             <?php createsteps(4, 1, 6, 3);?>
             <div class="row">
                 <div class="col-sm-3"></div>
@@ -85,4 +77,4 @@
             </div>
         </div>
     </div>
-@endsection
+</div>

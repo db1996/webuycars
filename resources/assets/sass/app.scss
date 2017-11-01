@@ -13,13 +13,7 @@
 
 // NOTE: In this case 'homepage' is also devided in subcategories so there is a subfolder called 'homepage' which contains all the subcats. Homepage is not in any subfolder
 @import 'homepage';
-
-@import 'step1';
-
-@import 'step2';
-
-@import 'step3';
+@import "steps";
 
 @import 'flash_message';
-
 @import "stars_rating";

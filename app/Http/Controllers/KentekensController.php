@@ -44,7 +44,7 @@ class KentekensController extends Controller
             $handelsbenaming = session('handelsbenaming');
             $brandstof_omschrijving = session('brandstof_omschrijving');
             $ses = 1;
-            return view('kentekens.step1',
+            return view('kentekens.steps',
             compact('date', 'ses', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming'));
         }
         else{
@@ -109,7 +109,7 @@ class KentekensController extends Controller
                 'current' => $tweede_kleur
             ];
             $handelsbenaming = $data->handelsbenaming;
-            return view('kentekens.step1',
+            return view('kentekens.steps',
             compact('date', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming'));
         }
 

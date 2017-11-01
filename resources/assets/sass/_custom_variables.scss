@@ -77,8 +77,11 @@ $stars_rating_hover_prev: #f68eb9;
         color: white !important;
     }
 }
-@mixin volgende-knop{
+@mixin step_nums_and_dashes{
     .row.numbers-and-dashes{
+        @include custom(0px, 389px){
+            display:none !important;
+        }
         margin-top: 25px;
         .col{
             display:flex;
@@ -122,6 +125,34 @@ $stars_rating_hover_prev: #f68eb9;
         &:hover{
             background-color: rgba(0,0,0,1);
             color:white;
+        }
+    }
+}
+@mixin volgende-stap {
+    .volgende-stap{
+
+        p{
+            margin:0;
+        }
+        margin-top: 20px;
+        padding: 20px 0px 20px 0px;
+        text-align: center !important;
+        border: none;
+        background-color: $pink-col-hex;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        &:hover{
+            background-color: $pink-col-hex !important;
+            border: none !important;
+        }
+        &:focus{
+            background-color: $pink-col-hex !important;
+            border: none !important;
+        }
+        &:active{
+            background-color:  $pink-col-hex !important;
+            border: none !important;
         }
     }
 }

@@ -1,0 +1,60 @@
+
+.radio-wrap{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,1);
+    font-size: 18px;
+    margin-top: 20px;
+    width:100%;
+    @include desktop{
+        width: 80%;
+    }
+    color:white;
+    box-sizing: border-box;
+    p{
+        padding: 15px 0 15px 15px;
+        margin:0;
+    }
+    .radios{
+        display:flex;
+        flex-direction: row;
+        width: 40%;
+        justify-content: flex-end;
+
+        .single-radio{
+            height:100%;
+            input{
+                display: none;
+            }
+            label {
+                @include mobile{
+                    display: flex;
+                    align-items: center;
+                }
+                text-align: center;
+                padding: 15px 15px 15px 15px;
+                height:100%;
+                border-left: 2px solid white;
+                margin:0;
+                border-radius: 2;
+                display: block;
+                line-height: 22px;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+                background: black;
+                position: relative;
+            }
+            input:checked+label{
+                color: $pink-col-hex;
+            }
+        }
+        .single-radio.yes{
+            label
+            {
+                padding: 15px 18px 15px 18px;
+            }
+        }
+    }
+}

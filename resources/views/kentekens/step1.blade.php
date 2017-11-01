@@ -1,32 +1,5 @@
-@php
-// dd(session()->all());
-$year = substr($date, -4);
-$type_versnelling = '';
-if (isset($versnelling->type))
-{
-    $type_versnelling = type_versnelling($versnelling->type);
-}
-function type_versnelling($str){
-    if ($str == 'A') {
-        return 'Automaat';
-    }
-    elseif ($str == 'H') {
-        return 'Handmatig';
-    }
-    else{
-        return 'Niet Bekend';
-    }
-}
-@endphp
-@extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
-@section('content')
-    <div class="title-container">
-        <h1>JOUW AUTO</h1>
-        <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}</h2>
-    </div>
-    <div class="grey-between"></div>
-    <div class="info">
+<div id="step1" class="tab-pane active">
+    <div class="info-step1 info">
         <form action="{{url('/kenteken/stap2')}}" method="post">
         {!! csrf_field() !!}
         <div class="container">
@@ -172,4 +145,4 @@ function type_versnelling($str){
             <?php createsteps(4, 0, 6, 3);?>
         </div>
     </div>
-@endsection
+</div>

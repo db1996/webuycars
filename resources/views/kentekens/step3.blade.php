@@ -1,14 +1,7 @@
-@extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
-@section('content')
-    @include('partials.star_rating')
+<div id="step3" class="tab-pane">
     @include('partials.radio_buttons')
-    <div class="title-container">
-        <h1>Contact gegevens</h1>
-        <h2>Vul hier je contact gegevens in.</h2>
-    </div>
-    <div class="grey-between"></div>
-    <div class="info-step3">
+    @include('partials.star_rating')
+    <div class="info-step3 info">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3"></div><div class="col-sm-6">
@@ -88,7 +81,6 @@
                     </div>
                 </div>
             </form>
-            @include('partials.steps')
             <?php createsteps(4, 2, 6, 3);?>
             <div class="row">
                 <div class="col-sm-3"></div>
@@ -104,4 +96,4 @@
             </div>
         </div>
     </div>
-@endsection
+</div>
