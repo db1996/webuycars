@@ -1,5 +1,8 @@
 .tabs-nav{
-    // display: none;
+    display: none;
+}
+#submit-all{
+    display:none;
 }
 #jouwauto-page{
     nav.navbar{
@@ -159,5 +162,40 @@ body{
     }
     .select-side:checked{
         background-color: red !important;
+    }
+}
+.upload-images{
+    #browse{
+        @include button;
+        &:hover{
+            background-color: rgba(0,0,0,.75) !important;
+            text-decoration: none;
+        }
+    }
+    #start-upload{
+        display: none;
+    }
+    #filelist{
+        div{
+            @include button;
+            padding:0 !important;
+        }
+        br{
+            display: none;
+        }
+        p{
+            padding: 0 0 0 15px;
+        }
+        .remove-upload{
+            transition: .2s ease;
+            font-size:24px;
+            padding: 8px 15px 8px 15px;
+            height:100%;
+            border-left: 2px solid white;
+            color:white;
+            &:hover{
+                color: $pink-col-hex;
+            }
+        }
     }
 }

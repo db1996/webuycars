@@ -1,4 +1,4 @@
-<div id="step1" class="tab-pane active ">
+<div id="step1" class="tab-pane active">
     <div class="info-step1 info">
         <div class="container">
             <div class="row">

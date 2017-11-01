@@ -16,11 +16,12 @@ Route::post('/kenteken/stap1', 'KentekensController@stap1');
 Route::get('/kenteken/stap1', 'KentekensController@stap1');
 Route::post('/upload', function()
 {
-
+    include(app_path().'/includes/ChromePhp.php');
     return Plupload::receive('file', function ($file)
     {
-        $file->move(storage_path() . '/test/', $file->getClientOriginalName());
 
+        $file->move(storage_path() . '/test/' . $_POST['kenteken'] . '/', $file->getClientOriginalName());
+        var_dump($_POST);
         return 'ready';
     });
 });

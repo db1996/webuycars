@@ -7,9 +7,7 @@
     transition: .2s ease;
     animation: flash-mes-comein 1s forwards ,flash-mes-fade  .5s forwards 10s;
 }
-.flash-ms{
-    position: fixed !important;
-}
+
 @keyframes flash-mes-fade {
     0%   {opacity: 1;}
     100% {opacity: 0; display:none;}
@@ -17,4 +15,25 @@
 @keyframes flash-mes-comein {
     0%   {right:-500px; }
     100%  {right:20px;}
+}
+@keyframes flash-ms-fade {
+    0%   {opacity: 1;}
+    100% {opacity: 0; display:none;}
+}
+@keyframes flash-ms-comein {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.flash-ms{
+    z-index: 10;
+    position: fixed;
+    right:50%; // Move it to the right for 50% of parent element
+    margin-right:-250px; // You need here to put 1/2 of what you have below in width
+    width:500px;
+    text-align: center;
+    top:38%;
+    z-index: 10;
+    transition: .2s ease;
+    animation: flash-ms-comein .5s forwards ,flash-ms-fade  .5s forwards 6s;
 }

@@ -10,6 +10,9 @@ class KentekensController extends Controller
     {
         return view('kentekens.index');
     }
+    public function imageupload(Plupload $file){
+
+    }
     public function store(Request $request)
     {
 
@@ -77,6 +80,6 @@ class KentekensController extends Controller
         ];
         $handelsbenaming = $data->handelsbenaming;
         return view('kentekens.all_steps',
-        compact('date', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming'));
+        compact('date', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming', 'kenteken'));
     }
 }

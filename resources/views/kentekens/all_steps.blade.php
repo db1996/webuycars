@@ -23,7 +23,7 @@ function type_versnelling($str){
 @section('content')
     <div class="title-container">
         <h1>JOUW AUTO</h1>
-        <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}</h2>
+        <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
     </div>
     <div class="grey-between"></div>
     <div class="container tabs-nav">
@@ -44,6 +44,9 @@ function type_versnelling($str){
             @include('kentekens.step2')
             @include('kentekens.step3')
         </div>
+        <button type="submit" id="submit-all" class="btn btn-info volgende-stap">
+            <p>Volgende</p>
+        </button>
     </form>
 
 
