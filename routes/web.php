@@ -12,8 +12,11 @@
 */
 
 Route::get('/', "KentekensController@index");
-Route::post('/kenteken/stap1', 'KentekensController@stap1');
-Route::get('/kenteken/stap1', 'KentekensController@stap1');
+Route::get('/kenteken/create', 'KentekensController@create');
+// Route::get('/kenteken/stap1', 'KentekensController@stap1');
+Route::post('/kenteken/store', 'KentekensController@store');
+
+// Route::post('/upload', 'ImagesController@upload');
 Route::post('/upload', function()
 {
     include(app_path().'/includes/ChromePhp.php');
@@ -21,7 +24,6 @@ Route::post('/upload', function()
     {
 
         $file->move(storage_path() . '/test/' . $_POST['kenteken'] . '/', $file->getClientOriginalName());
-        var_dump($_POST);
         return 'ready';
     });
 });

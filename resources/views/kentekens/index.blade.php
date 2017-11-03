@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
+    
     <div class="top-image">
         <div class="container">
             <img src="" alt="">
             <div class="row">
                 <div class="col col-sm-6 col-offset-sm-4">
-                    <form class="" action="{{url('/kenteken/stap1')}}"  method="post">
-                        {{ csrf_field() }}
+                    <form class="" action="{{url('/kenteken/create')}}"  method="get">
                         <p>Voer hier je kenteken in:</p>
                         <input id="test50"
                         oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="plate" type="text">

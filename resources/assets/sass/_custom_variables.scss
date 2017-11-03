@@ -6,13 +6,14 @@ $buttonsborder: 2px solid white;
 $imagelocation: 'http://localhost:3000/webuycars/public/img/';
 $stars_rating_hover: #ee2a7b;
 $stars_rating_hover_prev: #f68eb9;
+$textbox_color: black;
+$textbox_back_color: white;
 
 @mixin mobile {
   @media (max-width: #{$mobile-width}) {
     @content;
   }
 }
-
 @mixin tablet {
     @media (min-width: #{$mobile-width+1}) and (max-width: #{$tablet-width - 1px}) {
         @content;
@@ -56,7 +57,7 @@ $stars_rating_hover_prev: #f68eb9;
         background-image: url($imagelocation + 'header.png');
     }
 }
-@mixin button {
+@mixin inputs {
     transition: .2s ease;
     font-size: 18px;
     margin-top: 20px;
@@ -65,18 +66,38 @@ $stars_rating_hover_prev: #f68eb9;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0,0,0,1);
-    color:white;
+    background-color: $textbox_back_color;
+    color: $textbox_color;
     padding: 15px 15px;
-    border: $buttonsborder;
+    border: 2px solid black;
+    border-radius: 5px;
     transition: .3s ease;
-    &:active, &:focus, &:hover
-    {
-        background-color: rgba(0,0,0,1) !important;
-        //border:0;
-        color: white !important;
+    &:focus, &:hover{
+        background-color: $textbox_back_color!important;
+        outline: none;
     }
 }
+
+@mixin buttons{
+    transition: .2s ease;
+    background-color: rgba(0,0,0,.8);
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 40px;
+    border:0;
+    color:white;
+    &:focus{
+        background-color: rgba(0,0,0,.8) !important;
+        outline: none;
+    }
+    &:hover   {
+        background-color: rgba(0,0,0,1) !important;
+        outline: none;
+    }
+}
+
 @mixin step_nums_and_dashes{
     .row.numbers-and-dashes{
         @include custom(0px, 389px){
@@ -130,7 +151,7 @@ $stars_rating_hover_prev: #f68eb9;
 }
 @mixin volgende-stap {
     .volgende-stap{
-
+        transition: .2s ease;
         p{
             margin:0;
         }
@@ -142,17 +163,13 @@ $stars_rating_hover_prev: #f68eb9;
         width: 100%;
         display: flex;
         justify-content: center;
-        &:hover{
-            background-color: $pink-col-hex !important;
-            border: none !important;
-        }
         &:focus{
-            background-color: $pink-col-hex !important;
-            border: none !important;
+            background-color: rgba($pink-col-hex,.8) !important;
+            outline: none;
         }
-        &:active{
-            background-color:  $pink-col-hex !important;
-            border: none !important;
+        &:hover   {
+            background-color: rgba($pink-col-hex,.8) !important;
+            outline: none;
         }
     }
 }

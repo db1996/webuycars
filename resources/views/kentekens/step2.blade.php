@@ -1,55 +1,41 @@
-<div id="step2" class="tab-pane ">
+<div id="step2" class="tab-pane {{$activetabs->stap2}}">
     <div class="info-step2 info">
         <div class="container">
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-
-                    <input required type="text" value="<?php
-                    $first_name = session('contact');
-                    if (isset($first_name['voornaam'])){
-                        echo $first_name['voornaam'];
-                    }
-                    ?>" name="voornaam" placeholder="Voornaam...">
+                    {{create_inputs('voornaam', $errorarray)}} {{-- creates an input with the right variables --}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <input required type="text" name="achternaam" value="<?php
-                    $first_name = session('contact');
-                    if (isset($first_name['achternaam'])){
-                        echo $first_name['achternaam'];
-                    }
-                    ?>" placeholder="achternaam...">
+                    {{create_inputs('achternaam', $errorarray)}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <input required type="text" value="<?php
-                    $first_name = session('contact');
-                    if (isset($first_name['email'])){
-                        echo $first_name['email'];
-                    }
-                    ?>" name="email" placeholder="E-Mail...">
+                    <input id="emailTB" required type="text"
+                    value="{{old('email')}}" class="errtooltip {{ $errorarray['errorclasses']['email'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['email'] }}" name="email" placeholder="E-Mail...">
+                    <i id="email-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <input required type="text" value="<?php
-                    $first_name = session('contact');
-                    if (isset($first_name['telefoonnummer'])){
-                        echo $first_name['telefoonnummer'];
-                    }
-                    ?>" name="telefoonnummer" placeholder="Telefoonnummer...">
+                    <input id="telTB" required type="text" value="{{old('telefoonnummer')}}"
+                    class="errtooltip {{ $errorarray['errorclasses']['telefoonnummer'] }}"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title="{{ $errorarray['errornames']['telefoonnummer'] }}" name="telefoonnummer" placeholder="Telefoonnummer...">
+                    <i id="tel-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <input required type="text" value="<?php
-                    $first_name = session('contact');
-                    if (isset($first_name['postcode'])){
-                        echo $first_name['postcode'];
-                    }
-                    ?>" name="postcode" placeholder="Postcode...">
+                    <input id="posTB" class="errtooltip {{ $errorarray['errorclasses']['postcode'] }}"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title="{{ $errorarray['errornames']['postcode'] }}"  required type="text" value="{{old('postcode')}}" name="postcode" placeholder="Postcode...">
+                    <i id="pos-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">

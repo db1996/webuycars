@@ -49,13 +49,16 @@ gulp.task('build-css', function() {
         .pipe(gulp.dest(dests.css))
         .pipe(connect.reload().on( 'error', gutil.log ));
 });
+gulp.task('reload-img', function() {
+    return gulp.src(watchs.images)
+    .pipe(connect.reload().on( 'error', gutil.log ));
+});
 
 // Build JS
 gulp.task('build-js', function() {
     return gulp.src(srcs.js)
     .pipe(sourcemaps.init())
     .pipe(concat(filenames.js))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(dests.js))
     .pipe(connect.reload().on( 'error', gutil.log ));
 });
@@ -96,7 +99,7 @@ gulp.task('watch', function() {
     });
     gulp.watch(buildwatch.scss, ['build-css']);
     gulp.watch(buildwatch.js, ['build-js']);
-    gulp.watch(watchs.images).on('change', browserSync.reload);
+    gulp.watch(watchs.images, ['reload-img']);
     gulp.watch(watchs.php).on('change', browserSync.reload);
 })
 

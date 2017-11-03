@@ -1,4 +1,4 @@
-<div id="step3" class="tab-pane">
+<div id="step3" class="tab-pane {{$activetabs->stap3}}">
     @include('partials.radio_buttons')
     @include('partials.star_rating')
     <div class="info-step3 info">
@@ -71,6 +71,7 @@
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
                     <button type="button" class="btn btn-info volgende-stap" onclick="startDropzone();">
                         <p>Volgende</p>
+                        <img id="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
                 </div>
             </div>

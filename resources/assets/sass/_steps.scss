@@ -11,7 +11,68 @@
         float: inherit;
     }
 }
+.flash-image-mes{
+    z-index: 50;
+    position: fixed;
+    left: calc(50% - 250px);
+    width:500px;
+    border: 1px solid #FF3333 !important;
+    border-radius: 4px;
+    padding: 15px;
+    button{
+        min-width: 100px;
+        border:0;
+        background-color: white;
+        padding: 10px;
+        outline: none !important;
+        transition: .2s ease;
+        &:first-child{
+            margin-right: 15px;
+        }
+        &:hover{
+            background-color: rgba(white, .5)
+        }
+    }
+}
+.flash-image-mes.animateIn{
+    animation: images-mes-in 1s forwards;
+}
+.flash-image-mes.animateOut{
+    animation: images-mes-out 1s forwards;
 
+}
+@keyframes images-mes-in{
+    0%   {top: -500px;}
+    100% {top: calc(50% - 150px);}
+}
+@keyframes images-mes-out{
+    0% {top: calc(50% - 150px);}
+    100%   {top: -500px;}
+}
+
+//Part that makes the checks in the textboxes (ok & nook). Change $fasiz to change the size of the icon
+$fasiz: 26px;
+.font-awesome-checks{
+    position: absolute;
+    top: ((59px - $fasiz) / 2) + 20;
+    background-color: rgba(white,0);
+    border: 0;
+    font-size: $fasiz;
+    right: 30px;
+    line-height: 1;
+}
+.checks-ok{
+    color: green;
+    &:before{
+        content: "\f058";
+    }
+}
+.checks-nook{
+    color: #FF3333;
+    &:before{
+        content: "\f057";
+    }
+}
 .title-container{
     color:white;
     text-align: center;
@@ -44,7 +105,6 @@ button{
     @include step_nums_and_dashes;
     @include vorige-knop;
     @import "radio_buttons";
-    @import "dropzone_step3";
     p{
         margin:0;
     }
@@ -59,11 +119,11 @@ button{
         justify-content: flex-start;
         input{
             border:0;
-            background-color: rgba(0,0,0,1);
+            background-color: white;
             width:100%;
             margin-left:7px;
             &:hover, &:focus, &:active{
-                background-color: rgba(0,0,0,1) !important;
+                background-color: white !important;
                 border: none !important;
                 outline:none;
             }
@@ -83,13 +143,17 @@ button{
         }
     }
 }
-.normalinput, .puretextinput, .currency, .info-step2 input, .info-step1 button, .info-step3 button{
-    @include button;
+.normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input, .collapse-div select{
+    @include inputs;
+}
+.info-step1 button, #browse{
+    @include buttons;
 }
 body{
     margin:0;
 }
 .collapse-div{
+    // margin-top: 15px;
     .row{
         display: flex;
         align-items: center;
@@ -106,22 +170,7 @@ body{
             justify-content: flex-end;
         }
     }
-    input, select{
-        background-color: rgba(255,255,255,1);
-        border: 1px solid black;
-        font-size: 18px;
-        height: 60px;
-        color: black;
-        margin: 25px 0 40px 0;
-        padding: 0 0 0 15px;
-        width:100%;
-        transition: all .3s ease;
-        &:focus{
-            outline-color: $pink-col-hex;
-            outline-style: auto;
-            outline-width: 5px;
-        }
-    }
+
     select
     {
         appearance: none;
@@ -165,19 +214,12 @@ body{
     }
 }
 .upload-images{
-    #browse{
-        @include button;
-        &:hover{
-            background-color: rgba(0,0,0,.75) !important;
-            text-decoration: none;
-        }
-    }
     #start-upload{
         display: none;
     }
     #filelist{
         div{
-            @include button;
+            @include inputs;
             padding:0 !important;
         }
         br{
@@ -192,10 +234,33 @@ body{
             padding: 8px 15px 8px 15px;
             height:100%;
             border-left: 2px solid white;
-            color:white;
+            color:black;
             &:hover{
                 color: $pink-col-hex;
             }
         }
     }
 }
+.inputerror{
+    border: 2px solid #a94442 !important;
+}
+ .errtooltip + .tooltip {
+    width: 300px;
+ }
+ .errtooltip + .tooltip > .tooltip-inner {
+     background-color: rgba(red, .5);
+     color: #FFFFFF;
+     border: 1px solid rgba(red, .5);
+     padding: 10px 15px;
+     font-size: 20px;
+
+ }
+ /* Tooltip on right */
+ .errtooltip + .tooltip.right > .tooltip-arrow {
+     border-right: 5px  solid red;
+ }
+ #svg-rol{
+     display:none;
+     margin-left:15px;
+     width:25px;
+ }

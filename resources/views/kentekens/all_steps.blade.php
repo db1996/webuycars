@@ -1,26 +1,20 @@
 @php
-// dd(session()->all());
+include(app_path().'/includes/functions.php');
 $year = substr($date, -4);
-$type_versnelling = '';
-if (isset($versnelling->type))
-{
-    $type_versnelling = type_versnelling($versnelling->type);
+$activetabs = activetabs($errors);
+if(isset($versnelling['type'])){
+    $type_versnelling = type_versnelling($versnelling['type']);
 }
-function type_versnelling($str){
-    if ($str == 'A') {
-        return 'Automaat';
-    }
-    elseif ($str == 'H') {
-        return 'Handmatig';
-    }
-    else{
-        return 'Niet Bekend';
-    }
+else{
+    $type_versnelling = create_type_versnelling_obj();
 }
+$errorarray = errors($errors);
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
 @section('content')
+    @include('partials.errors')
+    @include('partials.createinput')
     <div class="title-container">
         <h1>JOUW AUTO</h1>
         <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
@@ -37,7 +31,7 @@ function type_versnelling($str){
             </div>
         </div>
     </div>
-    <form action="{{url('/kenteken/store')}}" enctype="multipart/form-data" method="POST">
+    <form id="all-form" action="{{url('/kenteken/store')}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
         <div class="tab-content clearfix">
             @include('kentekens.step1')
@@ -47,7 +41,17 @@ function type_versnelling($str){
         <button type="submit" id="submit-all" class="btn btn-info volgende-stap">
             <p>Volgende</p>
         </button>
+        <div class="flash-image-mes alert-danger">
+            <div class="title-div">
+                <h3>Er zijn geen afbeeldingen geselecteerd!</h3>
+            </div>
+            <div class="para-div">
+                <p>weet je zeker dat je door wilt gaan zonder afbeeldingen? De kans om je auto te verkopen wordt veel groter met afbeeldingen</p>
+            </div>
+            <div class="button-div">
+                <button id="ga-door">Ga door</button>
+                <button id="ga-terug">Terug</button>
+            </div>
+        </div>
     </form>
-
-
 @endsection

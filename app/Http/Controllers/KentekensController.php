@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreKenteken;
 use Session;
 class KentekensController extends Controller
 {
@@ -10,14 +11,11 @@ class KentekensController extends Controller
     {
         return view('kentekens.index');
     }
-    public function imageupload(Plupload $file){
-
-    }
-    public function store(Request $request)
+    public function store(StoreKenteken $request)
     {
-
+        dd($request->all());
     }
-    public function stap1(Request $request)
+    public function create(Request $request)
     {
         $validatedData = $request->validate([
             'kenteken' => 'required|max:6|min:6',
@@ -42,11 +40,11 @@ class KentekensController extends Controller
             $versnellingsdata = json_decode(file_get_contents('https://opendata.rdw.nl/resource/2ei8-phf6.json?$limit=5000&$$app_token=R71sAZV5Xbq0c7WG1lD5Zmn0t&eeg_variantcode=' . ($data->variant or '') . '&eeg_uitvoeringscode=' . ($data->uitvoering or '')));
             $versnellingsdata = $versnellingsdata[0];
         }
-        $uitvoering;
-        $date;
-        $carrosserie;
-        $versnelling;
-        $brandstof_omschrijving;
+        $uitvoering = "";
+        $date = "";
+        $carrosserie = "";
+        $versnelling = "";
+        $brandstof_omschrijving = "";
         if (isset( $data->uitvoering)){
             $uitvoering = $data->uitvoering;
         }
