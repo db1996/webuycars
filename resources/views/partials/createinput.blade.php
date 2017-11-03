@@ -9,6 +9,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
         $namestr2 = $naam;
     }
     ?>
+
     <input required type="text"
     name="{{$namestr}}"
     <?php if($aditval != ''){?>
@@ -17,7 +18,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
     value="{{ old($namestr2) }}"
     <?php }?>
     class="errtooltip {{ $errorarray['errorclasses'][$namestr2] }}"
-    placeholder="{{$namestr2}}..."
+    placeholder="{{ (preg_match('/[\W]+/',$namestr2)? '' : $namestr2 . '...') }}"
     data-toggle="tooltip"
     data-placement="right"
     title="{{ $errorarray['errornames'][$namestr2] }}">

@@ -49,7 +49,7 @@ $('#ga-door').click(function(){
     $('#all-form').submit();
 });
 
-function checkInput(name){
+function checkInput(name, mode = 0){
     var test = {
         email: [
              /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i,
@@ -79,13 +79,25 @@ function checkInput(name){
     {
         $('#'+name+'-fa').addClass('checks-nook').removeClass('checks-ok')
     }
+    if (mode == 1){
+        return val;
+    }
 }
 
 function startDropzone()
 {
     if($('ul#filelist div').length >= 1){
         $('#svg-rol').css('display', 'block')
-        $('#start-upload').click();
+        var emailvalid = checkInput('email', 1);
+        var posvalid = checkInput('pos', 1);
+        var telvalid = checkInput('tel', 1);
+        if (emailvalid && posvalid && telvalid)
+        {
+            $('#start-upload').click();
+        }
+        else{
+            $('#gotostap2').click();
+        }
     }
     else{
         $('.flash-image-mes').removeClass('animateOut');

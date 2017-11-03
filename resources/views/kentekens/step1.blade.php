@@ -55,7 +55,7 @@
                                     <h4>Omschrijving:</h2>
                                     </div>
                                     <div class="col col-sm-8">
-                                        {{create_inputs('omschrijving', $errorarray, 'carrosserie', $carrosserie['omschrijving'])}} {{-- creates an input with the right variables --}}
+                                        {{create_inputs('omschrijving', $errorarray, 'carrosserie', (isset($carrosserie['omschrijving']) ? $carrosserie['omschrijving'] : ''))}} {{-- creates an input with the right variables --}}
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@
                                             <h4>Aantal versnellingen:</h2>
                                             </div>
                                             <div class="col col-sm-8">
-                                                {{create_inputs('aantal', $errorarray, 'versnelling', $versnelling['aantal'])}} {{-- creates an input with the right variables --}}
+{{create_inputs('aantal', $errorarray, 'versnelling', (isset($versnelling['aantal']) ? $versnelling['aantal'] : ''))}} {{-- creates an input with the right variables --}}
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-3"></div><div class="col col-sm-6">
-                                            <a class="btn btn-info volgende-stap" onclick="window.scrollTo(0, 0);" href="#step2" data-toggle="tab">Volgende</a>
+                                            <a id="gotostap2" class="btn btn-info volgende-stap" onclick="window.scrollTo(0, 0);" href="#step2" data-toggle="tab">Volgende</a>
                                         </div>
                                     </div>
                                     @include('partials.steps')

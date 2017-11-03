@@ -41,6 +41,11 @@ class StoreKenteken extends FormRequest
             'schadevrij' => 'bail|required|boolean',
             'rijdbaar' => 'bail|required|boolean',
             'onderhoudsboekje' => 'bail|required|boolean',
+            'buitenzijde' => 'bail|required|digits_between:1,5',
+            'interieur' => 'bail|required|digits_between:1,5',
+            'technischestaat' => 'bail|required|digits_between:1,5',
+            'bandenprofiel' => 'bail|required|digits_between:1,5',
+            'price' => 'bail|required|numeric',
         ];
     }
 }

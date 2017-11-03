@@ -27,7 +27,8 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <div class="normalinput starinput">
+                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['buitenzijde'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['buitenzijde'] }}" >
                         <p class="pseudo_label">Staat buitenzijde</p>
                         <?php create_star_rating("buitenzijde")?>
                     </div>
@@ -35,7 +36,8 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <div class="normalinput starinput">
+                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['interieur'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['interieur'] }}">
                         <p class="pseudo_label">Staat interieur</p>
                         <?php create_star_rating("interieur")?>
                     </div>
@@ -43,7 +45,8 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <div class="normalinput starinput">
+                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['technischestaat'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['technischestaat'] }}">
                         <p class="pseudo_label">Technische staat</p>
                         <?php create_star_rating("technischestaat")?>
                     </div>
@@ -51,7 +54,8 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <div class="normalinput starinput">
+                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['bandenprofiel'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['bandenprofiel'] }}">
                         <p class="pseudo_label">Staat bandenprofiel</p>
                         <?php create_star_rating("bandenprofiel")?>
                     </div>
@@ -59,7 +63,8 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <span class="currency">€<input class="currencyinput" required type="number" name="price" value="" placeholder="Verwachte prijs in euro's....."></span>
+                    <span class="currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['price'] }}" >€<input class="currencyinput" required type="number" name="price" value="" placeholder="Verwachte prijs in euro's....."></span>
                 </div>
             </div>
             <div class="row">

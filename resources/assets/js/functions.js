@@ -1,4 +1,4 @@
-function checkInput(name){
+function checkInput(name, mode = 0){
     var test = {
         email: [
              /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i,
@@ -27,5 +27,8 @@ function checkInput(name){
     else
     {
         $('#'+name+'-fa').addClass('checks-nook').removeClass('checks-ok')
+    }
+    if (mode == 1){
+        return val;
     }
 }

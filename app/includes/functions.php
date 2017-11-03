@@ -10,6 +10,9 @@ function activetabs($errors){
     else if (str_contains($firstError, ['voornaam', 'achternaam', 'email', 'telefoonnummer', 'postcode'])){
         $activetabs->stap2 = 'active';
     }
+    else if (str_contains($firstError, ['buitenzijde', 'interieur', 'technischestaat', 'bandenprofiel', 'price'])){
+        $activetabs->stap3 = 'active';
+    }
     else{
         $activetabs->stap1 = 'active';
     }
@@ -58,7 +61,12 @@ function errors($errors){
         'achternaam' => '',
         'email' => '',
         'telefoonnummer' => '',
-        'postcode' => ''
+        'postcode' => '',
+        'buitenzijde' => '',
+        'interieur' => '',
+        'technischestaat' => '',
+        'bandenprofiel' => '',
+        'price' => '',
     ];
     $errornames = [
         'kmstand' => '',
@@ -72,7 +80,12 @@ function errors($errors){
         'achternaam' => '',
         'email' => '',
         'telefoonnummer' => '',
-        'postcode' => ''
+        'postcode' => '',
+        'buitenzijde' => '',
+        'interieur' => '',
+        'technischestaat' => '',
+        'bandenprofiel' => '',
+        'price' => '',
     ];
     $asx = [];
     foreach ($errors->all() as $index => $value) {

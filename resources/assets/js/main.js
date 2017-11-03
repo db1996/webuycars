@@ -2,7 +2,16 @@ function startDropzone()
 {
     if($('ul#filelist div').length >= 1){
         $('#svg-rol').css('display', 'block')
-        $('#start-upload').click();
+        var emailvalid = checkInput('email', 1);
+        var posvalid = checkInput('pos', 1);
+        var telvalid = checkInput('tel', 1);
+        if (emailvalid && posvalid && telvalid)
+        {
+            $('#start-upload').click();
+        }
+        else{
+            $('#gotostap2').click();
+        }
     }
     else{
         $('.flash-image-mes').removeClass('animateOut');
