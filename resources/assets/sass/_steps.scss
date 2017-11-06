@@ -50,14 +50,20 @@
     100%   {top: -500px;}
 }
 
-//Part that makes the checks in the textboxes (ok & nook). Change $fasiz to change the size of the icon
-$fasiz: 26px;
+//Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
+$fa-font-size: 26px;
+
 .font-awesome-checks{
     position: absolute;
-    top: ((59px - $fasiz) / 2) + 20;
+    top: ((59px - $fa-font-size) / 2) + 20;
+    @include custom(0px,768px){
+        top: ((59px - $fa-font-size) / 2);
+    }
+
+
     background-color: rgba(white,0);
     border: 0;
-    font-size: $fasiz;
+    font-size: $fa-font-size;
     right: 30px;
     line-height: 1;
 }
@@ -84,18 +90,22 @@ $fasiz: 26px;
     background-image: rgba(255,255,255,.6);
     height: 20px;
 }
-button{
-    &[aria-expanded="false"]{
-        i{
-            &:before{
-                content: "\f054";
+#jouwauto-page{
+    .container{
+        button{
+            &[aria-expanded="false"]{
+                i{
+                    &:before{
+                        content: "\f054";
+                    }
+                }
             }
-        }
-    }
-    &[aria-expanded="true"]{
-        i{
-            &:before{
-                content: "\f078";
+            &[aria-expanded="true"]{
+                i{
+                    &:before{
+                        content: "\f078";
+                    }
+                }
             }
         }
     }
@@ -131,6 +141,7 @@ button{
     }
     .starinput{
         padding: 5px 15px !important;
+
         @include mobile{
             display:flex;
             flex-direction: column;
@@ -139,6 +150,13 @@ button{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+        }
+        @include custom(0px, 992px){
+            @include setflex(column, center, center);
+            .stars{
+                width:100%;
+                @include setflex(row, center, center);
             }
         }
     }
@@ -157,6 +175,15 @@ body{
     .row{
         display: flex;
         align-items: center;
+        @include setflex(row, center, flex-start);
+        @include mobile{
+            @include setflex(column, center, flex-start);
+            width: 100%;
+        }
+        @include tablet{
+            @include setflex(column, center, flex-start);
+            width: 100%;
+        }
         margin-left: 0 !important;
         .nopad-col{
             padding:0;
@@ -165,9 +192,15 @@ body{
             }
         }
         .col{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            @include setflex(row, center, flex-end);
+            @include mobile{
+                width: 100%;
+                @include setflex(row, center, center);
+            }
+            @include tablet{
+                width: 100%;
+                @include setflex(row, center, center);
+            }
         }
     }
 

@@ -11,9 +11,6 @@
     box-sizing: border-box;
     border:2px solid black;
     transition: .2s ease;
-    @include desktop{
-        width: 80%;
-    }
 
     p{
         transition: .2s ease;
@@ -26,7 +23,6 @@
         flex-direction: row;
         width: 40%;
         justify-content: flex-end;
-
         .single-radio{
             height:100%;
             input{

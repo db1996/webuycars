@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">
-                    <a class="btn btn-info vorige-stap" href="#step2" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
+                    <a id="button" class="btn btn-info vorige-stap" href="#step2" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
                 </div>
             </div>
         </div>

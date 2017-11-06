@@ -19,8 +19,17 @@
             height:700px;
         }
         .row{
-            @include setflex(column,flex-end, flex-end);
             width:100%;
+            @include mobile{
+                @include setflex(column,center, center);
+                width:auto;
+            }
+            @include tablet{
+                @include setflex(column,center, center);
+            }
+            @include desktop{
+                @include setflex(column,flex-end, flex-end);
+            }
             form{
                 @include mobile{
                     @include setflex(column,center, center);
@@ -171,7 +180,7 @@
             background-color: white;
         }
         .foto {
-            background-image: url($imagelocation + 'blauwepolo.png') !important;  
+            background-image: url($imagelocation + 'blauwepolo.png') !important;
             background-repeat:no-repeat !important;
             height: 0 !important;
             padding: 0; /* remove any pre-existing padding, just in case */
@@ -180,9 +189,9 @@
             background-size: 100%;
             background-repeat: no-repeat;
 
-        } 
+        }
         .foto2 {
-            background-image: url($imagelocation + 'blauwepoloRes.png') !important;  
+            background-image: url($imagelocation + 'blauwepoloRes.png') !important;
             background-repeat:no-repeat !important;
             height: 0 !important;
             padding: 0; /* remove any pre-existing padding, just in case */
@@ -191,7 +200,7 @@
             background-size: 100%;
             background-repeat: no-repeat;
 
-        } 
+        }
         .fotoOnderlijn{
             height: 10px;
             background-color: #ee2a7b;
