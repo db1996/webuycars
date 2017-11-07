@@ -55,19 +55,6 @@ class KentekensController extends Controller
         ->wherein('id', $images_id)
         ->update(['kenteken_id' => $kenteken->id, 'updated_at' => date('Y-m-d G:i:s')]);
         dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
-        dd($kenteken->images->all());
     }
     public function create(Request $request)
     {
