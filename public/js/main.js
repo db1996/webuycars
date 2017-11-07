@@ -21,23 +21,6 @@ function combi(Licenseplate){
         }
     }
 }
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//     var fullPath = document.getElementById('file').value;
-//     var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-//     var filename = fullPath.substring(startIndex);
-//     reader.onload = function(e) {
-//       $('#blah').attr('src', e.target.result);
-//     }
-//     console.log(filename);
-//     reader.readAsDataURL(input.files[0]);
-//   }
-// }
-// $("#file").change(function() {
-//   readURL(this);
-// });
 
 $('#ga-terug').click(function(){
     $('.flash-image-mes').removeClass('animateIn');
@@ -91,6 +74,7 @@ function checkInput(name, mode = 0){
     }
 }
 
+var check = [];
 function startDropzone()
 {
     if($('ul#filelist div').length >= 1){
@@ -128,16 +112,23 @@ var uploader = new plupload.Uploader({
     multipart_params : {
         'kenteken' : $('#kenteken').html()
     },
-    preinit: attachCallbacks
-});
-function attachCallbacks(Uploader){
-    Uploader.bind('FileUploaded', function(Up, File, Response) {
-        if( (Uploader.total.uploaded + 1) == Uploader.files.length)
-        {
-            $('#all-form').submit();
+    init: {
+        FileUploaded: function(up, file, info) {
+            // Called when a file has finished uploading
+            var total = up.total;
+            var response = $.parseJSON('[' + info.response + ']');
+            var result = $.parseJSON(response[0].result);
+            var id = result.id
+            check.push(id)
+            //When the queue is done
+            if (total['queued'] == 0){
+                var joined = check.join();
+                $('#images').val(joined);
+                $('#all-form').submit();
+            }
         }
-    })
-}
+    }
+});
 uploader.init();
 uploader.bind('FilesAdded', function(up, files) {
     $.each(files, function(i, file) {
@@ -168,13 +159,6 @@ uploader.bind('FilesAdded', function(up, files) {
 uploader.bind('UploadProgress', function(up, file) {
     $('#pid' + file.id).html(' ' + file.percent + "%");
 });
-uploader.bind('FileUploaded', function(upldr, file, object) {
-    var myData;
-    try {
-        myData = eval(object.response);
-    } catch(err) {
-    }
-});
 uploader.bind('Error', function(up, err) {
     console.log(err.code);
     if (err.code === -600){
@@ -184,6 +168,12 @@ uploader.bind('Error', function(up, err) {
         console.log("Het bestand mag maximaal 6MB groot zijn!")
     }
     else if (err.code === -601){
+        $('#app').append(
+            "<div class='flash-ms alert alert-danger' role='alert'>Het mogen alleen afbeeldingsbestanden zijn!</div>"
+        );
+        console.log("Het mogen alleen afbeeldingsbestanden zijn!")
+    }
+    else{
         $('#app').append(
             "<div class='flash-ms alert alert-danger' role='alert'>Het mogen alleen afbeeldingsbestanden zijn!</div>"
         );

@@ -53,5 +53,7 @@ $errorarray = errors($errors);
                 <button id="ga-terug">Terug</button>
             </div>
         </div>
+        <input type="hidden" name="kenteken" value="{{$kenteken}}">
+        <input id="images" type="hidden" name="images" value="">
     </form>
 @endsection

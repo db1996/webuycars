@@ -121,7 +121,7 @@ $fa-font-size: 26px;
     background-image: url($imagelocation +'stappenplan-background.jpg') !important;
     background-repeat: no-repeat;
     padding: 50px 0px;
-     .col:not(.tablenr){
+    .col:not(.tablenr){
         color: black;
         text-align: center;
     }
@@ -156,7 +156,7 @@ $fa-font-size: 26px;
             @include setflex(column, center, center);
             .stars{
                 width:100%;
-                @include setflex(row, center, center);
+                @include setflex(row-reverse, center, center);
             }
         }
     }
@@ -277,23 +277,23 @@ body{
 .inputerror{
     border: 2px solid #a94442 !important;
 }
- .errtooltip + .tooltip {
+.errtooltip + .tooltip {
     width: 300px;
- }
- .errtooltip + .tooltip > .tooltip-inner {
-     background-color: rgba(red, .5);
-     color: #FFFFFF;
-     border: 1px solid rgba(red, .5);
-     padding: 10px 15px;
-     font-size: 20px;
+}
+.errtooltip + .tooltip > .tooltip-inner {
+    background-color: rgba(red, .5);
+    color: #FFFFFF;
+    border: 1px solid rgba(red, .5);
+    padding: 10px 15px;
+    font-size: 20px;
 
- }
- /* Tooltip on right */
- .errtooltip + .tooltip.right > .tooltip-arrow {
-     border-right: 5px  solid red;
- }
- #svg-rol{
-     display:none;
-     margin-left:15px;
-     width:25px;
- }
+}
+/* Tooltip on right */
+.errtooltip + .tooltip.right > .tooltip-arrow {
+    border-right: 5px  solid red;
+}
+#svg-rol{
+    display:none;
+    margin-left:15px;
+    width:25px;
+}

@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Mail;
+use DB;
+use App\Mail\Verstuurd;
+use App\Kenteken;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKenteken;
 use Session;
@@ -11,12 +14,55 @@ class KentekensController extends Controller
     {
         return view('kentekens.index');
     }
+    public function confirm(Kenteken $kenteken)
+    {
+        $kenteken->confirmed = 1;
+        $kenteken->save();
+    }
     public function store(StoreKenteken $request)
     {
-        dd($request->all());
+        $images_id = explode(',', $request->images);
+        $confirmed = 0;
+        $kenteken = Kenteken::create([
+            'kenteken' => $request->kenteken,
+            'kmstand'  => $request->kmstand,
+            'uitvoering' => $request->uitvoering['naam'],
+            'carrosserietype' => $request->carrosserie['type'],
+            'carrosserieomschrijving' => $request->carrosserie['omschrijving'],
+            'versnellingtype' => $request->versnelling['type'],
+            'versnellingaantal' => $request->versnelling['aantal'],
+            'kleureerste' => $request->kleur['first'],
+            'kleurhuidige' => $request->kleur['current'],
+            'voornaam' => $request->voornaam,
+            'achternaam'  => $request->achternaam,
+            'email' => $request->email,
+            'telefoonnummer'  => $request->telefoonnummer,
+            'postcode' => $request->postcode,
+            'schadevrij' => $request->schadevrij,
+            'rijdbaar'  => $request->rijdbaar,
+            'onderhoudsboekje' => $request->onderhoudsboekje,
+            'buitenzijde'  => $request->buitenzijde,
+            'interieur'  => $request->interieur,
+            'technischestaat'  => $request->technischestaat,
+            'bandenprofiel'  => $request->bandenprofiel,
+            'confirmation_code' => str_random(128),
+            'confirmed' => $confirmed
+        ]);
+
+
+        Mail::to($kenteken)->send(new Verstuurd($kenteken));
+        DB::table('images')
+        ->wherein('id', $images_id)
+        ->update(['kenteken_id' => $kenteken->id, 'updated_at' => date('Y-m-d G:i:s')]);
+        dd($kenteken->images->all());
     }
     public function create(Request $request)
     {
+        if (Kenteken::where('kenteken', "=", $request->kenteken)->exists()){
+            session()->flash("flashmessage", "Dat kenteken staat al in onze database!");
+            session()->flash("kindOfMes", "danger");
+            return redirect('/');
+        }
         $validatedData = $request->validate([
             'kenteken' => 'required|max:6|min:6',
         ]);
