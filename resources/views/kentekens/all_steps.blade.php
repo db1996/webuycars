@@ -9,6 +9,7 @@ else{
     $type_versnelling = create_type_versnelling_obj();
 }
 $errorarray = errors($errors);
+$debug = setdebug();
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
@@ -54,6 +55,6 @@ $errorarray = errors($errors);
             </div>
         </div>
         <input type="hidden" name="kenteken" value="{{$kenteken}}">
-        <input id="images" type="hidden" name="images" value="">
+        <input id="images" type="hidden" name="images" value="{{old('images')}}">
     </form>
 @endsection

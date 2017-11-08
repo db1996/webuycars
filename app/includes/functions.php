@@ -1,4 +1,8 @@
 <?php
+$debug = setdebug();
+function setdebug(){
+    return 1;
+}
 //returns which tab should be active
 # Parameter: Errors array
 function activetabs($errors){
@@ -14,7 +18,7 @@ function activetabs($errors){
         $activetabs->stap3 = 'active';
     }
     else{
-        $activetabs->stap1 = 'active';
+        $activetabs->stap3 = 'active';
     }
     return $activetabs;
 }

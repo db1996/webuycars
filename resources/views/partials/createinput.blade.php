@@ -1,4 +1,5 @@
 <?php
+$GLOBALS['debug'] = 1;
 function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
     if ($arrname != ''){
         $namestr = $arrname . "[" . $naam . "]";
@@ -8,6 +9,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
         $namestr = $naam;
         $namestr2 = $naam;
     }
+    $debug = $GLOBALS['debug'];
     ?>
 
     <input required type="text"
@@ -15,7 +17,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
     <?php if($aditval != ''){?>
     value="{{ (old($namestr2) != "" ? old($namestr2): $aditval) }}"
     <?php }else{?>
-    value="{{ old($namestr2) }}"
+    value="{{ ($debug==0 ? old($namestr2) : str_random('8'))}}"
     <?php }?>
     class="errtooltip {{ $errorarray['errorclasses'][$namestr2] }}"
     placeholder="{{ (preg_match('/[\W]+/',$namestr2)? '' : $namestr2 . '...') }}"

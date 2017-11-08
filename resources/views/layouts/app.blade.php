@@ -1,8 +1,3 @@
-@php
-if (isset($data)) {
-    //dd($data);
-}
-@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>

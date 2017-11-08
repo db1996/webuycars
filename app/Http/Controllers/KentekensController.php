@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 use Mail;
 use DB;
+use App\Config;
 use App\Mail\Verstuurd;
 use App\Kenteken;
+use App\Image;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKenteken;
 use Session;
@@ -12,6 +15,17 @@ class KentekensController extends Controller
 {
     public function index()
     {
+        $config = Config::first();
+        if ($config->recheck_images == 1){
+            // Config::first()->update(['recheck_images' => 0]);
+            $time = Carbon::parse('-10 seconds')->toDateTimeString();
+            $images = Image::where('created_at', "<", $time)->where('kenteken_id', "=", null)->get();
+            foreach ($images as $key => $value) {
+                unlink(storage_path() . '/img/' . $value->filename);
+                Image::destroy($value->id);
+            }
+        }
+
         return view('kentekens.index');
     }
     public function confirm(Kenteken $kenteken)
@@ -58,6 +72,14 @@ class KentekensController extends Controller
     }
     public function create(Request $request)
     {
+        $images = [];
+        if (old('images')){
+            $images_array = explode(',', old('images'));
+            $imagesTemp = Image::findMany($images_array);
+            foreach ($imagesTemp as $image) {
+                $images[$image['id']]  = $image['originalfilename'];
+            }
+        }
         if (Kenteken::where('kenteken', "=", $request->kenteken)->exists()){
             session()->flash("flashmessage", "Dat kenteken staat al in onze database!");
             session()->flash("kindOfMes", "danger");
@@ -124,6 +146,6 @@ class KentekensController extends Controller
         ];
         $handelsbenaming = $data->handelsbenaming;
         return view('kentekens.all_steps',
-        compact('date', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming', 'kenteken'));
+        compact('date', 'uitvoering', 'carrosserie', 'versnelling', 'kleur', 'brandstof_omschrijving', 'handelsbenaming', 'kenteken', 'images'));
     }
 }

@@ -11,44 +11,7 @@
         float: inherit;
     }
 }
-.flash-image-mes{
-    z-index: 50;
-    position: fixed;
-    left: calc(50% - 250px);
-    width:500px;
-    border: 1px solid #FF3333 !important;
-    border-radius: 4px;
-    padding: 15px;
-    button{
-        min-width: 100px;
-        border:0;
-        background-color: white;
-        padding: 10px;
-        outline: none !important;
-        transition: .2s ease;
-        &:first-child{
-            margin-right: 15px;
-        }
-        &:hover{
-            background-color: rgba(white, .5)
-        }
-    }
-}
-.flash-image-mes.animateIn{
-    animation: images-mes-in 1s forwards;
-}
-.flash-image-mes.animateOut{
-    animation: images-mes-out 1s forwards;
 
-}
-@keyframes images-mes-in{
-    0%   {top: -500px;}
-    100% {top: calc(50% - 150px);}
-}
-@keyframes images-mes-out{
-    0% {top: calc(50% - 150px);}
-    100%   {top: -500px;}
-}
 
 //Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
 $fa-font-size: 26px;
@@ -250,8 +213,38 @@ body{
     #start-upload{
         display: none;
     }
-    #filelist{
-        div{
+    #filelist, #filelistcustom{
+        .overlay-wrap{
+            position: absolute;
+            width:0%;
+            height:100%;
+            transition: .35s ease;
+        }
+        .overlay{
+            background-color: #f2dede;
+            color: #a94442;
+            width:100%;
+            height:calc(100%);
+            border-radius: 5px;
+            display:flex;
+            justify-content: flex-end;
+            align-items: center;
+            transition: .2s ease;
+            overflow:hidden;
+            p{
+                margin-right: auto;
+            }
+            a{
+                height:auto;
+                $font-size: 18px;
+                font-size: $font-size;
+            }
+        }
+        .overlay-wrap.animateIn{
+            width:100%;
+        }
+        div:not(.overlay):not(.overlay-wrap){
+            position: relative;
             @include inputs;
             padding:0 !important;
         }
@@ -261,7 +254,7 @@ body{
         p{
             padding: 0 0 0 15px;
         }
-        .remove-upload{
+        .remove-upload, a{
             transition: .2s ease;
             font-size:24px;
             padding: 8px 15px 8px 15px;
@@ -274,24 +267,7 @@ body{
         }
     }
 }
-.inputerror{
-    border: 2px solid #a94442 !important;
-}
-.errtooltip + .tooltip {
-    width: 300px;
-}
-.errtooltip + .tooltip > .tooltip-inner {
-    background-color: rgba(red, .5);
-    color: #FFFFFF;
-    border: 1px solid rgba(red, .5);
-    padding: 10px 15px;
-    font-size: 20px;
 
-}
-/* Tooltip on right */
-.errtooltip + .tooltip.right > .tooltip-arrow {
-    border-right: 5px  solid red;
-}
 #svg-rol{
     display:none;
     margin-left:15px;

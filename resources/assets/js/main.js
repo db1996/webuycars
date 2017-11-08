@@ -47,7 +47,12 @@ var uploader = new plupload.Uploader({
             //When the queue is done
             if (total['queued'] == 0){
                 var joined = check.join();
-                $('#images').val(joined);
+                if ($('#images').val() == ""){
+                    $('#images').val(joined);
+                }
+                else{
+                    $('#images').val($('#images').val() + "," + joined);
+                }
                 $('#all-form').submit();
             }
         }

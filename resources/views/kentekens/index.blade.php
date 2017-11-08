@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
     <div class="top-image">
         <div class="container">
             <img src="" alt="">

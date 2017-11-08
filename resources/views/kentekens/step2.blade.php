@@ -14,14 +14,14 @@
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
                     <input id="emailTB" required type="text"
-                    value="{{old('email')}}" class="errtooltip {{ $errorarray['errorclasses']['email'] }}" data-toggle="tooltip" data-placement="right"
+                    value="{{old('email')}}{{($GLOBALS['debug'] == 1 ? "dylanbos1996@gmail.com" : "")}}" class="errtooltip {{ $errorarray['errorclasses']['email'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['email'] }}" name="email" placeholder="E-Mail...">
                     <i id="email-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <input id="telTB" required type="text" value="{{old('telefoonnummer')}}"
+                    <input id="telTB" required type="text" value="{{old('telefoonnummer')}}{{($GLOBALS['debug'] == 1 ? "0641251850" : "")}}"
                     class="errtooltip {{ $errorarray['errorclasses']['telefoonnummer'] }}"
                     data-toggle="tooltip"
                     data-placement="right"
@@ -34,7 +34,7 @@
                     <input id="posTB" class="errtooltip {{ $errorarray['errorclasses']['postcode'] }}"
                     data-toggle="tooltip"
                     data-placement="right"
-                    title="{{ $errorarray['errornames']['postcode'] }}"  required type="text" value="{{old('postcode')}}" name="postcode" placeholder="Postcode...">
+                    title="{{ $errorarray['errornames']['postcode'] }}"  required type="text" value="{{old('postcode')}}{{($GLOBALS['debug'] == 1 ? "5961KE" : "")}}" name="postcode" placeholder="Postcode...">
                     <i id="pos-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>

@@ -7,6 +7,22 @@
                 <div class="col-sm-3"></div><div class="col-sm-6 upload-images">
                     <a id="browse" data-url="{{url("/upload")}}" href="javascript:;"><p>Upload afbeeldingen</p><p>[browse...]</p> </a>
                     <a id="start-upload" href="javascript:;">[Start Upload]</a>
+                    <ul id="filelistcustom">
+                        @foreach ($images as $key => $value)
+                            <div id="{{$key}}">
+                                <div class="overlay-wrap overlay-wrap{{$key}}">
+                                    <div value="{{$key}}" class="overlay overlay{{$key}}">
+                                        <p>weet je het zeker?</p>
+                                        <a value="{{$key}}" class="delete-img" href="javascript:;">Ja</a>
+                                        <a value="{{$key}}" class="no-delete-img" href="javascript:;">Nee</a>
+                                    </div>
+                                </div>
+                                <p>{{$value}}<span>&nbsp;100%</span></p>
+                                <a class="delete-old-img" value="{{$key}}" href="javascript:;"><i class="fa fa-times" aria-hidden="true"></i></i></a>
+                            </div>
+                            <br>
+                        @endforeach
+                    </ul>
                     <ul id="filelist"></ul>
                 </div>
             </div>
