@@ -46,6 +46,8 @@ class StoreKenteken extends FormRequest
             'technischestaat' => 'bail|required|digits_between:1,5',
             'bandenprofiel' => 'bail|required|digits_between:1,5',
             'price' => 'bail|required|numeric',
+            'filedata' =>'required',
+            'filedata.*'=>'image|max:4000',
         ];
     }
 }

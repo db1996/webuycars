@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKenteken;
 use Session;
+use \File;
 class KentekensController extends Controller
 {
     public function index()
@@ -21,7 +22,7 @@ class KentekensController extends Controller
             $time = Carbon::parse('-10 seconds')->toDateTimeString();
             $images = Image::where('created_at', "<", $time)->where('kenteken_id', "=", null)->get();
             foreach ($images as $key => $value) {
-                unlink(storage_path() . '/img/' . $value->filename);
+                File::delete( 'img/kentekens/' . $value->filename);
                 Image::destroy($value->id);
             }
         }
@@ -35,7 +36,17 @@ class KentekensController extends Controller
     }
     public function store(StoreKenteken $request)
     {
-        $images_id = explode(',', $request->images);
+        $file_post = $_FILES['filedata'];
+        $file_ary = array();
+        $file_count = count($file_post['name']);
+        $file_keys = array_keys($file_post);
+
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $file_ary[$i][$key] = $file_post[$key][$i];
+            }
+        }
+        dd($file_ary);
         $confirmed = 0;
         $kenteken = Kenteken::create([
             'kenteken' => $request->kenteken,
@@ -62,13 +73,12 @@ class KentekensController extends Controller
             'confirmation_code' => str_random(128),
             'confirmed' => $confirmed
         ]);
-
-
         Mail::to($kenteken)->send(new Verstuurd($kenteken));
-        DB::table('images')
-        ->wherein('id', $images_id)
-        ->update(['kenteken_id' => $kenteken->id, 'updated_at' => date('Y-m-d G:i:s')]);
-        dd($kenteken->images->all());
+        return redirect("/kenteken/klaar");
+    }
+    public function klaar()
+    {
+        return view('kentekens.step4');
     }
     public function create(Request $request)
     {
@@ -77,7 +87,10 @@ class KentekensController extends Controller
             $images_array = explode(',', old('images'));
             $imagesTemp = Image::findMany($images_array);
             foreach ($imagesTemp as $image) {
-                $images[$image['id']]  = $image['originalfilename'];
+                $images[$image['id']]  =[
+                    "originalfilename" => $image['originalfilename'],
+                    "filename" => $image['filename']
+                ];
             }
         }
         if (Kenteken::where('kenteken', "=", $request->kenteken)->exists()){

@@ -4,6 +4,7 @@ Auth::routes();
 Route::get('/', "KentekensController@index");
 Route::get('/kenteken/create', 'KentekensController@create');
 Route::post('/kenteken/store', 'KentekensController@store');
+Route::get('/kenteken/klaar', 'KentekensController@klaar');
 Route::get('confirm/{kenteken}', 'KentekensController@confirm');
 Route::get('password/reset', [
   'as' => 'password.request',
@@ -20,7 +21,8 @@ Route::post('/upload', function()
         $originalExtension = substr(strrchr($originalfilename, '.'), 1); // Gets the extension from the original name
         $filename = str_random(30) . "." . $originalExtension;           // Creates a random 30 character filename + extension
         // Moves the uploaded file into the server storage/image/{kenteken} folder
-        $file->move(storage_path() . '/img/', $filename);
+        // $file->move(storage_path() . '/img/', $filename);
+        $file->move(public_path() . '/img/kentekens/', $filename);
         //creates database record of the image, nullables the kenteken_id, will be filled when the form is submitted
         $image = Image::create([
             'kenteken_id' => NULL,

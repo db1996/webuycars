@@ -67,10 +67,7 @@
 
 
 .vrijblijvend{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include setflex(column, center, center);
     color:white;
     height:300px;
     background: $pink-col-hex;
@@ -143,10 +140,7 @@
 
 //TODO: when this part is done make it a subcategory
 .gegevens{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
+    @include setflex(row, center, space-around);
     color: white;
     background-color: $pink-col-hex;
     .container{
@@ -156,8 +150,13 @@
         margin: 0 auto;
         margin-bottom: 25px;
     }
-    .imgcol{
+    .imgcol:not(.hidden-xs){
         @include mobile{
+            @include setflex(row, center, center, nowrap, !important);
+            text-align: center;
+        }
+        @include tablet{
+            @include setflex(row, center, center, nowrap, !important);
             text-align: center;
         }
     }
@@ -175,9 +174,18 @@
         text-align: center;
         color: white;
         .reviewbox {
-            margin: 40px 0px 90px 20px;
-            height: 640px;
+            margin: 40px 0px 40px 20px;
+            // height: 640px;
             background-color: white;
+            @include mobile{
+                margin-left: 0;
+                padding-bottom:20px;
+
+            }
+            @include tablet{
+                margin-left: 0;
+                padding-bottom: 20px;
+            }
         }
         .foto {
             background-image: url($imagelocation + 'blauwepolo.png') !important;

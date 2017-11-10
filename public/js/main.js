@@ -39,65 +39,6 @@ $('#ga-door').click(function(){
     }
 
 });
-$('.delete-old-img').click(function(){
-    var val = $(this).attr('value');
-    var imagesVal = $('#images').val();
-    $('.overlay-wrap' + val).addClass("animateIn");
-    // if (imagesVal == val){
-    //     imagesVal = "";
-    // }
-    // else{
-    //     if (imagesVal.indexOf(val) == 0){
-    //         imagesVal = imagesVal.replace(val + ",", "");
-    //     }
-    //     else{
-    //         imagesVal = imagesVal.replace("," + val, "");
-    //     }
-    // }
-    // $("#" + val).remove();
-    // $('#images').val(imagesVal);
-});
-$('.no-delete-img').click(function(){
-    var val = $(this).attr('value');
-    $('.overlay-wrap' + val).removeClass("animateIn");
-});
-$('.delete-img').click(function(){
-    var val = $(this).attr('value');
-    var imagesVal = $('#images').val();
-    if (imagesVal == val){
-        imagesVal = "";
-    }
-    else{
-        if (imagesVal.indexOf(val) == 0){
-            imagesVal = imagesVal.replace(val + ",", "");
-        }
-        else{
-            imagesVal = imagesVal.replace("," + val, "");
-        }
-    }
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-    $.ajax({
-        type: "POST",
-        url: url + 'image/' + val,
-        data: {
-            id: val
-        },
-        success: function (data) {
-            console.log(data);
-            var returnData = $.parseJSON(data);
-            console.log(returnData);
-            $("#" + val).remove();
-            $('#images').val(imagesVal);
-        },
-        error: function (data) {
-            console.log('Error:', data);
-        }
-    });
-});
 
 function checkInput(name, mode = 0){
     var test = {
@@ -134,120 +75,9 @@ function checkInput(name, mode = 0){
     }
 }
 
+
 var check = [];
-function startDropzone()
-{
-    if($('ul#filelist div').length >= 1){
-        $('#svg-rol').css('display', 'block')
-        var emailvalid = checkInput('email', 1);
-        var posvalid = checkInput('pos', 1);
-        var telvalid = checkInput('tel', 1);
-        if (emailvalid && posvalid && telvalid)
-        {
-            $('#start-upload').click();
-        }
-        else{
-            $('#gotostap2').click();
-        }
-    }
-    else{
-        $('.flash-image-mes').removeClass('animateOut');
-        $('.flash-image-mes').addClass('animateIn');
-    }
-}
-
-var uploader = new plupload.Uploader({
-    browse_button: 'browse', // this can be an id of a DOM element or the DOM element itself
-    url: $('#browse').attr('data-url'),
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    filters: {
-        mime_types : [
-            { title : "Image files", extensions : "jpg,gif,png" }
-        ],
-        max_file_size: "6mb",
-        prevent_duplicates: true
-    },
-    multipart_params : {
-        'kenteken' : $('#kenteken').html()
-    },
-    init: {
-        FileUploaded: function(up, file, info) {
-            // Called when a file has finished uploading
-            var total = up.total;
-            var response = $.parseJSON('[' + info.response + ']');
-            var result = $.parseJSON(response[0].result);
-            var id = result.id
-            check.push(id)
-            //When the queue is done
-            if (total['queued'] == 0){
-                var joined = check.join();
-                if ($('#images').val() == ""){
-                    $('#images').val(joined);
-                }
-                else{
-                    $('#images').val($('#images').val() + "," + joined);
-                }
-                $('#all-form').submit();
-            }
-        }
-    }
-});
-uploader.init();
-uploader.bind('FilesAdded', function(up, files) {
-    $.each(files, function(i, file) {
-        $('#filelist').append(
-            '<div id="' + file.id + '">' +
-            '<p>' + file.name + ' (' + plupload.formatSize(file.size) + ')'+
-            '<span id="pid' + file.id + '"> </span>' +
-            '</p>' +
-            '<a href="" class="remove remove-upload btn error">'+
-            '<i class="fa fa-times" aria-hidden="true"></i>'+
-            '</a>'+
-            '</div>'
-        );
-        $('#uploadfiles').css('display', 'initial');
-        $('#filelist').append('<br/>');
-
-        $('#' + file.id + ' a.remove').first().click(function(e) {
-            e.preventDefault();
-            up.removeFile(file);
-            $('#' + file.id).next("br").remove();
-            $('#' + file.id).remove();
-            if (up.files.length == 0) {
-                $('#uploadfiles').css('display', 'none');
-            }
-        });
-    });
-});
-uploader.bind('UploadProgress', function(up, file) {
-    $('#pid' + file.id).html(' ' + file.percent + "%");
-});
-uploader.bind('Error', function(up, err) {
-    console.log(err.code);
-    if (err.code === -600){
-        $('#app').append(
-            "<div class='flash-ms alert alert-danger' role='alert'>Het bestand mag maximaal 6MB zijn!</div>"
-        );
-        console.log("Het bestand mag maximaal 6MB groot zijn!")
-    }
-    else if (err.code === -601){
-        $('#app').append(
-            "<div class='flash-ms alert alert-danger' role='alert'>Het mogen alleen afbeeldingsbestanden zijn!</div>"
-        );
-        console.log("Het mogen alleen afbeeldingsbestanden zijn!")
-    }
-    else{
-        $('#app').append(
-            "<div class='flash-ms alert alert-danger' role='alert'>Het mogen alleen afbeeldingsbestanden zijn!</div>"
-        );
-        console.log("Het mogen alleen afbeeldingsbestanden zijn!")
-    }
-});
-document.getElementById('start-upload').onclick = function() {
-    uploader.start();
-};
+$('.file-caption-name').attr('placeholder', 'Voeg afbeeldingen toe...');
 $(document).ready(function(){
     checkInput('email');
     checkInput('pos');
@@ -263,3 +93,53 @@ $('#posTB').on('input', function() {
 $('#telTB').on('input', function() {
     checkInput('tel');
 });
+
+/**
+ * o.js
+ *
+ * Copyright 2013, Moxiecode Systems AB
+ * Released under GPL License.
+ *
+ * License: http://www.plupload.com/license
+ * Contributing: http://www.plupload.com/contributing
+ */
+
+/*global moxie:true */
+
+/**
+Globally exposed namespace with the most frequently used public classes and handy methods.
+@class o
+@static
+@private
+*/
+(function(exports) {
+	"use strict";
+
+	var o = {}, inArray = exports.moxie.core.utils.Basic.inArray;
+
+	// directly add some public classes
+	// (we do it dynamically here, since for custom builds we cannot know beforehand what modules were included)
+	(function addAlias(ns) {
+		var name, itemType;
+		for (name in ns) {
+			itemType = typeof(ns[name]);
+			if (itemType === 'object' && !~inArray(name, ['Exceptions', 'Env', 'Mime'])) {
+				addAlias(ns[name]);
+			} else if (itemType === 'function') {
+				o[name] = ns[name];
+			}
+		}
+	})(exports.moxie);
+
+	// add some manually
+	o.Env = exports.moxie.core.utils.Env;
+	o.Mime = exports.moxie.core.utils.Mime;
+	o.Exceptions = exports.moxie.core.Exceptions;
+
+	// expose globally
+	exports.mOxie = o;
+	if (!exports.o) {
+		exports.o = o;
+	}
+	return o;
+})(this);

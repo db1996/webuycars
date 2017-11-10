@@ -14,7 +14,7 @@ function activetabs($errors){
     else if (str_contains($firstError, ['voornaam', 'achternaam', 'email', 'telefoonnummer', 'postcode'])){
         $activetabs->stap2 = 'active';
     }
-    else if (str_contains($firstError, ['buitenzijde', 'interieur', 'technischestaat', 'bandenprofiel', 'price'])){
+    else if (str_contains($firstError, ['buitenzijde', 'interieur', 'technischestaat', 'bandenprofiel', 'price', 'filedata'])){
         $activetabs->stap3 = 'active';
     }
     else{
@@ -71,6 +71,7 @@ function errors($errors){
         'technischestaat' => '',
         'bandenprofiel' => '',
         'price' => '',
+        'filedata' => '',
     ];
     $errornames = [
         'kmstand' => '',
@@ -90,6 +91,7 @@ function errors($errors){
         'technischestaat' => '',
         'bandenprofiel' => '',
         'price' => '',
+        'filedata' => '',
     ];
     $asx = [];
     foreach ($errors->all() as $index => $value) {
@@ -98,6 +100,10 @@ function errors($errors){
         if ( $asx[$index][count($asx[$index]) - 1]== 'verplicht.') {
             $var = $asx[$index][1];
             $errornames[$var] = "Dit veld is verplicht";
+            $errorclasses[$var] = "inputerror";
+        }
+        else{
+            $var = $asx[$index][1];
             $errorclasses[$var] = "inputerror";
         }
     }

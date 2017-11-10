@@ -11,8 +11,12 @@
         float: inherit;
     }
 }
-
-
+.fileinput-upload, .file-upload-indicator{
+    display:none;
+}
+.file-preview-thumbnails{
+    @include setflex(row, center, center, wrap);
+}
 //Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
 $fa-font-size: 26px;
 
@@ -106,13 +110,12 @@ $fa-font-size: 26px;
         padding: 5px 15px !important;
 
         @include mobile{
-            display:flex;
-            flex-direction: column;
+            @include setflex(column, flex-start, flex-start);
+            // display:flex;
+            // flex-direction: column;
             .stars{
                 width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include setflex(row, center, center);
             }
         }
         @include custom(0px, 992px){
@@ -125,7 +128,9 @@ $fa-font-size: 26px;
     }
 }
 .normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input, .collapse-div select{
-    @include inputs;
+    &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
+        @include inputs;
+    }
 }
 .info-step1 button, #browse{
     @include buttons;
@@ -136,8 +141,7 @@ body{
 .collapse-div{
     // margin-top: 15px;
     .row{
-        display: flex;
-        align-items: center;
+        @include setflex(row, center, flex-start);
         @include setflex(row, center, flex-start);
         @include mobile{
             @include setflex(column, center, flex-start);
@@ -186,9 +190,7 @@ body{
             height  : 100%;
             width   : 1px;  /* or 100px */
         }
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        @include setflex(row, center, flex-end);
         width: 100%;
         position: absolute;
         top: 0px;
@@ -209,65 +211,6 @@ body{
         background-color: red !important;
     }
 }
-.upload-images{
-    #start-upload{
-        display: none;
-    }
-    #filelist, #filelistcustom{
-        .overlay-wrap{
-            position: absolute;
-            width:0%;
-            height:100%;
-            transition: .35s ease;
-        }
-        .overlay{
-            background-color: #f2dede;
-            color: #a94442;
-            width:100%;
-            height:calc(100%);
-            border-radius: 5px;
-            display:flex;
-            justify-content: flex-end;
-            align-items: center;
-            transition: .2s ease;
-            overflow:hidden;
-            p{
-                margin-right: auto;
-            }
-            a{
-                height:auto;
-                $font-size: 18px;
-                font-size: $font-size;
-            }
-        }
-        .overlay-wrap.animateIn{
-            width:100%;
-        }
-        div:not(.overlay):not(.overlay-wrap){
-            position: relative;
-            @include inputs;
-            padding:0 !important;
-        }
-        br{
-            display: none;
-        }
-        p{
-            padding: 0 0 0 15px;
-        }
-        .remove-upload, a{
-            transition: .2s ease;
-            font-size:24px;
-            padding: 8px 15px 8px 15px;
-            height:100%;
-            border-left: 2px solid white;
-            color:black;
-            &:hover{
-                color: $pink-col-hex;
-            }
-        }
-    }
-}
-
 #svg-rol{
     display:none;
     margin-left:15px;

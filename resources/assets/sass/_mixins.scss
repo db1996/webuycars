@@ -29,11 +29,13 @@
     height: 0;
     padding-top: percentage($h / $w);
 }
-@mixin setflex($direction, $align-items, $justify-content){
-    display:flex;
-    flex-direction: $direction;
-    align-items:  $align-items;
-    justify-content: $justify-content;
+@mixin setflex($direction, $align-items, $justify-content, $wrap:nowrap, $important:""){
+    display: flex unquote($important);
+
+    flex-direction: $direction unquote($important);
+    align-items:  $align-items unquote($important);
+    justify-content: $justify-content unquote($important);
+    flex-wrap: $wrap unquote($important);
 }
 @mixin setbackgrounds(){
     @include mobile {
