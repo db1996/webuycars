@@ -1,23 +1,36 @@
-@mixin mobile {
-  @media (max-width: #{$mobile-max-width}) {
-    @content;
-  }
+@mixin portrait {
+    @media (max-width: #{$portrait-max}) {
+        @content;
+    }
 }
-@mixin tablet {
-    @media (min-width: #{$mobile-max-width+1}) and (max-width: #{$tablet-max-width - 1px}) {
+@mixin landscape {
+    @media (min-width: #{$portrait-max+1}) and (max-width: #{$landscape-max - 1px}) {
+        @content;
+    }
+}
+// typically 768 and up
+@mixin tablet{
+    @media (min-width: #{$landscape-max}) and (max-width: #{$tablet-max - 1px}) {
+        @content;
+    }
+}
+// typically 992 and up
+@mixin tablet-up{
+    @media (min-width: #{$landscape-max}) {
         @content;
     }
 }
 
+
 @mixin desktop {
-    @media (min-width: #{$tablet-max-width}) {
+    @media (min-width: #{$tablet-max}) {
         @content;
     }
 }
 
 @mixin custom($custommin, $custommax) {
-     @media (min-width: #{$custommin}) and (max-width: #{$custommax}) {
-      @content;
+    @media (min-width: #{$custommin}) and (max-width: #{$custommax}) {
+        @content;
     }
 }
 
@@ -31,7 +44,6 @@
 }
 @mixin setflex($direction, $align-items, $justify-content, $wrap:nowrap, $important:""){
     display: flex unquote($important);
-
     flex-direction: $direction unquote($important);
     align-items:  $align-items unquote($important);
     justify-content: $justify-content unquote($important);

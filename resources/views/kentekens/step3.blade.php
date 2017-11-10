@@ -1,6 +1,4 @@
 <div id="step3" class="tab-pane {{$activetabs->stap3}}">
-    @include('partials.radio_buttons')
-    @include('partials.star_rating')
     <div class="info-step3 info">
         <div class="container">
             <div class="row">
@@ -18,17 +16,17 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <?php create_radio_button("schadevrij", "Is de auto schadevrij?")?>
+                    @include('partials.radio_buttons', ['name' => 'schadevrij', 'title' => 'Is je auto schadevrij?'])
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <?php create_radio_button("rijdbaar", "Is je auto rijdbaar?")?>
+                    @include('partials.radio_buttons', ['name' => 'rijdbaar', 'title' => 'Is je auto rijdbaar?'])
                 </div>
             </div>
             <div class="row">
                 <div class=" col col-sm-3"></div><div class="col col-sm-6">
-                    <?php create_radio_button("onderhoudsboekje", "Onderhoudsboekje aanwezig?")?>
+                    @include('partials.radio_buttons', ['name' => 'onderhoudsboekje','title' => 'Onderhoudsboekje aanwezig?'])
                 </div>
             </div>
             <div class="row">
@@ -36,7 +34,7 @@
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['buitenzijde'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['buitenzijde'] }}" >
                         <p class="pseudo_label">Staat buitenzijde</p>
-                        <?php create_star_rating("buitenzijde")?>
+                        @include('partials.star_rating', ['name' => "buitenzijde"])
                     </div>
                 </div>
             </div>
@@ -45,7 +43,7 @@
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['interieur'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['interieur'] }}">
                         <p class="pseudo_label">Staat interieur</p>
-                        <?php create_star_rating("interieur")?>
+                        @include('partials.star_rating', ['name' => "interieur"])
                     </div>
                 </div>
             </div>
@@ -54,7 +52,7 @@
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['technischestaat'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['technischestaat'] }}">
                         <p class="pseudo_label">Technische staat</p>
-                        <?php create_star_rating("technischestaat")?>
+                        @include('partials.star_rating', ['name' => "technischestaat"])
                     </div>
                 </div>
             </div>
@@ -63,7 +61,7 @@
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['bandenprofiel'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['bandenprofiel'] }}">
                         <p class="pseudo_label">Staat bandenprofiel</p>
-                        <?php create_star_rating("bandenprofiel")?>
+                        @include('partials.star_rating', ['name' => "bandenprofiel"])
                     </div>
                 </div>
             </div>
@@ -86,7 +84,13 @@
                     </button>
                 </div>
             </div>
-            <?php createsteps(4, 2, 6, 3);?>
+            {{-- Creates The progress on the bottom --}}
+            @include('partials.steps', [
+                'numofsteps' => 4,
+                'active' => 2,
+                'width' => 6,
+                'offset' => 3
+            ])
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">

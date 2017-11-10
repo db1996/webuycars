@@ -1,7 +1,9 @@
 $pink-col-rgb: 238, 42, 123;
 $pink-col-hex: #ee2a7b;
-$mobile-max-width: 480px;
-$tablet-max-width: 768px;
+$portrait-max: 480px
+$landscape-max: 768px;
+$tablet-max: 992px;
+$small-desktop-max-width: 992px;
 $buttonsborder: 2px solid white;
 $imagelocation: 'http://localhost:3000/webuycars/public/img/';
 $stars_rating_hover: #ee2a7b;

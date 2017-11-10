@@ -11,6 +11,83 @@
         float: inherit;
     }
 }
+.file-input{
+    .file-caption-main{
+        display: flex;
+        flex-wrap: wrap;
+        .file-caption{
+            width: 50%;
+            height: 50px;
+            padding: 15px;
+            border-radius: 0px;
+            font-size: 16px;
+            @include custom(0px, $small-desktop-max-width){
+                width:100%;
+            }
+        }
+        .input-group-btn{ // wrapper
+            display:flex;
+            flex-wrap: wrap;
+            width: 50%;
+            @include custom(0px, $small-desktop-max-width){
+                width:100%;
+            }
+            .fileinput-remove{ // Verwijder knop
+                width: calc(100% - 121px);
+                @include mobile{
+                    @include setflex(row, center, center);
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include tablet{
+                    width:50%;
+                }
+                @include small-desktop{
+                    @include setflex(row, center, center);
+                    padding: 10px 0;
+                    width:100%;
+                }
+            }
+            .btn-file.btn-primary{ // Zoek knop
+                height: 50px;
+                border-radius: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 121px;
+                background-color: black;
+                border: 0;
+                font-size: 16px;
+                transition: .2s ease;
+                @include mobile{
+                    @include setflex(row, center, center);
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include tablet{
+                    @include setflex(row, center, center);
+                    padding: 10px 0;
+                    width:50%;
+                }
+                @include small-desktop{
+                    @include setflex(row, center, center);
+                    padding: 10px 0;
+                    width:100%;
+                }
+                .hidden-xs{
+                    @include custom(0px, 767px){
+                        margin-left: 15px;
+                        display: block !important;
+                    }
+                }
+                &:hover{
+                    color: $pink-col-hex;
+                }
+            }
+        }
+    }
+
+}
 .fileinput-upload, .file-upload-indicator{
     display:none;
 }
@@ -78,6 +155,7 @@ $fa-font-size: 26px;
     }
 }
 .info{
+
     @include volgende-stap;
     @include step_nums_and_dashes;
     @include vorige-knop;
@@ -85,7 +163,7 @@ $fa-font-size: 26px;
     p{
         margin:0;
     }
-    background-image: url($imagelocation +'stappenplan-background.jpg') !important;
+    background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
     background-repeat: no-repeat;
     padding: 50px 0px;
     .col:not(.tablenr){
@@ -106,30 +184,30 @@ $fa-font-size: 26px;
             }
         }
     }
-    .starinput{
-        padding: 5px 15px !important;
 
-        @include mobile{
-            @include setflex(column, flex-start, flex-start);
-            // display:flex;
-            // flex-direction: column;
-            .stars{
-                width: 100%;
-                @include setflex(row, center, center);
-            }
-        }
-        @include custom(0px, 992px){
-            @include setflex(column, center, center);
-            .stars{
-                width:100%;
-                @include setflex(row-reverse, center, center);
-            }
-        }
-    }
 }
 .normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input, .collapse-div select{
     &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
         @include inputs;
+    }
+}
+.starinput{
+    padding: 5px 15px !important;
+
+    @include mobile{
+        @include setflex(column !important, flex-start, flex-start);
+        flex-direction: column !important;
+        .stars{
+            width: 100%;
+            @include setflex(row, center, center);
+        }
+    }
+    @include custom(0px, 992px){
+        @include setflex(column, center, center);
+        .stars{
+            width:100%;
+            @include setflex(row-reverse, center, center);
+        }
     }
 }
 .info-step1 button, #browse{

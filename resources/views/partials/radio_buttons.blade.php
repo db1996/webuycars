@@ -1,4 +1,3 @@
-<?php  function create_radio_button($name, $title){?>
 <div class="radio-wrap">
     <p class="pseudo_label">{{ $title }}</p>
     <div class="radios">
@@ -12,4 +11,3 @@
         </div>
     </div>
 </div>
-<?php }?>

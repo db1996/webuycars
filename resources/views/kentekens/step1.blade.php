@@ -125,8 +125,13 @@
                                             <a id="gotostap2" class="btn btn-info volgende-stap" onclick="window.scrollTo(0, 0);" href="#step2" data-toggle="tab">Volgende</a>
                                         </div>
                                     </div>
-                                    @include('partials.steps')
-                                    <?php createsteps(4, 0, 6, 3);?>
+                                    {{-- Creates The progress on the bottom --}}
+                                    @include('partials.steps', [
+                                        'numofsteps' => 4,
+                                        'active' => 0,
+                                        'width' => 6,
+                                        'offset' => 3,
+                                    ])
                                 </div>
                             </div>
                         </div>
