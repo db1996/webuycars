@@ -139,6 +139,12 @@ $fa-font-size: 26px;
     background-color: $pink-col-hex;
     margin:0;
     padding:50px;
+    h1{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 22px;
+    }
 }
 .grey-between{
     background-image: rgba(255,255,255,.6);
@@ -213,13 +219,17 @@ $fa-font-size: 26px;
     @include portrait{
         @include setflex(column !important, flex-start, flex-start);
         flex-direction: column !important;
-        .stars{
-            width: 100%;
-            @include setflex(row-reverse, center, center);
-        }
     }
     @include landscape{
         @include setflex(row !important, center, center);
+        p{
+            text-align: left;
+            width:50%;
+        }
+        .stars{
+            width:50%;
+            justify-content: flex-start;
+        }
     }
 
 }

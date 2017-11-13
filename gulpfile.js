@@ -8,14 +8,12 @@ sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 cleanCSS = require('gulp-clean-css');
 connect = require('gulp-connect');
+var autoprefixer = require('gulp-autoprefixer');
 
 
-
-gulp.task('jshint', function() {
-    return gulp.src('public/js/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
+var autoprefixerOptions = {
+  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+};
 
 //minify CSS
 gulp.task('minify-css', () => {
@@ -46,6 +44,7 @@ gulp.task('build-css', function() {
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', handleError)
         .pipe(sourcemaps.write())
+        .pipe(autoprefixer(autoprefixerOptions))
         .pipe(gulp.dest(dests.css))
         .pipe(connect.reload().on( 'error', gutil.log ));
 });
