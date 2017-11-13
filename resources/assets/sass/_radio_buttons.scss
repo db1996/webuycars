@@ -9,9 +9,11 @@
     width:100%;
     color:black;
     box-sizing: border-box;
-    border:2px solid black;
+    border:$inputsborder;
     transition: .2s ease;
-
+    &:hover{
+        border: $inputsborder-hover;
+    }
     p{
         transition: .2s ease;
         padding: 15px 0 15px 15px;
@@ -52,7 +54,7 @@
                 background: black;
                 position: relative;
                 &:hover{
-                    color:rgba(#fabad4, 1);
+                    color: lighten($pink-col-hex, 30%);
                 }
             }
             input:checked+label{

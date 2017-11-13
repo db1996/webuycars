@@ -1,5 +1,5 @@
 .inputerror{
-    border: 2px solid #a94442 !important;
+    border: 2px solid red !important;
 }
 .errtooltip + .tooltip {
     width: 300px;
@@ -14,5 +14,5 @@
 }
 /* Tooltip on right */
 .errtooltip + .tooltip.right > .tooltip-arrow {
-    border-right: 5px  solid red;
+    border-right: 5px solid red;
 }

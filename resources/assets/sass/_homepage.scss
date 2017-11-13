@@ -6,11 +6,7 @@
         color:white !important;
         font-size: 20px;
         height:100%;
-        @include portrait{
-            @include setflex(column,center, center);
-            height:700px;
-        }
-        @include landscape{
+        @include landscape-down{
             @include setflex(column,center, center);
             height:700px;
         }
@@ -20,11 +16,7 @@
         }
         .row{
             width:100%;
-            @include portrait{
-                @include setflex(column,center, center);
-                width:auto;
-            }
-            @include landscape{
+            @include landscape-down{
                 @include setflex(column,center, center);
             }
             @include tablet-up{
@@ -32,10 +24,9 @@
             }
             form{
                 @include portrait{
-                    @include setflex(column,center, center);
                     width:auto;
                 }
-                @include landscape{
+                @include landscape-down{
                     @include setflex(column,center, center);
                 }
                 @include tablet-up{
@@ -79,10 +70,7 @@
         @include landscape {
             font-size: 36px;
         }
-        @include tablet-up {
-            font-size: 72px;
-        }
-        @include custom(768px, 952px) {
+        @include tablet-up{
             font-size: 48px;
         }
         span{
@@ -90,16 +78,10 @@
         }
     }
     h2{
-        @include portrait {
-            font-size: 24px;
-        }
-        @include landscape {
+        @include landscape-down {
             font-size: 24px;
         }
         @include tablet-up {
-            font-size: 48px;
-        }
-        @include custom(768px, 952px) {
             font-size: 36px;
         }
     }
@@ -108,16 +90,13 @@
 
 .instructies{
     height: auto;
-    display: flex;
+    background-image: url($imagelocation + 'cardoor.png');
+    background-repeat:no-repeat;
     @include setflex(row, center, center);
     @include tablet-down{
         flex-direction: column;
+        background-image: url($imagelocation + 'cardoor-992x1500.png');
     }
-    background-image: url($imagelocation + 'cardoor.png');
-    @include custom(0px, 900px){
-        background-image: url($imagelocation + 'cardoor-900x1500.png');
-    }
-    background-repeat:no-repeat;
     .col{
         color:white;
         padding: 40px 0 40px 0;
@@ -137,15 +116,11 @@
     }
     .col{
         margin: 0 auto;
-        margin-bottom: 25px;
     }
     .imgcol:not(.hidden-xs){
-        @include portrait{
+        @include landscape-down{
             @include setflex(row, center, center, nowrap, !important);
-            text-align: center;
-        }
-        @include landscape{
-            @include setflex(row, center, center, nowrap, !important);
+            margin-top: 30px;
             text-align: center;
         }
     }
@@ -157,19 +132,19 @@
     background-image: url($imagelocation + 'reviewachtergrond.png');
     height: auto;
     display: flex;
+    >.container>.row>.col{
+        @include landscape-down{
+            padding: 0 !important;
+        }
+    }
     .col {
         text-align: center;
         color: white;
         .reviewbox {
             margin: 40px 0px 40px 20px;
-            // height: 640px;
+            padding-bottom: 1px;
             background-color: white;
-            @include portrait{
-                margin-left: 0;
-                padding-bottom:20px;
-
-            }
-            @include landscape{
+            @include landscape-down{
                 margin-left: 0;
                 padding-bottom: 20px;
             }
@@ -183,22 +158,14 @@
             background-position: top center;
             background-size: 100%;
             background-repeat: no-repeat;
-
         }
         .foto2 {
+            @extend .foto; //get all the above styles
             background-image: url($imagelocation + 'blauwepoloRes.png') !important;
-            background-repeat:no-repeat !important;
-            height: 0 !important;
-            padding: 0; /* remove any pre-existing padding, just in case */
-            padding-bottom: 62% !important; /* for a 4:3 aspect ratio */
-            background-position: top center;
-            background-size: 100%;
-            background-repeat: no-repeat;
-
         }
         .fotoOnderlijn{
             height: 10px;
-            background-color: #ee2a7b;
+            background-color: $pink-col-hex;
         }
         .tekst-naam {
             color: black;
@@ -215,32 +182,81 @@
 
         }
         .rating {
+            @extend .foto;
             background-image: url($imagelocation + 'review1Score.png') !important;
-            background-repeat:no-repeat !important;
-            height: 0 !important;
-            padding: 0; /* remove any pre-existing padding, just in case */
             padding-bottom: 14% !important; /* for a 4:3 aspect ratio */
-            background-position: top center;
             background-size: 70%;
-            background-repeat: no-repeat;
             margin: 30px 0px 30px 0px;
         }
         .rating2 {
+            @extend .rating;
             background-image: url($imagelocation + 'review2Score.png') !important;
-            background-repeat:no-repeat !important;
-            height: 0 !important;
-            padding: 0; /* remove any pre-existing padding, just in case */
-            padding-bottom: 14% !important; /* for a 4:3 aspect ratio */
-            background-position: top center;
-            background-size: 70%;
-            background-repeat: no-repeat;
-            margin: 30px 0px 30px 0px;
+        }
+
+    }
+}
+$circle-size: 80px;
+$portrait-percentage: 62.5;
+$tablet-percentage: 62.5;
+$laptop-percentage: 62.5;
+$image-wrap-percentage: 70;
+.rating-wrap{
+    @include setflex(row, center, space-around);
+    padding: 15px;
+    .single-inside-wrap{
+        @include setflex(row, center, center);
+        .single-rating{
+            @include setflex(row, center, center);
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: $circle-size;
+            height: $circle-size;
+            background: black;
+            border: 5px solid black;
+            margin-right: 10px;
+            @include portrait{
+                width: $circle-size * ($portrait-percentage / 100);
+                height: $circle-size * ($portrait-percentage / 100);
+            }
+            @include tablet{
+                width: $circle-size * ($tablet-percentage / 100);
+                height: $circle-size * ($tablet-percentage / 100);
+            }
+            @include laptop{
+                width: $circle-size * ($laptop-percentage / 100);
+                height: $circle-size * ($laptop-percentage / 100);
+            }
+            @include custom(0px, 335px){
+                width: $circle-size * .5;
+                height: $circle-size * .5;
+            }
+            img{
+                width: $circle-size * ($image-wrap-percentage / 100);
+                @include portrait{
+                    width: $circle-size * ($portrait-percentage / 100) * ($image-wrap-percentage / 100);
+                }
+                @include tablet{
+                    width: $circle-size * ($tablet-percentage / 100) * ($image-wrap-percentage / 100);
+                }
+                @include laptop{
+                    width: $circle-size * ($laptop-percentage / 100) * ($image-wrap-percentage / 100);
+                }
+                @include custom(0px, 335px){
+                    width: $circle-size * .5 * ($image-wrap-percentage / 100);
+                }
+            }
+            &:not(.full){
+                background: rgba(white,0);
+            }
+            &:last-child{
+                margin-right: 0;
+            }
         }
     }
 }
-
 .footer {
     height: 200px;
     width: 100%;
-    background-color: #ee2a7b;
+    background-color: $pink-col-hex;
+
 }

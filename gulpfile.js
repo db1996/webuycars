@@ -3,41 +3,23 @@ gutil = require('gulp-util');
 jshint = require('gulp-jshint');
 sass   = require('gulp-sass');
 concat = require('gulp-concat');
-uglify = require('gulp-uglifyjs');
 sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
-cleanCSS = require('gulp-clean-css');
 connect = require('gulp-connect');
 var autoprefixer = require('gulp-autoprefixer');
-
+var CleanCSS = require('gulp-clean-css');
+var rename = require("gulp-rename");
 
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
-
-//minify CSS
-gulp.task('minify-css', () => {
-    return gulp.src('public/css/*.css')
-    .pipe(cleanCSS({debug: true}, function(details) {
-        var savedsize = details.stats.originalSize - details.stats.minifiedSize;
-        console.log(details.name + ':');
-        console.log('  - new size: ' + details.stats.minifiedSize );
-        console.log('  - saved size: ' + savedsize);
-    }))
-    .pipe(gulp.dest('public/css/min'));
-});
-//minify css
-gulp.task('uglify-js', function() {
-  gulp.src('public/js/main.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('public/js/min'))
-});
 
 gulp.task('connect', function() {
     connect.server({
         livereload: true
     });
 });
+
 // Build CSS
 gulp.task('build-css', function() {
     return gulp.src(srcs.scss)
@@ -45,6 +27,16 @@ gulp.task('build-css', function() {
         .pipe(sass()).on('error', handleError)
         .pipe(sourcemaps.write())
         .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(gulp.dest(dests.css))
+
+        //minify and create .min.css file
+        .pipe(gutil.env.production ? CleanCSS({debug: true}, function(details) {
+            console.log("Original size:");
+            console.log("    -" + (details.stats.originalSize.toFixed(1)  / 1024) + " KB");
+            console.log("Minified size:");
+            console.log("    -" + (details.stats.minifiedSize.toFixed(1) / 1024) + " KB");
+        }) : gutil.noop())
+        .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(dests.css))
         .pipe(connect.reload().on( 'error', gutil.log ));
 });

@@ -1,60 +1,50 @@
+#jouwauto-page{
+    nav.navbar{
+        position: relative;
+        background-color: black;
+        float: inherit;
+    }
+
+}
+
 nav.navbar{
     z-index: 11;
     margin-bottom: 0;
     position:absolute;
-    float: right;
     width:100%;
-    background-color: rgba(255,255,255,.2);
+    background-color:  rgba(0,0,0,.8);
     border: 0;
     color:white;
     border-radius: 0;
-    .navbar-collapse[aria-expanded="true"]{
-        @include portrait{
-            @include setflex(column, center, center)
-        }
-        @include landscape{
-            @include setflex(column, center, center)
-        }
-        ul{
-            @include portrait{
-                margin:0;
-                @include setflex(column, center, center)
-            }
-            @include landscape{
-                margin:0;
-                @include setflex(column, center, center)
-            }
-        }
-    }
-    .navbar-nav {
-        float: right;
-        margin-right: 50px;
-    }
-    @include portrait{
+    // screen-size <= 767px
+    @include landscape-down{
         background-color: rgba(0,0,0,.8);
     }
-    @include landscape{
-        background-color: rgba(0,0,0,.8);
+    .navbar-collapse{
+        text-align: center;
     }
     .glyphicon-menu-hamburger{
         font-size: 20px;
     }
+    .navbar-nav{
+        //screen-size: =>768
+        @include tablet-up{
+            float: right;
+        }
+    }
     button{
-        @include portrait{
+        @include landscape-down{
             margin-top: 35px;
         }
-        @include landscape{
-            margin-top: 35px;
-        }
-        @include custom(0px, 369px){
-            margin-top: 21px;
-        }
-        @include custom(480px, 600px){
-            margin-right: 25px;
-        }
-        @include custom(600px, 768px){
-            margin-right: 30px;
-        }
+        // @include custom(0px, 369px){
+        //     margin-top: 21px;
+        // }
+        // @include custom(480px, 600px){
+        //     margin-right: 25px;
+        // }
+        // @include custom(600px, 768px){
+        //     margin-right: 30px;
+        // }
     }
     ul
     {

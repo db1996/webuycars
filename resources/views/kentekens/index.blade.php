@@ -90,9 +90,7 @@
                                 Een collega van me had me verteld over ‘Webuycars’ en twee dagen later had ik mijn blauwe volkswagen polo verkocht.
                             </div>
                             <div class="tekstOnderlijn"></div>
-                            <div class="rating">
-
-                            </div>
+                            @include('partials.home-rating', ['num' => 4])
                         </div>
                     </div>
                     <div class="col col-sm-6">
@@ -106,9 +104,7 @@
                                 Een collega van me had me verteld over ‘Webuycars’ en twee dagen later had ik mijn blauwe volkswagen polo verkocht.
                             </div>
                             <div class="tekstOnderlijn"></div>
-                            <div class="rating2">
-
-                            </div>
+                            @include('partials.home-rating', ['num' => 3])
                         </div>
                     </div>
                     </div>

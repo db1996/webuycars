@@ -4,13 +4,7 @@
 #submit-all{
     display:none;
 }
-#jouwauto-page{
-    nav.navbar{
-        position: relative;
-        background: rgba(0,0,0,1);
-        float: inherit;
-    }
-}
+
 .file-input{
     .file-caption-main{
         display: flex;
@@ -19,6 +13,7 @@
             width: 50%;
             height: 50px;
             padding: 15px;
+            border: $inputsborder;
             border-radius: 0px;
             font-size: 16px;
             @include laptop-down{
@@ -29,17 +24,23 @@
             display:flex;
             flex-wrap: wrap;
             width: 50%;
+            transition: .2s ease;
             @include laptop-down{
                 width: 100%;
             }
             .fileinput-remove{ // Verwijder knop
+                border: $inputsborder;
+                transition: .2s ease;
+                width: calc(100% - 123px);
                 .hidden-xs{
                     margin-left: 15px;
                     @include landscape-down{
                         display: block !important;
                     }
                 }
-                width: calc(100% - 123px);
+                &:hover{
+                    background-color: lighten($pink-col-hex, 30%);
+                }
                 @include setflex(row, center, center);
                 @include portrait{
                     padding: 10px 0;
@@ -58,6 +59,7 @@
                 }
             }
             .btn-file.btn-primary{ // Zoek knop
+                transition: .2s ease;
                 height: 50px;
                 border-radius: 0px;
                 display: flex;
@@ -67,7 +69,6 @@
                 background-color: black;
                 border: 0;
                 font-size: 16px;
-                transition: .2s ease;
                 @include setflex(row, center, center);
                 @include portrait{
                     padding: 10px 0;
@@ -224,7 +225,8 @@ $fa-font-size: 26px;
         @include setflex(row !important, center, center);
         p{
             text-align: left;
-            width:50%;
+            // color: blue;
+            width: 50%;
         }
         .stars{
             width:50%;
