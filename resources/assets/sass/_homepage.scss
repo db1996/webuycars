@@ -132,68 +132,55 @@
     background-image: url($imagelocation + 'reviewachtergrond.png');
     height: auto;
     display: flex;
-    >.container>.row>.col{
+    .reviewbox-column{
+        text-align: center;
+        color: white;
         @include landscape-down{
             padding: 0 !important;
         }
     }
-    .col {
-        text-align: center;
-        color: white;
-        .reviewbox {
-            margin: 40px 0px 40px 20px;
-            padding-bottom: 1px;
-            background-color: white;
-            @include landscape-down{
-                margin-left: 0;
-                padding-bottom: 20px;
-            }
+    .reviewbox {
+        margin: 40px 0px 40px 20px;
+        padding-bottom: 1px;
+        background-color: white;
+        @include landscape-down{
+            margin-left: 0;
+            padding-bottom: 20px;
         }
-        .foto {
-            background-image: url($imagelocation + 'blauwepolo.png') !important;
-            background-repeat:no-repeat !important;
-            height: 0 !important;
-            padding: 0; /* remove any pre-existing padding, just in case */
-            padding-bottom: 62% !important; /* for a 4:3 aspect ratio */
-            background-position: top center;
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
-        .foto2 {
-            @extend .foto; //get all the above styles
-            background-image: url($imagelocation + 'blauwepoloRes.png') !important;
-        }
-        .fotoOnderlijn{
-            height: 10px;
-            background-color: $pink-col-hex;
-        }
-        .tekst-naam {
-            color: black;
-            margin: 50px 20px 0px 20px;
-        }
-        .tekst {
-            color: black;
-            margin: 0px 20px 0px 20px;
-        }
-        .tekstOnderlijn {
-            height: 2px;
-            background-color: black;
-            margin: 20px 40px 0px 40px;
-
-        }
-        .rating {
-            @extend .foto;
-            background-image: url($imagelocation + 'review1Score.png') !important;
-            padding-bottom: 14% !important; /* for a 4:3 aspect ratio */
-            background-size: 70%;
-            margin: 30px 0px 30px 0px;
-        }
-        .rating2 {
-            @extend .rating;
-            background-image: url($imagelocation + 'review2Score.png') !important;
-        }
+    }
+    .foto {
+        @include background-url('blauwepolo.png', 62%);
+    }
+    .foto2 {
+        @include background-url('blauwepoloRes.png', 62%);
+    }
+    .fotoOnderlijn{
+        height: 10px;
+        background-color: $pink-col-hex;
+    }
+    .tekst-naam {
+        color: black;
+        margin: 50px 20px 0px 20px;
+    }
+    .tekst {
+        color: black;
+        margin: 0px 20px 0px 20px;
+    }
+    .tekstOnderlijn {
+        height: 2px;
+        background-color: black;
+        margin: 20px 40px 0px 40px;
 
     }
+    .rating {
+        @include background-url('review1Score.png', 14%, 70%);
+        margin: 30px 0px 30px 0px;
+    }
+    .rating2 {
+        @include background-url('review2Score.png', 14%, 70%);
+    }
+
+
 }
 $circle-size: 80px;
 $portrait-percentage: 62.5;
@@ -208,7 +195,7 @@ $image-wrap-percentage: 70;
         .single-rating{
             @include setflex(row, center, center);
             border-radius: 50%;
-            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            behavior: url(PIE.htc); // remove if you don't care about IE8
             width: $circle-size;
             height: $circle-size;
             background: black;

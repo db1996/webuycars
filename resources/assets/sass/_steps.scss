@@ -2,102 +2,111 @@
     display: none;
 }
 #submit-all{
-    display:none;
+    display: none;
 }
-
-.file-input{
-    .file-caption-main{
-        display: flex;
+.title-container{
+    color:white;
+    text-align: center;
+    background-color: $pink-col-hex;
+    margin:0;
+    padding:50px;
+    h1{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 22px;
+    }
+}
+.file-caption-main{
+    display: flex;
+    flex-wrap: wrap;
+    .file-caption{
+        width: 50%;
+        height: 50px;
+        padding: 15px;
+        border: $inputsborder;
+        border-radius: 0px;
+        font-size: 16px;
+        @include laptop-down{
+            width: 100%;
+        }
+    }
+    .input-group-btn{ // wrapper
+        display:flex;
         flex-wrap: wrap;
-        .file-caption{
-            width: 50%;
-            height: 50px;
-            padding: 15px;
+        width: 50%;
+        transition: .2s ease;
+        @include laptop-down{
+            width: 100%;
+        }
+        .fileinput-remove{ // Verwijder knop
             border: $inputsborder;
-            border-radius: 0px;
-            font-size: 16px;
-            @include laptop-down{
+            transition: .2s ease;
+            width: calc(100% - 123px);
+            .hidden-xs{
+                margin-left: 15px;
+                @include landscape-down{
+                    display: block !important;
+                }
+            }
+            &:hover{
+                background-color: lighten($pink-col-hex, 30%);
+            }
+            @include setflex(row, center, center);
+            @include portrait{
+                padding: 10px 0;
+                width:100%;
+            }
+            @include landscape{
+                padding: 10px 0;
+                width: calc(100% - 123px);
+            }
+            @include tablet{
+                padding: 10px 0;
+                width:100%;
+            }
+            @include laptop{
                 width: 100%;
             }
         }
-        .input-group-btn{ // wrapper
-            display:flex;
-            flex-wrap: wrap;
-            width: 50%;
+        .btn-file.btn-primary{ // Zoek knop
             transition: .2s ease;
-            @include laptop-down{
+            height: 50px;
+            border-radius: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 123px;
+            background-color: black;
+            border: 0;
+            font-size: 16px;
+            @include setflex(row, center, center);
+            @include portrait{
+                padding: 10px 0;
+                width:100%;
+            }
+            @include landscape{
+                padding: 10px 0;
+                width: 123px;
+            }
+            @include tablet{
+                padding: 10px 0;
+                width:100%;
+            }
+            @include laptop{
                 width: 100%;
             }
-            .fileinput-remove{ // Verwijder knop
-                border: $inputsborder;
-                transition: .2s ease;
-                width: calc(100% - 123px);
-                .hidden-xs{
-                    margin-left: 15px;
-                    @include landscape-down{
-                        display: block !important;
-                    }
-                }
-                &:hover{
-                    background-color: lighten($pink-col-hex, 30%);
-                }
-                @include setflex(row, center, center);
-                @include portrait{
-                    padding: 10px 0;
-                    width:100%;
-                }
-                @include landscape{
-                    padding: 10px 0;
-                    width: calc(100% - 123px);
-                }
-                @include tablet{
-                    padding: 10px 0;
-                    width:100%;
-                }
-                @include laptop{
-                    width: 100%;
+            .hidden-xs{
+                margin-left: 15px;
+                @include landscape-down{
+                    display: block !important;
                 }
             }
-            .btn-file.btn-primary{ // Zoek knop
-                transition: .2s ease;
-                height: 50px;
-                border-radius: 0px;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                width: 123px;
-                background-color: black;
-                border: 0;
-                font-size: 16px;
-                @include setflex(row, center, center);
-                @include portrait{
-                    padding: 10px 0;
-                    width:100%;
-                }
-                @include landscape{
-                    padding: 10px 0;
-                    width: 123px;
-                }
-                @include tablet{
-                    padding: 10px 0;
-                    width:100%;
-                }
-                @include laptop{
-                    width: 100%;
-                }
-                .hidden-xs{
-                    margin-left: 15px;
-                    @include landscape-down{
-                        display: block !important;
-                    }
-                }
-                &:hover{
-                    color: $pink-col-hex;
-                }
+            &:hover{
+                color: $pink-col-hex;
             }
         }
     }
-
 }
 .fileinput-upload, .file-upload-indicator{
     display:none;
@@ -105,9 +114,9 @@
 .file-preview-thumbnails{
     @include setflex(row, center, center, wrap);
 }
+
 //Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
 $fa-font-size: 26px;
-
 .font-awesome-checks{
     position: absolute;
     top: ((59px - $fa-font-size) / 2) + 20;
@@ -117,7 +126,6 @@ $fa-font-size: 26px;
 
 
     background-color: rgba(white,0);
-    border: 0;
     font-size: $fa-font-size;
     right: 30px;
     line-height: 1;
@@ -134,23 +142,7 @@ $fa-font-size: 26px;
         content: "\f057";
     }
 }
-.title-container{
-    color:white;
-    text-align: center;
-    background-color: $pink-col-hex;
-    margin:0;
-    padding:50px;
-    h1{
-        font-size: 28px;
-    }
-    h2{
-        font-size: 22px;
-    }
-}
-.grey-between{
-    background-image: rgba(255,255,255,.6);
-    height: 20px;
-}
+
 #jouwauto-page{
     .container{
         button{
@@ -176,7 +168,7 @@ $fa-font-size: 26px;
     @include volgende-stap;
     @include step_nums_and_dashes;
     @include vorige-knop;
-    @import "radio_buttons";
+
     p{
         margin:0;
     }
@@ -203,7 +195,7 @@ $fa-font-size: 26px;
     }
 
 }
-.normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input, .collapse-div select{
+.normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input{
     &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
         @include inputs;
     }
@@ -225,7 +217,6 @@ $fa-font-size: 26px;
         @include setflex(row !important, center, center);
         p{
             text-align: left;
-            // color: blue;
             width: 50%;
         }
         .stars{
@@ -236,7 +227,23 @@ $fa-font-size: 26px;
 
 }
 .info-step1 button, #browse{
-    @include buttons;
+    transition: .2s ease;
+    background-color: rgba(0,0,0,.8);
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 40px;
+    border:0;
+    color:white;
+    &:focus{
+        background-color: rgba(0,0,0,.8) !important;
+        outline: none;
+    }
+    &:hover   {
+        background-color: rgba(0,0,0,1) !important;
+        outline: none;
+    }
 }
 body{
     margin:0;
@@ -276,6 +283,20 @@ body{
 
     select
     {
+        transition: .2s ease;
+        font-size: 18px;
+        margin-top: 20px;
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $input-back_color;
+        color: $input-color;
+        padding: 15px 15px;
+        border: $inputsborder;
+        border-radius: 5px;
+        transition: .3s ease;
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;

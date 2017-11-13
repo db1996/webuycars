@@ -1,3 +1,19 @@
+// Custom variables
+$pink-col-rgb: 238, 42, 123;
+$pink-col-hex: #ee2a7b;
+$buttonsborder: 2px solid white;
+$imagelocation: 'http://localhost:3000/webuycars/public/img/';
+$input_color: black;
+$input_back_color: white;
+$inputsborder: 2px solid black;
+$inputsborder-hover: 2px solid $pink-col-hex ;
+$input-hover-color: black;
+$input-hover-back-color: white;
+
+// Import mixins
+@import "mixins";
+
+// Some basic universal styling
 html,body
 {
     width: 100%;
@@ -9,19 +25,12 @@ html,body
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 
-// Laravel's Variables
-// @import 'variables';
-
-// Custom Variables
-@import 'custom_variables';
-
 //custom styles
 @import 'navbar';
-
-// NOTE: In this case 'homepage' is also devided in subcategories so there is a subfolder called 'homepage' which contains all the subcats. Homepage is not in any subfolder
 @import 'homepage';
 @import "steps";
 
 @import 'flash_message';
 @import "stars_rating";
+@import "radio_buttons";
 @import "error";

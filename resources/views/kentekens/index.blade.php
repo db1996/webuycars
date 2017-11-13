@@ -79,7 +79,7 @@
                     <h1>Onze tevreden klanten aan het woord</h1>
                 </div>
                 <div class="row">
-                    <div class="col col-sm-6">
+                    <div class="reviewbox-column col col-sm-6">
                         <div class="reviewbox">
                             <div class="foto"></div>
                             <div class="fotoOnderlijn"></div>
@@ -93,7 +93,7 @@
                             @include('partials.home-rating', ['num' => 4])
                         </div>
                     </div>
-                    <div class="col col-sm-6">
+                    <div class="reviewbox-column col col-sm-6">
                         <div class="reviewbox">
                             <div class="foto2"></div>
                             <div class="fotoOnderlijn"></div>

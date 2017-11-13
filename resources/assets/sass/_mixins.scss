@@ -1,11 +1,13 @@
 @import "breakpoints";
-@mixin div-same-size-as-background-img($url, $h, $w) {
-    background-image: url($url);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
+@mixin background-url($img, $padding-bottom, $background-size: 100%) {
+    background-image: url($imagelocation + $img);
+    background-repeat:no-repeat;
     height: 0;
-    padding-top: percentage($h / $w);
+    padding: 0; //remove any pre-existing padding, just in case
+    padding-bottom: $padding-bottom; // for a 4:3 aspect ratio
+    background-position: top center;
+    background-size: $background-size;
+    background-repeat: no-repeat;
 }
 @mixin setflex($direction, $align-items, $justify-content, $wrap:nowrap, $important:""){
     display: flex unquote($important);
@@ -14,7 +16,6 @@
     justify-content: $justify-content unquote($important);
     flex-wrap: $wrap unquote($important);
 }
-@mixin setbackgrounds(){
     @include portrait {
         background-image: url($imagelocation + 'header-mobile.png');
     }
@@ -24,7 +25,6 @@
     @include tablet-up {
         background-image: url($imagelocation + 'header.png');
     }
-}
 @mixin inputs {
     transition: .2s ease;
     font-size: 18px;
@@ -34,39 +34,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: $textbox_back_color;
-    color: $textbox_color;
+    background-color: $input_back_color;
+    color: $input_color;
     padding: 15px 15px;
     border: $inputsborder;
     border-radius: 5px;
     transition: .3s ease;
     &:focus, &:hover{
-        background-color: $textbox_back_color!important;
+        background-color: $input-hover-back-color;
+        color: $input-hover-color;
         border: $inputsborder-hover;
         outline: none;
     }
 }
-
-@mixin buttons{
-    transition: .2s ease;
-    background-color: rgba(0,0,0,.8);
-    width: 100%;
-    display:flex;
-    justify-content: space-between;
-    padding: 15px;
-    margin-top: 40px;
-    border:0;
-    color:white;
-    &:focus{
-        background-color: rgba(0,0,0,.8) !important;
-        outline: none;
-    }
-    &:hover   {
-        background-color: rgba(0,0,0,1) !important;
-        outline: none;
-    }
-}
-
 @mixin step_nums_and_dashes{
     .row.numbers-and-dashes{
         @include custom(0px, 389px){
@@ -107,7 +87,6 @@
         margin-top:25px;
         background-color: rgba(0,0,0,0);
         color: black;
-        border:0;
         transition: .2s ease;
         p{
             margin:0;
@@ -120,14 +99,13 @@
 }
 @mixin volgende-stap {
     .volgende-stap{
-        transition: .2s ease;
         p{
             margin:0;
         }
+        transition: .2s ease;
         margin-top: 20px;
         padding: 20px 0px 20px 0px;
         text-align: center !important;
-        border: none;
         background-color: $pink-col-hex;
         width: 100%;
         display: flex;

@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['debug'] = 1;
+$GLOBALS['debug'] = 0;
 function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
     if ($arrname != ''){
         $namestr = $arrname . "[" . $naam . "]";

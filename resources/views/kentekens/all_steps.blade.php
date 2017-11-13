@@ -20,7 +20,6 @@ $debug = setdebug();
         <h1>JOUW AUTO</h1>
         <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
     </div>
-    <div class="grey-between"></div>
     <div class="container tabs-nav">
         <div class="row">
             <div class="col-sm-3"></div><div class="col-sm-6">
