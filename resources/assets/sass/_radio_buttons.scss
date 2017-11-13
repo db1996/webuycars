@@ -30,7 +30,11 @@
             }
             label {
                 transition: .2s ease;
-                @include mobile{
+                @include portrait{
+                    display: flex;
+                    align-items: center;
+                }
+                @include tablet{
                     display: flex;
                     align-items: center;
                 }

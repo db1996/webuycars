@@ -11,6 +11,93 @@
         float: inherit;
     }
 }
+.file-input{
+    .file-caption-main{
+        display: flex;
+        flex-wrap: wrap;
+        .file-caption{
+            width: 50%;
+            height: 50px;
+            padding: 15px;
+            border-radius: 0px;
+            font-size: 16px;
+            @include laptop-down{
+                width: 100%;
+            }
+        }
+        .input-group-btn{ // wrapper
+            display:flex;
+            flex-wrap: wrap;
+            width: 50%;
+            @include laptop-down{
+                width: 100%;
+            }
+            .fileinput-remove{ // Verwijder knop
+                .hidden-xs{
+                    margin-left: 15px;
+                    @include landscape-down{
+                        display: block !important;
+                    }
+                }
+                width: calc(100% - 123px);
+                @include setflex(row, center, center);
+                @include portrait{
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include landscape{
+                    padding: 10px 0;
+                    width: calc(100% - 123px);
+                }
+                @include tablet{
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include laptop{
+                    width: 100%;
+                }
+            }
+            .btn-file.btn-primary{ // Zoek knop
+                height: 50px;
+                border-radius: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 123px;
+                background-color: black;
+                border: 0;
+                font-size: 16px;
+                transition: .2s ease;
+                @include setflex(row, center, center);
+                @include portrait{
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include landscape{
+                    padding: 10px 0;
+                    width: 123px;
+                }
+                @include tablet{
+                    padding: 10px 0;
+                    width:100%;
+                }
+                @include laptop{
+                    width: 100%;
+                }
+                .hidden-xs{
+                    margin-left: 15px;
+                    @include landscape-down{
+                        display: block !important;
+                    }
+                }
+                &:hover{
+                    color: $pink-col-hex;
+                }
+            }
+        }
+    }
+
+}
 .fileinput-upload, .file-upload-indicator{
     display:none;
 }
@@ -23,7 +110,7 @@ $fa-font-size: 26px;
 .font-awesome-checks{
     position: absolute;
     top: ((59px - $fa-font-size) / 2) + 20;
-    @include custom(0px,768px){
+    @include landscape-down{
         top: ((59px - $fa-font-size) / 2);
     }
 
@@ -78,6 +165,7 @@ $fa-font-size: 26px;
     }
 }
 .info{
+
     @include volgende-stap;
     @include step_nums_and_dashes;
     @include vorige-knop;
@@ -85,7 +173,7 @@ $fa-font-size: 26px;
     p{
         margin:0;
     }
-    background-image: url($imagelocation +'stappenplan-background.jpg') !important;
+    background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
     background-repeat: no-repeat;
     padding: 50px 0px;
     .col:not(.tablenr){
@@ -106,31 +194,34 @@ $fa-font-size: 26px;
             }
         }
     }
-    .starinput{
-        padding: 5px 15px !important;
 
-        @include mobile{
-            @include setflex(column, flex-start, flex-start);
-            // display:flex;
-            // flex-direction: column;
-            .stars{
-                width: 100%;
-                @include setflex(row, center, center);
-            }
-        }
-        @include custom(0px, 992px){
-            @include setflex(column, center, center);
-            .stars{
-                width:100%;
-                @include setflex(row-reverse, center, center);
-            }
-        }
-    }
 }
 .normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input, .collapse-div select{
     &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
         @include inputs;
     }
+}
+.starinput{
+    padding: 5px 15px !important;
+    @include tablet-down{
+        @include setflex(column !important, center, center);
+        .stars{
+            width:100%;
+            @include setflex(row-reverse, center, center);
+        }
+    }
+    @include portrait{
+        @include setflex(column !important, flex-start, flex-start);
+        flex-direction: column !important;
+        .stars{
+            width: 100%;
+            @include setflex(row-reverse, center, center);
+        }
+    }
+    @include landscape{
+        @include setflex(row !important, center, center);
+    }
+
 }
 .info-step1 button, #browse{
     @include buttons;
@@ -143,11 +234,11 @@ body{
     .row{
         @include setflex(row, center, flex-start);
         @include setflex(row, center, flex-start);
-        @include mobile{
+        @include portrait{
             @include setflex(column, center, flex-start);
             width: 100%;
         }
-        @include tablet{
+        @include landscape{
             @include setflex(column, center, flex-start);
             width: 100%;
         }
@@ -160,11 +251,11 @@ body{
         }
         .col{
             @include setflex(row, center, flex-end);
-            @include mobile{
+            @include portrait{
                 width: 100%;
                 @include setflex(row, center, center);
             }
-            @include tablet{
+            @include landscape{
                 width: 100%;
                 @include setflex(row, center, center);
             }

@@ -1,28 +1,4 @@
-$mobile-max-width: 480px;
-$tablet-max-width: 768px;
-@mixin mobile {
-  @media (max-width: #{$mobile-max-width}) {
-    @content;
-  }
-}
-@mixin tablet {
-    @media (min-width: #{$mobile-max-width+1}) and (max-width: #{$tablet-max-width - 1px}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: #{$tablet-max-width}) {
-        @content;
-    }
-}
-
-@mixin custom($custommin, $custommax) {
-     @media (min-width: #{$custommin}) and (max-width: #{$custommax}) {
-      @content;
-    }
-}
-
+@import "breakpoints";
 @mixin div-same-size-as-background-img($url, $h, $w) {
     background-image: url($url);
     background-size: contain;
@@ -33,20 +9,19 @@ $tablet-max-width: 768px;
 }
 @mixin setflex($direction, $align-items, $justify-content, $wrap:nowrap, $important:""){
     display: flex unquote($important);
-
     flex-direction: $direction unquote($important);
     align-items:  $align-items unquote($important);
     justify-content: $justify-content unquote($important);
     flex-wrap: $wrap unquote($important);
 }
 @mixin setbackgrounds(){
-    @include mobile {
+    @include portrait {
         background-image: url($imagelocation + 'header-mobile.png');
     }
-    @include tablet{
+    @include landscape{
         background-image: url($imagelocation +  'header-tablet2.png');
     }
-    @include desktop {
+    @include tablet-up {
         background-image: url($imagelocation + 'header.png');
     }
 }

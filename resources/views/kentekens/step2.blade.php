@@ -43,7 +43,13 @@
                     <a onclick="window.scrollTo(0, 0);" class="btn btn-info volgende-stap" href="#step3" data-toggle="tab">Volgende</a>
                 </div>
             </div>
-            <?php createsteps(4, 1, 6, 3);?>
+            {{-- Creates The progress on the bottom --}}
+            @include('partials.steps', [
+                'numofsteps' => 4,
+                'active' => 1,
+                'width' => 6,
+                'offset' => 3,
+            ])
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">

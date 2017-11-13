@@ -9,18 +9,18 @@ nav.navbar{
     color:white;
     border-radius: 0;
     .navbar-collapse[aria-expanded="true"]{
-        @include mobile{
+        @include portrait{
             @include setflex(column, center, center)
         }
-        @include tablet{
+        @include landscape{
             @include setflex(column, center, center)
         }
         ul{
-            @include mobile{
+            @include portrait{
                 margin:0;
                 @include setflex(column, center, center)
             }
-            @include tablet{
+            @include landscape{
                 margin:0;
                 @include setflex(column, center, center)
             }
@@ -30,21 +30,24 @@ nav.navbar{
         float: right;
         margin-right: 50px;
     }
-    @include mobile{
+    @include portrait{
         background-color: rgba(0,0,0,.8);
     }
-    @include tablet{
+    @include landscape{
         background-color: rgba(0,0,0,.8);
     }
     .glyphicon-menu-hamburger{
         font-size: 20px;
     }
     button{
-        @include mobile{
+        @include portrait{
             margin-top: 35px;
         }
-        @include tablet{
+        @include landscape{
             margin-top: 35px;
+        }
+        @include custom(0px, 369px){
+            margin-top: 21px;
         }
         @include custom(480px, 600px){
             margin-right: 25px;
