@@ -1,27 +1,3 @@
-function combi(Licenseplate){
-    var first2chars = Licenseplate.substring(0, 2);
-    first2chars = first2chars.length === 2 && first2chars.match(/[a-z]/i);
-    var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
-    lastchar = lastchar.length === 1 && lastchar.match(/[a-z]/i);
-    if (first2chars && lastchar)
-    {
-        var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, Licenseplate.length - 1) + "-" + Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
-    }
-    else{
-        var first2chars = Licenseplate.substring(0, 2);
-        first2chars = first2chars.length === 2 && first2chars.match(/[0-9]/i);
-        var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
-        lastchar = lastchar.length === 1 && lastchar.match(/[0-9]/i);
-        if (first2chars && lastchar)
-        {
-            var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, Licenseplate.length - 1) + "-" + Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
-        }
-        else{
-            var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, 4) + "-" + Licenseplate.slice(4);
-        }
-    }
-}
-
 var url = "http://localhost:3000/webuycars/public/";
 $('#ga-terug').click(function(){
     $('.flash-image-mes').removeClass('animateIn');
@@ -75,8 +51,32 @@ function checkInput(name, mode = 0){
     }
 }
 
+function combi(Licenseplate){
+    var first2chars = Licenseplate.substring(0, 2);
+    first2chars = first2chars.length === 2 && first2chars.match(/[a-z]/i);
+    var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
+    lastchar = lastchar.length === 1 && lastchar.match(/[a-z]/i);
+    if (first2chars && lastchar)
+    {
+        var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, Licenseplate.length - 1) + "-" + Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
+    }
+    else{
+        var first2chars = Licenseplate.substring(0, 2);
+        first2chars = first2chars.length === 2 && first2chars.match(/[0-9]/i);
+        var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
+        lastchar = lastchar.length === 1 && lastchar.match(/[0-9]/i);
+        if (first2chars && lastchar)
+        {
+            var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, Licenseplate.length - 1) + "-" + Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
+        }
+        else{
+            var newstr = Licenseplate.slice(0, 2) + "-" + Licenseplate.slice(2, 4) + "-" + Licenseplate.slice(4);
+        }
+    }
+}
 
 var check = [];
+var lastScrolltop = 0;
 $('.file-caption-name').attr('placeholder', 'Voeg afbeeldingen toe...');
 $(document).ready(function(){
     checkInput('email');
@@ -93,53 +93,56 @@ $('#posTB').on('input', function() {
 $('#telTB').on('input', function() {
     checkInput('tel');
 });
+$(document).ready(function(){
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('.navbar').outerHeight();
+    // on scroll, let the interval function know the user has scrolled
+    $('body').scroll(function(event){
+        didScroll = true;
 
-/**
- * o.js
- *
- * Copyright 2013, Moxiecode Systems AB
- * Released under GPL License.
- *
- * License: http://www.plupload.com/license
- * Contributing: http://www.plupload.com/contributing
- */
+    });
+    // run hasScrolled() and reset didScroll status
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 400);
+    function hasScrolled() {
+        var nowScrollTop = $('body').scrollTop();
+        if (Math.abs(nowScrollTop - lastScrollTop) <= delta)
+            return;
+        if (nowScrollTop > lastScrollTop && nowScrollTop > navbarHeight){
+            $('.navbar').removeClass('nav-down').addClass('nav-up');
+            // $('.navbar').css('top', '-300px')
+        } else {
+            $('.navbar').removeClass('nav-up').addClass('nav-down');
+            // $('.navbar').css('top', '0px')
+        }
+        lastScrollTop = nowScrollTop;
+    }
 
-/*global moxie:true */
-
-/**
-Globally exposed namespace with the most frequently used public classes and handy methods.
-@class o
-@static
-@private
-*/
-(function(exports) {
-	"use strict";
-
-	var o = {}, inArray = exports.moxie.core.utils.Basic.inArray;
-
-	// directly add some public classes
-	// (we do it dynamically here, since for custom builds we cannot know beforehand what modules were included)
-	(function addAlias(ns) {
-		var name, itemType;
-		for (name in ns) {
-			itemType = typeof(ns[name]);
-			if (itemType === 'object' && !~inArray(name, ['Exceptions', 'Env', 'Mime'])) {
-				addAlias(ns[name]);
-			} else if (itemType === 'function') {
-				o[name] = ns[name];
-			}
-		}
-	})(exports.moxie);
-
-	// add some manually
-	o.Env = exports.moxie.core.utils.Env;
-	o.Mime = exports.moxie.core.utils.Mime;
-	o.Exceptions = exports.moxie.core.Exceptions;
-
-	// expose globally
-	exports.mOxie = o;
-	if (!exports.o) {
-		exports.o = o;
-	}
-	return o;
-})(this);
+    // // hide .navbar first
+    // $(".navbar").show();
+    // // fade in .navbar
+    // $(function () {
+    //     var lastScrollTop = 0, delta = 15;
+    //     $('body').scroll(function(event){
+    //         var st = $(this).scrollTop();
+    //
+    //         if(Math.abs(lastScrollTop - st) <= delta)
+    //         return;
+    //
+    //         if (st > lastScrollTop){
+    //             $('.navbar').css('top', '-300px')
+    //             console.log('scroll down');
+    //         } else {
+    //             $('.navbar').css('top', '0px')
+    //             console.log('scroll up');
+    //         }
+    //         lastScrollTop = st;
+    //     });
+    // });
+});

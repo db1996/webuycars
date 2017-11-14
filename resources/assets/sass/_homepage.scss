@@ -1,5 +1,11 @@
 .top-image{
-    @include setbackgrounds;
+    background-image: url($imagelocation + 'header.png');
+    @include portrait {
+        background-image: url($imagelocation + 'header-mobile.png');
+    }
+    @include landscape{
+        background-image: url($imagelocation +  'header-tablet2.png');
+    }
     .container{
         height:auto;
         text-align: left;

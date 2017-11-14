@@ -16,15 +16,6 @@
     justify-content: $justify-content unquote($important);
     flex-wrap: $wrap unquote($important);
 }
-    @include portrait {
-        background-image: url($imagelocation + 'header-mobile.png');
-    }
-    @include landscape{
-        background-image: url($imagelocation +  'header-tablet2.png');
-    }
-    @include tablet-up {
-        background-image: url($imagelocation + 'header.png');
-    }
 @mixin inputs {
     transition: .2s ease;
     font-size: 18px;
