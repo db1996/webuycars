@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-3"></div><div class="col col-sm-6">
-                                            <a id="gotostap2" class="btn btn-info volgende-stap" onclick="window.scrollTo(0, 0);" href="#step2" data-toggle="tab">Volgende</a>
+                                            <a id="gotostap2" class="btn btn-info volgende-stap check-stap" href="#step2" data-toggle="">Volgende</a>
                                         </div>
                                     </div>
                                     {{-- Creates The progress on the bottom --}}

@@ -2,6 +2,7 @@ var check = [];
 var lastScrolltop = 0;
 $('.file-caption-name').attr('placeholder', 'Voeg afbeeldingen toe...');
 $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); // initializes bootstrap tooltips
     checkInput('email');
     checkInput('pos');
     checkInput('tel');
@@ -17,6 +18,7 @@ $('#telTB').on('input', function() {
     checkInput('tel');
 });
 $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();
     var didScroll;
     var lastScrollTop = 0;
     var delta = 5;
@@ -24,7 +26,6 @@ $(document).ready(function(){
     // on scroll, let the interval function know the user has scrolled
     $('body').scroll(function(event){
         didScroll = true;
-
     });
     // run hasScrolled() and reset didScroll status
     setInterval(function() {
@@ -32,7 +33,7 @@ $(document).ready(function(){
             hasScrolled();
             didScroll = false;
         }
-    }, 400);
+    }, 300);
     function hasScrolled() {
         var nowScrollTop = $('body').scrollTop();
         if (Math.abs(nowScrollTop - lastScrollTop) <= delta)
@@ -46,26 +47,4 @@ $(document).ready(function(){
         }
         lastScrollTop = nowScrollTop;
     }
-
-    // // hide .navbar first
-    // $(".navbar").show();
-    // // fade in .navbar
-    // $(function () {
-    //     var lastScrollTop = 0, delta = 15;
-    //     $('body').scroll(function(event){
-    //         var st = $(this).scrollTop();
-    //
-    //         if(Math.abs(lastScrollTop - st) <= delta)
-    //         return;
-    //
-    //         if (st > lastScrollTop){
-    //             $('.navbar').css('top', '-300px')
-    //             console.log('scroll down');
-    //         } else {
-    //             $('.navbar').css('top', '0px')
-    //             console.log('scroll up');
-    //         }
-    //         lastScrollTop = st;
-    //     });
-    // });
 });

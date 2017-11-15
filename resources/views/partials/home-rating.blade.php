@@ -2,7 +2,7 @@
     <div class="single-inside-wrap">
         @for ($i=0; $i < $num; $i++)
             <div class="single-rating full">
-                <img src="{{asset('img/review-face.png')}}" alt="">
+                <img class="review-img" src="{{asset('img/review-face.png')}}" alt="">
             </div>
         @endfor
         @for ($i=0; $i < 5 - $num; $i++)

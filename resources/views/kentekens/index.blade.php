@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
     <div class="top-image">
         <div class="container">
             <img src="" alt="">
             <div class="row">
                 <div class="col col-sm-6 col-offset-sm-4">
-                    <form class="" action="{{url('/kenteken/create')}}"  method="get">
+                    <form class="kenteken-form" action="{{url('/kenteken/create')}}"  method="get">
                         <p>Voer hier je kenteken in:</p>
                         <input id="test50"
                         oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="plate" type="text">
@@ -18,24 +17,24 @@
         </div>
     </div>
     <div class="vrijblijvend">
-        <h1>Verkoop <span>razend snel</span> uw auto</h1>
+        <h1>Verkoop <span class="bold-font-span">razend snel</span> uw auto</h1>
         <h2>ontvang nu vrijblijvend een bod</h2>
     </div>
     <div class="instructies">
         <div class="col col-sm-4">
-            <img src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="instructies-img" src="{{asset("img/stappenplan1.png")}}" alt="">
             <h2>Meld je aan</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
         </div>
         <div class="col col-sm-4">
-            <img src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="instructies-img" src="{{asset("img/stappenplan1.png")}}" alt="">
             <h2>Prijs aanbieding</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
         </div>
         <div class="col col-sm-4">
-            <img src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="instructies-img" src="{{asset("img/stappenplan1.png")}}" alt="">
             <h2>Zorgeloos Verkocht</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
@@ -51,19 +50,19 @@
                     <div class="right">
                         <div class="col col-sm-12">
                             <h2><i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;&nbsp;Basis</h2>
-                            <p>Vul het kenteken van je auto in of selecteer handmatig merk, model en uitvoering.</p>
+                            <p>Vul het kenteken van je auto in en zoek naar jouw auto!</p>
                         </div>
                         <div class="col col-sm-12">
                             <h2><i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;&nbsp;Contactinformatie</h2>
-                            <p>Vul het kenteken van je auto in of selecteer handmatig merk, model en uitvoering.</p>
+                            <p>Vul jouw persoonlijke informatie in zodat wij contact met je op kunnen nemen.</p>
                         </div>
                         <div class="col col-sm-12">
                             <h2><i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;&nbsp;Aanvullende gegevens</h2>
-                            <p>Vul het kenteken van je auto in of selecteer handmatig merk, model en uitvoering.</p>
+                            <p>Vul wat extra gegevens in over je auto.</p>
                         </div>
                         <div class="bottom-col col col-sm-12">
                             <h2><i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;&nbsp;Klaar = Kees</h2>
-                            <p>Vul het kenteken van je auto in of selecteer handmatig merk, model en uitvoering.</p>
+                            <p>Verstuur het formulier naar ons zodat wij zo snel mogelijk contact met je op kunnen nemen.</p>
                         </div>
                     </div>
                 </div>
@@ -75,8 +74,10 @@
     </div>
     <div class="reviews">
             <div class="container">
-                <div class="col col-sm-12">
-                    <h1>Onze tevreden klanten aan het woord</h1>
+                <div class="row title-row">
+                    <div class="col col-sm-12">
+                        <h1>Onze tevreden klanten aan het woord</h1>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="reviewbox-column col col-sm-6">

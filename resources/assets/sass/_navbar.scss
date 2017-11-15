@@ -1,12 +1,4 @@
 /* begin nav */
-#jouwauto-page{
-    nav.navbar{
-        position: relative;
-        background-color: black;
-        float: inherit;
-    }
-
-}
 nav.navbar{
     top: 0px;
     transition: .5s ease;
@@ -75,5 +67,14 @@ nav.navbar{
         top: -250px !important;
     }
 }
-
+#jouwauto-page{
+    nav.navbar{
+        position: relative;
+        background-color: black;
+        float: inherit;
+    }
+    .nav-up{
+        top: 0px !important;
+    }
+}
 /* end nav */

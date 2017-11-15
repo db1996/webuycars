@@ -14,7 +14,6 @@ $debug = setdebug();
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
 @section('content')
-    @include('partials.errors')
     @include('partials.createinput')
     <div class="title-container">
         <h1>JOUW AUTO</h1>
@@ -41,7 +40,7 @@ $debug = setdebug();
         <button type="submit" id="submit-all" class="btn btn-info volgende-stap">
             <p>Volgende</p>
         </button>
-        <div class="flash-image-mes alert-danger">
+        {{-- <div class="flash-image-mes alert-danger">
             <div class="title-div">
                 <h3>Er zijn geen afbeeldingen geselecteerd!</h3>
             </div>
@@ -52,7 +51,7 @@ $debug = setdebug();
                 <button id="ga-door">Ga door</button>
                 <button id="ga-terug">Terug</button>
             </div>
-        </div>
+        </div> --}}
         <input type="hidden" name="kenteken" value="{{$kenteken}}">
     </form>
 @endsection

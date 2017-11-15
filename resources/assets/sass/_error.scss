@@ -3,10 +3,10 @@
 }
 .errtooltip + .tooltip {
     width: 300px;
+
 }
 .errtooltip + .tooltip > .tooltip-inner {
     background-color: rgba(red, .5);
-    color: #FFFFFF;
     border: 1px solid rgba(red, .5);
     padding: 10px 15px;
     font-size: 20px;
@@ -15,4 +15,8 @@
 /* Tooltip on right */
 .errtooltip + .tooltip.right > .tooltip-arrow {
     border-right: 5px solid red;
+    top: 25px !important;
+}
+.tooltip.right{
+    top: 25px !important;
 }
