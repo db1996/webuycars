@@ -1,3 +1,4 @@
+/* Begin steps */
 .tabs-nav{
     display: none;
 }
@@ -39,72 +40,66 @@
         @include laptop-down{
             width: 100%;
         }
-        .fileinput-remove{ // Verwijder knop
-            border: $inputsborder;
-            transition: .2s ease;
-            width: calc(100% - 123px);
-            .hidden-xs{
-                margin-left: 15px;
-                @include landscape-down{
-                    display: block !important;
-                }
-            }
-            &:hover{
-                background-color: lighten($pink-col-hex, 30%);
-            }
-            @include setflex(row, center, center);
-            @include portrait{
-                padding: 10px 0;
-                width:100%;
-            }
-            @include landscape{
-                padding: 10px 0;
-                width: calc(100% - 123px);
-            }
-            @include tablet{
-                padding: 10px 0;
-                width:100%;
-            }
-            @include laptop{
-                width: 100%;
-            }
+    }
+    .fileinput-remove{ // Verwijder knop
+        border: $inputsborder;
+        transition: .2s ease;
+        width: calc(100% - 123px);
+        &:hover{
+            background-color: lighten($pink-col-hex, 30%);
         }
-        .btn-file.btn-primary{ // Zoek knop
-            transition: .2s ease;
-            height: 50px;
-            border-radius: 0px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+        @include setflex(row, center, center);
+        @include portrait{
+            padding: 10px 0;
+            width:100%;
+        }
+        @include landscape{
+            padding: 10px 0;
+            width: calc(100% - 123px);
+        }
+        @include tablet{
+            padding: 10px 0;
+            width:100%;
+        }
+        @include laptop{
+            width: 100%;
+        }
+    }
+    .btn-file.btn-primary{ // Zoek knop
+        transition: .2s ease;
+        height: 50px;
+        border-radius: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 123px;
+        background-color: black;
+        border: 0;
+        font-size: 16px;
+        @include setflex(row, center, center);
+        @include portrait{
+            padding: 10px 0;
+            width:100%;
+        }
+        @include landscape{
+            padding: 10px 0;
             width: 123px;
-            background-color: black;
-            border: 0;
-            font-size: 16px;
-            @include setflex(row, center, center);
-            @include portrait{
-                padding: 10px 0;
-                width:100%;
-            }
-            @include landscape{
-                padding: 10px 0;
-                width: 123px;
-            }
-            @include tablet{
-                padding: 10px 0;
-                width:100%;
-            }
-            @include laptop{
-                width: 100%;
-            }
-            .hidden-xs{
-                margin-left: 15px;
-                @include landscape-down{
-                    display: block !important;
-                }
-            }
-            &:hover{
-                color: $pink-col-hex;
-            }
+        }
+        @include tablet{
+            padding: 10px 0;
+            width:100%;
+        }
+        @include laptop{
+            width: 100%;
+        }
+        &:hover{
+            color: $pink-col-hex;
+        }
+    }
+    .hidden-xs{
+        margin-left: 15px;
+        @include landscape-down{
+            display: block !important;
         }
     }
 }
@@ -123,8 +118,6 @@ $fa-font-size: 26px;
     @include landscape-down{
         top: ((59px - $fa-font-size) / 2);
     }
-
-
     background-color: rgba(white,0);
     font-size: $fa-font-size;
     right: 30px;
@@ -142,24 +135,15 @@ $fa-font-size: 26px;
         content: "\f057";
     }
 }
-
 #jouwauto-page{
-    .container{
-        button{
-            &[aria-expanded="false"]{
-                i{
-                    &:before{
-                        content: "\f054";
-                    }
-                }
-            }
-            &[aria-expanded="true"]{
-                i{
-                    &:before{
-                        content: "\f078";
-                    }
-                }
-            }
+    button[aria-expanded="false"]{
+        i:before{
+            content: "\f054";
+        }
+    }
+    button[aria-expanded="true"]{
+        i:before{
+            content: "\f078";
         }
     }
 }
@@ -168,36 +152,28 @@ $fa-font-size: 26px;
     @include volgende-stap;
     @include step_nums_and_dashes;
     @include vorige-knop;
-
     p{
         margin:0;
     }
     background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     padding: 50px 0px;
     .col:not(.tablenr){
         color: black;
         text-align: center;
     }
-    .currency{
-        justify-content: flex-start;
-        input{
-            border:0;
-            background-color: white;
-            width:100%;
-            margin-left:7px;
-            &:hover, &:focus, &:active{
-                background-color: white !important;
-                border: none !important;
-                outline:none;
-            }
-        }
-    }
-
 }
-.normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input{
-    &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
-        @include inputs;
+.currency{
+    input{
+        border:0;
+        background-color: white;
+        width:100%;
+        margin-left:7px;
+        &:hover, &:focus, &:active{
+            background-color: white !important;
+            border: none !important;
+            outline:none;
+        }
     }
 }
 .starinput{
@@ -224,7 +200,11 @@ $fa-font-size: 26px;
             justify-content: flex-start;
         }
     }
-
+}
+.normalinput, .puretextinput, .currency, .info-step2 input, .info-step3 button, .collapse-div input{
+    &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap){
+        @include inputs;
+    }
 }
 .info-step1 button, #browse{
     transition: .2s ease;
@@ -249,9 +229,13 @@ body{
     margin:0;
 }
 .collapse-div{
-    // margin-top: 15px;
+    .nopad-col{
+        padding:0;
+        h4{
+            text-align: right;
+        }
+    }
     .row{
-        @include setflex(row, center, flex-start);
         @include setflex(row, center, flex-start);
         @include portrait{
             @include setflex(column, center, flex-start);
@@ -262,12 +246,6 @@ body{
             width: 100%;
         }
         margin-left: 0 !important;
-        .nopad-col{
-            padding:0;
-            h4{
-                text-align: right;
-            }
-        }
         .col{
             @include setflex(row, center, flex-end);
             @include portrait{
@@ -280,9 +258,7 @@ body{
             }
         }
     }
-
-    select
-    {
+    select{
         transition: .2s ease;
         font-size: 18px;
         margin-top: 20px;
@@ -305,8 +281,17 @@ body{
         position: relative;
     }
     .select-side {
-        pointer-events: none;
+        @include setflex(row, center, flex-end);
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        height: 100%;
+        left: 0px;
         border: 0 !important;
+        pointer-events: none;
+        i {
+            margin-right:20px;
+        }
         &:before {
             position: absolute;
             left    : 0;
@@ -314,25 +299,15 @@ body{
             height  : 100%;
             width   : 1px;  /* or 100px */
         }
-        @include setflex(row, center, flex-end);
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        height: 100%;
-        left: 0px;
-        i {
-            margin-right:20px;
+        &:checked{
+            background-color: red !important;
         }
     }
-    #selectside2
-    {
-        height: 110px !important;
-        i{
-            margin-right: 25px;
-        }
-    }
-    .select-side:checked{
-        background-color: red !important;
+}
+#selectside2{
+    height: 110px !important;
+    i{
+        margin-right: 25px;
     }
 }
 #svg-rol{
@@ -340,3 +315,4 @@ body{
     margin-left:15px;
     width:25px;
 }
+/* End steps */

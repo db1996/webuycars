@@ -88,7 +88,7 @@
                                             <h4>Aantal versnellingen:</h2>
                                             </div>
                                             <div class="col col-sm-8">
-{{create_inputs('aantal', $errorarray, 'versnelling', (isset($versnelling['aantal']) ? $versnelling['aantal'] : ''))}} {{-- creates an input with the right variables --}}
+{{create_inputs('aantal', $errorarray, 'versnelling', (isset($versnelling['aantal']) ? $versnelling['aantal'] : ''), 'number')}} {{-- creates an input with the right variables --}}
                                             </div>
                                         </div>
                                     </div>

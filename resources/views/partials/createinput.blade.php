@@ -1,6 +1,6 @@
 <?php
 $GLOBALS['debug'] = 0;
-function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
+function create_inputs( $naam, $errorarray, $arrname = '', $aditval = '', $type = 'text'){
     if ($arrname != ''){
         $namestr = $arrname . "[" . $naam . "]";
         $namestr2 = $arrname . "." . $naam;
@@ -12,7 +12,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = ''){
     $debug = $GLOBALS['debug'];
     ?>
 
-    <input required type="text"
+    <input required type="{{$type}}"
     name="{{$namestr}}"
     <?php if($aditval != ''){?>
     value="{{ (old($namestr2) != "" ? old($namestr2): $aditval) }}"

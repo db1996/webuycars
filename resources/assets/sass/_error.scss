@@ -3,7 +3,9 @@
 }
 .errtooltip + .tooltip {
     width: 300px;
-
+    @include landscape-down{
+        display: none !important;
+    }
 }
 .errtooltip + .tooltip > .tooltip-inner {
     background-color: rgba(red, .5);

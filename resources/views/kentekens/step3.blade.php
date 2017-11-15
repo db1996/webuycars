@@ -2,13 +2,19 @@
     <div class="info-step3 info">
         <div class="container">
             <div class="row">
+                <div class="col-sm-12">
+                    <div id="file-preview-custom" class="file-preview-custom"></div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-3"></div><div class="col-sm-6 upload-images">
-                    <input id="filedata" accept=".jpg,.gif,.png,.jpeg" name="filedata[]" lang="nl" type="file" multiple class="file-loading">
+                    <input id="filedata" accept=".jpg,.gif,.png,.jpeg,.svg" name="filedata[]" lang="nl" type="file" multiple class="file-loading">
                     <script>
                     $("#filedata").fileinput({
                         uploadAsync: false,
                         maxFileCount: 10,
                         allowedFileTypes: ['image'],
+                        elPreviewContainer: '.file-preview-custom',
                         'language': 'nl',
                     });
                     </script>
@@ -78,7 +84,7 @@
             </div>
             <div class="row">
                 <div class="col col-sm-3"></div><div class="col col-sm-6">
-                    <button type="submit" class="btn btn-info volgende-stap">
+                    <button type="submit" class="btn btn-info volgende-stap check-stap">
                         <p>Volgende</p>
                         <img id="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>

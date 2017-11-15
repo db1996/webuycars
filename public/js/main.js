@@ -1,9 +1,17 @@
 var url = "http://localhost:3000/webuycars/public/";
-// $('#ga-terug').click(function(){
-//     $('.flash-image-mes').removeClass('animateIn');
-//     $('.flash-image-mes').addClass('animateOut');
-// });
+function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
+$(".errtooltip").on("input", function() {
+    $(this).removeClass('inputerror')
+           .tooltip('destroy');
 
+});
+$(".starinp").on("click", function() {
+    var thisName = $(this).attr('name');
+    if ($("input:radio[name='" + thisName + "']").is(":checked")){
+        $(this).parent().parent().removeClass('inputerror')
+               .tooltip('destroy');
+    }
+});
 $('#ga-door').click(function(){
     $('#svg-rol').css('display', 'block')
     var emailvalid = checkInput('email', 1);
@@ -28,16 +36,68 @@ $('.check-stap').on('click', function (){
     }
     var parent_tab_pane = $(this).parents('.tab-pane');
     var errors = [];
-    parent_tab_pane.find('input[type="text"],input[type="email"],input[type="number"]').each(function () {
-        if ($(this).val() == "") {
-            errors.push($(this).attr('name') + " HAS AN ERROR");
-            $(this).addClass('inputerror')
-                   .attr('title', 'Dit veld is verplicht')
-                   .tooltip('fixTitle')
-                   .tooltip('show');
-        } else {
-            $(this).removeClass('inputerror')
-                   .tooltip('destroy');
+    parent_tab_pane.find('input[type="text"],input[type="email"],input[type="radio"],input[type="number"]').
+    each(function () {
+        var type = $(this).attr('type');
+        var isnum = isNumber($(this).val());
+        if (type != "radio"){
+            if ($(this).val() == "") {
+                errors.push($(this).attr('name'));
+                if ($(this).hasClass('currencyinput')){
+                    $(this).parent()
+                           .addClass('inputerror')
+                           .attr('title', 'Dit veld is verplicht')
+                           .tooltip('fixTitle')
+                           .tooltip('show');
+                }
+                else{
+                    $(this).addClass('inputerror')
+                           .addClass('errtooltip')
+                           .attr('title', 'Dit veld is verplicht')
+                           .attr('data-placement', 'right')
+                           .tooltip('fixTitle')
+                           .tooltip('show');
+                }
+            } else {
+                $(this).removeClass('inputerror')
+                       .tooltip('destroy');
+            }
+            if (type == "number"){
+
+                var elem = $(this);
+                if ($(this).hasClass('currencyinput')){
+                    elem = $(this).parent();
+                }
+                if (!isnum){
+                    errors.push($(this).attr('name'));
+                    $(elem)
+                    .addClass('inputerror')
+                    .attr('title', 'Dit veld moet een getal hebben')
+                    .tooltip('fixTitle')
+                    .tooltip('show');
+                }
+                else{
+                    $(elem).removeClass('inputerror')
+                           .tooltip('destroy');
+                }
+            }
+        }else{
+            var thisName = $(this).attr('name');
+            if (!$("input:radio[name='" + thisName + "']").is(":checked")){
+                errors.push($(this).attr('name'));
+                console.log($(this).parent().parent());
+                $(this).parent().parent()
+                       .addClass('inputerror')
+                       .addClass('errtooltip')
+                       .attr('title', 'Dit veld is verplicht')
+                       .attr('data-placement', 'right')
+                       .tooltip('fixTitle')
+                       .tooltip('show');
+            }
+            else{
+                $(this).parent().parent().removeClass('inputerror')
+                       .tooltip('destroy');
+            }
         }
     });
 

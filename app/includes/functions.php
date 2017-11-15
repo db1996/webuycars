@@ -18,7 +18,7 @@ function activetabs($errors){
         $activetabs->stap3 = 'active';
     }
     else{
-        $activetabs->stap1 = 'active';
+        $activetabs->stap3 = 'active';
     }
     return $activetabs;
 }
