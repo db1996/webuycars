@@ -1,4 +1,5 @@
 /* Begin steps */
+@import "fileupload";
 .tabs-nav{
     display: none;
 }
@@ -6,11 +7,11 @@
     display: none;
 }
 .title-container{
-    color:white;
-    text-align: center;
-    background-color: $pink-col-hex;
     margin:0;
     padding:50px;
+    background-color: $pink-col-hex;
+    color:white;
+    text-align: center;
     h1{
         font-size: 28px;
     }
@@ -18,110 +19,18 @@
         font-size: 22px;
     }
 }
-.file-caption-main{
-    display: flex;
-    flex-wrap: wrap;
-    .file-caption{
-        width: 50%;
-        height: 50px;
-        padding: 15px;
-        border: $inputsborder;
-        border-radius: 0px;
-        font-size: 16px;
-        @include laptop-down{
-            width: 100%;
-        }
-    }
-    .input-group-btn{ // wrapper
-        display:flex;
-        flex-wrap: wrap;
-        width: 50%;
-        transition: .2s ease;
-        @include laptop-down{
-            width: 100%;
-        }
-    }
-    .fileinput-remove{ // Verwijder knop
-        border: $inputsborder;
-        transition: .2s ease;
-        width: calc(100% - 123px);
-        &:hover{
-            background-color: lighten($pink-col-hex, 30%);
-        }
-        @include setflex(row, center, center);
-        @include portrait{
-            padding: 10px 0;
-            width:100%;
-        }
-        @include landscape{
-            padding: 10px 0;
-            width: calc(100% - 123px);
-        }
-        @include tablet{
-            padding: 10px 0;
-            width:100%;
-        }
-        @include laptop{
-            width: 100%;
-        }
-    }
-    .btn-file.btn-primary{ // Zoek knop
-        transition: .2s ease;
-        height: 50px;
-        border-radius: 0px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 123px;
-        background-color: black;
-        border: 0;
-        font-size: 16px;
-        @include setflex(row, center, center);
-        @include portrait{
-            padding: 10px 0;
-            width:100%;
-        }
-        @include landscape{
-            padding: 10px 0;
-            width: 123px;
-        }
-        @include tablet{
-            padding: 10px 0;
-            width:100%;
-        }
-        @include laptop{
-            width: 100%;
-        }
-        &:hover{
-            color: $pink-col-hex;
-        }
-    }
-    .hidden-xs{
-        margin-left: 15px;
-        @include landscape-down{
-            display: block !important;
-        }
-    }
-}
-.fileinput-upload, .file-upload-indicator{
-    display:none;
-}
-.file-preview-thumbnails{
-    @include setflex(row, center, center, wrap);
-}
-
 //Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
 $fa-font-size: 26px;
 .font-awesome-checks{
     position: absolute;
     top: ((59px - $fa-font-size) / 2) + 20;
+    right: 30px;
+    background-color: rgba(white,0);
+    font-size: $fa-font-size;
+    line-height: 1;
     @include landscape-down{
         top: ((59px - $fa-font-size) / 2);
     }
-    background-color: rgba(white,0);
-    font-size: $fa-font-size;
-    right: 30px;
-    line-height: 1;
 }
 .checks-ok{
     color: green;
@@ -152,23 +61,23 @@ $fa-font-size: 26px;
     @include volgende-stap;
     @include step_nums_and_dashes;
     @include vorige-knop;
-    p{
-        margin:0;
-    }
+    padding: 50px 0px;
     background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
     background-repeat: repeat-y;
-    padding: 50px 0px;
     .col:not(.tablenr){
         color: black;
         text-align: center;
     }
+    p{
+        margin:0;
+    }
 }
 .currency{
     input{
-        border:0;
-        background-color: white;
         width:100%;
         margin-left:7px;
+        border:0;
+        background-color: white;
         &:hover, &:focus, &:active{
             background-color: white !important;
             border: none !important;
@@ -178,26 +87,39 @@ $fa-font-size: 26px;
 }
 .starinput{
     padding: 5px 15px !important;
-    @include tablet-down{
-        @include setflex(column !important, center, center);
-        .stars{
-            width:100%;
-            @include setflex(row-reverse, center, center);
-        }
-    }
     @include portrait{
         @include setflex(column !important, flex-start, flex-start);
-        flex-direction: column !important;
     }
     @include landscape{
         @include setflex(row !important, center, center);
         p{
-            text-align: left;
             width: 50%;
+            text-align: left;
         }
         .stars{
-            width:50%;
             justify-content: flex-start;
+            width:50%;
+        }
+    }
+    @include custom($portrait-max, 600px){
+        p{
+            width: 35%;
+            text-align: left;
+        }
+        .stars{
+            justify-content: flex-start;
+            width: 65%;
+        }
+    }
+    @include tablet{
+        @include setflex(row !important, center, center);
+        p{
+            width: 50%;
+            text-align: left;
+        }
+        .stars{
+            justify-content: flex-start;
+            width:50%;
         }
     }
 }
@@ -207,15 +129,15 @@ $fa-font-size: 26px;
     }
 }
 .info-step1 button, #browse{
-    transition: .2s ease;
-    background-color: rgba(0,0,0,.8);
-    width: 100%;
     display:flex;
     justify-content: space-between;
+    width: 100%;
     padding: 15px;
     margin-top: 40px;
     border:0;
+    background-color: rgba(0,0,0,.8);
     color:white;
+    transition: .2s ease;
     &:focus{
         background-color: rgba(0,0,0,.8) !important;
         outline: none;
@@ -237,22 +159,14 @@ body{
     }
     .row{
         @include setflex(row, center, flex-start);
-        @include portrait{
-            @include setflex(column, center, flex-start);
-            width: 100%;
-        }
-        @include landscape{
+        @include landscape-down{
             @include setflex(column, center, flex-start);
             width: 100%;
         }
         margin-left: 0 !important;
         .col{
             @include setflex(row, center, flex-end);
-            @include portrait{
-                width: 100%;
-                @include setflex(row, center, center);
-            }
-            @include landscape{
+            @include landscape-down{
                 width: 100%;
                 @include setflex(row, center, center);
             }
@@ -314,5 +228,8 @@ body{
     display:none;
     margin-left:15px;
     width:25px;
+}
+.info-step4{
+    min-height: calc(100vh - (204px + 117.5px));
 }
 /* End steps */

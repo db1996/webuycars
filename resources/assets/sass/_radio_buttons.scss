@@ -18,6 +18,7 @@
         transition: .2s ease;
         padding: 15px 0 15px 15px;
         margin:0;
+        width:60%;
     }
     .radios{
         transition: .2s ease;
@@ -27,11 +28,25 @@
         justify-content: flex-end;
         .single-radio{
             height:100%;
+            width: 40%;
             input{
                 display: none;
             }
             label {
+                display: block;
+                position: relative;
+                justify-content: center;
+                height:100%;
+                margin:0;
+                padding: 15px 15px 15px 15px;
+                border-left: 2px solid white;
+                border-radius: 2;
+                text-align: center;
+                line-height: 22px;
                 transition: .2s ease;
+                background: black;
+                color: white;
+                cursor: pointer;
                 @include portrait{
                     display: flex;
                     align-items: center;
@@ -40,19 +55,6 @@
                     display: flex;
                     align-items: center;
                 }
-                text-align: center;
-                padding: 15px 15px 15px 15px;
-                height:100%;
-                border-left: 2px solid white;
-                margin:0;
-                border-radius: 2;
-                display: block;
-                line-height: 22px;
-                text-align: center;
-                color: white;
-                cursor: pointer;
-                background: black;
-                position: relative;
                 &:hover{
                     color: lighten($pink-col-hex, 30%);
                 }

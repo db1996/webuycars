@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <button type="button" class="btn btn-info" data-toggle="collapse" aria-expanded="true" data-target="#kmstand">
                         <p>KM stand</p>
                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <button type="button" class="btn btn-info collapse-button" data-toggle="collapse" aria-expanded="true" data-target="#uitvoering">
                         <p>Uitvoering</p>
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <button type="button" class="btn btn-info collapse-button" data-toggle="collapse" aria-expanded="true" data-target="#carrosserie">
                         <p>Carrosserie</p>
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col col-sm-3"></div><div class="col col-sm-6">
+                        <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                             <button type="button" class="btn btn-info collapse-button" data-toggle="collapse" aria-expanded="true" data-target="#versnelling">
                                 <p>Versnelling</p>
                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                                <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                                     <button type="button" class="btn btn-info collapse-button" aria-expanded="true" data-toggle="collapse" data-target="#kleur">
                                         <p>Kleur</p>
                                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col col-sm-3"></div><div class="col col-sm-6">
+                                        <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                                             <a id="gotostap2" class="btn btn-info volgende-stap check-stap" href="#step2" data-toggle="">Volgende</a>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                     @include('partials.steps', [
                                         'numofsteps' => 4,
                                         'active' => 0,
-                                        'width' => 6,
+                                        'width' => "12 col-md-6" ,
                                         'offset' => 3,
                                     ])
                                 </div>
