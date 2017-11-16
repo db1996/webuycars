@@ -36,6 +36,17 @@ class KentekensController extends Controller
     }
     public function store(StoreKenteken $request)
     {
+        $file_post = $_FILES['filedata'];
+        $file_ary = array();
+        $file_count = count($file_post['name']);
+        $file_keys = array_keys($file_post);
+
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $file_ary[$i][$key] = $file_post[$key][$i];
+            }
+        }
+        dd($file_ary);
         $confirmed = 0;
         $kenteken = Kenteken::create([
             'kenteken' => $request->kenteken,
@@ -62,20 +73,6 @@ class KentekensController extends Controller
             'confirmation_code' => str_random(128),
             'confirmed' => $confirmed
         ]);
-        $files = $request->file('filedata');
-        // dd($files);
-        foreach($files as $file) {
-            $originalfilename = $file->getClientOriginalName();
-            $originalExtension = substr(strrchr($originalfilename, '.'), 1);
-            $randomFilename = str_random(30) . "." . $originalExtension;
-            $file->move(public_path() . '/img/kentekens/', $randomFilename);
-            $image = Image::create([
-                'kenteken_id' => $kenteken->id,
-                'kenteken' => $_POST['kenteken'],
-                'filename'  => $randomFilename,
-                'originalfilename'  => $originalfilename
-            ]);
-        }
         Mail::to($kenteken)->send(new Verstuurd($kenteken));
         return redirect("/kenteken/klaar");
     }
