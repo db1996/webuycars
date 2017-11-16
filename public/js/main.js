@@ -32,6 +32,9 @@ $('.check-stap').on('click', function (){
         setTimeout(function() {
             $(toggleElem).attr('data-toggle', '');
         }, 1);
+        if ($(this).attr('type') == "submit"){
+            $('#all-form').submit();
+        }
         return;
     }
     var parent_tab_pane = $(this).parents('.tab-pane');

@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3"></div><div class="col-sm-6 upload-images">
+                <div class="col-sm-3 hidden-sm"></div><div class="col-sm-12 col-md-6 upload-images">
                     <input id="filedata" accept=".jpg,.gif,.png,.jpeg,.svg" name="filedata[]" lang="nl" type="file" multiple class="file-loading">
                     <script>
                     $("#filedata").fileinput({
@@ -16,27 +16,30 @@
                         allowedFileTypes: ['image'],
                         elPreviewContainer: '.file-preview-custom',
                         'language': 'nl',
+                        'showUpload': false,
+                        'showCancel': false,
+                        'showIndicator': false
                     });
                     </script>
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     @include('partials.radio_buttons', ['name' => 'schadevrij', 'title' => 'Is je auto schadevrij?'])
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     @include('partials.radio_buttons', ['name' => 'rijdbaar', 'title' => 'Is je auto rijdbaar?'])
                 </div>
             </div>
             <div class="row">
-                <div class=" col col-sm-3"></div><div class="col col-sm-6">
+                <div class=" col col-sm-3 hidden-sm"></div><div class="col col-md-6 col-sm-12">
                     @include('partials.radio_buttons', ['name' => 'onderhoudsboekje','title' => 'Onderhoudsboekje aanwezig?'])
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['buitenzijde'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['buitenzijde'] }}" >
                         <p class="pseudo_label">Staat buitenzijde</p>
@@ -45,7 +48,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['interieur'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['interieur'] }}">
                         <p class="pseudo_label">Staat interieur</p>
@@ -54,7 +57,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['technischestaat'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['technischestaat'] }}">
                         <p class="pseudo_label">Technische staat</p>
@@ -63,7 +66,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['bandenprofiel'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['bandenprofiel'] }}">
                         <p class="pseudo_label">Staat bandenprofiel</p>
@@ -72,18 +75,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <span class="currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['price'] }}" >€<input class="currencyinput" required type="number" name="price" value="" placeholder="Verwachte prijs in euro's....."></span>
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <input class="puretextinput" required type="text" name="accesoires" value="" placeholder="opties en accesoires...">
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-3"></div><div class="col col-sm-6">
+                <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <button type="submit" class="btn btn-info volgende-stap check-stap">
                         <p>Volgende</p>
                         <img id="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
@@ -94,8 +97,8 @@
             @include('partials.steps', [
                 'numofsteps' => 4,
                 'active' => 2,
-                'width' => 6,
-                'offset' => 3
+                'width' => "12 col-md-6",
+                'offset' => "3 hidden-xs"
             ])
             <div class="row">
                 <div class="col-sm-3"></div>
