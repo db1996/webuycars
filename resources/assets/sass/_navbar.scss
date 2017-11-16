@@ -1,4 +1,7 @@
 /* begin nav */
+.navbar-fixed-top .navbar-collapse{
+    max-height:none;
+}
 nav.navbar{
     top: 0px;
     transition: .5s ease;
@@ -32,6 +35,9 @@ nav.navbar{
         @include landscape-down{
             margin-top: 35px;
         }
+        &:focus, &:active{
+            background-color: black;
+        }
     }
     ul>li>a{
         //make all the buttons in be in the middle (Vertically)
@@ -61,10 +67,7 @@ nav.navbar{
 }
 // class is added when window is scrolled down.
 .nav-up{
-    top: -200px !important;
-    @include custom(768px, 1002px){
-        top: -250px !important;
-    }
+    top: -100% !important;
 }
 #jouwauto-page{
     nav.navbar{

@@ -45,7 +45,7 @@ $fa-font-size: 26px;
     }
 }
 #jouwauto-page{
-    button[aria-expanded="false"]{
+    button[aria-expanded="false"]:not(.navbar-toggle){
         i:before{
             content: "\f054";
         }
