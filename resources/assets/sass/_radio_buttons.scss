@@ -1,71 +1,69 @@
-
-.radio-wrap{
-    display:flex;
+.radio-wrap {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
     font-size: 18px;
     margin-top: 20px;
-    width:100%;
-    color:black;
+    width: 100%;
+    color: black;
     box-sizing: border-box;
-    border:$inputsborder;
-    transition: .2s ease;
-    &:hover{
+    border: $inputsborder;
+    transition: 0.2s ease;
+    &:hover {
         border: $inputsborder-hover;
     }
-    p{
-        transition: .2s ease;
+    p {
+        transition: 0.2s ease;
         padding: 15px 0 15px 15px;
-        margin:0;
-        width:60%;
+        margin: 0;
+        width: 60%;
     }
-    .radios{
-        transition: .2s ease;
-        display:flex;
+    .radios {
+        transition: 0.2s ease;
+        display: flex;
         flex-direction: row;
         width: 40%;
         justify-content: flex-end;
-        .single-radio{
-            height:100%;
+        .single-radio {
+            height: 100%;
             width: 40%;
-            input{
+            input {
                 display: none;
             }
             label {
                 display: block;
                 position: relative;
                 justify-content: center;
-                height:100%;
-                margin:0;
+                height: 100%;
+                margin: 0;
                 padding: 15px 15px 15px 15px;
                 border-left: 2px solid white;
                 border-radius: 2;
                 text-align: center;
                 line-height: 22px;
-                transition: .2s ease;
+                transition: 0.2s ease;
                 background: black;
                 color: white;
                 cursor: pointer;
-                @include portrait{
+                @include portrait {
                     display: flex;
                     align-items: center;
                 }
-                @include tablet{
+                @include tablet {
                     display: flex;
                     align-items: center;
                 }
-                &:hover{
+                &:hover {
                     color: lighten($pink-col-hex, 30%);
                 }
             }
-            input:checked+label{
+            input:checked + label {
                 color: $pink-col-hex;
             }
         }
-        .single-radio.yes{
-            label
-            {
+        .single-radio.yes {
+            label {
                 padding: 15px 18px 15px 18px;
             }
         }

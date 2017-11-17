@@ -1,78 +1,103 @@
-#flash-mes{
+#flash-mes {
     position: absolute;
     min-width: 200px;
     text-align: center;
     top: 180px;
     z-index: 10;
-    transition: .2s ease;
-    animation: flash-mes-comein 1s forwards ,flash-mes-fade  .5s forwards 10s;
+    transition: 0.2s ease;
+    animation: flash-mes-comein 1s forwards, flash-mes-fade 0.5s forwards 10s;
 }
 
 @keyframes flash-mes-fade {
-    0%   {opacity: 1;}
-    100% {opacity: 0; display:none;}
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }
 @keyframes flash-mes-comein {
-    0%   {right:-500px; }
-    100%  {right:20px;}
+    0% {
+        right: -500px;
+    }
+    100% {
+        right: 20px;
+    }
 }
 @keyframes flash-ms-fade {
-    0%   {opacity: 1;}
-    100% {opacity: 0; display:none;}
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }
 @keyframes flash-ms-comein {
-    0%   {opacity: 0;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-.flash-ms{
+.flash-ms {
     z-index: 10;
     position: fixed;
-    right:50%; // Move it to the right for 50% of parent element
-    margin-right:-250px; // You need here to put 1/2 of what you have below in width
-    width:500px;
+    right: 50%; // Move it to the right for 50% of parent element
+    margin-right: -250px; // You need here to put 1/2 of what you have below in width
+    width: 500px;
     text-align: center;
-    top:38%;
+    top: 38%;
     z-index: 10;
-    transition: .2s ease;
-    animation: flash-ms-comein .5s forwards ,flash-ms-fade  .5s forwards 6s;
+    transition: 0.2s ease;
+    animation: flash-ms-comein 0.5s forwards, flash-ms-fade 0.5s forwards 6s;
 }
 
-.flash-image-mes{
+.flash-image-mes {
     z-index: 50;
     position: fixed;
     left: calc(50% - 250px);
-    width:500px;
-    border: 1px solid #FF3333 !important;
+    width: 500px;
+    border: 1px solid #ff3333 !important;
     border-radius: 4px;
     padding: 15px;
-    button{
+    button {
         min-width: 100px;
-        border:0;
+        border: 0;
         background-color: white;
         padding: 10px;
         outline: none !important;
-        transition: .2s ease;
-        &:first-child{
+        transition: 0.2s ease;
+        &:first-child {
             margin-right: 15px;
         }
-        &:hover{
-            background-color: rgba(white, .5)
+        &:hover {
+            background-color: rgba(white, 0.5);
         }
     }
 }
-.flash-image-mes.animateIn{
+.flash-image-mes.animateIn {
     animation: images-mes-in 1s forwards;
 }
-.flash-image-mes.animateOut{
+.flash-image-mes.animateOut {
     animation: images-mes-out 1s forwards;
-
 }
-@keyframes images-mes-in{
-    0%   {top: -500px;}
-    100% {top: calc(50% - 150px);}
+@keyframes images-mes-in {
+    0% {
+        top: -500px;
+    }
+    100% {
+        top: calc(50% - 150px);
+    }
 }
-@keyframes images-mes-out{
-    0% {top: calc(50% - 150px);}
-    100%   {top: -500px;}
+@keyframes images-mes-out {
+    0% {
+        top: calc(50% - 150px);
+    }
+    100% {
+        top: -500px;
+    }
 }

@@ -6,16 +6,16 @@ $imagelocation: 'http://localhost:3000/webuycars/public/img/';
 $input_color: black;
 $input_back_color: white;
 $inputsborder: 2px solid black;
-$inputsborder-hover: 2px solid $pink-col-hex ;
+$inputsborder-hover: 2px solid $pink-col-hex;
 $input-hover-color: black;
 $input-hover-back-color: white;
 
 // Import mixins
-@import "mixins";
+@import 'mixins';
 
 // Some basic universal styling
-html,body
-{
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -28,9 +28,9 @@ html,body
 //custom styles
 @import 'navbar';
 @import 'homepage';
-@import "steps";
+@import 'steps';
 
 @import 'flash_message';
-@import "stars_rating";
-@import "radio_buttons";
-@import "error";
+@import 'stars_rating';
+@import 'radio_buttons';
+@import 'error';

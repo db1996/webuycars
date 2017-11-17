@@ -1,88 +1,88 @@
 /* Begin Homepage */
-.top-image{
+.top-image {
     background-image: url($imagelocation + 'header.png');
     @include portrait {
         background-image: url($imagelocation + 'header-mobile.png');
     }
-    @include landscape{
-        background-image: url($imagelocation +  'header-tablet2.png');
+    @include landscape {
+        background-image: url($imagelocation + 'header-tablet2.png');
     }
-    .container{
-        height:auto;
+    .container {
+        height: auto;
         text-align: left;
-        color:white !important;
+        color: white !important;
         font-size: 20px;
-        height:100%;
-        @include landscape-down{
+        height: 100%;
+        @include landscape-down {
             @include setflex(column,center, center);
-            height:700px;
+            height: 700px;
         }
-        @include tablet-up{
+        @include tablet-up {
             @include setflex(column,flex-end, center);
-            height:700px;
+            height: 700px;
         }
-        .row{
-            width:100%;
-            @include landscape-down{
+        .row {
+            width: 100%;
+            @include landscape-down {
                 @include setflex(column,center, center);
             }
-            @include tablet-up{
+            @include tablet-up {
                 @include setflex(column,flex-end, flex-end);
             }
         }
     }
-    .kenteken-form{
-        @include portrait{
-            width:auto;
+    .kenteken-form {
+        @include portrait {
+            width: auto;
         }
-        @include landscape-down{
+        @include landscape-down {
             @include setflex(column,center, center);
         }
-        @include tablet-up{
+        @include tablet-up {
             @include setflex(column,flex-end, flex-end);
         }
     }
-    .plate{
+    .plate {
         height: 88px;
         border: 4px solid white;
-        width:310px;
+        width: 310px;
         padding-left: 50px;
         font-size: 45px;
-        background-image: url($imagelocation +  'plate.png');
-        background-repeat:no-repeat;
+        background-image: url($imagelocation + 'plate.png');
+        background-repeat: no-repeat;
     }
-    .nextbtn{
-        margin-top:15px;
-        background-color: rgba(0,0,0,0);
+    .nextbtn {
+        margin-top: 15px;
+        background-color: rgba(0, 0, 0, 0);
         padding: 5px 15px;
         border: $buttonsborder;
-        transition: .3s ease;
-        &:hover{
-            background-color: rgba(0,0,0,1);
+        transition: 0.3s ease;
+        &:hover {
+            background-color: rgba(0, 0, 0, 1);
         }
     }
 }
-.vrijblijvend{
+.vrijblijvend {
     @include setflex(column, center, center);
-    color:white;
-    height:300px;
+    color: white;
+    height: 300px;
     background: $pink-col-hex;
     text-align: center;
-    h1{
+    h1 {
         @include portrait {
             font-size: 28px;
         }
         @include landscape {
             font-size: 36px;
         }
-        @include tablet-up{
+        @include tablet-up {
             font-size: 48px;
         }
     }
-    .bold-font-span{
+    .bold-font-span {
         font-weight: bold;
     }
-    h2{
+    h2 {
         @include landscape-down {
             font-size: 24px;
         }
@@ -92,65 +92,64 @@
     }
 }
 
-
-.instructies{
+.instructies {
     height: auto;
     background-image: url($imagelocation + 'cardoor.png');
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     @include setflex(row, center, center);
-    @include tablet-down{
+    @include tablet-down {
         flex-direction: column;
         background-image: url($imagelocation + 'cardoor-992x1500.png');
     }
-    .col{
-        color:white;
+    .col {
+        color: white;
         padding: 40px 0 40px 0;
         text-align: center;
     }
-    .instructies-img{
-        width:250px;
+    .instructies-img {
+        width: 250px;
     }
 }
-.gegevens{
+.gegevens {
     @include setflex(row, center, space-around);
     color: white;
     background-color: $pink-col-hex;
-    .container{
+    .container {
         padding: 100px 0px;
     }
-    .col{
+    .col {
         margin: 0 auto;
     }
-    .imgcol:not(.hidden-xs){
-        @include landscape-down{
+    .imgcol:not(.hidden-xs) {
+        @include landscape-down {
             @include setflex(row, center, center, nowrap, !important);
             margin-top: 30px;
             text-align: center;
         }
     }
-    .bottom-col{
+    .bottom-col {
         margin-bottom: 0;
     }
 }
 .reviews {
-    @at-root .title-row{
+    @at-root .title-row {
         @include setflex(row, center, center);
         padding: 50px 0;
-        .col{
+        .col {
             @include setflex(row, center, center);
         }
-        h1{
+        h1 {
             margin: 0;
         }
     }
     display: flex;
     height: auto;
     background-image: url($imagelocation + 'reviewachtergrond.png');
-    color:white;
-    .reviewbox-column{
+    color: white;
+    .reviewbox-column {
         text-align: center;
         color: white;
-        @include landscape-down{
+        @include landscape-down {
             padding: 0 !important;
         }
     }
@@ -158,7 +157,7 @@
         margin: 0px 0px 40px 20px;
         padding-bottom: 1px;
         background-color: white;
-        @include landscape-down{
+        @include landscape-down {
             margin-left: 0;
             padding-bottom: 20px;
         }
@@ -169,7 +168,7 @@
     .foto2 {
         @include background-url('blauwepoloRes.png', 62%);
     }
-    .fotoOnderlijn{
+    .fotoOnderlijn {
         height: 10px;
         background-color: $pink-col-hex;
     }
@@ -185,7 +184,6 @@
         height: 2px;
         margin: 20px 40px 0px 40px;
         background-color: black;
-
     }
 }
 $circle-size: 80px;
@@ -193,13 +191,13 @@ $portrait-percentage: 62.5;
 $tablet-percentage: 62.5;
 $laptop-percentage: 62.5;
 $image-wrap-percentage: 70;
-.rating-wrap{
+.rating-wrap {
     @include setflex(row, center, space-around);
     padding: 15px;
-    .single-inside-wrap{
+    .single-inside-wrap {
         @include setflex(row, center, center);
     }
-    .single-rating{
+    .single-rating {
         @include setflex(row, center, center);
         width: $circle-size;
         height: $circle-size;
@@ -207,42 +205,45 @@ $image-wrap-percentage: 70;
         border-radius: 50%;
         border: 5px solid black;
         background: black;
-        @include portrait{
+        @include portrait {
             width: $circle-size * ($portrait-percentage / 100);
             height: $circle-size * ($portrait-percentage / 100);
         }
-        @include tablet{
+        @include tablet {
             width: $circle-size * ($tablet-percentage / 100);
             height: $circle-size * ($tablet-percentage / 100);
         }
-        @include laptop{
+        @include laptop {
             width: $circle-size * ($laptop-percentage / 100);
             height: $circle-size * ($laptop-percentage / 100);
         }
-        @include custom(0px, 335px){
-            width: $circle-size * .5;
-            height: $circle-size * .5;
+        @include custom(0px, 335px) {
+            width: $circle-size * 0.5;
+            height: $circle-size * 0.5;
         }
-        &:not(.full){
-            background: rgba(white,0);
+        &:not(.full) {
+            background: rgba(white, 0);
         }
-        &:last-child{
+        &:last-child {
             margin-right: 0;
         }
     }
-    .review-img{
+    .review-img {
         width: $circle-size * ($image-wrap-percentage / 100);
-        @include portrait{
-            width: $circle-size * ($portrait-percentage / 100) * ($image-wrap-percentage / 100);
+        @include portrait {
+            width: $circle-size * ($portrait-percentage / 100) * ($image-wrap-percentage /
+                        100);
         }
-        @include tablet{
-            width: $circle-size * ($tablet-percentage / 100) * ($image-wrap-percentage / 100);
+        @include tablet {
+            width: $circle-size * ($tablet-percentage / 100) * ($image-wrap-percentage /
+                        100);
         }
-        @include laptop{
-            width: $circle-size * ($laptop-percentage / 100) * ($image-wrap-percentage / 100);
+        @include laptop {
+            width: $circle-size * ($laptop-percentage / 100) * ($image-wrap-percentage /
+                        100);
         }
-        @include custom(0px, 335px){
-            width: $circle-size * .5 * ($image-wrap-percentage / 100);
+        @include custom(0px, 335px) {
+            width: $circle-size * 0.5 * ($image-wrap-percentage / 100);
         }
     }
 }
@@ -250,6 +251,5 @@ $image-wrap-percentage: 70;
     height: 200px;
     width: 100%;
     background-color: $pink-col-hex;
-
 }
 /* end Homepage */

@@ -1,24 +1,23 @@
-.inputerror{
+.inputerror {
     border: 2px solid red !important;
 }
 .errtooltip + .tooltip {
     width: 300px;
-    @include landscape-down{
+    @include landscape-down {
         display: none !important;
     }
 }
 .errtooltip + .tooltip > .tooltip-inner {
-    background-color: rgba(red, .5);
-    border: 1px solid rgba(red, .5);
+    background-color: rgba(red, 0.5);
+    border: 1px solid rgba(red, 0.5);
     padding: 10px 15px;
     font-size: 20px;
-
 }
 /* Tooltip on right */
 .errtooltip + .tooltip.right > .tooltip-arrow {
     border-right: 5px solid red;
     top: 25px !important;
 }
-.tooltip.right{
+.tooltip.right {
     top: 25px !important;
 }

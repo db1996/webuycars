@@ -22,32 +22,32 @@ $laptop-max: 1200px;
         @content;
     }
 }
-@mixin tablet{
+@mixin tablet {
     @media (min-width: #{$landscape-max}) and (max-width: #{$tablet-max - 1px}) {
         @content;
     }
 }
-@mixin tablet-down{
+@mixin tablet-down {
     @media (max-width: #{$tablet-max - 1px}) {
         @content;
     }
 }
-@mixin tablet-up{
+@mixin tablet-up {
     @media (min-width: #{$landscape-max}) {
         @content;
     }
 }
-@mixin laptop{
+@mixin laptop {
     @media (min-width: #{$tablet-max}) and (max-width: #{$laptop-max - 1px}) {
         @content;
     }
 }
-@mixin laptop-down{
+@mixin laptop-down {
     @media (max-width: #{$laptop-max - 1px}) {
         @content;
     }
 }
-@mixin laptop-up{
+@mixin laptop-up {
     @media (min-width: #{$tablet-max}) {
         @content;
     }

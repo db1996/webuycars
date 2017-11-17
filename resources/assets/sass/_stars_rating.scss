@@ -1,7 +1,7 @@
 div.stars {
     // width: 70%;
     display: inline-block;
-    @include laptop{
+    @include laptop {
         width: 70%;
     }
 }
@@ -14,33 +14,33 @@ label.star {
     padding: 10px;
     font-size: 36px;
     color: #444;
-    transition: all .2s;
-    @include custom(0px, 331px){
+    transition: all 0.2s;
+    @include custom(0px, 331px) {
         transition: all 0s;
         font-size: 24px;
     }
-    @include custom(0px, 275px){
+    @include custom(0px, 275px) {
         font-size: 16px;
     }
-    @include custom(0px, 238px){
+    @include custom(0px, 238px) {
         font-size: 10px;
     }
 }
 
 input.star:checked ~ label.star:before {
     content: '\f005';
-    color: #FD4;
-    transition: all .25s;
+    color: #fd4;
+    transition: all 0.25s;
 }
 input.star-5:checked ~ label.star:before {
-    color: #FD4;
+    color: #fd4;
 }
 input.star-1:checked ~ label.star:before {
-    color: #F62;
+    color: #f62;
 }
-input.star:hover ~ label.star:before{
-    color: #FD4;
-    transition: all .25s;
+input.star:hover ~ label.star:before {
+    color: #fd4;
+    transition: all 0.25s;
 }
 label.star:before {
     content: '\f006';
