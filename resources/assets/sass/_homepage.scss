@@ -1,3 +1,12 @@
+// rating circle measurements
+$circle-size: 80px;
+$portrait-percentage: 62.5;
+$tablet-percentage: 62.5;
+$laptop-percentage: 62.5;
+$image-wrap-percentage: 70;
+.bold-font-span {
+    font-weight: bold;
+}
 /* Begin Homepage */
 .top-image {
     background-image: url($imagelocation + 'header.png');
@@ -7,59 +16,59 @@
     @include landscape {
         background-image: url($imagelocation + 'header-tablet2.png');
     }
-    .container {
-        height: auto;
-        text-align: left;
-        color: white !important;
-        font-size: 20px;
-        height: 100%;
-        @include landscape-down {
-            @include setflex(column,center, center);
-            height: 700px;
-        }
-        @include tablet-up {
-            @include setflex(column,flex-end, center);
-            height: 700px;
-        }
-        .row {
-            width: 100%;
-            @include landscape-down {
-                @include setflex(column,center, center);
-            }
-            @include tablet-up {
-                @include setflex(column,flex-end, flex-end);
-            }
-        }
+}
+.kenteken-form {
+    @include portrait {
+        width: auto;
     }
-    .kenteken-form {
-        @include portrait {
-            width: auto;
-        }
-        @include landscape-down {
-            @include setflex(column,center, center);
-        }
-        @include tablet-up {
-            @include setflex(column,flex-end, flex-end);
-        }
+    @include landscape-down {
+        @include setflex(column,center, center);
     }
-    .plate {
-        height: 88px;
-        border: 4px solid white;
-        width: 310px;
-        padding-left: 50px;
-        font-size: 45px;
-        background-image: url($imagelocation + 'plate.png');
-        background-repeat: no-repeat;
+    @include tablet-up {
+        @include setflex(column,flex-end, flex-end);
     }
-    .nextbtn {
-        margin-top: 15px;
-        background-color: rgba(0, 0, 0, 0);
-        padding: 5px 15px;
-        border: $buttonsborder;
-        transition: 0.3s ease;
-        &:hover {
-            background-color: rgba(0, 0, 0, 1);
-        }
+}
+.plate {
+    height: 88px;
+    border: 4px solid white;
+    width: 310px;
+    padding-left: 50px;
+    font-size: 45px;
+    background-image: url($imagelocation + 'plate.png');
+    background-repeat: no-repeat;
+}
+.nextbtn {
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px 15px;
+    border: $buttonsborder;
+    transition: 0.3s ease;
+    &:hover {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+.top-image__container {
+    height: auto;
+    text-align: left;
+    color: white !important;
+    font-size: 20px;
+    height: 100%;
+    @include landscape-down {
+        @include setflex(column,center, center);
+        height: 700px;
+    }
+    @include tablet-up {
+        @include setflex(column,flex-end, center);
+        height: 700px;
+    }
+}
+.row--no-width {
+    width: 100%;
+    @include landscape-down {
+        @include setflex(column,center, center);
+    }
+    @include tablet-up {
+        @include setflex(column,flex-end, flex-end);
     }
 }
 .vrijblijvend {
@@ -78,9 +87,6 @@
         @include tablet-up {
             font-size: 48px;
         }
-    }
-    .bold-font-span {
-        font-weight: bold;
     }
     h2 {
         @include landscape-down {
@@ -106,9 +112,9 @@
         padding: 40px 0 40px 0;
         text-align: center;
     }
-    .instructies-img {
-        width: 250px;
-    }
+}
+.instructies-img {
+    width: 250px;
 }
 .gegevens {
     @include setflex(row, center, space-around);
@@ -120,16 +126,16 @@
     .col {
         margin: 0 auto;
     }
-    .imgcol:not(.hidden-xs) {
-        @include landscape-down {
-            @include setflex(row, center, center, nowrap, !important);
-            margin-top: 30px;
-            text-align: center;
-        }
+}
+.imgcol:not(.hidden-xs) {
+    @include landscape-down {
+        @include setflex(row, center, center, nowrap, !important);
+        margin-top: 30px;
+        text-align: center;
     }
-    .bottom-col {
-        margin-bottom: 0;
-    }
+}
+.bottom-col {
+    margin-bottom: 0;
 }
 .reviews {
     @at-root .title-row {
@@ -146,105 +152,101 @@
     height: auto;
     background-image: url($imagelocation + 'reviewachtergrond.png');
     color: white;
-    .reviewbox-column {
-        text-align: center;
-        color: white;
-        @include landscape-down {
-            padding: 0 !important;
-        }
-    }
-    .reviewbox {
-        margin: 0px 0px 40px 20px;
-        padding-bottom: 1px;
-        background-color: white;
-        @include landscape-down {
-            margin-left: 0;
-            padding-bottom: 20px;
-        }
-    }
-    .foto {
-        @include background-url('blauwepolo.png', 62%);
-    }
-    .foto2 {
-        @include background-url('blauwepoloRes.png', 62%);
-    }
-    .fotoOnderlijn {
-        height: 10px;
-        background-color: $pink-col-hex;
-    }
-    .tekst-naam {
-        margin: 50px 20px 0px 20px;
-        color: black;
-    }
-    .tekst {
-        margin: 0px 20px 0px 20px;
-        color: black;
-    }
-    .tekstOnderlijn {
-        height: 2px;
-        margin: 20px 40px 0px 40px;
-        background-color: black;
+}
+.foto {
+    @include background-url('blauwepolo.png', 62%);
+}
+.foto2 {
+    @include background-url('blauwepoloRes.png', 62%);
+}
+.fotoOnderlijn {
+    height: 10px;
+    background-color: $pink-col-hex;
+}
+.tekst-naam {
+    margin: 50px 20px 0px 20px;
+    color: black;
+}
+.tekst {
+    margin: 0px 20px 0px 20px;
+    color: black;
+}
+.tekstOnderlijn {
+    height: 2px;
+    margin: 20px 40px 0px 40px;
+    background-color: black;
+}
+.reviewbox-column {
+    text-align: center;
+    color: white;
+    @include landscape-down {
+        padding: 0 !important;
     }
 }
-$circle-size: 80px;
-$portrait-percentage: 62.5;
-$tablet-percentage: 62.5;
-$laptop-percentage: 62.5;
-$image-wrap-percentage: 70;
+.reviewbox {
+    margin: 0px 0px 40px 20px;
+    padding-bottom: 1px;
+    background-color: white;
+    @include landscape-down {
+        margin-left: 0;
+        padding-bottom: 20px;
+    }
+}
+
 .rating-wrap {
     @include setflex(row, center, space-around);
     padding: 15px;
-    .single-inside-wrap {
-        @include setflex(row, center, center);
+}
+.single-inside-wrap {
+    @include setflex(row, center, center);
+}
+.single-rating {
+    @include setflex(row, center, center);
+    width: $circle-size;
+    height: $circle-size;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 5px solid black;
+    background-color: black;
+    @include portrait {
+        width: $circle-size * ($portrait-percentage / 100);
+        height: $circle-size * ($portrait-percentage / 100);
     }
-    .single-rating {
-        @include setflex(row, center, center);
-        width: $circle-size;
-        height: $circle-size;
-        margin-right: 10px;
-        border-radius: 50%;
-        border: 5px solid black;
-        background-color: black;
-        @include portrait {
-            width: $circle-size * ($portrait-percentage / 100);
-            height: $circle-size * ($portrait-percentage / 100);
-        }
-        @include tablet {
-            width: $circle-size * ($tablet-percentage / 100);
-            height: $circle-size * ($tablet-percentage / 100);
-        }
-        @include laptop {
-            width: $circle-size * ($laptop-percentage / 100);
-            height: $circle-size * ($laptop-percentage / 100);
-        }
-        @include custom(0px, 335px) {
-            width: $circle-size * 0.5;
-            height: $circle-size * 0.5;
-        }
-        &:not(.full) {
-            background-color: rgba(white, 0);
-        }
-        &:last-child {
-            margin-right: 0;
-        }
+    @include tablet {
+        width: $circle-size * ($tablet-percentage / 100);
+        height: $circle-size * ($tablet-percentage / 100);
     }
-    .review-img {
-        width: $circle-size * ($image-wrap-percentage / 100);
-        @include portrait {
-            width: $circle-size * ($portrait-percentage / 100) * ($image-wrap-percentage /
-                        100);
-        }
-        @include tablet {
-            width: $circle-size * ($tablet-percentage / 100) * ($image-wrap-percentage /
-                        100);
-        }
-        @include laptop {
-            width: $circle-size * ($laptop-percentage / 100) * ($image-wrap-percentage /
-                        100);
-        }
-        @include custom(0px, 335px) {
-            width: $circle-size * 0.5 * ($image-wrap-percentage / 100);
-        }
+    @include laptop {
+        width: $circle-size * ($laptop-percentage / 100);
+        height: $circle-size * ($laptop-percentage / 100);
+    }
+    @include custom(0px, 335px) {
+        width: $circle-size * 0.5;
+        height: $circle-size * 0.5;
+    }
+    &:not(.full) {
+        background-color: rgba(white, 0);
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.review-img {
+    width: $circle-size * ($image-wrap-percentage / 100);
+    @include portrait {
+        width: $circle-size * ($portrait-percentage / 100) * ($image-wrap-percentage /
+                    100);
+    }
+    @include tablet {
+        width: $circle-size * ($tablet-percentage / 100) * ($image-wrap-percentage /
+                    100);
+    }
+    @include laptop {
+        width: $circle-size * ($laptop-percentage / 100) * ($image-wrap-percentage /
+                    100);
+    }
+    @include custom(0px, 335px) {
+        width: $circle-size * 0.5 * ($image-wrap-percentage / 100);
     }
 }
 .footer {

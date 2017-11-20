@@ -22,7 +22,7 @@
     font-size: 18px;
     margin-top: 10px;
 }
-.navbar.navbar-mobile {
+.navbar-mobile {
     @include tablet-up {
         display: none;
     }

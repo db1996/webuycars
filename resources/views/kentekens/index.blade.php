@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="top-image">
-        <div class="container">
+        <div class="container top-image__container">
             <img src="" alt="">
-            <div class="row">
+            <div class="row row--no-width">
                 <div class="col col-sm-6 col-offset-sm-4">
                     <form class="kenteken-form" action="{{url('/kenteken/create')}}"  method="get">
                         <p>Voer hier je kenteken in:</p>

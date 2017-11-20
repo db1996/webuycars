@@ -9,6 +9,8 @@ connect = require('gulp-connect');
 var autoprefixer = require('gulp-autoprefixer');
 var CleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
+var mmq = require('gulp-merge-media-queries');
+var combineMq = require('gulp-combine-mq');
 
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
@@ -19,14 +21,38 @@ gulp.task('connect', function() {
         livereload: true
     });
 });
+gulp.task('build-css-minify', function() {
+    return gulp.src(srcs.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass()).on('error', handleError)
+        .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(combineMq({
+    		beautify: false
+    	}))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(dests.css))
 
+        //minify and create .min.css file
+        .pipe(gutil.env.production ? CleanCSS({debug: true}, function(details) {
+            console.log("Original size:");
+            console.log("    -" + (details.stats.originalSize.toFixed(1)  / 1024) + " KB");
+            console.log("Minified size:");
+            console.log("    -" + (details.stats.minifiedSize.toFixed(1) / 1024) + " KB");
+        }) : gutil.noop())
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest(dests.css))
+        .pipe(connect.reload().on( 'error', gutil.log ));
+});
 // Build CSS
 gulp.task('build-css', function() {
     return gulp.src(srcs.scss)
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', handleError)
-        .pipe(sourcemaps.write())
         .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(combineMq({
+    		beautify: true
+    	}))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(dests.css))
 
         //minify and create .min.css file
