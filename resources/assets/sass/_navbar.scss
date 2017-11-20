@@ -1,8 +1,8 @@
 /* begin nav */
-// mobile part
 .navbar-fixed-top .navbar-collapse {
     max-height: none;
 }
+// mobile part
 .navbar-toggle-mobile {
     padding: 0 8px;
     font-size: 34px;
@@ -47,14 +47,8 @@
         display: none;
     }
 }
-.navbar-collapse-default {
-    text-align: center;
-}
-.navbar-nav-default {
-    //screen-size: =>768
-    @include tablet-up {
-        float: right;
-    }
+.navbar-header-default {
+    margin-left: 25px;
 }
 .navbar-toggle-default {
     @include landscape-down {
@@ -65,19 +59,6 @@
         background-color: black;
     }
 }
-.navbar-link-default {
-    //make all the buttons in be in the middle (Vertically)
-    line-height: 87px !important;
-    color: white !important;
-    font-size: 24px;
-    transition: 0.3s ease;
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.4) !important;
-    }
-}
-.navbar-header-default {
-    margin-left: 25px;
-}
 .navbar-brand {
     height: auto;
 }
@@ -87,20 +68,38 @@
         width: 150px;
     }
 }
+.navbar-collapse-default {
+    text-align: center;
+}
+.navbar-nav-default {
+    //screen-size: =>768
+    @include tablet-up {
+        float: right;
+    }
+}
+.navbar-link-default {
+    line-height: 87px !important;
+    color: white !important;
+    font-size: 24px;
+    transition: 0.3s ease;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+    }
+}
 
 // class is added when window is scrolled down.
-.nav-up:not(.navbar-mobile) {
+.nav-up.navbar-default {
     @include tablet-up {
         top: -100% !important;
     }
 }
 #jouwauto-page {
-    nav.navbar:not(.navbar-mobile) {
+    .navbar-default {
         position: relative;
         background-color: black;
         float: inherit;
     }
-    .nav-up:not(.navbar-mobile) {
+    .nav-up.navbar-default {
         top: 0px !important;
     }
 }
