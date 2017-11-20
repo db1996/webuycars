@@ -7,6 +7,9 @@
         display: none !important;
     }
 }
+.tooltip-inner {
+    max-width: 300px !important;
+}
 .errtooltip + .tooltip > .tooltip-inner {
     background-color: rgba(red, 0.5);
     border: 1px solid rgba(red, 0.5);

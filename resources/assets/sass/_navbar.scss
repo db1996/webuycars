@@ -9,17 +9,25 @@
     color: white;
     background-color: rgba(black, 0.5);
     z-index: 9000;
+    transition: 0.2s ease;
+    &:not(.collapsed) {
+        background-color: $pink-col-hex;
+    }
 }
 .navbar-collapse-mobile {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(black, 0.5);
+    background-color: rgba(black, 0.88);
     text-align: center;
+    padding: 20px 0 20px 0;
 }
 .navbar-link-mobile {
     color: white !important;
     font-size: 18px;
+}
+// puts a margin top on every li except for the first one in the row
+.navbar-nav-mobile li + li {
     margin-top: 10px;
 }
 .navbar-mobile {
@@ -102,5 +110,10 @@
     .nav-up.navbar-default {
         top: 0px !important;
     }
+}
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+    content: '\f0c9' !important;
 }
 /* end nav */

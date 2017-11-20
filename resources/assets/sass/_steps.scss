@@ -231,10 +231,13 @@ body {
         margin-right: 25px;
     }
 }
-#svg-rol {
+.svg-rol {
     display: none;
     margin-left: 15px;
     width: 25px;
+}
+.svg-show{
+    display: block;
 }
 .info-step4 {
     min-height: calc(100vh - (204px + 117.5px));

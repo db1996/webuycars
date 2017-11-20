@@ -82,14 +82,14 @@
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <input class="puretextinput" required type="text" name="accesoires" value="{{old('accesoires')}}" placeholder="opties en accesoires...">
+                    <input class="puretextinput errtooltip" required type="text" name="accesoires" value="{{old('accesoires')}}" placeholder="opties en accesoires...">
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <button type="submit" class="btn btn-info volgende-stap check-stap">
                         <p>Volgende</p>
-                        <img id="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
+                        <img class="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
                 </div>
             </div>
