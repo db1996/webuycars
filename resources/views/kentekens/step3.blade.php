@@ -77,12 +77,12 @@
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <span class="currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
-                    title="{{ $errorarray['errornames']['price'] }}" >€<input class="currencyinput" required type="number" name="price" value="" placeholder="Verwachte prijs in euro's....."></span>
+                    title="{{ $errorarray['errornames']['price'] }}" >€<input class="currencyinput" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's....."></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <input class="puretextinput" required type="text" name="accesoires" value="" placeholder="opties en accesoires...">
+                    <input class="puretextinput" required type="text" name="accesoires" value="{{old('accesoires')}}" placeholder="opties en accesoires...">
                 </div>
             </div>
             <div class="row">

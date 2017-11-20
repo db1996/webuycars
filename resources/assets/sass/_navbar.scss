@@ -1,45 +1,34 @@
 /* begin nav */
+// mobile part
 .navbar-fixed-top .navbar-collapse {
     max-height: none;
 }
+.navbar-toggle-mobile {
+    padding: 0 8px;
+    font-size: 34px;
+    color: white;
+    background-color: rgba(black, 0.5);
+    z-index: 9000;
+}
+.navbar-collapse-mobile {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(black, 0.5);
+    text-align: center;
+}
+.navbar-link-mobile {
+    color: white !important;
+    font-size: 18px;
+    margin-top: 10px;
+}
 .navbar.navbar-mobile {
-    .navbar-fixed-side-right {
-        position: absolute;
-        right: 0px;
-        width: auto;
-        padding: 5px 50px 0px 10px;
-        margin-right: 15px;
-        background-color: rgba(black, 0.5);
-        max-height: none;
-        height: auto;
-        a {
-            color: white !important;
-        }
-    }
-    .navbar-toggle {
-        padding: 0 8px;
-        font-size: 34px;
-        color: white;
-        background-color: rgba(black, 0.5);
-        z-index: 9000;
-    }
-    .navbar-collapse {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: rgba(black, 0.5);
-        text-align: center;
-        a {
-            color: white !important;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-    }
     @include tablet-up {
         display: none;
     }
 }
-nav.navbar:not(.navbar-mobile) {
+// non-mobile part. Default = non mobile
+.navbar-default {
     top: 0px;
     transition: 0.5s ease;
     z-index: 11;
@@ -57,52 +46,48 @@ nav.navbar:not(.navbar-mobile) {
         background-color: rgba(0, 0, 0, 0.8);
         display: none;
     }
-    .navbar-collapse {
-        text-align: center;
-    }
-    .glyphicon-menu-hamburger {
-        font-size: 20px;
-    }
-    .navbar-nav {
-        //screen-size: =>768
-        @include tablet-up {
-            float: right;
-        }
-    }
-    button {
-        @include landscape-down {
-            margin-top: 35px;
-        }
-        &:focus,
-        &:active {
-            background-color: black;
-        }
-    }
-    ul > li > a {
-        //make all the buttons in be in the middle (Vertically)
-        line-height: 87px;
-    }
-    a {
-        color: white !important;
-        font-size: 24px;
-        transition: 0.3s ease;
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.4) !important;
-        }
-    }
-    .navbar-header {
-        margin-left: 25px;
-    }
-    .navbar-brand {
-        height: auto;
-    }
-    .brand-img {
-        width: 250px;
-        @include custom(0px, 369px) {
-            width: 150px;
-        }
+}
+.navbar-collapse-default {
+    text-align: center;
+}
+.navbar-nav-default {
+    //screen-size: =>768
+    @include tablet-up {
+        float: right;
     }
 }
+.navbar-toggle-default {
+    @include landscape-down {
+        margin-top: 35px;
+    }
+    &:focus,
+    &:active {
+        background-color: black;
+    }
+}
+.navbar-link-default {
+    //make all the buttons in be in the middle (Vertically)
+    line-height: 87px !important;
+    color: white !important;
+    font-size: 24px;
+    transition: 0.3s ease;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+    }
+}
+.navbar-header-default {
+    margin-left: 25px;
+}
+.navbar-brand {
+    height: auto;
+}
+.brand-img {
+    width: 250px;
+    @include custom(0px, 369px) {
+        width: 150px;
+    }
+}
+
 // class is added when window is scrolled down.
 .nav-up:not(.navbar-mobile) {
     @include tablet-up {
