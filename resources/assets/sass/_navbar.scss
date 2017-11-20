@@ -2,7 +2,44 @@
 .navbar-fixed-top .navbar-collapse {
     max-height: none;
 }
-nav.navbar {
+.navbar.navbar-mobile {
+    .navbar-fixed-side-right {
+        position: absolute;
+        right: 0px;
+        width: auto;
+        padding: 5px 50px 0px 10px;
+        margin-right: 15px;
+        background-color: rgba(black, 0.5);
+        max-height: none;
+        height: auto;
+        a {
+            color: white !important;
+        }
+    }
+    .navbar-toggle {
+        padding: 0 8px;
+        font-size: 34px;
+        color: white;
+        background-color: rgba(black, 0.5);
+        z-index: 9000;
+    }
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(black, 0.5);
+        text-align: center;
+        a {
+            color: white !important;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    }
+    @include tablet-up {
+        display: none;
+    }
+}
+nav.navbar:not(.navbar-mobile) {
     top: 0px;
     transition: 0.5s ease;
     z-index: 11;
@@ -18,6 +55,7 @@ nav.navbar {
     @include landscape-down {
         padding-right: 25px;
         background-color: rgba(0, 0, 0, 0.8);
+        display: none;
     }
     .navbar-collapse {
         text-align: center;
@@ -66,16 +104,18 @@ nav.navbar {
     }
 }
 // class is added when window is scrolled down.
-.nav-up {
-    top: -100% !important;
+.nav-up:not(.navbar-mobile) {
+    @include tablet-up {
+        top: -100% !important;
+    }
 }
 #jouwauto-page {
-    nav.navbar {
+    nav.navbar:not(.navbar-mobile) {
         position: relative;
         background-color: black;
         float: inherit;
     }
-    .nav-up {
+    .nav-up:not(.navbar-mobile) {
         top: 0px !important;
     }
 }
