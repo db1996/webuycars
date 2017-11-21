@@ -10,13 +10,13 @@ $(document).ready(function() {
 $('#emailTB').on('input', function() {
     checkInput('email');
 });
-
 $('#posTB').on('input', function() {
     checkInput('pos');
 });
 $('#telTB').on('input', function() {
     checkInput('tel');
 });
+// Controls the navigation
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
     var didScroll;

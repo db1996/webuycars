@@ -53,29 +53,19 @@ $('.check-stap').on('click', function() {
             // if the type is NOT radio
             if (type != 'radio') {
                 // if the value is empty it adds the tooltip, depending on what kind of input it is, it puts it on the parent or not
+                var curElem;
+                // Sets the element that needs the tooltip
+                if ($(this).hasClass('currencyinput')) {
+                    curElem = $(this).parent();
+                } else {
+                    curElem = $(this);
+                }
+                // if val is empty the above element will get tooltipped
                 if ($(this).val() == '') {
                     errors.push($(this).attr('name'));
-                    if ($(this).hasClass('currencyinput')) {
-                        $(this)
-                            .parent()
-                            .addClass('inputerror')
-                            .attr('title', 'Dit veld is verplicht')
-                            .tooltip('fixTitle')
-                            .tooltip('show');
-                    } else {
-                        $(this)
-                            .addClass('inputerror')
-                            .addClass('errtooltip')
-                            .attr('title', 'Dit veld is verplicht')
-                            .attr('data-placement', 'right')
-                            .tooltip('fixTitle')
-                            .tooltip('show');
-                    }
-                    // if the val is NOT empty it removes the tooltip
+                    setTooltip(curElem, 'Dit veld is verplicht');
                 } else {
-                    $(this)
-                        .removeClass('inputerror')
-                        .tooltip('destroy');
+                    removeTooltip(elem);
                 }
                 // If the type is number it also checks if the text in it is a number (pointless if console dev changed type)
                 if (type == 'number') {
@@ -85,37 +75,22 @@ $('.check-stap').on('click', function() {
                     }
                     if (!isnum) {
                         errors.push($(this).attr('name'));
-                        $(elem)
-                            .addClass('inputerror')
-                            .attr('title', 'Dit veld moet een getal hebben')
-                            .tooltip('fixTitle')
-                            .tooltip('show');
+                        setTooltip(elem, 'Dit veld moet een getal hebben');
                     } else {
-                        $(elem)
-                            .removeClass('inputerror')
-                            .tooltip('destroy');
+                        removeTooltip(elem);
                     }
                 }
                 // Some special bullshit if the type is radio
             } else {
                 var thisName = $(this).attr('name');
+                var elem = $(this)
+                    .parent()
+                    .parent();
                 if (!$("input:radio[name='" + thisName + "']").is(':checked')) {
                     errors.push($(this).attr('name'));
-                    $(this)
-                        .parent()
-                        .parent()
-                        .addClass('inputerror')
-                        .addClass('errtooltip')
-                        .attr('title', 'Dit veld is verplicht')
-                        .attr('data-placement', 'right')
-                        .tooltip('fixTitle')
-                        .tooltip('show');
+                    setTooltip(elem, 'Dit veld is verplicht');
                 } else {
-                    $(this)
-                        .parent()
-                        .parent()
-                        .removeClass('inputerror')
-                        .tooltip('destroy');
+                    removeTooltip(elem);
                 }
             }
         });
@@ -127,14 +102,38 @@ $('.check-stap').on('click', function() {
         if (!emailvalid || !posvalid || !telvalid) {
             errors.push($(this).attr('href'));
         }
+    } else if ($(this).attr('type') == 'submit') {
+        console.log('step3');
+        var elem = document.getElementsByClassName('file-caption-name')[0];
+        if (elem.title == '') {
+            errors.push('Empty');
+            console.log('empty');
+            setTooltip($('.file-caption-main'), 'Upload een afbeelding');
+        } else {
+            removeTooltip($('.file-caption-main'));
+        }
     }
     if (!errors.length) {
         $(this).attr('data-toggle', 'tab');
         $(this).click();
     } else {
-        console.log(errors);
+        // console.log(errors);
     }
 });
+function setTooltip(elem, str) {
+    $(elem)
+        .addClass('inputerror')
+        .addClass('errtooltip')
+        .attr('title', str)
+        .attr('data-placement', 'right')
+        .tooltip('fixTitle')
+        .tooltip('show');
+}
+function removeTooltip(elem) {
+    $(elem)
+        .removeClass('inputerror')
+        .tooltip('destroy');
+}
 
 function checkInput(name, mode = 0, ermode = 0) {
     var test = {
@@ -155,10 +154,10 @@ function checkInput(name, mode = 0, ermode = 0) {
             err = 'Dit veld moet een geldig E-Mail adres zijn';
             break;
         case 'tel':
-            err = 'Dit veld moet een geldig telefoonnummer adres zijn';
+            err = 'Dit veld moet een geldig telefoonnummer zijn';
             break;
         case 'pos':
-            err = 'Dit veld moet een geldig postcode adres zijn';
+            err = 'Dit veld moet een geldig postcode zijn';
             break;
     }
     var inptext = $('#' + name + 'TB').val();
@@ -174,21 +173,14 @@ function checkInput(name, mode = 0, ermode = 0) {
             .removeClass('checks-nook')
             .addClass('checks-ok');
         if (ermode == 1) {
-            $('#' + name + 'TB')
-                .removeClass('inputerror')
-                .tooltip('destroy');
+            removeTooltip($('#' + name + 'TB'));
         }
     } else {
         $('#' + name + '-fa')
             .addClass('checks-nook')
             .removeClass('checks-ok');
         if (ermode == 1) {
-            $('#' + name + 'TB')
-                .addClass('inputerror')
-                .attr('title', err)
-                .attr('data-placement', 'right')
-                .tooltip('fixTitle')
-                .tooltip('show');
+            setTooltip($('#' + name + 'TB'), err);
         }
     }
     if (mode == 1) {
@@ -252,13 +244,13 @@ $(document).ready(function() {
 $('#emailTB').on('input', function() {
     checkInput('email');
 });
-
 $('#posTB').on('input', function() {
     checkInput('pos');
 });
 $('#telTB').on('input', function() {
     checkInput('tel');
 });
+// Controls the navigation
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
     var didScroll;

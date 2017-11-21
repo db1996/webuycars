@@ -1,17 +1,18 @@
-// Custom variables
-$pink-col-rgb: 238, 42, 123;
-$pink-col-hex: #ee2a7b;
-$buttonsborder: 2px solid white;
-$imagelocation: 'http://localhost:3000/webuycars/public/img/';
-$input_color: black;
-$input_back_color: white;
-$inputsborder: 2px solid black;
-$inputsborder-hover: 2px solid $pink-col-hex;
-$input-hover-color: black;
-$input-hover-back-color: white;
+// modules
+@import 'modules/all';
 
-// Import mixins
-@import 'mixins';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
+// include all the partials
+@import 'partials/navbar';
+@import 'partials/homepage';
+@import 'partials/steps';
+@import 'partials/error';
+@import 'partials/flash_message';
+@import 'partials/stars_rating';
+@import 'partials/radio_buttons';
+@import 'partials/fileupload';
 
 // Some basic universal styling
 html,
@@ -22,15 +23,3 @@ body {
     padding: 0px;
     overflow-x: hidden;
 }
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
-
-//custom styles
-@import 'navbar';
-@import 'homepage';
-@import 'steps';
-
-@import 'flash_message';
-@import 'stars_rating';
-@import 'radio_buttons';
-@import 'error';

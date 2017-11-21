@@ -4,6 +4,9 @@
     display: flex;
     flex-wrap: wrap;
     // The part where Filenames are shown
+    &.inputerror {
+        border: none !important; //when this element has an error it doesn't give the border to this element
+    }
     .file-caption {
         width: 100%;
         height: 50px;

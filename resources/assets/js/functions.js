@@ -17,10 +17,10 @@ function checkInput(name, mode = 0, ermode = 0) {
             err = 'Dit veld moet een geldig E-Mail adres zijn';
             break;
         case 'tel':
-            err = 'Dit veld moet een geldig telefoonnummer adres zijn';
+            err = 'Dit veld moet een geldig telefoonnummer zijn';
             break;
         case 'pos':
-            err = 'Dit veld moet een geldig postcode adres zijn';
+            err = 'Dit veld moet een geldig postcode zijn';
             break;
     }
     var inptext = $('#' + name + 'TB').val();
@@ -36,21 +36,14 @@ function checkInput(name, mode = 0, ermode = 0) {
             .removeClass('checks-nook')
             .addClass('checks-ok');
         if (ermode == 1) {
-            $('#' + name + 'TB')
-                .removeClass('inputerror')
-                .tooltip('destroy');
+            removeTooltip($('#' + name + 'TB'));
         }
     } else {
         $('#' + name + '-fa')
             .addClass('checks-nook')
             .removeClass('checks-ok');
         if (ermode == 1) {
-            $('#' + name + 'TB')
-                .addClass('inputerror')
-                .attr('title', err)
-                .attr('data-placement', 'right')
-                .tooltip('fixTitle')
-                .tooltip('show');
+            setTooltip($('#' + name + 'TB'), err);
         }
     }
     if (mode == 1) {

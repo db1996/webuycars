@@ -1,4 +1,3 @@
-@import 'breakpoints';
 @mixin background-url($img, $padding-bottom, $background-size: 100%) {
     background-image: url($imagelocation + $img);
     background-repeat: no-repeat;

@@ -1,13 +1,13 @@
 @php
 include(app_path().'/includes/functions.php');
 $year = substr($date, -4);
-$activetabs = activetabs($errors);
 if(isset($versnelling['type'])){
     $type_versnelling = type_versnelling($versnelling['type']);
 }
 else{
     $type_versnelling = create_type_versnelling_obj();
 }
+$activetabs = activetabs($errors);
 $errorarray = errors($errors);
 $debug = setdebug();
 @endphp
@@ -15,6 +15,10 @@ $debug = setdebug();
 @section('pagetype', 'jouwauto-page')
 @section('content')
     @include('partials.createinput')
+    @include('partials.errors')
+    @php
+        var_dump($errorarray);
+    @endphp
     <div class="title-container">
         <h1>JOUW AUTO</h1>
         <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>

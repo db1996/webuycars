@@ -1,5 +1,5 @@
 .inputerror {
-    border: 2px solid red !important;
+    border: 2px solid $errorborder-color !important;
 }
 .errtooltip + .tooltip {
     width: 300px;
