@@ -1,11 +1,26 @@
-$pink-col-rgb: 238, 42, 123;
+// Main color
 $pink-col-hex: #ee2a7b;
-$buttonsborder: 2px solid white;
+
+// start of any image background link
 $imagelocation: 'http://localhost:3000/webuycars/public/img/';
+// input text colors (hover and normal)
 $input_color: black;
+$input-hover-color: black;
+// input background colors (hover and normal)
 $input_back_color: white;
+$input-hover-back-color: white;
+// input border colors (hover and normal)
 $inputsborder: 2px solid black;
 $inputsborder-hover: 2px solid $pink-col-hex;
-$input-hover-color: black;
-$input-hover-back-color: white;
-$errorborder-color: red;
+// input error border
+$errorborder-color: rgba(255, 0, 0, 1);
+
+// homepage
+$circle-size: 80px; // rating circle
+$portrait-circle-percentage: 62.5;
+$tablet-circle-percentage: 62.5;
+$laptop-circle-percentage: 62.5;
+$image-wrap-percentage: 70;
+
+$plate-border: 2px solid white;
+$home-volgende-button-border: 2px solid white;

@@ -1,4 +1,4 @@
-<div class="stars">
+<div class="stars c-stars">
     <input {{(old($name) == 5 ?  'checked' :  '')}} value='5' class="star starinp star-5" id="star-5{{$name}}" type="radio" name="{{$name}}"/>
     <label class="star star-5" for="star-5{{$name}}"></label>
     <input {{(old($name) == 4 ? 'checked' : '')}} value='4' class="star starinp star-4" id="star-4{{$name}}" type="radio" name="{{$name}}"/>

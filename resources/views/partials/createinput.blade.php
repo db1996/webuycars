@@ -19,7 +19,7 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = '', $type 
     <?php }else{?>
     value="{{ ($debug==0 ? old($namestr2) : str_random('8'))}}"
     <?php }?>
-    class="errtooltip {{ $errorarray['errorclasses'][$namestr2] }}"
+    class="c-input errtooltip {{ $errorarray['errorclasses'][$namestr2] }}"
     placeholder="{{ (preg_match('/[\W]+/',$namestr2)? '' : $namestr2 . '...') }}"
     data-toggle="tooltip"
     data-placement="right"

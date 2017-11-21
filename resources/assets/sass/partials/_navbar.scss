@@ -1,4 +1,7 @@
 /* begin nav */
+.mobile-nav {
+    position: fixed;
+}
 .navbar-fixed-top .navbar-collapse {
     max-height: none;
 }
@@ -37,6 +40,7 @@
 }
 // non-mobile part. Default = non mobile
 .navbar-default {
+    display: none;
     top: 0px;
     transition: 0.5s ease;
     z-index: 11;

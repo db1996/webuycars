@@ -14,28 +14,28 @@
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <input id="emailTB" required type="text"
-                    value="{{old('email')}}{{($GLOBALS['debug'] == 1 ? "dylanbos1996@gmail.com" : "")}}" class="errtooltip {{ $errorarray['errorclasses']['email'] }}" data-toggle="tooltip" data-placement="right"
+                    value="{{old('email')}}{{($GLOBALS['debug'] == 1 ? "dylanbos1996@gmail.com" : "")}}" class="c-input errtooltip {{ $errorarray['errorclasses']['email'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['email'] }}" name="email" placeholder="E-Mail...">
-                    <i id="email-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
+                    <i id="email-fa" class='c-input__check c-input__check--nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <input id="telTB" required type="text" value="{{old('telefoonnummer')}}{{($GLOBALS['debug'] == 1 ? "0641251850" : "")}}"
-                    class="errtooltip {{ $errorarray['errorclasses']['telefoonnummer'] }}"
+                    class="c-input errtooltip {{ $errorarray['errorclasses']['telefoonnummer'] }}"
                     data-toggle="tooltip"
                     data-placement="right"
                     title="{{ $errorarray['errornames']['telefoonnummer'] }}" name="telefoonnummer" placeholder="Telefoonnummer...">
-                    <i id="tel-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
+                    <i id="tel-fa" class='c-input__check c-input__check--nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
-                    <input id="posTB" class="errtooltip {{ $errorarray['errorclasses']['postcode'] }}"
+                    <input id="posTB" class="c-input errtooltip {{ $errorarray['errorclasses']['postcode'] }}"
                     data-toggle="tooltip"
                     data-placement="right"
                     title="{{ $errorarray['errornames']['postcode'] }}"  required type="text" value="{{old('postcode')}}{{($GLOBALS['debug'] == 1 ? "5961KE" : "")}}" name="postcode" placeholder="Postcode...">
-                    <i id="pos-fa" class='font-awesome-checks checks-nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
+                    <i id="pos-fa" class='c-input__check c-input__check--nook fa fa-check-circle fa-lg' aria-hidden='true'></i>
                 </div>
             </div>
             <div class="row">

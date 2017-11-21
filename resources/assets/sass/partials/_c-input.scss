@@ -1,0 +1,104 @@
+.c-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 15px;
+    border: $inputsborder;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: $input_back_color;
+    color: $input_color;
+    transition: 0.3s ease;
+    &:focus,
+    &:hover {
+        background-color: $input-hover-back-color;
+        color: $input-hover-color;
+        border: $inputsborder-hover;
+        outline: none;
+    }
+}
+.c-input--star {
+    padding: 5px 15px !important;
+    @include portrait {
+        @include setflex(column !important, center, flex-start);
+    }
+    @include landscape {
+        @include setflex(row !important, center, center);
+        .stars {
+            justify-content: flex-start;
+            width: 50%;
+        }
+    }
+    @include custom($portrait-max, 600px) {
+        .stars {
+            justify-content: flex-start;
+            width: 65%;
+        }
+    }
+    @include tablet {
+        @include setflex(row !important, center, center);
+        .stars {
+            justify-content: flex-start;
+            width: 50%;
+        }
+    }
+}
+.c-input__star-label {
+    @include landscape {
+        width: 50%;
+        text-align: left;
+    }
+    @include custom($portrait-max, 600px) {
+        width: 35%;
+        text-align: left;
+    }
+    @include tablet {
+        width: 50%;
+        text-align: left;
+    }
+}
+.c-input--currency {
+    width: 100%;
+    margin-left: 7px;
+    border: 0;
+    background-color: white;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: white !important;
+        border: none !important;
+        outline: none;
+    }
+}
+.c-input--select {
+    appearance: none;
+}
+.c-input__arrow {
+    @include setflex(row, center, flex-end);
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    left: 0px;
+    border: 0 !important;
+    pointer-events: none;
+    &:before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 1px; /* or 100px */
+    }
+    &:checked {
+        background-color: red !important;
+    }
+}
+.c-input__arrow__icon {
+    margin-right: 20px;
+}
+.c-input__arrow__icon--top {
+    margin-top: 6%;
+}

@@ -1,11 +1,25 @@
+/* Begin fileupload */
+$searchWidth: 32%; // Browsers that don't support calc will use this
+$searchWidth: calc(32% - 2px); // Browsers that do use this
 .file-caption-main {
-    $searchWidth: 32%; // Browsers that don't support calc will use this
-    $searchWidth: calc(32% - 2px); // Browsers that do use this
     display: flex;
     flex-wrap: wrap;
     // The part where Filenames are shown
     &.inputerror {
         border: none !important; //when this element has an error it doesn't give the border to this element
+        .file-caption {
+            border: 2px solid $errorborder-color;
+            border-bottom: $inputsborder;
+        }
+        .fileinput-remove {
+            border: 2px solid $errorborder-color;
+            border-top: none;
+            border-right: $inputsborder;
+        }
+        .btn-primary.btn-file {
+            border-right: 2px solid $errorborder-color;
+            border-bottom: 2px solid $errorborder-color;
+        }
     }
     .file-caption {
         width: 100%;
@@ -79,3 +93,4 @@
 .file-preview-thumbnails {
     @include setflex(row, center, center, wrap);
 }
+/* End fileupload */

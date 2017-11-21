@@ -1,15 +1,29 @@
+{{-- mobile header test --}}
+<div class="mobile-nav">
+    <button id="mobile-header" class="mobile-nav__button" type="button">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <ul class="mobile-nav__list">
+        <li><a class="mobile-nav-list-link" href="{{ url('/') }}">Home</a></li>
+        <li><a class="mobile-nav-list-link" href="{{ url('/') }}">Auto verkoop</a></li>
+        <li><a class="mobile-nav-list-link" href="{{ url('/') }}">Modellen</a></li>
+        <li><a class="mobile-nav-list-link" href="{{ url('/') }}">Over ons</a></li>
+        <li><a class="mobile-nav-list-link" href="{{ url('/') }}">Contact</a></li>
+    </ul>
+</div>
+
 {{-- Mobile navbar, only hamburger --}}
 <nav class="navbar navbar-mobile navbar-fixed-top">
     <div class="container-fluid container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header navbar-header-mobile">
-            <button type="button" class="navbar-toggle navbar-toggle-mobile collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle navbar-toggle-mobile collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1-mobile" aria-expanded="false">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-collapse-mobile" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse navbar-collapse-mobile" id="bs-example-navbar-collapse-1-mobile">
             <ul class="nav navbar-nav navbar-nav-mobile">
                 <li><a class="navbar-link-mobile" href="{{ url('/') }}">Home</a></li>
                 <li><a class="navbar-link-mobile" href="{{ url('/') }}">Auto verkoop</a></li>

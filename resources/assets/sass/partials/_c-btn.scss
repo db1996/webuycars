@@ -1,0 +1,70 @@
+.c-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    margin-top: 40px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    transition: 0.2s ease;
+    &:focus {
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        outline: none;
+    }
+    &:hover {
+        background-color: rgba(0, 0, 0, 1) !important;
+        outline: none;
+    }
+}
+.has-nopad {
+    padding: 0;
+    h4 {
+        text-align: right;
+    }
+}
+.c-btn__collapse {
+    .row {
+        @include setflex(row, center, flex-start);
+        @include landscape-down {
+            @include setflex(column, center, flex-start);
+            width: 100%;
+        }
+        margin-left: 0 !important;
+        .col {
+            @include setflex(row, center, flex-end);
+            @include landscape-down {
+                width: 100%;
+                @include setflex(row, center, center);
+            }
+        }
+    }
+}
+.c-btn__collapse__l-wrap {
+    position: relative;
+    width: 100%;
+}
+$fa-font-size: 26px;
+.c-input__check {
+    position: absolute;
+    top: ((59px - $fa-font-size) / 2) + 20;
+    right: 30px;
+    background-color: rgba(white, 0);
+    font-size: $fa-font-size;
+    line-height: 1;
+    @include landscape-down {
+        top: ((59px - $fa-font-size) / 2);
+    }
+}
+.c-input__check--ok {
+    color: green;
+    &:before {
+        content: '\f058';
+    }
+}
+.c-input__check--nook {
+    color: #ff3333;
+    &:before {
+        content: '\f057';
+    }
+}

@@ -16,9 +16,6 @@ $debug = setdebug();
 @section('content')
     @include('partials.createinput')
     @include('partials.errors')
-    @php
-        var_dump($errorarray);
-    @endphp
     <div class="title-container">
         <h1>JOUW AUTO</h1>
         <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>

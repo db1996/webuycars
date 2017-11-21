@@ -33,15 +33,15 @@ function checkInput(name, mode = 0, ermode = 0) {
     }
     if (val) {
         $('#' + name + '-fa')
-            .removeClass('checks-nook')
-            .addClass('checks-ok');
+            .removeClass('c-input__check--nook')
+            .addClass('c-input__check--ok');
         if (ermode == 1) {
             removeTooltip($('#' + name + 'TB'));
         }
     } else {
         $('#' + name + '-fa')
-            .addClass('checks-nook')
-            .removeClass('checks-ok');
+            .addClass('c-input__check--nook')
+            .removeClass('c-input__check--ok');
         if (ermode == 1) {
             setTooltip($('#' + name + 'TB'), err);
         }

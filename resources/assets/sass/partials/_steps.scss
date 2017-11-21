@@ -1,5 +1,4 @@
 /* Begin steps */
-
 .tabs-nav {
     display: none;
 }
@@ -20,40 +19,14 @@
     }
 }
 // Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
-$fa-font-size: 26px;
-.font-awesome-checks {
-    position: absolute;
-    top: ((59px - $fa-font-size) / 2) + 20;
-    right: 30px;
-    background-color: rgba(white, 0);
-    font-size: $fa-font-size;
-    line-height: 1;
-    @include landscape-down {
-        top: ((59px - $fa-font-size) / 2);
+button[aria-expanded='false']:not(.navbar-toggle) {
+    i:before {
+        content: '\f054';
     }
 }
-.checks-ok {
-    color: green;
-    &:before {
-        content: '\f058';
-    }
-}
-.checks-nook {
-    color: #ff3333;
-    &:before {
-        content: '\f057';
-    }
-}
-#jouwauto-page {
-    button[aria-expanded='false']:not(.navbar-toggle) {
-        i:before {
-            content: '\f054';
-        }
-    }
-    button[aria-expanded='true'] {
-        i:before {
-            content: '\f078';
-        }
+button[aria-expanded='true'] {
+    i:before {
+        content: '\f078';
     }
 }
 .info {
@@ -71,165 +44,7 @@ $fa-font-size: 26px;
         margin: 0;
     }
 }
-.currency {
-    input {
-        width: 100%;
-        margin-left: 7px;
-        border: 0;
-        background-color: white;
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: white !important;
-            border: none !important;
-            outline: none;
-        }
-    }
-}
-.starinput {
-    padding: 5px 15px !important;
-    @include portrait {
-        @include setflex(column !important, flex-start, flex-start);
-    }
-    @include landscape {
-        @include setflex(row !important, center, center);
-        p {
-            width: 50%;
-            text-align: left;
-        }
-        .stars {
-            justify-content: flex-start;
-            width: 50%;
-        }
-    }
-    @include custom($portrait-max, 600px) {
-        p {
-            width: 35%;
-            text-align: left;
-        }
-        .stars {
-            justify-content: flex-start;
-            width: 65%;
-        }
-    }
-    @include tablet {
-        @include setflex(row !important, center, center);
-        p {
-            width: 50%;
-            text-align: left;
-        }
-        .stars {
-            justify-content: flex-start;
-            width: 50%;
-        }
-    }
-}
-.normalinput,
-.puretextinput,
-.currency,
-.info-step2 input,
-.info-step3 button,
-.collapse-div input {
-    &:not(.kv-file-zoom):not(.fileinput-cancel):not(.fileinput-remove):not(.fileinput-upload):not(.volgende-stap) {
-        @include inputs;
-    }
-}
-.info-step1 button,
-#browse {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 15px;
-    margin-top: 40px;
-    border: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    transition: 0.2s ease;
-    &:focus {
-        background-color: rgba(0, 0, 0, 0.8) !important;
-        outline: none;
-    }
-    &:hover {
-        background-color: rgba(0, 0, 0, 1) !important;
-        outline: none;
-    }
-}
-body {
-    margin: 0;
-}
 .collapse-div {
-    .nopad-col {
-        padding: 0;
-        h4 {
-            text-align: right;
-        }
-    }
-    .row {
-        @include setflex(row, center, flex-start);
-        @include landscape-down {
-            @include setflex(column, center, flex-start);
-            width: 100%;
-        }
-        margin-left: 0 !important;
-        .col {
-            @include setflex(row, center, flex-end);
-            @include landscape-down {
-                width: 100%;
-                @include setflex(row, center, center);
-            }
-        }
-    }
-    select {
-        transition: 0.2s ease;
-        font-size: 18px;
-        margin-top: 20px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: $input-back_color;
-        color: $input-color;
-        padding: 15px 15px;
-        border: $inputsborder;
-        border-radius: 5px;
-        transition: 0.3s ease;
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-    }
-    .inbetween-div {
-        position: relative;
-    }
-    .select-side {
-        @include setflex(row, center, flex-end);
-        position: absolute;
-        width: 100%;
-        top: 0px;
-        height: 100%;
-        left: 0px;
-        border: 0 !important;
-        pointer-events: none;
-        i {
-            margin-right: 20px;
-        }
-        &:before {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 100%;
-            width: 1px; /* or 100px */
-        }
-        &:checked {
-            background-color: red !important;
-        }
-    }
-}
-#selectside2 {
-    height: 110px !important;
-    i {
-        margin-right: 25px;
-    }
 }
 .svg-rol {
     display: none;

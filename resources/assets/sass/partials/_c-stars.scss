@@ -1,0 +1,57 @@
+.c-stars {
+    display: inline-block;
+    @include landscape {
+        @include setflex(row !important, center, center);
+        justify-content: flex-start;
+        width: 50%;
+    }
+    @include custom($portrait-max, 600px) {
+        justify-content: flex-start;
+        width: 65%;
+    }
+    @include tablet {
+        @include setflex(row !important, center, center);
+        justify-content: flex-start;
+        width: 50%;
+    }
+    @include laptop {
+        width: 70%;
+    }
+}
+.c-stars__single-star {
+    display: none;
+    float: right;
+    padding: 10px;
+    font-size: 36px;
+    color: #444;
+    transition: all 0.2s;
+    @include custom(0px, 331px) {
+        transition: all 0s;
+        font-size: 24px;
+    }
+    @include custom(0px, 275px) {
+        font-size: 16px;
+    }
+    @include custom(0px, 238px) {
+        font-size: 10px;
+    }
+    &:checked ~ .c-stars__label:before {
+        content: '\f005';
+        color: #fd4;
+        transition: all 0.25s;
+    }
+}
+.c-stars--5:checked ~ .c-stars__label:before {
+    color: #fd4;
+}
+.c-stars--1:checked ~ .c-stars__label:before {
+    color: #f62;
+}
+.c-stars__label:hover ~ .c-stars__label:before {
+    color: #fd4;
+    transition: all 0.25s;
+}
+.c-stars__label:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}

@@ -40,49 +40,51 @@
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['buitenzijde'] }}" data-toggle="tooltip" data-placement="right"
+                    <div class="c-input c-input--star errtooltip {{ $errorarray['errorclasses']['buitenzijde'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['buitenzijde'] }}" >
-                        <p class="pseudo_label">Staat buitenzijde</p>
+                        <p class="c-input__star-label">Staat buitenzijde</p>
                         @include('partials.star_rating', ['name' => "buitenzijde"])
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['interieur'] }}" data-toggle="tooltip" data-placement="right"
+                    <div class="c-input c-input--star errtooltip {{ $errorarray['errorclasses']['interieur'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['interieur'] }}">
-                        <p class="pseudo_label">Staat interieur</p>
+                        <p class="c-input__star-label">Staat interieur</p>
                         @include('partials.star_rating', ['name' => "interieur"])
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['technischestaat'] }}" data-toggle="tooltip" data-placement="right"
+                    <div class="c-input c-input--star errtooltip {{ $errorarray['errorclasses']['technischestaat'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['technischestaat'] }}">
-                        <p class="pseudo_label">Technische staat</p>
+                        <p class="c-input__star-label">Technische staat</p>
                         @include('partials.star_rating', ['name' => "technischestaat"])
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <div class="normalinput starinput errtooltip {{ $errorarray['errorclasses']['bandenprofiel'] }}" data-toggle="tooltip" data-placement="right"
+                    <div class="c-input c-input--star errtooltip {{ $errorarray['errorclasses']['bandenprofiel'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['bandenprofiel'] }}">
-                        <p class="pseudo_label">Staat bandenprofiel</p>
+                        <p class="c-input__star-label">Staat bandenprofiel</p>
                         @include('partials.star_rating', ['name' => "bandenprofiel"])
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <span class="currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
-                    title="{{ $errorarray['errornames']['price'] }}" >€<input class="currencyinput" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's....."></span>
+                    <span class="c-input c-input__currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
+                    title="{{ $errorarray['errornames']['price'] }}">€
+                        <input class="c-input--currency" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's.....">
+                    </span>
                 </div>
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <input class="puretextinput errtooltip" required type="text" name="accesoires" value="{{old('accesoires')}}" placeholder="opties en accesoires...">
+                    <input class="c-input errtooltip" required type="text" name="accesoires" value="{{old('accesoires')}}" placeholder="opties en accesoires...">
                 </div>
             </div>
             <div class="row">
