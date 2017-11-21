@@ -4,51 +4,51 @@
     flex-direction: row;
     width: 40%;
     justify-content: flex-end;
-}
-.c-radios__label {
-    transition: 0.2s ease;
-    padding-left: 15px;
-    margin: 0;
-    width: 60%;
-    text-align: left;
-}
-.c-radios__single-radio {
-    height: 100%;
-    width: 40%;
-}
-.c-radios__input {
-    display: none;
-    &:checked + .c-radios__single-radio-label {
-        color: $pink-col-hex;
+    &__label {
+        transition: 0.2s ease;
+        padding-left: 15px;
+        margin: 0;
+        width: 60%;
+        text-align: left;
     }
-}
-.c-radios__single-radio-label {
-    display: block;
-    position: relative;
-    justify-content: center;
-    height: 100%;
-    margin: 0;
-    padding: 15px 15px 15px 15px;
-    border-left: 2px solid white;
-    border-radius: 2;
-    text-align: center;
-    line-height: 22px;
-    transition: 0.2s ease;
-    background: black;
-    color: white;
-    cursor: pointer;
-    @include portrait {
-        display: flex;
-        align-items: center;
+    &__single-radio {
+        height: 100%;
+        width: 40%;
+        &--yes .c-radios__single-radio-label {
+            padding: 15px 18px 15px 18px;
+        }
     }
-    @include tablet {
-        display: flex;
-        align-items: center;
+    &__input {
+        display: none;
+        &:checked + .c-radios__single-radio-label {
+            color: $pink-col-hex;
+        }
     }
-    &:hover {
-        color: lighten($pink-col-hex, 30%);
+    &__single-radio-label {
+        display: block;
+        position: relative;
+        justify-content: center;
+        height: 100%;
+        margin: 0;
+        padding: 15px 15px 15px 15px;
+        border-left: 2px solid white;
+        border-radius: 2;
+        text-align: center;
+        line-height: 22px;
+        transition: 0.2s ease;
+        background: black;
+        color: white;
+        cursor: pointer;
+        @include portrait {
+            display: flex;
+            align-items: center;
+        }
+        @include tablet {
+            display: flex;
+            align-items: center;
+        }
+        &:hover {
+            color: lighten($pink-col-hex, 30%);
+        }
     }
-}
-.c-radios__single-radio--yes .c-radios__single-radio-label {
-    padding: 15px 18px 15px 18px;
 }

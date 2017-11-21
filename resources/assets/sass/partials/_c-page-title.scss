@@ -1,26 +1,13 @@
-.title-container {
-    margin: 0;
-    padding: 50px;
-    background-color: $pink-col-hex;
-    color: white;
-    text-align: center;
-    h1 {
-        font-size: 28px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-}
 .c-page-title {
     margin: 0;
     padding: 50px;
     background-color: $pink-col-hex;
     color: white;
     text-align: center;
-}
-.c-page-title__main-title {
-    font-size: 28px;
-}
-.c-page-title__sub-title {
-    font-size: 22px;
+    &__main-title {
+        font-size: 28px;
+    }
+    &__sub-title {
+        font-size: 22px;
+    }
 }

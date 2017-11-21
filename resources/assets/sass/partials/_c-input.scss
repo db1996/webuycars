@@ -1,3 +1,4 @@
+$fa-font-size: 26px;
 .c-input {
     display: flex;
     flex-direction: row;
@@ -19,116 +20,100 @@
         border: $inputsborder-hover;
         outline: none;
     }
-}
-.c-input--radio {
-    box-sizing: border-box;
-}
-.c-input--nopad {
-    padding: 0;
-}
-.c-input--star {
-    padding: 5px 15px !important;
-    @include portrait {
-        @include setflex(column !important, center, flex-start);
+    &--radio {
+        box-sizing: border-box;
     }
-    @include landscape {
-        @include setflex(row !important, center, center);
-        .stars {
-            justify-content: flex-start;
+    &--nopad {
+        padding: 0;
+    }
+    &--star {
+    }
+    &--star {
+        padding: 5px 15px !important;
+        @include tablet-down {
+            @include setflex(row !important, center, center);
+        }
+        @include portrait {
+            @include setflex(column !important, center, flex-start);
+        }
+    }
+    &--currency {
+        width: 100%;
+        margin-left: 7px;
+        border: 0;
+        background-color: white;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: white !important;
+            border: none !important;
+            outline: none;
+        }
+    }
+    &--select {
+        appearance: none;
+    }
+    &__star-label {
+        @include landscape {
             width: 50%;
+            text-align: left;
         }
-    }
-    @include custom($portrait-max, 600px) {
-        .stars {
-            justify-content: flex-start;
-            width: 65%;
+        @include custom($portrait-max, 600px) {
+            width: 35%;
+            text-align: left;
         }
-    }
-    @include tablet {
-        @include setflex(row !important, center, center);
-        .stars {
-            justify-content: flex-start;
+        @include tablet {
             width: 50%;
+            text-align: left;
         }
     }
-}
-.c-input__star-label {
-    @include landscape {
-        width: 50%;
-        text-align: left;
-    }
-    @include custom($portrait-max, 600px) {
-        width: 35%;
-        text-align: left;
-    }
-    @include tablet {
-        width: 50%;
-        text-align: left;
-    }
-}
-.c-input--currency {
-    width: 100%;
-    margin-left: 7px;
-    border: 0;
-    background-color: white;
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: white !important;
-        border: none !important;
-        outline: none;
-    }
-}
-.c-input--select {
-    appearance: none;
-}
-.c-input__arrow {
-    @include setflex(row, center, flex-end);
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    height: 100%;
-    left: 0px;
-    border: 0 !important;
-    pointer-events: none;
-    &:before {
+    &__arrow {
+        @include setflex(row, center, flex-end);
         position: absolute;
-        left: 0;
-        bottom: 0;
+        width: 100%;
+        top: 0px;
         height: 100%;
-        width: 1px; /* or 100px */
+        left: 0px;
+        border: 0 !important;
+        pointer-events: none;
+        &:before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 1px; /* or 100px */
+        }
+        &:checked {
+            background-color: red !important;
+        }
+        &__icon {
+            margin-right: 20px;
+            &--top {
+                margin-top: 6%;
+            }
+        }
     }
-    &:checked {
-        background-color: red !important;
-    }
-}
-.c-input__arrow__icon {
-    margin-right: 20px;
-}
-.c-input__arrow__icon--top {
-    margin-top: 6%;
-}
-$fa-font-size: 26px;
-.c-input__check {
-    position: absolute;
-    top: ((59px - $fa-font-size) / 2) + 20;
-    right: 30px;
-    background-color: rgba(white, 0);
-    font-size: $fa-font-size;
-    line-height: 1;
-    @include landscape-down {
-        top: ((59px - $fa-font-size) / 2);
-    }
-}
-.c-input__check--ok {
-    color: green;
-    &:before {
-        content: '\f058';
-    }
-}
-.c-input__check--nook {
-    color: #ff3333;
-    &:before {
-        content: '\f057';
+    &__check {
+        position: absolute;
+        top: ((59px - $fa-font-size) / 2) + 20;
+        right: 30px;
+        background-color: rgba(white, 0);
+        font-size: $fa-font-size;
+        line-height: 1;
+        @include landscape-down {
+            top: ((59px - $fa-font-size) / 2);
+        }
+        &--ok {
+            color: green;
+            &:before {
+                content: '\f058';
+            }
+        }
+        &--nook {
+            color: #ff3333;
+            &:before {
+                content: '\f057';
+            }
+        }
     }
 }
