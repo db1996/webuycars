@@ -55,7 +55,7 @@ $('.check-stap').on('click', function() {
                 // if the value is empty it adds the tooltip, depending on what kind of input it is, it puts it on the parent or not
                 var curElem;
                 // Sets the element that needs the tooltip
-                if ($(this).hasClass('currencyinput')) {
+                if ($(this).hasClass('js-parent')) {
                     curElem = $(this).parent();
                 } else {
                     curElem = $(this);
@@ -70,7 +70,7 @@ $('.check-stap').on('click', function() {
                 // If the type is number it also checks if the text in it is a number (pointless if console dev changed type)
                 if (type == 'number') {
                     var elem = $(this);
-                    if ($(this).hasClass('currencyinput')) {
+                    if ($(this).hasClass('js-parent')) {
                         elem = $(this).parent();
                     }
                     if (!isnum) {

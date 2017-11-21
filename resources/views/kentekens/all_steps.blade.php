@@ -16,9 +16,9 @@ $debug = setdebug();
 @section('content')
     @include('partials.createinput')
     @include('partials.errors')
-    <div class="title-container">
-        <h1>JOUW AUTO</h1>
-        <h2>{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
+    <div class="c-page-title">
+        <h1 class="c-page-title__main-title">JOUW AUTO</h1>
+        <h2 class="c-page-title__sub-title">{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
     </div>
     <div class="container tabs-nav">
         <div class="row">
@@ -38,21 +38,7 @@ $debug = setdebug();
             @include('kentekens.step2')
             @include('kentekens.step3')
         </div>
-        <button type="submit" id="submit-all" class="btn btn-info volgende-stap">
-            <p>Volgende</p>
-        </button>
-        {{-- <div class="flash-image-mes alert-danger">
-            <div class="title-div">
-                <h3>Er zijn geen afbeeldingen geselecteerd!</h3>
-            </div>
-            <div class="para-div">
-                <p>weet je zeker dat je door wilt gaan zonder afbeeldingen? De kans om je auto te verkopen wordt veel groter met afbeeldingen</p>
-            </div>
-            <div class="button-div">
-                <button id="ga-door">Ga door</button>
-                <button id="ga-terug">Terug</button>
-            </div>
-        </div> --}}
+
         <input type="hidden" name="kenteken" value="{{$kenteken}}">
     </form>
 @endsection

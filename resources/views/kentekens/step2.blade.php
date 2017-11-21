@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
-                    <a id="gotostap3" class="btn btn-info volgende-stap check-stap" href="#step3" data-toggle="">Volgende</a>
+                    <a id="gotostap3" class="c-btn check-stap" href="#step3" data-toggle="">Volgende</a>
                 </div>
             </div>
             {{-- Creates The progress on the bottom --}}
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">
-                    <a class="btn btn-info vorige-stap" href="#step1" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
+                    <a class="c-btn c-btn--vorige" href="#step1" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
                 </div>
             </div>
         </div>

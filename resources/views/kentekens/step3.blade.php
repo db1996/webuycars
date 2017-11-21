@@ -78,7 +78,7 @@
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <span class="c-input c-input__currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['price'] }}">€
-                        <input class="c-input--currency" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's.....">
+                        <input class="c-input--currency js-parent" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's.....">
                     </span>
                 </div>
             </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <button type="submit" class="btn btn-info volgende-stap check-stap">
+                    <button type="submit" class="c-btn check-stap">
                         <p>Volgende</p>
                         <img class="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col col-sm-6 tablenr ">
-                    <a id="button" class="btn btn-info vorige-stap" href="#step2" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
+                    <a id="button" class="c-btn c-btn--vorige" href="#step2" data-toggle="tab"><p><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Terug</p></a>
                 </div>
             </div>
         </div>

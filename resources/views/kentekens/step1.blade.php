@@ -2,11 +2,6 @@
     <div class="info-step1 info">
         <div class="container">
             <div class="row">
-                <div class="col col-sm-12">
-                    <h2>Info over jouw auto</h2>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
                     <button type="button" class="c-btn c-btn--collapse" data-toggle="collapse" aria-expanded="true" data-target="#kmstand">
                         <p>KM stand</p>
@@ -90,6 +85,7 @@
                                 <h4>Aantal versnellingen:</h2>
                             </div>
                             <div class="col col-sm-8">
+
                                 {{create_inputs('aantal', $errorarray, 'versnelling', (isset($versnelling['aantal']) ? $versnelling['aantal'] : ''), 'number')}} {{-- creates an input with the right variables --}}
                             </div>
                         </div>
@@ -124,7 +120,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">
-                    <a id="gotostap2" class="btn btn-info volgende-stap check-stap" href="#step2" data-toggle="">Volgende</a>
+                    <a id="gotostap2" class="c-btn check-stap" href="#step2" data-toggle="">Volgende</a>
                 </div>
             </div>
             {{-- Creates The progress on the bottom --}}

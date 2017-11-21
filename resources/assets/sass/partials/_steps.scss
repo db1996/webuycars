@@ -1,45 +1,12 @@
 /* Begin steps */
+// Makes the buttons to switch tabs invisible
 .tabs-nav {
     display: none;
 }
-#submit-all {
-    display: none;
-}
-.title-container {
-    margin: 0;
-    padding: 50px;
-    background-color: $pink-col-hex;
-    color: white;
-    text-align: center;
-    h1 {
-        font-size: 28px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-}
-// Part that makes the checks in the textboxes (ok & nook). Change $fa-font-size to change the size of the icon
-button[aria-expanded='false']:not(.navbar-toggle) {
-    i:before {
-        content: '\f054';
-    }
-}
-button[aria-expanded='true'] {
-    i:before {
-        content: '\f078';
-    }
-}
 .info {
-    @include volgende-stap;
-    @include step_nums_and_dashes;
-    @include vorige-knop;
     padding: 50px 0px;
     background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
     background-repeat: repeat-y;
-    .col:not(.tablenr) {
-        color: black;
-        text-align: center;
-    }
     p {
         margin: 0;
     }

@@ -20,6 +20,12 @@
         outline: none;
     }
 }
+.c-input--radio {
+    box-sizing: border-box;
+}
+.c-input--nopad {
+    padding: 0;
+}
 .c-input--star {
     padding: 5px 15px !important;
     @include portrait {
@@ -101,4 +107,28 @@
 }
 .c-input__arrow__icon--top {
     margin-top: 6%;
+}
+$fa-font-size: 26px;
+.c-input__check {
+    position: absolute;
+    top: ((59px - $fa-font-size) / 2) + 20;
+    right: 30px;
+    background-color: rgba(white, 0);
+    font-size: $fa-font-size;
+    line-height: 1;
+    @include landscape-down {
+        top: ((59px - $fa-font-size) / 2);
+    }
+}
+.c-input__check--ok {
+    color: green;
+    &:before {
+        content: '\f058';
+    }
+}
+.c-input__check--nook {
+    color: #ff3333;
+    &:before {
+        content: '\f057';
+    }
 }

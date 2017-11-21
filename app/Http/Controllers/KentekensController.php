@@ -142,6 +142,7 @@ class KentekensController extends Controller
                 'omschrijving' => $carroseriedata->type_carrosserie_europese_omschrijving
             ];
         }
+        // dd($versnellingsdata);
         if (isset($versnellingsdata->type_versnellingsbak) && isset($versnellingsdata->aantal_versnellingen_bovengrens)){
             $versnelling = [
                 'type' => $versnellingsdata->type_versnellingsbak,

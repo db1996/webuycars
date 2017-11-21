@@ -1,36 +1,81 @@
 .c-btn {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     padding: 15px;
-    margin-top: 40px;
+    margin-top: 20px;
     border: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: $pink-col-hex;
     color: white;
     transition: 0.2s ease;
+    text-align: center;
     &:focus {
-        background-color: rgba(0, 0, 0, 0.8) !important;
+        color: white;
+        background-color: lighten($pink-col-hex, 10%);
         outline: none;
     }
     &:hover {
-        background-color: rgba(0, 0, 0, 1) !important;
+        color: white;
+        background-color: lighten($pink-col-hex, 10%);
         outline: none;
     }
-}
-.has-nopad {
-    padding: 0;
-    h4 {
-        text-align: right;
-    }
-}
-.c-btn__collapse {
-    .row {
-        @include setflex(row, center, flex-start);
-        @include landscape-down {
-            @include setflex(column, center, flex-start);
-            width: 100%;
+    &--vorige {
+        display: inline-block;
+        width: auto;
+        margin-top: 25px;
+        border: 0;
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        transition: 0.2s ease;
+        &:focus {
+            color: white;
+            background-color: black;
+            outline: none;
         }
-        margin-left: 0 !important;
+        &:hover {
+            color: white;
+            background-color: black;
+            outline: none;
+        }
+    }
+    &--collapse {
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: left;
+        margin-top: 40px;
+        &:focus {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            outline: none;
+        }
+        &:hover {
+            background-color: rgba(0, 0, 0, 1);
+            color: white;
+            outline: none;
+        }
+        &[aria-expanded='false']:not(.navbar-toggle) {
+            i:before {
+                content: '\f054';
+            }
+        }
+        &[aria-expanded='true'] {
+            i:before {
+                content: '\f078';
+            }
+        }
+    }
+    &__collapse {
+        h4 {
+            margin-top: 30px;
+        }
+        .row {
+            @include setflex(row, center, flex-start);
+            @include landscape-down {
+                @include setflex(column, center, flex-start);
+                width: 100%;
+            }
+            margin-left: 0 !important;
+        }
         .col {
             @include setflex(row, center, flex-end);
             @include landscape-down {
@@ -38,33 +83,15 @@
                 @include setflex(row, center, center);
             }
         }
+        &__l-wrap {
+            position: relative;
+            width: 100%;
+        }
     }
 }
-.c-btn__collapse__l-wrap {
-    position: relative;
-    width: 100%;
-}
-$fa-font-size: 26px;
-.c-input__check {
-    position: absolute;
-    top: ((59px - $fa-font-size) / 2) + 20;
-    right: 30px;
-    background-color: rgba(white, 0);
-    font-size: $fa-font-size;
-    line-height: 1;
-    @include landscape-down {
-        top: ((59px - $fa-font-size) / 2);
-    }
-}
-.c-input__check--ok {
-    color: green;
-    &:before {
-        content: '\f058';
-    }
-}
-.c-input__check--nook {
-    color: #ff3333;
-    &:before {
-        content: '\f057';
+.has-nopad {
+    padding: 0;
+    h4 {
+        text-align: right;
     }
 }

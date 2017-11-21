@@ -10,13 +10,14 @@
 @import 'partials/steps';
 @import 'partials/error';
 @import 'partials/flash_message';
-@import 'partials/stars_rating';
-@import 'partials/radio_buttons';
 @import 'partials/fileupload';
 @import 'partials/c-btn';
 @import 'partials/c-input';
 @import 'partials/c-stars';
+@import 'partials/c-radios';
+@import 'partials/c-page-title';
 // Some basic universal styling
+@include step_nums_and_dashes;
 html,
 body {
     width: 100%;
