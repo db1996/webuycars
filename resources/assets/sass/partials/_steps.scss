@@ -3,25 +3,4 @@
 .tabs-nav {
     display: none;
 }
-.info {
-    padding: 50px 0px;
-    background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
-    background-repeat: repeat-y;
-    p {
-        margin: 0;
-    }
-}
-.collapse-div {
-}
-.svg-rol {
-    display: none;
-    margin-left: 15px;
-    width: 25px;
-}
-.svg-show {
-    display: block;
-}
-.info-step4 {
-    min-height: calc(100vh - (204px + 117.5px));
-}
 /* End steps */

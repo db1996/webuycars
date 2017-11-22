@@ -1,63 +1,8 @@
-.bold-font-span {
+.m--bold {
     font-weight: bold;
 }
 /* Begin Homepage */
-.top-image {
-    background-image: url($imagelocation + 'header.png');
-    @include portrait {
-        background-image: url($imagelocation + 'header-mobile.png');
-    }
-    @include landscape {
-        background-image: url($imagelocation + 'header-tablet2.png');
-    }
-}
-.kenteken-form {
-    @include portrait {
-        width: auto;
-    }
-    @include landscape-down {
-        @include setflex(column,center, center);
-    }
-    @include tablet-up {
-        @include setflex(column,flex-end, flex-end);
-    }
-}
-.plate {
-    height: 80px;
-    width: 310px;
-    padding-left: 50px;
-    border: $plate-border;
-    box-sizing: border-box;
-    font-size: 45px;
-    background-size: 310px auto;
-    background-image: url($imagelocation + 'plate.png');
-    background-repeat: no-repeat;
-}
-.nextbtn {
-    margin-top: 15px;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 5px 15px;
-    border: $home-volgende-button-border;
-    transition: 0.3s ease;
-    &:hover {
-        background-color: rgba(0, 0, 0, 1);
-    }
-}
-.top-image__container {
-    height: auto;
-    text-align: left;
-    color: white !important;
-    font-size: 20px;
-    height: 100%;
-    @include landscape-down {
-        @include setflex(column,center, center);
-        height: 700px;
-    }
-    @include tablet-up {
-        @include setflex(column,flex-end, center);
-        height: 700px;
-    }
-}
+
 .row--no-width {
     width: 100%;
     @include landscape-down {

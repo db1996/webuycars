@@ -1,5 +1,5 @@
 <div id="step3" class="tab-pane {{$activetabs->stap3}}">
-    <div class="info-step3 info">
+    <div class="c-info-tab">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -91,7 +91,7 @@
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <button type="submit" class="c-btn check-stap">
                         <p>Volgende</p>
-                        <img class="svg-rol" src="{{asset('img/Spinner.svg')}}" alt="">
+                        <img class="c-load-icon" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
                 </div>
             </div>

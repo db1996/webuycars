@@ -6,7 +6,7 @@
         <h2>Check je mail en bevestig je aanmelding</h2>
     </div>
     <div class="step4-container">
-        <div class="info info-step4">
+        <div class="c-info-tab c-info-tab--step4">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 hidden-sm"></div><div class="col-sm-12 col-md-6">

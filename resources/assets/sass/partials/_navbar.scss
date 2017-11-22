@@ -1,6 +1,87 @@
 /* begin nav */
-.mobile-nav {
+$debugtransition: 0.41s ease;
+.c-mobile-nav {
     position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    z-index: 9000;
+    transition: $debugtransition;
+    margin-top: 15px;
+    max-width: 100%;
+    @include custom(0px,320px) {
+        flex-direction: column;
+        width: 100%;
+    }
+    @include tablet-up {
+        display: none;
+    }
+    &--expanded {
+        padding: 15px;
+        margin-top: 0;
+        background-color: lighten(black, 15%);
+    }
+    &--full-height {
+        height: 100%;
+    }
+    &__button {
+        align-self: flex-start;
+        height: auto;
+        margin-left: 25px;
+        padding: 10px;
+        border: 0;
+        border-radius: 4px;
+        background-color: rgba(black, 0.8);
+        transition: $debugtransition;
+        @include custom(0px,320px) {
+            margin-bottom: 15px;
+        }
+        &:focus,
+        &:active {
+            outline-color: transparent;
+        }
+        &--expanded {
+            background-color: $pink-col-hex;
+            @include custom(0px,320px) {
+                margin-bottom: 15px;
+                margin-left: 10px;
+            }
+        }
+    }
+    &__icon {
+        color: white;
+        font-size: 36px;
+    }
+    &__list {
+        position: relative;
+        transition: $debugtransition;
+        padding: 0;
+        list-style: none;
+        width: 200px;
+        @include custom(0px, 320px) {
+            width: 100%;
+        }
+        &--hidden {
+            visibility: hidden;
+            margin-left: -200px;
+            @include custom(0px, 320px) {
+                margin-left: -100px;
+            }
+        }
+        &--nodisplay {
+            display: none;
+        }
+    }
+    &__list-item {
+        margin-top: 20px;
+        width: 100%;
+        &:first-child {
+            margin: 0;
+        }
+    }
+    &__link {
+        color: white;
+        font-size: 18px;
+    }
 }
 .navbar-fixed-top .navbar-collapse {
     max-height: none;
@@ -40,7 +121,7 @@
 }
 // non-mobile part. Default = non mobile
 .navbar-default {
-    display: none;
+    // display: none;
     top: 0px;
     transition: 0.5s ease;
     z-index: 11;

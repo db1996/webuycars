@@ -1,5 +1,5 @@
 <div id="step1" class="tab-pane {{$activetabs->stap1}}">
-    <div class="info-step1 info">
+    <div class="c-info-tab">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col col-sm-12 col-md-6">

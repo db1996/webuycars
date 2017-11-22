@@ -1,0 +1,10 @@
+/* begin c-load-icon */
+.c-load-icon {
+    display: none;
+    margin-left: 15px;
+    width: 25px;
+    &--show {
+        display: block;
+    }
+}
+/* end c-load-icon */

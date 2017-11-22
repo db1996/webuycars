@@ -36,7 +36,7 @@ $('.check-stap').on('click', function() {
             $(toggleElem).attr('data-toggle', '');
         }, 1);
         if ($(this).attr('type') == 'submit') {
-            $('.svg-rol').addClass('svg-show');
+            $('.c-load-icon').addClass('c-load-icon--show');
             $('#all-form').submit();
         }
         return;

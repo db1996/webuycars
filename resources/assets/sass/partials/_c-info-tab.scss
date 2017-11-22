@@ -1,0 +1,11 @@
+.c-info-tab {
+    padding: 50px 0px;
+    background-image: url($imagelocation + 'stappenplan-background.jpg') !important;
+    background-repeat: repeat-y;
+    p {
+        margin: 0;
+    }
+    &--step4 {
+        min-height: calc(100vh - (204px + 117.5px));
+    }
+}

@@ -1,0 +1,24 @@
+.c-top-image {
+    background-image: url($imagelocation + 'header.png');
+    @include portrait {
+        background-image: url($imagelocation + 'header-mobile.png');
+    }
+    @include landscape {
+        background-image: url($imagelocation + 'header-tablet2.png');
+    }
+    &__container {
+        height: auto;
+        text-align: left;
+        color: white !important;
+        font-size: 20px;
+        height: 100%;
+        @include landscape-down {
+            @include setflex(column,center, center);
+            height: 700px;
+        }
+        @include tablet-up {
+            @include setflex(column,flex-end, center);
+            height: 700px;
+        }
+    }
+}

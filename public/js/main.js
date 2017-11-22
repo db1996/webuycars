@@ -36,7 +36,7 @@ $('.check-stap').on('click', function() {
             $(toggleElem).attr('data-toggle', '');
         }, 1);
         if ($(this).attr('type') == 'submit') {
-            $('.svg-rol').addClass('svg-show');
+            $('.c-load-icon').addClass('c-load-icon--show');
             $('#all-form').submit();
         }
         return;
@@ -135,6 +135,32 @@ function removeTooltip(elem) {
         .tooltip('destroy');
 }
 
+var transitionval = $('.c-mobile-nav').css('transition-duration');
+transitionval = transitionval.replace('s', '');
+transitionval = transitionval * 1000;
+function addnoDisplay() {
+    $('.c-mobile-nav__list').addClass('c-mobile-nav__list--nodisplay');
+    $('.c-mobile-nav').removeClass('c-mobile-nav--full-height');
+}
+function expandMobileNavTime() {
+    $('.c-mobile-nav').addClass('c-mobile-nav--full-height');
+    $('.c-mobile-nav').addClass('c-mobile-nav--expanded');
+    $('.c-mobile-nav__list').removeClass('c-mobile-nav__list--hidden');
+    $('.c-mobile-nav__button').addClass('c-mobile-nav__button--expanded');
+}
+function expandMobileNav() {
+    if (!$('.c-mobile-nav').hasClass('c-mobile-nav--expanded')) {
+        $('.c-mobile-nav__list').removeClass('c-mobile-nav__list--nodisplay');
+        setTimeout(expandMobileNavTime, 1);
+    } else {
+        $('.c-mobile-nav').removeClass('c-mobile-nav--expanded');
+        $('.c-mobile-nav__list').addClass('c-mobile-nav__list--hidden');
+        $('.c-mobile-nav__button').removeClass(
+            'c-mobile-nav__button--expanded'
+        );
+        setTimeout(addnoDisplay, transitionval);
+    }
+}
 function checkInput(name, mode = 0, ermode = 0) {
     var test = {
         email: [

@@ -19,6 +19,19 @@
         background-color: lighten($pink-col-hex, 10%);
         outline: none;
     }
+    // modifier
+    &--home {
+        width: auto;
+        background-color: rgba(0, 0, 0, 0);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: $home-volgende-button-border;
+        &:hover,
+        &:focus {
+            background-color: rgba(0, 0, 0, 1);
+        }
+    }
+    // modifier
     &--vorige {
         display: inline-block;
         width: auto;
@@ -38,6 +51,7 @@
             outline: none;
         }
     }
+    // modifier
     &--collapse {
         justify-content: space-between;
         background-color: rgba(0, 0, 0, 0.8);
@@ -53,7 +67,7 @@
             color: white;
             outline: none;
         }
-        &[aria-expanded='false']:not(.navbar-toggle) {
+        &[aria-expanded='false'] {
             i:before {
                 content: '\f054';
             }
@@ -64,6 +78,7 @@
             }
         }
     }
+    //sub element
     &__collapse {
         h4 {
             margin-top: 30px;

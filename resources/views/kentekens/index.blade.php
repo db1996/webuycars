@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <div class="top-image">
-        <div class="container top-image__container">
+    <div class="c-top-image">
+        <div class="container c-top-image__container">
             <img src="" alt="">
             <div class="row row--no-width">
                 <div class="col col-sm-6 col-offset-sm-4">
-                    <form class="kenteken-form" action="{{url('/kenteken/create')}}"  method="get">
+                    <form class="c-form c-form--home" action="{{url('/kenteken/create')}}"  method="get">
                         <p>Voer hier je kenteken in:</p>
                         <input id="test50"
-                        oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="plate" type="text">
-                        <button class="nextbtn" type="submit">Volgende</button>
+                        oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="c-form__plate" type="text">
+                        <button class="c-btn c-btn--home" type="submit">Volgende</button>
                     </form>
                     {{-- <button class="nextbtn" onclick="combi($('#blah').val())">Volgende</button> --}}
                 </div>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="vrijblijvend">
-        <h1>Verkoop <span class="bold-font-span">razend snel</span> uw auto</h1>
+        <h1>Verkoop <span class="m--bold">razend snel</span> uw auto</h1>
         <h2>ontvang nu vrijblijvend een bod</h2>
     </div>
     <div class="instructies">
