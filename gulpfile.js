@@ -10,7 +10,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var CleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var combineMq = require('gulp-combine-mq');
-
+var devip = require('dev-ip');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
@@ -152,7 +152,7 @@ gulp.task('watch', function() {
         proxy: 'http://localhost/webuycars/public',
         online: true,
         notify: false,
-        host: '192.168.56.1'
+        host: devip()
     });
     gulp.watch(buildwatch.scss, ['build-css']);
     gulp.watch(buildwatch.js, ['build-js']);

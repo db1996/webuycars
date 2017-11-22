@@ -75,6 +75,7 @@ $debugtransition: 0.45s ease;
     &__list-item {
         margin-top: 20px;
         width: 100%;
+
         &:first-child {
             margin: 0;
         }
@@ -82,5 +83,11 @@ $debugtransition: 0.45s ease;
     &__link {
         color: white;
         font-size: 18px;
+        &:hover,
+        &:focus,
+        &:active {
+            color: white;
+            text-decoration: none;
+        }
     }
 }
