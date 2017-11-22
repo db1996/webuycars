@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['debug'] = 0;
+$GLOBALS['debug'] = 1;
 function create_inputs( $naam, $errorarray, $arrname = '', $aditval = '', $type = 'text'){
     if ($arrname != ''){
         $namestr = $arrname . "[" . $naam . "]";
@@ -15,9 +15,9 @@ function create_inputs( $naam, $errorarray, $arrname = '', $aditval = '', $type 
     <input required type="{{$type}}"
     name="{{$namestr}}"
     <?php if($aditval != ''){?>
-    value="{{ (old($namestr2) != "" ? old($namestr2): $aditval) }}"
+    value="{{ ($debug == 0 ? (old($namestr2) != "" ? old($namestr2): $aditval): ($type=='text' ? str_random('8') : '5')) }}"
     <?php }else{?>
-    value="{{ ($debug==0 ? old($namestr2) : str_random('8'))}}"
+    value="{{ ($debug==0 ? old($namestr2) : ($type=='text' ? str_random('8') : '5'))}}"
     <?php }?>
     class="c-input errtooltip {{ $errorarray['errorclasses'][$namestr2] }}"
     placeholder="{{ (preg_match('/[\W]+/',$namestr2)? '' : $namestr2 . '...') }}"

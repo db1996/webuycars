@@ -42,16 +42,3 @@
         opacity: 1;
     }
 }
-
-.flash-ms {
-    z-index: 10;
-    position: fixed;
-    right: 50%; // Move it to the right for 50% of parent element
-    margin-right: -250px; // You need here to put 1/2 of what you have below in width
-    width: 500px;
-    text-align: center;
-    top: 38%;
-    z-index: 10;
-    transition: 0.2s ease;
-    animation: flash-ms-comein 0.5s forwards, flash-ms-fade 0.5s forwards 6s;
-}

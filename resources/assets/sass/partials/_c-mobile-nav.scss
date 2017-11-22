@@ -1,13 +1,16 @@
 $debugtransition: 0.45s ease;
+$top-gap: 25px;
+$left-gap: 20px;
 .c-mobile-nav {
     position: fixed;
     display: flex;
     flex-direction: row-reverse;
+    max-width: 100%;
+    margin-top: $top-gap;
     z-index: 9000;
     transition: $debugtransition;
-    margin-top: 15px;
-    max-width: 100%;
-    @include custom(0px,320px) {
+    opacity: 0.95;
+    @include custom(0px, 320px) {
         flex-direction: column;
         width: 100%;
     }
@@ -15,8 +18,10 @@ $debugtransition: 0.45s ease;
         display: none;
     }
     &--expanded {
-        padding: 15px;
         margin-top: 0;
+        padding: 15px;
+        padding-top: $top-gap;
+        opacity: 1;
         background-color: lighten(black, 15%);
     }
     &--full-height {
@@ -25,7 +30,7 @@ $debugtransition: 0.45s ease;
     &__button {
         align-self: flex-start;
         height: auto;
-        margin-left: 25px;
+        margin-left: $left-gap;
         padding: 10px;
         border: 0;
         border-radius: 4px;
@@ -42,13 +47,12 @@ $debugtransition: 0.45s ease;
             background-color: $pink-col-hex;
             @include custom(0px,320px) {
                 margin-bottom: 15px;
-                margin-left: 10px;
             }
         }
     }
     &__icon {
         color: white;
-        font-size: 36px;
+        font-size: 28px;
     }
     &__list {
         position: relative;

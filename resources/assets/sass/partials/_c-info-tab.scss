@@ -8,4 +8,22 @@
     &--step4 {
         min-height: calc(100vh - (204px + 117.5px));
     }
+    &__title {
+        @include landscape-down {
+            text-align: center;
+            font-size: 26px;
+        }
+        @include laptop {
+            font-size: 28px;
+        }
+        @include tablet {
+            font-size: 28px;
+        }
+    }
+    &__paragraph {
+        @include landscape-down {
+            text-align: center;
+            font-size: 16px;
+        }
+    }
 }

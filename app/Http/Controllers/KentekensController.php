@@ -16,17 +16,6 @@ class KentekensController extends Controller
 {
     public function index()
     {
-        $config = Config::first();
-        if ($config->recheck_images == 1){
-            // Config::first()->update(['recheck_images' => 0]);
-            $time = Carbon::parse('-10 seconds')->toDateTimeString();
-            $images = Image::where('created_at', "<", $time)->where('kenteken_id', "=", null)->get();
-            foreach ($images as $key => $value) {
-                File::delete( 'img/kentekens/' . $value->filename);
-                Image::destroy($value->id);
-            }
-        }
-
         return view('kentekens.index');
     }
     public function confirm(Kenteken $kenteken)
@@ -63,7 +52,7 @@ class KentekensController extends Controller
             'confirmed' => $confirmed
         ]);
         $files = $request->file('filedata');
-        // dd($files);
+
         foreach($files as $file) {
             $originalfilename = $file->getClientOriginalName();
             $originalExtension = substr(strrchr($originalfilename, '.'), 1);
@@ -76,7 +65,9 @@ class KentekensController extends Controller
                 'originalfilename'  => $originalfilename
             ]);
         }
-        Mail::to($kenteken)->send(new Verstuurd($kenteken));
+        // dd($files);
+        // Mail::to($kenteken)->send(new Verstuurd($kenteken));
+        // dd('yay');
         return redirect("/kenteken/klaar");
     }
     public function klaar()
