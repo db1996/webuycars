@@ -1,13 +1,10 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util');
-jshint = require('gulp-jshint');
 sass = require('gulp-sass');
 concat = require('gulp-concat');
 sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
-var CleanCSS = require('gulp-clean-css');
-var rename = require('gulp-rename');
 var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
 var autoprefixerOptions = {
@@ -47,7 +44,7 @@ function handleError(err) {
     console.log(err.toString());
     this.emit('end');
 }
-
+// json object to specify folders and files it watches
 var srcs = {
         scss: 'resources/assets/sass/app.scss',
         js: 'resources/assets/js/*.js'

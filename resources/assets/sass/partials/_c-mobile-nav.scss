@@ -1,14 +1,17 @@
-$debugtransition: 0.45s ease;
-$top-gap: 25px;
-$left-gap: 20px;
+$transition: 0.45s ease;
+$icon-top-gap: 5px;
+$top-gap-expanded: 5px;
+$list-top-gap: 15px;
+$icon-left-gap: 5px;
+$icon-left-gap-expanded: 20px;
 .c-mobile-nav {
     position: fixed;
     display: flex;
     flex-direction: row-reverse;
     max-width: 100%;
-    margin-top: $top-gap;
+    margin-top: $icon-top-gap;
     z-index: 9000;
-    transition: $debugtransition;
+    transition: $transition;
     opacity: 0.95;
     @include custom(0px, 320px) {
         flex-direction: column;
@@ -20,7 +23,7 @@ $left-gap: 20px;
     &--expanded {
         margin-top: 0;
         padding: 15px;
-        padding-top: $top-gap;
+        padding-top: $top-gap-expanded;
         opacity: 1;
         background-color: lighten(black, 15%);
     }
@@ -30,12 +33,12 @@ $left-gap: 20px;
     &__button {
         align-self: flex-start;
         height: auto;
-        margin-left: $left-gap;
+        margin-left: $icon-left-gap;
         padding: 10px;
         border: 0;
         border-radius: 4px;
         background-color: rgba(black, 0.8);
-        transition: $debugtransition;
+        transition: $transition;
         @include custom(0px,320px) {
             margin-bottom: 15px;
         }
@@ -44,6 +47,7 @@ $left-gap: 20px;
             outline-color: transparent;
         }
         &--expanded {
+            margin-left: $icon-left-gap-expanded;
             background-color: $pink-col-hex;
             @include custom(0px,320px) {
                 margin-bottom: 15px;
@@ -56,18 +60,18 @@ $left-gap: 20px;
     }
     &__list {
         position: relative;
-        transition: $debugtransition;
-        padding: 0;
-        list-style: none;
         width: 200px;
+        padding: 0;
+        margin-top: $list-top-gap;
+        transition: $transition;
+        list-style: none;
         @include custom(0px, 320px) {
             width: 100%;
             margin-left: 10px;
-            // padding-right: 15px;
         }
         &--hidden {
-            visibility: hidden;
             margin-left: -200px;
+            visibility: hidden;
             @include custom(0px, 320px) {
                 margin-left: -100%;
             }
@@ -77,9 +81,8 @@ $left-gap: 20px;
         }
     }
     &__list-item {
-        margin-top: 20px;
         width: 100%;
-
+        margin-top: 20px;
         &:first-child {
             margin: 0;
         }
