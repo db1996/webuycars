@@ -1,12 +1,12 @@
-<div class="rating-wrap">
-    <div class="single-inside-wrap">
+<div class="c-review-faces">
+    <div class="c-review-faces__wrap">
         @for ($i=0; $i < $num; $i++)
-            <div class="single-rating full">
-                <img class="review-img" src="{{asset('img/review-face.png')}}" alt="">
+            <div class="c-review-faces__single">
+                <img class="c-review-faces__img" src="{{asset('img/review-face.png')}}" alt="">
             </div>
         @endfor
         @for ($i=0; $i < 5 - $num; $i++)
-            <div class="single-rating"></div>
+            <div class="c-review-faces__single c-review-faces__single--empty"></div>
         @endfor
     </div>
 </div>

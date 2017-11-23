@@ -4,7 +4,7 @@ $top-gap-expanded: 5px;
 $list-top-gap: 15px;
 $icon-left-gap: 5px;
 $icon-left-gap-expanded: 20px;
-.c-mobile-nav {
+.l-mobile-nav {
     position: fixed;
     display: flex;
     flex-direction: row-reverse;
@@ -17,7 +17,7 @@ $icon-left-gap-expanded: 20px;
         flex-direction: column;
         width: 100%;
     }
-    @include tablet-up {
+    @include laptop-up {
         display: none;
     }
     &--expanded {

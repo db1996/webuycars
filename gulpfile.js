@@ -7,6 +7,7 @@ var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
 var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
+var wait = require('gulp-wait')
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
@@ -23,6 +24,23 @@ gulp.task('build-css', function() {
             })
         )
         .pipe(sourcemaps.write())
+        .pipe(gulp.dest(dests.css))
+        .pipe(browserSync.reload({ stream: true }));
+});
+gulp.task('build-css-timeout', function() {
+    return gulp
+        .src(srcs.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .on('error', handleError)
+        .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(
+            combineMq({
+                beautify: true
+            })
+        )
+        .pipe(sourcemaps.write())
+        .pipe(wait(2500))
         .pipe(gulp.dest(dests.css))
         .pipe(browserSync.reload({ stream: true }));
 });
@@ -89,6 +107,7 @@ gulp.task('watch', function() {
     gulp.watch(buildwatch.js, ['build-js']);
     gulp.watch(watchs.images, ['reload-img']);
     gulp.watch(watchs.php).on('change', browserSync.reload);
+    gulp.watch(watchs.php, ['build-css-timeout']);
 });
 
 gulp.task('default', ['watch'], browserSync.reload);

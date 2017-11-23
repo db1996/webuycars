@@ -1,27 +1,27 @@
 {{-- mobile header test --}}
-<div class="c-mobile-nav">
-    <button class="c-mobile-nav__button" onclick="expandMobileNav();" type="button">
-        <i class="c-mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
+<div class="l-mobile-nav">
+    <button class="l-mobile-nav__button" onclick="expandMobileNav();" type="button">
+        <i class="l-mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
     </button>
-    <ul class="c-mobile-nav__list c-mobile-nav__list--hidden ">
-        <li class="c-mobile-nav__list-item">
-            <a class="c-mobile-nav__link" href="{{ url('/') }}">Home</a>
+    <ul class="l-mobile-nav__list l-mobile-nav__list--hidden ">
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Home</a>
         </li>
         <hr>
-        <li class="c-mobile-nav__list-item">
-            <a class="c-mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a>
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a>
         </li>
         <hr>
-        <li class="c-mobile-nav__list-item">
-            <a class="c-mobile-nav__link" href="{{ url('/') }}">Modellen</a>
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Modellen</a>
         </li>
         <hr>
-        <li class="c-mobile-nav__list-item">
-            <a class="c-mobile-nav__link" href="{{ url('/') }}">Over ons</a>
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Over ons</a>
         </li>
         <hr>
-        <li class="c-mobile-nav__list-item">
-            <a class="c-mobile-nav__link" href="{{ url('/') }}">Contact</a>
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a>
         </li>
         <hr>
     </ul>

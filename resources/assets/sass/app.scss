@@ -4,10 +4,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 
-// include all the partials
-@import 'partials/navbar';
-@import 'partials/homepage';
-@import 'partials/steps';
+// page specific + helpers
+@import 'state/steps';
+@import 'state/helpers';
+
+// big page layouts
+@import 'layout/navbar';
+@import 'layout/l-mobile-nav';
+
+//all partials
 @import 'partials/error';
 @import 'partials/flash_message';
 @import 'partials/fileupload';
@@ -15,19 +20,9 @@
 @import 'partials/c-input';
 @import 'partials/c-stars';
 @import 'partials/c-radios';
-@import 'partials/c-page-title';
 @import 'partials/c-load-icon';
 @import 'partials/c-info-tab';
 @import 'partials/c-form';
 @import 'partials/c-top-image';
-@import 'partials/c-mobile-nav';
-// Some basic universal styling
-@include step_nums_and_dashes;
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}
+@import 'partials/c-card';
+@import 'partials/c-single-review';

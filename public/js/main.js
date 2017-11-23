@@ -135,28 +135,28 @@ function removeTooltip(elem) {
         .tooltip('destroy');
 }
 
-var transitionval = $('.c-mobile-nav').css('transition-duration');
+var transitionval = $('.l-mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 function addnoDisplay() {
-    $('.c-mobile-nav__list').addClass('c-mobile-nav__list--nodisplay');
-    $('.c-mobile-nav').removeClass('c-mobile-nav--full-height');
+    $('.l-mobile-nav__list').addClass('l-mobile-nav__list--nodisplay');
+    $('.l-mobile-nav').removeClass('l-mobile-nav--full-height');
 }
 function expandMobileNavTime() {
-    $('.c-mobile-nav').addClass('c-mobile-nav--full-height');
-    $('.c-mobile-nav').addClass('c-mobile-nav--expanded');
-    $('.c-mobile-nav__list').removeClass('c-mobile-nav__list--hidden');
-    $('.c-mobile-nav__button').addClass('c-mobile-nav__button--expanded');
+    $('.l-mobile-nav').addClass('l-mobile-nav--full-height');
+    $('.l-mobile-nav').addClass('l-mobile-nav--expanded');
+    $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--hidden');
+    $('.l-mobile-nav__button').addClass('l-mobile-nav__button--expanded');
 }
 function expandMobileNav() {
-    if (!$('.c-mobile-nav').hasClass('c-mobile-nav--expanded')) {
-        $('.c-mobile-nav__list').removeClass('c-mobile-nav__list--nodisplay');
+    if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
+        $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
         setTimeout(expandMobileNavTime, 1);
     } else {
-        $('.c-mobile-nav').removeClass('c-mobile-nav--expanded');
-        $('.c-mobile-nav__list').addClass('c-mobile-nav__list--hidden');
-        $('.c-mobile-nav__button').removeClass(
-            'c-mobile-nav__button--expanded'
+        $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
+        $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
+        $('.l-mobile-nav__button').removeClass(
+            'l-mobile-nav__button--expanded'
         );
         setTimeout(addnoDisplay, transitionval);
     }

@@ -1,0 +1,82 @@
+.c-single-review {
+    margin: 15px 0px 40px 20px;
+    padding: 0px;
+    text-align: center;
+    background-color: white;
+    width: 47%;
+    @include landscape-down {
+        width: 100%;
+        margin-left: 0;
+    }
+    &__foto {
+        @include background-url('blauwepolo.png', 62%);
+        &--2 {
+            background-image: url($imagelocation + 'blauwepoloRes.png');
+        }
+    }
+    &__tussenlijn {
+        height: 10px;
+        background-color: $pink-col-hex;
+    }
+    &__onderlijn {
+        height: 2px;
+        margin: 20px 40px 0px 40px;
+        background-color: black;
+    }
+}
+.c-review-faces {
+    @include setflex(row, center, space-around);
+    padding: 15px;
+    &__wrap {
+        @include setflex(row, center, center);
+    }
+    &__single {
+        @include setflex(row, center, center);
+        width: $circle-size;
+        height: $circle-size;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 5px solid black;
+        background-color: black;
+        @include portrait {
+            width: $circle-size * ($circle-percentage / 100);
+            height: $circle-size * ($circle-percentage / 100);
+        }
+        @include tablet {
+            width: $circle-size * ($circle-percentage / 100);
+            height: $circle-size * ($circle-percentage / 100);
+        }
+        @include laptop {
+            width: $circle-size * ($circle-percentage / 100);
+            height: $circle-size * ($circle-percentage / 100);
+        }
+        @include custom(0px, 335px) {
+            width: $circle-size * 0.5;
+            height: $circle-size * 0.5;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &--empty {
+            background-color: rgba(white, 0);
+        }
+    }
+    &__img {
+        width: $circle-size * ($image-wrap-percentage / 100);
+        @include portrait {
+            width: $circle-size * ($circle-percentage / 100) * ($image-wrap-percentage /
+                        100);
+        }
+        @include tablet {
+            width: $circle-size * ($circle-percentage / 100) * ($image-wrap-percentage /
+                        100);
+        }
+        @include laptop {
+            width: $circle-size * ($circle-percentage / 100) * ($image-wrap-percentage /
+                        100);
+        }
+        @include custom(0px, 335px) {
+            width: $circle-size * 0.5 * ($image-wrap-percentage / 100);
+        }
+    }
+}

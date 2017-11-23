@@ -1,0 +1,33 @@
+//helper classes
+.row--no-width {
+    width: 100%;
+    @include landscape-down {
+        @include setflex(column,center, center);
+    }
+    @include tablet-up {
+        @include setflex(column,flex-end, flex-end);
+    }
+}
+.m--bold {
+    font-weight: bold;
+}
+.h--align-vertical {
+    display: flex;
+    align-items: center;
+}
+
+// Some basic universal styling
+@include step_nums_and_dashes;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+.footer {
+    height: 200px;
+    width: 100%;
+    background-color: $pink-col-hex;
+}
