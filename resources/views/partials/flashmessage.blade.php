@@ -1,10 +1,10 @@
 @if (session('messageImp'))
-    <div id="flash-mes" class="alert alert-{{session('kindOfMesImp')}}" role="alert">
+    <div class="alert alert-{{session('kindOfMesImp')}} c-flash-message" role="alert">
         {{ session('messageImp') }}
     </div>
 @else
     @if (session('flashmessage'))
-        <div id="flash-mes" class="alert alert-{{session('kindOfMes')}}" role="alert">
+        <div class="alert alert-{{session('kindOfMes')}} c-flash-message" role="alert">
             {{ session('flashmessage') }}
         </div>
     @endif

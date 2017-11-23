@@ -1,11 +1,11 @@
-#flash-mes {
+.c-flash-message {
     position: absolute;
     min-width: 200px;
     text-align: center;
     top: 180px;
     z-index: 10;
     transition: 0.2s ease;
-    animation: flash-mes-comein 1s forwards, flash-mes-fade 0.5s forwards 10s;
+    animation: flash-mes-comein 1s forwards, flash-mes-fade 0.5s forwards 25s;
 }
 
 @keyframes flash-mes-fade {

@@ -1,28 +1,31 @@
-// modules
-@import 'modules/all';
+// modules (does not compile to any css)
+@import 'modules/breakpoints';
+@import 'modules/mixins';
+@import 'modules/variables';
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+// page specific styles
+@import 'pages/home';
 
-// page specific + helpers
-@import 'state/steps';
+// helpers
+@import 'state/error';
 @import 'state/helpers';
+@import 'state/steps';
 
-// big page layouts
-@import 'layout/navbar';
+// big page layouts (navigation, grid etc)
 @import 'layout/l-mobile-nav';
+@import 'layout/navbar';
 
-//all partials
-@import 'partials/error';
-@import 'partials/flash_message';
-@import 'partials/fileupload';
-@import 'partials/c-btn';
-@import 'partials/c-input';
-@import 'partials/c-stars';
-@import 'partials/c-radios';
-@import 'partials/c-load-icon';
-@import 'partials/c-info-tab';
-@import 'partials/c-form';
-@import 'partials/c-top-image';
-@import 'partials/c-card';
-@import 'partials/c-single-review';
+// all components
+@import 'components/c-btn';
+@import 'components/c-card';
+@import 'components/c-flash-message';
+@import 'components/c-form';
+@import 'components/c-info-tab';
+@import 'components/c-input';
+@import 'components/c-load-icon';
+@import 'components/c-radios';
+@import 'components/c-single-review';
+@import 'components/c-stars';
+
+// Vendor folder contains css for 3rd party plugins
+@import 'vendor/fileupload';

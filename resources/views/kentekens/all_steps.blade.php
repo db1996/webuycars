@@ -16,9 +16,9 @@ $debug = setdebug();
 @section('content')
     @include('partials.createinput')
     @include('partials.errors')
-    <div class="c-page-title">
-        <h1 class="c-page-title__main-title">JOUW AUTO</h1>
-        <h2 class="c-page-title__sub-title">{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
+    <div class="c-card c-card--small">
+        <h1 class="c-card__title c-card__title--small">JOUW AUTO</h1>
+        <h2 class="c-card__subtitle c-card__subtitle--small">{{ $handelsbenaming  or   '' }}, {{ $year  or '' }} {{ $brandstof_omschrijving  or '' }}, <span id="kenteken">{{ $kenteken }}</span></h2>
     </div>
     <div class="container tabs-nav">
         <div class="row">
