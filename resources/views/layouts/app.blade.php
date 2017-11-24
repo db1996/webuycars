@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -24,6 +25,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script type="text/javascript" src="{{ asset('js/hammer.js') }}"></script>
 </head>
 <body id="@yield('pagetype')">
     <div id="app">

@@ -63,3 +63,13 @@ $laptop-max: 1200px;
         @content;
     }
 }
+@mixin custom-up($custommin) {
+    @media (min-width: #{$custommin}) {
+        @content;
+    }
+}
+@mixin custom-down($custommax) {
+    @media (max-width: #{$custommax}) {
+        @content;
+    }
+}

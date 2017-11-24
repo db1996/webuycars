@@ -1,5 +1,6 @@
 @php
 include(app_path().'/includes/functions.php');
+$GLOBALS['debug'] = setdebug();
 $year = substr($date, -4);
 if(isset($versnelling['type'])){
     $type_versnelling = type_versnelling($versnelling['type']);
@@ -9,7 +10,6 @@ else{
 }
 $activetabs = activetabs($errors);
 $errorarray = errors($errors);
-$debug = setdebug();
 @endphp
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')

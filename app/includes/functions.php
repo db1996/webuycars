@@ -1,5 +1,4 @@
 <?php
-$debug = setdebug();
 function setdebug(){
     return 1;
 }

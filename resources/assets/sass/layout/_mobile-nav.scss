@@ -1,9 +1,10 @@
-$transition: 0.45s ease;
+$transition: 0.2s ease;
 $icon-top-gap: 5px;
 $top-gap-expanded: 5px;
 $list-top-gap: 15px;
 $icon-left-gap: 5px;
 $icon-left-gap-expanded: 20px;
+$button-opac: 0.45;
 .l-mobile-nav {
     position: fixed;
     display: flex;
@@ -37,7 +38,7 @@ $icon-left-gap-expanded: 20px;
         padding: 10px;
         border: 0;
         border-radius: 4px;
-        background-color: rgba(black, 0.8);
+        background-color: rgba(black, $button-opac);
         transition: $transition;
         @include custom(0px,320px) {
             margin-bottom: 15px;
@@ -83,8 +84,13 @@ $icon-left-gap-expanded: 20px;
     &__list-item {
         width: 100%;
         margin-top: 20px;
+        margin-left: -20px;
+        transition: .3s all ease;
         &:first-child {
-            margin: 0;
+            margin-top: 0;
+        }
+        &--transition-in {
+            margin-left: 20px !important;
         }
     }
     &__link {

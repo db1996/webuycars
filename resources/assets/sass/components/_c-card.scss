@@ -3,7 +3,9 @@
     color: white;
     height: 300px;
     background-color: $pink-col-hex;
-    // text-align: center;
+    &--center {
+        text-align: center !important;
+    }
     &__imgcol {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -63,6 +65,14 @@
                 font-size: 36px;
             }
         }
+        &--xssmall {
+            @include landscape-down {
+                font-size: 18px;
+            }
+            @include tablet-up {
+                font-size: 22px;
+            }
+        }
     }
     &__image {
         width: 250px;
@@ -97,10 +107,14 @@
         }
     }
     &--gegevens {
+        display: flex;
         justify-content: space-around;
         height: auto;
         color: white;
         background-color: $pink-col-hex;
+        @include tablet-down {
+            flex-direction: column;
+        }
     }
     &--review {
         display: flex;

@@ -1,4 +1,12 @@
 //helper classes
+.--margin-top-col {
+    @include tablet-down {
+        margin-top: 10px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
 .row--no-width {
     width: 100%;
     @include landscape-down {
@@ -14,6 +22,10 @@
 .h--align-vertical {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    @include laptop-up {
+        flex-direction: row;
+    }
 }
 
 // Some basic universal styling

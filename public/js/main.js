@@ -138,6 +138,39 @@ function removeTooltip(elem) {
 var transitionval = $('.l-mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
+$(document).ready(function() {
+
+    var elem = document.getElementById('app');
+    var hammertime = Hammer(elem).on("swiperight", function(event) {
+        var endX = event.center.x;
+        var movedX = event.deltaX
+        var startX = endX - movedX;
+        console.log(endX);
+        console.log(movedX);
+        console.log("start: ", startX);
+        if (startX < 50 && endX > 70){
+            expandMobileNav(1);
+            console.log("yes");
+        }
+    });
+    var hammertime = Hammer(elem).on("swipeleft", function(event) {
+        var endX = event.center.x;
+        var movedX = event.deltaX
+        var startX = endX - movedX;
+        console.log(endX);
+        console.log(movedX);
+        console.log("start: ", startX);
+        if (movedX < -40){
+            expandMobileNav(2);
+            console.log("yes");
+        }
+    });
+});
+function addListItemTransition() {
+    $('.l-mobile-nav__list-item').addClass(
+        'l-mobile-nav__list-item--transition-in'
+    );
+}
 function addnoDisplay() {
     $('.l-mobile-nav__list').addClass('l-mobile-nav__list--nodisplay');
     $('.l-mobile-nav').removeClass('l-mobile-nav--full-height');
@@ -147,18 +180,43 @@ function expandMobileNavTime() {
     $('.l-mobile-nav').addClass('l-mobile-nav--expanded');
     $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--hidden');
     $('.l-mobile-nav__button').addClass('l-mobile-nav__button--expanded');
+    setTimeout(addListItemTransition, 80);
 }
-function expandMobileNav() {
-    if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
-        $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
-        setTimeout(expandMobileNavTime, 1);
-    } else {
-        $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
-        $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
-        $('.l-mobile-nav__button').removeClass(
-            'l-mobile-nav__button--expanded'
-        );
-        setTimeout(addnoDisplay, transitionval);
+function expandMobileNav(mode = 0) {
+    if (mode == 0){
+        if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
+            $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
+            setTimeout(expandMobileNavTime, 1);
+        } else {
+            $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
+            $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
+            $('.l-mobile-nav__button').removeClass(
+                'l-mobile-nav__button--expanded'
+            );
+            $('.l-mobile-nav__list-item').removeClass(
+                'l-mobile-nav__list-item--transition-in'
+            );
+            setTimeout(addnoDisplay, transitionval);
+        }
+    }
+    if (mode == 1){
+        if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
+            $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
+            setTimeout(expandMobileNavTime, 1);
+        }
+    }
+    if (mode == 2){
+        if ($('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
+            $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
+            $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
+            $('.l-mobile-nav__button').removeClass(
+                'l-mobile-nav__button--expanded'
+            );
+            $('.l-mobile-nav__list-item').removeClass(
+                'l-mobile-nav__list-item--transition-in'
+            );
+            setTimeout(addnoDisplay, transitionval);
+        }
     }
 }
 function checkInput(name, mode = 0, ermode = 0) {

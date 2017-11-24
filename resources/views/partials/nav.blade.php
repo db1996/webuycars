@@ -1,6 +1,6 @@
 {{-- mobile header test --}}
 <div class="l-mobile-nav">
-    <button class="l-mobile-nav__button" onclick="expandMobileNav();" type="button">
+    <button class="l-mobile-nav__button js-click-this" onclick="expandMobileNav();" type="button">
         <i class="l-mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
     </button>
     <ul class="l-mobile-nav__list l-mobile-nav__list--hidden ">

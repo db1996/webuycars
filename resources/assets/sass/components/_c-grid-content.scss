@@ -1,0 +1,25 @@
+.c-grid-content {
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+    width: 100%;
+    border: 2px solid black;
+    padding-bottom: 20px;
+    @include laptop-up {
+        height: 350px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &--full-row {
+        text-align: center;
+        grid-column: 1/ span 2;
+    }
+    &--right {
+        text-align: right;
+    }
+    p {
+        margin-bottom: 5px !important;
+        margin-top: 5px !important;
+    }
+}

@@ -16,12 +16,14 @@ class KentekensController extends Controller
 {
     public function index()
     {
-        return view('kentekens.index');
+        return view('home');
     }
     public function confirm(Kenteken $kenteken)
     {
         $kenteken->confirmed = 1;
         $kenteken->save();
+        return view('kentekens.confirm',
+        compact('kenteken'));
     }
     public function store(StoreKenteken $request)
     {
@@ -65,9 +67,7 @@ class KentekensController extends Controller
                 'originalfilename'  => $originalfilename
             ]);
         }
-        // dd($files);
-        // Mail::to($kenteken)->send(new Verstuurd($kenteken));
-        // dd('yay');
+        Mail::to($kenteken)->send(new Verstuurd($kenteken));
         return redirect("/kenteken/klaar");
     }
     public function klaar()
@@ -100,7 +100,7 @@ class KentekensController extends Controller
         if(!isset($data[0])){
             session()->flash("flashmessage", "Dat kenteken bestaat niet of het is onbekend bij ons");
             session()->flash("kindOfMes", "danger");
-            return view('kentekens.index');
+            return view('home');
         }
         $data = $data[0];
         $brandstof_data =

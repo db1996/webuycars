@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 hidden-sm"></div><div class="col-sm-12 col-md-6 upload-images">
-                    <input id="filedata" accept=".jpg,.gif,.png,.jpeg,.svg" name="filedata[]" lang="nl" type="file" multiple class="file-loading">
+                    <input id="filedata" accept=".jpg,.gif,.png,.jpeg," name="filedata[]" lang="nl" type="file" multiple class="file-loading">
                     <script>
                     $("#filedata").fileinput({
                         uploadAsync: false,

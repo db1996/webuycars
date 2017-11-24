@@ -6,7 +6,19 @@
         margin: 0;
     }
     &--step4 {
-        min-height: calc(100vh - (204px + 117.5px));
+        min-height: calc(100vh - (212px)); // tm 331px
+        @include custom(332px, 429px) {
+            min-height: calc(100vh - (182px));
+        }
+        @include custom(430px, $landscape-max - 1) {
+            min-height: calc(100vh - (156px));
+        }
+        @include tablet {
+            min-height: calc(100vh - (169px));
+        }
+        @include laptop-up {
+            min-height: calc(100vh - (117.5px + 169px));
+        }
     }
     &__title {
         @include landscape-down {
