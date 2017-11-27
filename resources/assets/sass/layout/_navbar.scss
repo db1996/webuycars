@@ -59,6 +59,7 @@
     transition: 0.3s ease;
     &:hover {
         background-color: rgba(0, 0, 0, 0.4) !important;
+        color: $pink-col-hex !important;
     }
 }
 

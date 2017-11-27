@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('pagetype', 'jouwauto-page')
 @section('content')
 <div class="container">
     <div class="row">

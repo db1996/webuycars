@@ -23,6 +23,9 @@
         <li class="l-mobile-nav__list-item">
             <a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a>
         </li>
+        <li class="l-mobile-nav__list-item">
+            <a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a>
+        </li>
         <hr>
     </ul>
 </div>
@@ -43,6 +46,16 @@
                 <li><a class="navbar-link-default" href="{{ url('/') }}">Modellen</a></li>
                 <li><a class="navbar-link-default" href="{{ url('/') }}">Over ons</a></li>
                 <li><a class="navbar-link-default" href="{{ url('/') }}">Contact</a></li>
+                <li><div class="btn-group" role="group">
+                    <button type="button" class="navbar-link-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="navbar-link-default" href="{{ url('/login') }}">Login</a></li>
+                        <li><a class="navbar-link-default" href="{{ url('/register') }}">Registreer</a></li>
+                    </ul>
+                </div></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
