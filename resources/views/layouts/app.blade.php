@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+{{-- @php
+Auth::logout();
 
+
+@endphp --}}
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">

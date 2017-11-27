@@ -51,7 +51,16 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ],
+        [
+                'name.required'     => 'De naam moet ingevuld worden',
+                'email.required'        => 'Het email moet ingevuld worden',
+                'email.email'           => 'Het ingevulde email is niet geldig',
+                'email.unique'          => 'Het email adres bestaat al',
+                'password.required'     => 'Het wachtwoord moet ingevuld worden',
+                'password.min'          => 'Het wachtwoord Moet minstens 6 karakters hebben',
+            ]
+        );
     }
 
     /**

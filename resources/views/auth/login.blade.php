@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('pagetype', 'jouwauto-page')
 @section('content')
+    {{-- {{ dd(App::getLocale()) }} --}}
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

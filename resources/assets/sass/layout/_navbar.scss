@@ -1,67 +1,4 @@
-/* begin nav */
-.navbar-fixed-top .navbar-collapse {
-    max-height: none;
-}
 
-// Default = non mobile
-.navbar-default {
-    // display: none;
-    top: 0px;
-    transition: 0.5s ease;
-    z-index: 11;
-    margin-bottom: 0;
-    position: absolute;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 0;
-    color: white;
-    border-radius: 0;
-    padding-right: 50px;
-    // screen-size <= 767px
-    @include tablet-down {
-        display: none;
-    }
-}
-.navbar-header-default {
-    margin-left: 25px;
-}
-.navbar-toggle-default {
-    @include landscape-down {
-        margin-top: 35px;
-    }
-    &:focus,
-    &:active {
-        background-color: black;
-    }
-}
-.navbar-brand {
-    height: auto;
-}
-.brand-img {
-    width: 250px;
-    @include custom(0px, 369px) {
-        width: 150px;
-    }
-}
-.navbar-collapse-default {
-    text-align: center;
-}
-.navbar-nav-default {
-    //screen-size: =>768
-    @include tablet-up {
-        float: right;
-    }
-}
-.navbar-link-default {
-    line-height: 87px !important;
-    color: white !important;
-    font-size: 24px;
-    transition: 0.3s ease;
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.4) !important;
-        color: $pink-col-hex !important;
-    }
-}
 
 // class is added when window is scrolled down.
 .nav-up.navbar-default {
@@ -70,7 +7,7 @@
     }
 }
 #jouwauto-page {
-    .navbar-default {
+    .l-desktop-nav{
         position: relative;
         background-color: black;
         float: inherit;
