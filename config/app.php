@@ -142,6 +142,7 @@ return [
          * Laravel Framework Service Providers...
          */
         JildertMiedema\LaravelPlupload\LaravelPluploadServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -192,6 +193,7 @@ return [
     */
 
     'aliases' => [
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Plupload' => JildertMiedema\LaravelPlupload\Facades\Plupload::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
