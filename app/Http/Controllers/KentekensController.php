@@ -22,6 +22,7 @@ class KentekensController extends Controller
     {
         $kenteken->confirmed = 1;
         $kenteken->save();
+        Mail::to($kenteken)->send(new Verstuurd($kenteken));
         return view('kentekens.confirm',
         compact('kenteken'));
     }

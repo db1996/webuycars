@@ -32,13 +32,13 @@
                     <div class="c-grid-content">
                         <h2 class="c-card__title  c-card__title--small c-grid-content--full-row">Jouw informatie</h2>
                         <p class="c-grid-content--right">Naam: </p>
-                        <p>{{$kenteken->kmstand}} KM</p>
+                        <p>{{$kenteken->voornaam . " " . $kenteken->achternaam}}</p>
                         <p class="c-grid-content--right">Email: </p>
-                        <p>{{$kenteken->uitvoering}}</p>
+                        <p>{{$kenteken->email}}</p>
                         <p class="c-grid-content--right">telefoonnummer: </p>
-                        <p>{{$kenteken->carrosserietype}}</p>
+                        <p>{{$kenteken->telefoonnummer}}</p>
                         <p class="c-grid-content--right">postcode: </p>
-                        <p>{{$kenteken->carrosserieomschrijving}}</p>
+                        <p>{{$kenteken->postcode}}</p>
                     </div>
                 </div>
                 <div class="col-md-4 --margin-top-col">

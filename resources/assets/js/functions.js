@@ -9,7 +9,12 @@ $(document).ready(function() {
         flashMesBot = $('.c-flash-message').offset().top + $('.c-flash-message').outerHeight();
         console.log("top: ", flashMesTop, "Bot: ", flashMesBot);
     }
+
     var elem = document.getElementById('app');
+    var navelem = document.getElementById('js-mobile-nav');
+    var hammertime = Hammer(navelem).on("swipeleft", function(event) {
+    });
+    hammertime = Hammer(elem)
     var hammertime = Hammer(elem).on("swiperight", function(event) {
         var endX = event.center.x;
         var movedX = event.deltaX
@@ -18,7 +23,7 @@ $(document).ready(function() {
         var movedY = event.deltaY
         var startY = endY - movedY;
 
-        if (startX < 50 && endX > 70){
+        if (startX < 80 && endX > 70){
             expandMobileNav(1);
         }
         if ( $('.c-flash-message').length){

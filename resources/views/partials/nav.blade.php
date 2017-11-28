@@ -1,5 +1,5 @@
 {{-- mobile header test --}}
-<div class="l-mobile-nav">
+<div class="l-mobile-nav" id="js-mobile-nav">
     <button class="l-mobile-nav__button js-click-this" onclick="expandMobileNav();" type="button">
         <i class="l-mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
     </button>
@@ -14,13 +14,11 @@
         <hr>
         <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
         <hr>
-        <li class="btn-group"><button type="button" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
-                <li><a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
-                <li><a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
-            </ul>
-        </li>
+        @if (Auth::check())
+            <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
+        @else
+            <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/login') }}">login</a></li>
+        @endif
     </ul>
 </div>
 <nav class="l-desktop-nav">

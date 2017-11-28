@@ -11,12 +11,18 @@ class AdminsController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->role != 'admin'){
-                session()->flash("kindOfMesImp", "danger");
-                return redirect()->route('home')->with('messageImp', 'Deze pagina is alleen beschikbaar voor admins');
+                session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
+                session()->flash("kindOfMes", "danger");
+                return redirect('/');
+            }
+            else{
+                return view('admins.index');
             }
         }
         else{
-            return redirect()->route('home');
+            session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
+            session()->flash("kindOfMes", "danger");
+            return redirect('/');
         }
     }
 }

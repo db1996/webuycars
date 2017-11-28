@@ -57,7 +57,6 @@ $laptop-max: 1200px;
         @content;
     }
 }
-
 @mixin custom($custommin, $custommax) {
     @media (min-width: #{$custommin}) and (max-width: #{$custommax}) {
         @content;
@@ -70,6 +69,21 @@ $laptop-max: 1200px;
 }
 @mixin custom-down($custommax) {
     @media (max-width: #{$custommax}) {
+        @content;
+    }
+}
+@mixin customy($custommin, $custommax) {
+    @media (min-height: #{$custommin}) and (max-height: #{$custommax}) {
+        @content;
+    }
+}
+@mixin customy-up($custommin) {
+    @media (min-height: #{$custommin}) {
+        @content;
+    }
+}
+@mixin customy-down($custommax) {
+    @media (max-height: #{$custommax}) {
         @content;
     }
 }

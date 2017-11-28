@@ -5,11 +5,11 @@
     top: 180px;
     z-index: 10;
     transition: 0.2s ease;
-    @include landscape-down{
-        animation: flash-mes-comein-mob 1s forwards/*, flash-mes-fade 0.5s forwards 10s 1 reverse*/;
+    @include tablet-down{
+        animation: flash-mes-comein-mob 1s forwards, flash-mes-swipe-out 0.5s forwards 10s;
         width:100%;
     }
-    @include tablet-up{
+    @include laptop-up{
         animation: flash-mes-comein 1s forwards, flash-mes-goout 0.5s forwards 10s;
     }
     &__cross{
@@ -20,30 +20,21 @@
         &:hover{
             background-color: white;
         }
-        @include landscape-down{
+        @include tablet-down{
             display: none;
         }
     }
     &--close{
         right: 20px;
-        animation: flash-mes-goout 0.5s forwards !important;
+        animation: flash-mes-goout2 0.5s forwards !important;
     }
     &--closeSmooth{
-        @include landscape-down{
-            animation: flash-mes-swipe-out 0.5s forwards !important;
+        @include tablet-down{
+            animation: flash-mes-swipe-out2 0.5s forwards !important;
         }
     }
 }
 
-@keyframes flash-mes-fade {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        display: none;
-    }
-}
 @keyframes flash-mes-comein {
     0% {
         right: -500px;
@@ -58,6 +49,16 @@
     }
     100% {
         right: -500px;
+        display: none;
+    }
+}
+@keyframes flash-mes-goout2 {
+    0% {
+        right: 20px;
+    }
+    100% {
+        right: -500px;
+        display: none;
     }
 }
 @keyframes flash-mes-comein-mob {
@@ -74,5 +75,15 @@
     }
     100% {
         right: -100%;
+        display: none;
+    }
+}
+@keyframes flash-mes-swipe-out2 {
+    0% {
+        right: 0px;
+    }
+    100% {
+        right: -100%;
+        display: none;
     }
 }
