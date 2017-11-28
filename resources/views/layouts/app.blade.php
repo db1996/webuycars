@@ -33,10 +33,11 @@ Auth::logout();
 </head>
 <body id="@yield('pagetype')">
     <div id="app">
+        @include('partials.flashmessage')
         @include('partials.nav')
         @yield('content')
     </div>
-    @include('partials.flashmessage')
+
     <!-- Custom JS -->
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>

@@ -134,35 +134,45 @@ function removeTooltip(elem) {
         .removeClass('inputerror')
         .tooltip('destroy');
 }
+$('.js-close-flash').on('click', function() {
+    $('.c-flash-message').addClass('c-flash-message--close');
+});
 
 var transitionval = $('.l-mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 $(document).ready(function() {
-
+    var flashMesBot;
+    var flashMesTop;
+    if ( $('.c-flash-message').length){
+        flashMesTop = $('.c-flash-message').offset().top;
+        flashMesBot = $('.c-flash-message').offset().top + $('.c-flash-message').outerHeight();
+        console.log("top: ", flashMesTop, "Bot: ", flashMesBot);
+    }
     var elem = document.getElementById('app');
     var hammertime = Hammer(elem).on("swiperight", function(event) {
         var endX = event.center.x;
         var movedX = event.deltaX
         var startX = endX - movedX;
-        console.log(endX);
-        console.log(movedX);
-        console.log("start: ", startX);
+        var endY = event.center.y;
+        var movedY = event.deltaY
+        var startY = endY - movedY;
+
         if (startX < 50 && endX > 70){
             expandMobileNav(1);
-            console.log("yes");
+        }
+        if ( $('.c-flash-message').length){
+            if (startY >= flashMesTop && startY <= flashMesBot && movedX >= 25 ){
+                $('.c-flash-message').addClass( 'c-flash-message--closeSmooth')
+            }
         }
     });
     var hammertime = Hammer(elem).on("swipeleft", function(event) {
         var endX = event.center.x;
         var movedX = event.deltaX
         var startX = endX - movedX;
-        console.log(endX);
-        console.log(movedX);
-        console.log("start: ", startX);
         if (movedX < -40){
             expandMobileNav(2);
-            console.log("yes");
         }
     });
 });

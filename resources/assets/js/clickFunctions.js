@@ -134,3 +134,6 @@ function removeTooltip(elem) {
         .removeClass('inputerror')
         .tooltip('destroy');
 }
+$('.js-close-flash').on('click', function() {
+    $('.c-flash-message').addClass('c-flash-message--close');
+});

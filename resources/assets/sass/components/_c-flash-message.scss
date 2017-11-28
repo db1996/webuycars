@@ -5,7 +5,34 @@
     top: 180px;
     z-index: 10;
     transition: 0.2s ease;
-    animation: flash-mes-comein 1s forwards, flash-mes-fade 0.5s forwards 25s;
+    @include landscape-down{
+        animation: flash-mes-comein-mob 1s forwards/*, flash-mes-fade 0.5s forwards 10s 1 reverse*/;
+        width:100%;
+    }
+    @include tablet-up{
+        animation: flash-mes-comein 1s forwards, flash-mes-goout 0.5s forwards 10s;
+    }
+    &__cross{
+        margin-right:5px;
+        font-size: 18px;
+        padding: 5px;
+        transition: .2s ease;
+        &:hover{
+            background-color: white;
+        }
+        @include landscape-down{
+            display: none;
+        }
+    }
+    &--close{
+        right: 20px;
+        animation: flash-mes-goout 0.5s forwards !important;
+    }
+    &--closeSmooth{
+        @include landscape-down{
+            animation: flash-mes-swipe-out 0.5s forwards !important;
+        }
+    }
 }
 
 @keyframes flash-mes-fade {
@@ -25,20 +52,27 @@
         right: 20px;
     }
 }
-@keyframes flash-ms-fade {
+@keyframes flash-mes-goout {
     0% {
-        opacity: 1;
+        right: 20px;
     }
     100% {
-        opacity: 0;
-        display: none;
+        right: -500px;
     }
 }
-@keyframes flash-ms-comein {
+@keyframes flash-mes-comein-mob {
     0% {
-        opacity: 0;
+        right: -100%;
     }
     100% {
-        opacity: 1;
+        right: 0px;
+    }
+}
+@keyframes flash-mes-swipe-out {
+    0% {
+        right: 0px;
+    }
+    100% {
+        right: -100%;
     }
 }

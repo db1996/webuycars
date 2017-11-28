@@ -46,7 +46,6 @@
                             <li><a class="l-desktop-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
                         @else
                             <li><a class="l-desktop-nav__link" href="{{ url('/login') }}">Login</a></li>
-                            <li><a class="l-desktop-nav__link" href="{{ url('/register') }}">Registreer</a></li>
                         @endif
 
                     </ul>
