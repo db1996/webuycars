@@ -28,7 +28,6 @@ Auth::logout();
     <script src="{{asset('js/nl.js')}}"></script>
     <!-- Custom CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <script type="text/javascript" src="{{ asset('js/hammer.js') }}"></script>
 </head>
 <body id="@yield('pagetype')">
