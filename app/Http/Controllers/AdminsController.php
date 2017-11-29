@@ -21,7 +21,7 @@ class AdminsController extends Controller
             }
             else{
                 $autodealers = DB::table('users')->where('role', 'autodealer')->get();
-                $page_title = "Car Dealers";
+                $page_title = "";
                 return view('admins.index', compact('page_title', 'user', 'autodealers'));
             }
         }

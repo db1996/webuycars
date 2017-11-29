@@ -64,7 +64,7 @@ function handleError(err) {
 }
 // json object to specify folders and files it watches
 var srcs = {
-        scss: 'resources/assets/sass/app.scss',
+        scss: 'resources/assets/sass/*.scss',
         js: 'resources/assets/js/*.js'
     },
     dests = {
