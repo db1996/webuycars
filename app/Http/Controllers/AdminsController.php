@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Auth;
+use DB;
+
+function redirectHome(){
+    session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
+    session()->flash("kindOfMes", "danger");
+    return redirect('/');
+}
 
 class AdminsController extends Controller
 {
@@ -11,18 +17,16 @@ class AdminsController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->role != 'admin'){
-                session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
-                session()->flash("kindOfMes", "danger");
-                return redirect('/');
+                return redirectHome();
             }
             else{
-                return view('admins.index');
+                $autodealers = DB::table('users')->where('role', 'autodealer')->get();
+                $page_title = "Car Dealers";
+                return view('admins.index', compact('page_title', 'user', 'autodealers'));
             }
         }
         else{
-            session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
-            session()->flash("kindOfMes", "danger");
-            return redirect('/');
+            return redirectHome();
         }
     }
 }

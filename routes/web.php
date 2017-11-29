@@ -1,7 +1,7 @@
 <?php
 use App\Image;
 Auth::routes();
-Route::get('/', "KentekensController@index")->name('home');
+Route::get('/', "HomeController@index")->name('home');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/kenteken/create', 'KentekensController@create');
 Route::post('/kenteken/store', 'KentekensController@store');

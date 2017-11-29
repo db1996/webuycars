@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 use Mail;
 use DB;
+use Session;
+use Auth;
+use \File;
 use App\Config;
-use App\Mail\Verstuurd;
 use App\Kenteken;
 use App\Image;
+use App\Mail\Verstuurd;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreKenteken;
-use Session;
-use \File;
+use Illuminate\Http\Request;
+// use App\Http\Middleware\CheckAdmin;
+
 class KentekensController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        return view('home');
+        $this->middleware('checkadmin');
     }
     public function confirm(Kenteken $kenteken)
     {
