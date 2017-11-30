@@ -1,49 +1,60 @@
 {{-- mobile header test --}}
-<div class="l-mobile-nav" id="js-mobile-nav">
-    <button class="l-mobile-nav__button js-click-this" onclick="expandMobileNav();" type="button">
-        <i class="l-mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
+<div class="mobile-nav" id="js-mobile-nav">
+    <button class="mobile-nav__button js-click-this" onclick="expandMobileNav();" type="button">
+        <i class="mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
     </button>
-    <ul class="l-mobile-nav__list l-mobile-nav__list--hidden ">
-        <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Home</a></li>
+    <ul class="mobile-nav__list mobile-nav__list--hidden ">
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Home</a></li>
         <hr>
-        <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a></li>
         <hr>
-        <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Modellen</a></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Modellen</a></li>
         <hr>
-        <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Over ons</a></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Over ons</a></li>
         <hr>
-        <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
         <hr>
         @if (Auth::check())
-            <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
+            <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
         @else
-            <li class="l-mobile-nav__list-item"><a class="l-mobile-nav__link" href="{{ url('/login') }}">login</a></li>
+            <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/login') }}">login</a></li>
         @endif
     </ul>
 </div>
-<nav class="l-desktop-nav">
-    {{-- <div class="container-fluid"> --}}
-        <div class="l-desktop-nav__brand-container">
-            <a class="l-desktop-nav__brand-link" href="#"><img class="l-desktop-nav__brand-img" alt="Logo" src="{{ asset('img/logo-WEB.png') }}"></a>
+<nav class="desktop-nav">
+    <div class="c-hamburger js-hamburger">
+        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--top c-hamburger__line--to-diagonal-tl"></span>
+        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--top c-hamburger__line--to-diagonal-tr"></span>
+        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--middle  c-hamburger__line--to-fade"></span>
+        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--middle  c-hamburger__line--to-fade"></span>
+        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--bottom c-hamburger__line--to-diagonal-bl"></span>
+        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--bottom c-hamburger__line--to-diagonal-br"></span>
+        {{-- <span class="c-hamburger__line c-hamburger__line--top c-hamburger__line--to-middle c-hamburger__line--to-diagonal-tl-br"></span>
+        <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--half-left c-hamburger__line--to-left-out c-hamburger__line--to-fade"></span>
+        <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--half-right c-hamburger__line--to-right-out c-hamburger__line--to-fade"></span>
+        <span class="c-hamburger__line c-hamburger__line--bottom c-hamburger__line--to-middle c-hamburger__line--to-diagonal-tr-bl"></span> --}}
+    </div>
+        <div class="desktop-nav__brand-container">
+            <a class="desktop-nav__brand-link" href="#"><img class="desktop-nav__brand-img" alt="Logo" src="{{ asset('img/logo-WEB.png') }}"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="l-desktop-nav__links-container">
-            <ul class="l-desktop-nav__list">
-                <li><a class="l-desktop-nav__link" href="{{ url('/') }}">Home</a></li>
-                <li><a class="l-desktop-nav__link" href="{{ url('/') }}">Auto verkoop</a></li>
-                <li><a class="l-desktop-nav__link" href="{{ url('/') }}">Modellen</a></li>
-                <li><a class="l-desktop-nav__link" href="{{ url('/') }}">Over ons</a></li>
-                <li><a class="l-desktop-nav__link" href="{{ url('/') }}">Contact</a></li>
+        <div class="desktop-nav__links-container">
+            <ul class="desktop-nav__list">
+                <li><a class="desktop-nav__link" href="{{ url('/') }}">Home</a></li>
+                <li><a class="desktop-nav__link" href="{{ url('/') }}">Auto verkoop</a></li>
+                <li><a class="desktop-nav__link" href="{{ url('/') }}">Modellen</a></li>
+                <li><a class="desktop-nav__link" href="{{ url('/') }}">Over ons</a></li>
+                <li><a class="desktop-nav__link" href="{{ url('/') }}">Contact</a></li>
                 <li class="btn-group">
-                    <button type="button" class="l-desktop-nav__link l-desktop-nav__link--dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="desktop-nav__link desktop-nav__link--dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Account
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu l-desktop-nav__dropdown-menu">
+                    <ul class="dropdown-menu desktop-nav__dropdown-menu">
                         @if (Auth::check())
-                            <li><a class="l-desktop-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
+                            <li><a class="desktop-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
                         @else
-                            <li><a class="l-desktop-nav__link" href="{{ url('/login') }}">Login</a></li>
+                            <li><a class="desktop-nav__link" href="{{ url('/login') }}">Login</a></li>
                         @endif
 
                     </ul>

@@ -137,3 +137,10 @@ function removeTooltip(elem) {
 $('.js-close-flash').on('click', function() {
     $('.c-flash-message').addClass('c-flash-message--close');
 });
+$('.js-hamburger').on('click', function() {
+    if ($(this).hasClass('open')) {
+        $(this).removeClass('open');
+    } else {
+        $(this).addClass('open');
+    }
+});

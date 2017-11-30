@@ -3,6 +3,10 @@
 @import 'modules/mixins';
 @import 'modules/variables';
 
+// Vendor folder contains css for 3rd party plugins
+@import 'vendor/fileupload';
+@import 'vendor/math/math';
+
 // page specific styles
 @import 'pages/home';
 
@@ -28,6 +32,3 @@
 @import 'components/c-single-review';
 @import 'components/c-stars';
 @import 'components/c-grid-content';
-
-// Vendor folder contains css for 3rd party plugins
-@import 'vendor/fileupload';

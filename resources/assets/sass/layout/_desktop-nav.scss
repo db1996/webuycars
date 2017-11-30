@@ -1,4 +1,4 @@
-.l-desktop-nav{
+.desktop-nav {
     position: absolute;
     @include setflex(row, center, space-between);
     max-height: none;
@@ -6,8 +6,8 @@
     top: 0px;
     z-index: 11;
     padding-right: 50px;
-    padding-bottom:20px;
-    padding-top:20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     border: 0;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -16,31 +16,30 @@
     @include tablet-down {
         display: none;
     }
-    &__brand-container{
-
+    &__brand-container {
         margin-left: 25px;
     }
-    &__brand-link{
+    &__brand-link {
         height: auto;
     }
-    &__brand-img{
+    &__brand-img {
         width: 250px;
         @include custom(0px, 369px) {
             width: 150px;
         }
     }
-    &__links-container{
+    &__links-container {
         text-align: center;
     }
-    &__list{
+    &__list {
         list-style: none;
-        display:flex;
-        width:100%;
-        padding:0;
-        margin:0;
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
-    &__link{
-        margin-right:15px;
+    &__link {
+        margin-right: 15px;
         line-height: 87px;
         color: white;
         font-size: 24px;
@@ -50,15 +49,16 @@
             color: $pink-col-hex;
             text-decoration: none;
         }
-        &--dropdown{
-            background-color: rgba(0,0,0,0);
-            border:0;
-            &:focus, &:active{
-                outline-color: rgba(0,0,0,0);
+        &--dropdown {
+            background-color: rgba(0, 0, 0, 0);
+            border: 0;
+            &:focus,
+            &:active {
+                outline-color: rgba(0, 0, 0, 0);
             }
         }
-        &--dropdown2{
-            color:white !important;
+        &--dropdown2 {
+            color: white !important;
         }
     }
 }
