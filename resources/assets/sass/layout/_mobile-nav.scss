@@ -132,15 +132,12 @@ $line-height: 4px;
         transition: 0.3s ease-in-out;
         &--top {
             top: 0px;
-            // left: 0px;
         }
         &--middle {
             top: ($container-height / 2) - ($line-height / 2);
-            // left: 0px;
         }
         &--bottom {
             top: $container-height - $line-height;
-            // left: 0px;
         }
         &--half-left {
             width: 50%;
@@ -149,9 +146,8 @@ $line-height: 4px;
             border-bottom-right-radius: 0;
         }
         &--half-right {
-            left: auto;
+            left: 50%;
             width: 50%;
-            right: 0px;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
@@ -165,8 +161,6 @@ $line-height: 4px;
     &.open {
         .c-hamburger__line {
             &--to-middle {
-                right: auto;
-                // top: ($container-height / 2) - ($line-height / 2);
                 left: ($container-height / 2);
                 width: 0%;
             }
@@ -174,7 +168,7 @@ $line-height: 4px;
                 top: ($container-height / 2) - ($line-height / 2);
             }
             &--to-middle-x {
-                right: auto;
+                // right: auto;
                 left: 50%;
             }
             &--to-no-width {
@@ -198,7 +192,6 @@ $line-height: 4px;
                 left: -50%;
             }
             &--to-right-out {
-                right: unset !important;
                 left: 100%;
             }
             &--to-fade {
