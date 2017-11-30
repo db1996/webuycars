@@ -23,16 +23,15 @@
 </div>
 <nav class="desktop-nav">
     <div class="c-hamburger js-hamburger">
-        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--top c-hamburger__line--to-diagonal-tl"></span>
-        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--top c-hamburger__line--to-diagonal-tr"></span>
-        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--middle  c-hamburger__line--to-fade"></span>
-        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--middle  c-hamburger__line--to-fade"></span>
-        <span class="c-hamburger__line c-hamburger__line--half-left c-hamburger__line--bottom c-hamburger__line--to-diagonal-bl"></span>
-        <span class="c-hamburger__line c-hamburger__line--half-right c-hamburger__line--bottom c-hamburger__line--to-diagonal-br"></span>
-        {{-- <span class="c-hamburger__line c-hamburger__line--top c-hamburger__line--to-middle c-hamburger__line--to-diagonal-tl-br"></span>
+        {{-- <span class="c-hamburger__line c-hamburger__line--top c-hamburger__line--to-middle-y c-hamburger__line--to-middle-x c-hamburger__line--to-no-width"></span>
+        <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--to-diagonal-tr-bl--flip"></span>
+        <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--to-diagonal c-hamburger__line--to-diagonal-tl-br--flip"></span>
+        <span class="c-hamburger__line c-hamburger__line--bottom c-hamburger__line--to-middle-y c-hamburger__line--to-middle-x c-hamburger__line--to-no-width"></span> --}}
+
+        <span class="c-hamburger__line c-hamburger__line--top c-hamburger__line--to-diagonal-tl-br"></span>
         <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--half-left c-hamburger__line--to-left-out c-hamburger__line--to-fade"></span>
         <span class="c-hamburger__line c-hamburger__line--middle c-hamburger__line--half-right c-hamburger__line--to-right-out c-hamburger__line--to-fade"></span>
-        <span class="c-hamburger__line c-hamburger__line--bottom c-hamburger__line--to-middle c-hamburger__line--to-diagonal-tr-bl"></span> --}}
+        <span class="c-hamburger__line c-hamburger__line--bottom  "></span>
     </div>
         <div class="desktop-nav__brand-container">
             <a class="desktop-nav__brand-link" href="#"><img class="desktop-nav__brand-img" alt="Logo" src="{{ asset('img/logo-WEB.png') }}"></a>
