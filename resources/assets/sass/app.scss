@@ -1,11 +1,11 @@
 // modules (does not compile to any css)
-@import 'vendor/math/math';
 @import 'modules/breakpoints';
 @import 'modules/mixins';
 @import 'modules/variables';
 
 // Vendor folder contains css for 3rd party plugins
 @import 'vendor/fileupload';
+@import 'vendor/hamburgers/hamburgers';
 
 // page specific styles
 @import 'pages/home';

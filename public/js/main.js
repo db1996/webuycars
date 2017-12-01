@@ -137,93 +137,98 @@ function removeTooltip(elem) {
 $('.js-close-flash').on('click', function() {
     $('.c-flash-message').addClass('c-flash-message--close');
 });
-$('.js-hamburger').on('click', function() {
-    if ($(this).hasClass('open')) {
-        $(this).removeClass('open');
+$('.hamburger').on('click', function() {
+    if ($(this).hasClass('is-active')) {
+        $(this).removeClass('is-active');
     } else {
-        $(this).addClass('open');
+        $(this).addClass('is-active');
     }
 });
 
-var transitionval = $('.l-mobile-nav').css('transition-duration');
+var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 $(document).ready(function() {
     var flashMesBot;
     var flashMesTop;
-    if ( $('.c-flash-message').length){
+    if ($('.c-flash-message').length) {
         flashMesTop = $('.c-flash-message').offset().top;
-        flashMesBot = $('.c-flash-message').offset().top + $('.c-flash-message').outerHeight();
-        console.log("top: ", flashMesTop, "Bot: ", flashMesBot);
+        flashMesBot =
+            $('.c-flash-message').offset().top +
+            $('.c-flash-message').outerHeight();
+        console.log('top: ', flashMesTop, 'Bot: ', flashMesBot);
     }
 
     var elem = document.getElementById('app');
     var navelem = document.getElementById('js-mobile-nav');
-    var hammertime = Hammer(navelem).on("swipeleft", function(event) {
-    });
-    hammertime = Hammer(elem)
-    var hammertime = Hammer(elem).on("swiperight", function(event) {
+    var hammertime = Hammer(navelem).on('swipeleft', function(event) {});
+    hammertime = Hammer(elem);
+    var hammertime = Hammer(elem).on('swiperight', function(event) {
         var endX = event.center.x;
-        var movedX = event.deltaX
+        var movedX = event.deltaX;
         var startX = endX - movedX;
         var endY = event.center.y;
-        var movedY = event.deltaY
+        var movedY = event.deltaY;
         var startY = endY - movedY;
 
-        if (startX < 80 && endX > 70){
+        if (startX < 80 && endX > 70) {
             expandMobileNav(1);
         }
-        if ( $('.c-flash-message').length){
-            if (startY >= flashMesTop && startY <= flashMesBot && movedX >= 25 ){
-                $('.c-flash-message').addClass( 'c-flash-message--closeSmooth')
+        if ($('.c-flash-message').length) {
+            if (
+                startY >= flashMesTop &&
+                startY <= flashMesBot &&
+                movedX >= 25
+            ) {
+                $('.c-flash-message').addClass('c-flash-message--closeSmooth');
             }
         }
     });
-    var hammertime = Hammer(elem).on("swipeleft", function(event) {
+    var hammertime = Hammer(elem).on('swipeleft', function(event) {
         var endX = event.center.x;
-        var movedX = event.deltaX
+        var movedX = event.deltaX;
         var startX = endX - movedX;
-        if (movedX < -40){
+        if (movedX < -40) {
             expandMobileNav(2);
         }
     });
 });
 function addnoDisplay() {
-    $('.l-mobile-nav__list').addClass('l-mobile-nav__list--nodisplay');
-    $('.l-mobile-nav').removeClass('l-mobile-nav--full-height');
+    $('.mobile-nav__list').addClass('mobile-nav__list--nodisplay');
+    $('.mobile-nav').removeClass('mobile-nav--full-height');
 }
 function expandMobileNavTime() {
-    $('.l-mobile-nav').addClass('l-mobile-nav--full-height');
-    $('.l-mobile-nav').addClass('l-mobile-nav--expanded');
-    $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--hidden');
-    $('.l-mobile-nav__button').addClass('l-mobile-nav__button--expanded');
+    $('.mobile-nav').addClass('mobile-nav--full-height');
+    $('.mobile-nav').addClass('mobile-nav--expanded');
+    $('.mobile-nav__list').removeClass('mobile-nav__list--hidden');
+    $('.mobile-nav__button').addClass('mobile-nav__button--expanded');
 }
 function expandMobileNav(mode = 0) {
-    if (mode == 0){
-        if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
-            $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
+    if (mode == 0) {
+        if (!$('.mobile-nav').hasClass('mobile-nav--expanded')) {
+            $('.mobile-nav__list').removeClass('mobile-nav__list--nodisplay');
             setTimeout(expandMobileNavTime, 1);
         } else {
-            $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
-            $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
-            $('.l-mobile-nav__button').removeClass(
-                'l-mobile-nav__button--expanded'
+            $('.mobile-nav').removeClass('mobile-nav--expanded');
+            $('.mobile-nav__list').addClass('mobile-nav__list--hidden');
+            $('.mobile-nav__button').removeClass(
+                'mobile-nav__button--expanded'
             );
             setTimeout(addnoDisplay, transitionval);
         }
     }
-    if (mode == 1){
-        if (!$('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
-            $('.l-mobile-nav__list').removeClass('l-mobile-nav__list--nodisplay');
+    if (mode == 1) {
+        if (!$('.mobile-nav').hasClass('mobile-nav--expanded')) {
+            $('.mobile-nav__list').removeClass('mobile-nav__list--nodisplay');
             setTimeout(expandMobileNavTime, 1);
         }
     }
-    if (mode == 2){
-        if ($('.l-mobile-nav').hasClass('l-mobile-nav--expanded')) {
-            $('.l-mobile-nav').removeClass('l-mobile-nav--expanded');
-            $('.l-mobile-nav__list').addClass('l-mobile-nav__list--hidden');
-            $('.l-mobile-nav__button').removeClass(
-                'l-mobile-nav__button--expanded'
+    if (mode == 2) {
+        if ($('.mobile-nav').hasClass('mobile-nav--expanded')) {
+            $('.mobile-nav').removeClass('mobile-nav--expanded');
+            $('.mobile-nav__list').addClass('mobile-nav__list--hidden');
+            $('.mobile-nav__button').removeClass(
+                'mobile-nav__button--expanded'
             );
             setTimeout(addnoDisplay, transitionval);
         }
