@@ -1,0 +1,60 @@
+$preload-width: 5px;
+$preload-height: 50px;
+$preload-gap: 10px;
+$preload-calculated-gap: $preload-width + $preload-gap;
+$animation-length: 1s;
+$amount-of-lines: 6;
+$height-20: $preload-height / 5;
+$uniq: 'move-up';
+$percent: (100% / $amount-of-lines) * ($amount-of-lines - 1);
+@include preloader-keyframe($uniq) {
+    0% {
+        height: $preload-height;
+    }
+    #{$percent / 2} {
+        height: $preload-height - $height-20 * 4;
+    }
+    #{$percent} {
+        height: $preload-height;
+    }
+    100% {
+        height: $preload-height;
+    }
+}
+.preloader {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: $pink-col-hex;
+    &--loaded {
+        display: none;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__load {
+        width: $preload-width;
+        height: $preload-height;
+        background-color: white;
+        border-radius: 8px;
+        transition: 0.2s ease;
+        margin-left: $preload-gap;
+        @for $i from 1 through $amount-of-lines {
+            $percent: 50%;
+
+            &:nth-child(#{$i}) {
+                animation: #{$uniq} 1.5s infinite linear;
+                animation-delay: $animation-length / ($amount-of-lines + 1) * $i;
+            }
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}

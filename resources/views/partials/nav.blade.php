@@ -1,26 +1,16 @@
-{{-- mobile header test --}}
-
+{{-- mobile header --}}
 <div class="mobile-nav" id="js-mobile-nav">
-
-    <button class="mobile-nav__button js-click-this" onclick="expandMobileNav();" type="button">
-        <i class="mobile-nav__icon fa fa-bars" aria-hidden="true"></i>
-    </button>
-    {{-- <button class="hamburger hamburger--arrow js-click-this" onclick="expandMobileNav();" type="button">
+    <button class="mobile-nav__button hamburger hamburger--arrow js-mobile-nav" type="button">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
-    </button> --}}
+    </button>
     <ul class="mobile-nav__list mobile-nav__list--hidden ">
-        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Home</a></li>
-        <hr>
-        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a></li>
-        <hr>
-        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Modellen</a></li>
-        <hr>
-        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Over ons</a></li>
-        <hr>
-        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Contact</a></li>
-        <hr>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Home</a> <hr></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Auto verkoop</a><hr></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Modellen</a><hr></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Over ons</a><hr></li>
+        <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/') }}">Contact</a><hr></li>
         @if (Auth::check())
             <li class="mobile-nav__list-item"><a class="mobile-nav__link" href="{{ url('/logout') }}">Uitloggen</a></li>
         @else

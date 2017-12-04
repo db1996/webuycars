@@ -16,6 +16,9 @@
     @include tablet-down {
         display: none;
     }
+    &--relative {
+        position: relative;
+    }
     &__brand-container {
         margin-left: 25px;
     }

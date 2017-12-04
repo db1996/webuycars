@@ -8,6 +8,11 @@
     background-size: $background-size;
     background-repeat: no-repeat;
 }
+@mixin preloader-keyframe($str) {
+    @keyframes #{$str} {
+        @content;
+    }
+}
 @mixin setflex($direction, $align-items, $justify-content, $wrap:nowrap, $important:'') {
     display: flex unquote($important);
     flex-direction: $direction unquote($important);

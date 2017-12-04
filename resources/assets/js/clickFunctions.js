@@ -120,20 +120,7 @@ $('.check-stap').on('click', function() {
         // console.log(errors);
     }
 });
-function setTooltip(elem, str) {
-    $(elem)
-        .addClass('inputerror')
-        .addClass('errtooltip')
-        .attr('title', str)
-        .attr('data-placement', 'right')
-        .tooltip('fixTitle')
-        .tooltip('show');
-}
-function removeTooltip(elem) {
-    $(elem)
-        .removeClass('inputerror')
-        .tooltip('destroy');
-}
+
 $('.js-close-flash').on('click', function() {
     $('.c-flash-message').addClass('c-flash-message--close');
 });
@@ -143,4 +130,7 @@ $('.hamburger').on('click', function() {
     } else {
         $(this).addClass('is-active');
     }
+});
+$('.js-mobile-nav').on('click', function() {
+    expandMobileNav();
 });

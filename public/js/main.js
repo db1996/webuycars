@@ -120,20 +120,7 @@ $('.check-stap').on('click', function() {
         // console.log(errors);
     }
 });
-function setTooltip(elem, str) {
-    $(elem)
-        .addClass('inputerror')
-        .addClass('errtooltip')
-        .attr('title', str)
-        .attr('data-placement', 'right')
-        .tooltip('fixTitle')
-        .tooltip('show');
-}
-function removeTooltip(elem) {
-    $(elem)
-        .removeClass('inputerror')
-        .tooltip('destroy');
-}
+
 $('.js-close-flash').on('click', function() {
     $('.c-flash-message').addClass('c-flash-message--close');
 });
@@ -144,11 +131,15 @@ $('.hamburger').on('click', function() {
         $(this).addClass('is-active');
     }
 });
+$('.js-mobile-nav').on('click', function() {
+    expandMobileNav();
+});
 
 var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 $(document).ready(function() {
+    // $('.js-preloader-loaded').addClass('preloader--loaded');
     var flashMesBot;
     var flashMesTop;
     if ($('.c-flash-message').length) {
@@ -329,6 +320,20 @@ function combi(Licenseplate) {
                 Licenseplate.slice(4);
         }
     }
+}
+function setTooltip(elem, str) {
+    $(elem)
+        .addClass('inputerror')
+        .addClass('errtooltip')
+        .attr('title', str)
+        .attr('data-placement', 'right')
+        .tooltip('fixTitle')
+        .tooltip('show');
+}
+function removeTooltip(elem) {
+    $(elem)
+        .removeClass('inputerror')
+        .tooltip('destroy');
 }
 
 var check = [];

@@ -12,23 +12,13 @@
     <meta name="description" content="Description of the page less than 150 characters">
 
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('img/favicon')}}/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('img/favicon')}}/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('img/favicon')}}/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/favicon')}}/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('img/favicon')}}/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('img/favicon')}}/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('img/favicon')}}/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('img/favicon')}}/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/favicon')}}/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{asset('img/favicon')}}/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon')}}/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon')}}/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon')}}/favicon-16x16.png">
-    <link rel="manifest" href="{{asset('img/favicon')}}/manifest.json">
-    <meta name="msapplication-config" content="{{asset('img/favicon')}}/browserconfig.xml">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{asset('img/favicon')}}/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/img/favicon/nmap2')}}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/img/favicon/nmap2')}}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/img/favicon/nmap2')}}/favicon-16x16.png">
+    <link rel="manifest" href="{{asset('/img/favicon/nmap2')}}/manifest.json">
+    <link rel="mask-icon" href="{{asset('/img/favicon/nmap2')}}/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{asset('/img/favicon/nmap2')}}/favicon.ico">
+    <meta name="msapplication-config" content="{{asset('/img/favicon/nmap2')}}/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Stylesheets -->
@@ -43,19 +33,21 @@
     <script src="https://use.fontawesome.com/ad9e1c6f38.js"></script> <!-- Font Awesome -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Bootstrap -->
     <!-- Filinput scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/sortable.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/purify.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/purify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/hammer.js') }}"></script> <!-- Hammer (touch) -->
+    <script src="{{ asset('js/hammer.js') }}"></script> <!-- Hammer (touch) -->
 </head>
-<body id="@yield('pagetype')">
+<body id="@yield('pagetype', "standard")">
+    @include('partials.preloader')
     <div id="app">
         @include('partials.flashmessage')
         @include('partials.nav')
         @yield('content')
+        @include('partials.makemeload')
     </div>
 
     <!-- Custom JS -->
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

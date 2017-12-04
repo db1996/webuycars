@@ -2,16 +2,14 @@
 @section('content')
     <div class="c-top-image">
         <div class="container c-top-image__container">
-            <img src="" alt="">
             <div class="row row--no-width">
                 <div class="col col-sm-6 col-offset-sm-4">
                     <form class="c-form c-form--home" action="{{url('/kenteken/create')}}"  method="get">
                         <p>Voer hier je kenteken in:</p>
-                        <input id="test50"
-                        oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required id="blah" name="kenteken" class="c-form__plate" type="text">
+                        <input
+                        oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required name="kenteken" class="c-form__plate" type="text">
                         <button class="c-btn c-btn--home" type="submit">Volgende</button>
                     </form>
-                    {{-- <button class="nextbtn" onclick="combi($('#blah').val())">Volgende</button> --}}
                 </div>
             </div>
         </div>
@@ -44,7 +42,7 @@
         <div class="container">
             <div class="row h--align-vertical">
                 <div class="col-md-6 c-card__imgcol c-card__imgcol--tabletdown c-card--center">
-                    <img src="{{ asset('img/pose1.png') }}">
+                    <img src="{{ asset('img/pose1.png') }}" alt="">
                 </div>
                 <div class="col-md-6 c-list">
                     <div class="c-list__item">
@@ -77,7 +75,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 c-card__imgcol c-card__imgcol--tabletup c-card--center">
-                    <img src="{{ asset('img/pose1.png') }}">
+                    <img src="{{ asset('img/pose1.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -111,8 +109,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="footer">
+    <div class="footer">
 
-</div>
+    </div>
 @endsection

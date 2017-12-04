@@ -1,5 +1,3 @@
-
-
 // class is added when window is scrolled down.
 .nav-up.navbar-default {
     @include tablet-up {
@@ -7,7 +5,7 @@
     }
 }
 #jouwauto-page {
-    .l-desktop-nav{
+    .desktop-nav {
         position: relative;
         background-color: black;
         float: inherit;
@@ -15,10 +13,5 @@
     .nav-up.navbar-default {
         top: 0px !important;
     }
-}
-.fa-navicon:before,
-.fa-reorder:before,
-.fa-bars:before {
-    content: '\f0c9' !important;
 }
 /* end nav */
