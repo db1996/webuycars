@@ -2,201 +2,76 @@ $green: #008744;
 $blue: #0057e7;
 $red: #d62d20;
 $yellow: #ffa700;
+
+// scaling... any units
+$width: 100px;
+
 .c-loading {
-    &--google-spinner {
-        width: $loader-google-size;
-        height: $loader-google-size;
-        animation: rotate-all 1s linear infinite;
+    &--google-circular {
+        position: relative;
+        margin: 0 auto;
+        width: $width;
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
     }
-    &__spinner-single {
-        width: 50%;
+    &__circle-svg {
+        animation: rotate 1.28973s linear infinite;
         height: 100%;
+        transform-origin: center center;
+        width: 100%;
         position: absolute;
         top: 0;
-        overflow: hidden;
-        &--left {
-            left: 0;
-        }
-        &--right {
-            right: 0;
-        }
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
-    &__spinner-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 200px 0 0 200px;
-        border: $loader-google-border-width solid $loader-google-color;
-        &:after {
-            content: '';
-            position: absolute;
-            display: block;
-            width: $loader-google-border-width;
-            height: $loader-google-border-width;
-            background-color: $loader-google-color;
-            border-radius: 10px;
-            animation: background-color-yas $loader-google-color-animation linear infinite;
-        }
-        &--right {
-            border-radius: 0 200px 200px 0;
-            border-left: none;
-            transform: rotate(-10deg);
-            transform-origin: left center;
-            animation: rotate-right $loader-google-shrink-grow-animation linear infinite alternate,
-                border-color-no-left $loader-google-color-animation linear infinite;
-            &:after {
-                bottom: $loader-google-border-width * -1;
-                left: getpixels-bywidth($loader-google-border-width / 1px);
-            }
-        }
-        &--left {
-            border-right: none;
-            transform: rotate(10deg);
-            transform-origin: right center;
-            animation: rotate-left $loader-google-shrink-grow-animation linear infinite alternate,
-                border-color-no-right $loader-google-color-animation linear infinite;
-            &:after {
-                bottom: $loader-google-border-width * -1;
-                right: getpixels-bywidth($loader-google-border-width / 1px);
-            }
-        }
-    }
-}
-@keyframes background-color-yas {
-    100%,
-    0% {
-        background-color: $red;
-    }
-    40% {
-        background-color: $blue;
-    }
-    66% {
-        background-color: $green;
-    }
-    80%,
-    90% {
-        background-color: $yellow;
-    }
-    // 0% {
-    //     background-color: $blue;
-    // }
-    // 25% {
-    //     background-color: $red;
-    // }
-    // 50% {
-    //     background-color: $green;
-    // }
-    // 75% {
-    //     background-color: $yellow;
-    // }
-    // 100% {
-    //     background-color: $blue;
-    // }
-}
-@keyframes border-color-no-left {
-    // 0% {
-    //     border: $loader-google-border-width solid $blue;
-    //     border-left: 0;
-    // }
-    // 25% {
-    //     border: $loader-google-border-width solid $red;
-    //     border-left: 0;
-    // }
-    // 50% {
-    //     border: $loader-google-border-width solid $green;
-    //     border-left: 0;
-    // }
-    // 75% {
-    //     border: $loader-google-border-width solid $yellow;
-    //     border-left: 0;
-    // }
-    // 100% {
-    //     border: $loader-google-border-width solid $blue;
-    //     border-left: 0;
-    // }
-    100%,
-    0% {
-        border: $loader-google-border-width solid $red;
-        border-left: 0;
-    }
-    40% {
-        border: $loader-google-border-width solid $blue;
-        border-left: 0;
-    }
-    66% {
-        border: $loader-google-border-width solid $green;
-        border-left: 0;
-    }
-    80%,
-    90% {
-        border: $loader-google-border-width solid $yellow;
-        border-left: 0;
-    }
-}
-@keyframes border-color-no-right {
-    // 0% {
-    //     border: $loader-google-border-width solid $blue;
-    //     border-right: 0;
-    // }
-    // 25% {
-    //     border: $loader-google-border-width solid $red;
-    //     border-right: 0;
-    // }
-    // 50% {
-    //     border: $loader-google-border-width solid $green;
-    //     border-right: 0;
-    // }
-    // 75% {
-    //     border: $loader-google-border-width solid $yellow;
-    //     border-right: 0;
-    // }
-    // 100% {
-    //     border: $loader-google-border-width solid $blue;
-    //     border-right: 0;
-    // }
-    100%,
-    0% {
-        border: $loader-google-border-width solid $red;
-        border-right: 0;
-    }
-    40% {
-        border: $loader-google-border-width solid $blue;
-        border-right: 0;
-    }
-    66% {
-        border: $loader-google-border-width solid $green;
-        border-right: 0;
-    }
-    80%,
-    90% {
-        border: $loader-google-border-width solid $yellow;
-        border-right: 0;
-    }
-}
-@keyframes rotate-left {
-    from {
-        transform: rotate(175deg);
-    }
-    to {
-        transform: rotate(30deg);
+    &__circle-stroke {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 2s ease-in-out infinite, color 8s ease-in-out infinite;
+        stroke-linecap: round;
+        stroke-width: 5px;
     }
 }
 
-@keyframes rotate-right {
-    from {
-        transform: rotate(-175deg);
-    }
-
-    to {
-        transform: rotate(-30deg);
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-@keyframes rotate-all {
-    from {
-        transform: rotate(0deg);
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
-    to {
-        transform: rotate(-360deg);
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+    100%,
+    0% {
+        stroke: $red;
+    }
+    40% {
+        stroke: $blue;
+    }
+    66% {
+        stroke: $green;
+    }
+    80%,
+    90% {
+        stroke: $yellow;
     }
 }

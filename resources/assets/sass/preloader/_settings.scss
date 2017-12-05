@@ -32,8 +32,7 @@ $loader-gooey-dot3-bcolor: green;
 $loader-gooey-animation-length: 2s;
 
 // Google spinner
-$loader-google-size: 100px;
-$loader-google-border-width: 5px;
-$loader-google-color: blue;
-$loader-google-shrink-grow-animation: 1s;
+$loader-google-size: 50px;
+$loader-google-border-width: 8px;
+$loader-google-shrink-grow-animation: 1.5s;
 $loader-google-color-animation: $loader-google-shrink-grow-animation * 4;
