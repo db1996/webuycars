@@ -3,12 +3,14 @@ function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
 }
 $('.errtooltip').on('input', function() {
+    // console.log('yaaas');
     $(this)
         .removeClass('inputerror')
         .tooltip('destroy');
 });
-$('.starinp').on('click', function() {
+$('.c-stars__input').on('click', function() {
     var thisName = $(this).attr('name');
+    console.log('yaas');
     if ($("input:radio[name='" + thisName + "']").is(':checked')) {
         $(this)
             .parent()
@@ -37,6 +39,7 @@ $('.check-stap').on('click', function() {
         }, 1);
         if ($(this).attr('type') == 'submit') {
             $('.c-load-icon').addClass('c-load-icon--show');
+            $('.c-load-icon').removeClass('--disnone');
             $('#all-form').submit();
         }
         return;
@@ -44,9 +47,7 @@ $('.check-stap').on('click', function() {
     var parent_tab_pane = $(this).parents('.tab-pane');
     var errors = [];
     parent_tab_pane
-        .find(
-            'input[type="text"],input[type="email"],input[type="radio"],input[type="number"]'
-        )
+        .find('input[type="text"],input[type="email"],input[type="radio"],input[type="number"]')
         .each(function() {
             var type = $(this).attr('type');
             var isnum = isNumber($(this).val());
@@ -103,11 +104,9 @@ $('.check-stap').on('click', function() {
             errors.push($(this).attr('href'));
         }
     } else if ($(this).attr('type') == 'submit') {
-        console.log('step3');
         var elem = document.getElementsByClassName('file-caption-name')[0];
         if (elem.title == '') {
             errors.push('Empty');
-            console.log('empty');
             setTooltip($('.file-caption-main'), 'Upload een afbeelding');
         } else {
             removeTooltip($('.file-caption-main'));
@@ -144,9 +143,7 @@ $(document).ready(function() {
     var flashMesTop;
     if ($('.c-flash-message').length) {
         flashMesTop = $('.c-flash-message').offset().top;
-        flashMesBot =
-            $('.c-flash-message').offset().top +
-            $('.c-flash-message').outerHeight();
+        flashMesBot = $('.c-flash-message').offset().top + $('.c-flash-message').outerHeight();
         console.log('top: ', flashMesTop, 'Bot: ', flashMesBot);
     }
 
@@ -166,11 +163,7 @@ $(document).ready(function() {
             expandMobileNav(1);
         }
         if ($('.c-flash-message').length) {
-            if (
-                startY >= flashMesTop &&
-                startY <= flashMesBot &&
-                movedX >= 25
-            ) {
+            if (startY >= flashMesTop && startY <= flashMesBot && movedX >= 25) {
                 $('.c-flash-message').addClass('c-flash-message--closeSmooth');
             }
         }
@@ -202,9 +195,7 @@ function expandMobileNav(mode = 0) {
         } else {
             $('.mobile-nav').removeClass('mobile-nav--expanded');
             $('.mobile-nav__list').addClass('mobile-nav__list--hidden');
-            $('.mobile-nav__button').removeClass(
-                'mobile-nav__button--expanded'
-            );
+            $('.mobile-nav__button').removeClass('mobile-nav__button--expanded');
             setTimeout(addnoDisplay, transitionval);
         }
     }
@@ -218,9 +209,7 @@ function expandMobileNav(mode = 0) {
         if ($('.mobile-nav').hasClass('mobile-nav--expanded')) {
             $('.mobile-nav').removeClass('mobile-nav--expanded');
             $('.mobile-nav__list').addClass('mobile-nav__list--hidden');
-            $('.mobile-nav__button').removeClass(
-                'mobile-nav__button--expanded'
-            );
+            $('.mobile-nav__button').removeClass('mobile-nav__button--expanded');
             setTimeout(addnoDisplay, transitionval);
         }
     }
@@ -281,10 +270,7 @@ function checkInput(name, mode = 0, ermode = 0) {
 function combi(Licenseplate) {
     var first2chars = Licenseplate.substring(0, 2);
     first2chars = first2chars.length === 2 && first2chars.match(/[a-z]/i);
-    var lastchar = Licenseplate.substring(
-        Licenseplate.length,
-        Licenseplate.length - 1
-    );
+    var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
     lastchar = lastchar.length === 1 && lastchar.match(/[a-z]/i);
     if (first2chars && lastchar) {
         var newstr =
@@ -296,10 +282,7 @@ function combi(Licenseplate) {
     } else {
         var first2chars = Licenseplate.substring(0, 2);
         first2chars = first2chars.length === 2 && first2chars.match(/[0-9]/i);
-        var lastchar = Licenseplate.substring(
-            Licenseplate.length,
-            Licenseplate.length - 1
-        );
+        var lastchar = Licenseplate.substring(Licenseplate.length, Licenseplate.length - 1);
         lastchar = lastchar.length === 1 && lastchar.match(/[0-9]/i);
         if (first2chars && lastchar) {
             var newstr =
@@ -307,10 +290,7 @@ function combi(Licenseplate) {
                 '-' +
                 Licenseplate.slice(2, Licenseplate.length - 1) +
                 '-' +
-                Licenseplate.slice(
-                    Licenseplate.length - 1,
-                    Licenseplate.length
-                );
+                Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
         } else {
             var newstr =
                 Licenseplate.slice(0, 2) +

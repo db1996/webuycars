@@ -3,12 +3,14 @@ function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
 }
 $('.errtooltip').on('input', function() {
+    // console.log('yaaas');
     $(this)
         .removeClass('inputerror')
         .tooltip('destroy');
 });
-$('.starinp').on('click', function() {
+$('.c-stars__input').on('click', function() {
     var thisName = $(this).attr('name');
+    console.log('yaas');
     if ($("input:radio[name='" + thisName + "']").is(':checked')) {
         $(this)
             .parent()
@@ -37,6 +39,7 @@ $('.check-stap').on('click', function() {
         }, 1);
         if ($(this).attr('type') == 'submit') {
             $('.c-load-icon').addClass('c-load-icon--show');
+            $('.c-load-icon').removeClass('--disnone');
             $('#all-form').submit();
         }
         return;
@@ -44,9 +47,7 @@ $('.check-stap').on('click', function() {
     var parent_tab_pane = $(this).parents('.tab-pane');
     var errors = [];
     parent_tab_pane
-        .find(
-            'input[type="text"],input[type="email"],input[type="radio"],input[type="number"]'
-        )
+        .find('input[type="text"],input[type="email"],input[type="radio"],input[type="number"]')
         .each(function() {
             var type = $(this).attr('type');
             var isnum = isNumber($(this).val());
@@ -103,11 +104,9 @@ $('.check-stap').on('click', function() {
             errors.push($(this).attr('href'));
         }
     } else if ($(this).attr('type') == 'submit') {
-        console.log('step3');
         var elem = document.getElementsByClassName('file-caption-name')[0];
         if (elem.title == '') {
             errors.push('Empty');
-            console.log('empty');
             setTooltip($('.file-caption-main'), 'Upload een afbeelding');
         } else {
             removeTooltip($('.file-caption-main'));

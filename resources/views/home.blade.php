@@ -5,6 +5,14 @@
             <div class="row row--no-width">
                 <div class="col col-sm-6 col-offset-sm-4">
                     <form class="c-form c-form--home" action="{{url('/kenteken/create')}}"  method="get">
+
+                        <div class="c-loading--square-wave">
+                            <span class="c-loading__square-wave"></span>
+                            <span class="c-loading__square-wave"></span>
+                            <span class="c-loading__square-wave"></span>
+                            <span class="c-loading__square-wave"></span>
+                            <span class="c-loading__square-wave"></span>
+                        </div>
                         <p>Voer hier je kenteken in:</p>
                         <input
                         oninvalid="this.setCustomValidity('Het kenteken moet 6 letters of cijfers hebben')" pattern=".{6,6}" required name="kenteken" class="c-form__plate" type="text">

@@ -1,17 +1,18 @@
 // Animation length, If you want more than one loader on your page and both animation lengths need to be different you can change them independently
-$loader-animation-length: 0.7s; /* Master length, Gooey does not use this variable */
+$loader-animation-length: 0.7s; /* Master length, Gooey and google does not use this variable */
 
+// DO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
 // Wave  (lines)
 $loader-wave-amount-of-lines: 3;
 $loader-wave-width: 5px;
-$loader-wave-max-height: 80px;
+$loader-wave-max-height: 20px;
 $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: white;
 $loader-wave-animation-length: $loader-animation-length;
 
 // Wave (squares)
-$loader-square-wave-amount-of-squares: 3;
+$loader-square-wave-amount-of-squares: 5;
 $loader-square-wave-width: 20px;
 $loader-square-wave-height: 20px;
 $loader-square-wave-gap: 20px;
@@ -29,3 +30,10 @@ $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
 $loader-gooey-animation-length: 2s;
+
+// Google spinner
+$loader-google-size: 100px;
+$loader-google-border-width: 5px;
+$loader-google-color: blue;
+$loader-google-shrink-grow-animation: 1s;
+$loader-google-color-animation: $loader-google-shrink-grow-animation * 4;

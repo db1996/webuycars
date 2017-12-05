@@ -91,6 +91,11 @@
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <button type="submit" class="c-btn check-stap">
                         <p>Volgende</p>
+                        <div class="c-loading--wave --disnone js-loading-wave">
+                            <span class="c-loading__wave"></span>
+                            <span class="c-loading__wave"></span>
+                            <span class="c-loading__wave"></span>
+                        </div>
                         <img class="c-load-icon" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
                 </div>
