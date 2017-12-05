@@ -1,0 +1,56 @@
+.c-loading {
+    &--dots {
+        position: relative;
+    }
+    &__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        position: absolute;
+        background-color: white;
+        font-size: 100px;
+        animation: rot 3s linear; /*, opac 1s infinite linear;*/
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                animation-delay: 2s / 10 * $i;
+            }
+        }
+    }
+}
+
+@keyframes rot {
+    0% {
+        transform: rotate(-90deg) translateX(-25px);
+    }
+    5% {
+        transform: rotate(0deg) translateX(-25px);
+    }
+    45% {
+        transform: rotate(180deg) translateX(-25px);
+    }
+    55% {
+        transform: rotate(360deg) translateX(-25px);
+    }
+    95% {
+        transform: rotate(450deg) translateX(-25px);
+    }
+    100% {
+        transform: rotate(540deg) translateX(-25px);
+    }
+}
+@keyframes opac {
+    0%,
+    5% {
+        opacity: 0;
+    }
+    15%,
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

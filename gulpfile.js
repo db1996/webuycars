@@ -78,8 +78,17 @@ var srcs = {
     watchs = {
         scss: 'public/css/**/*.css',
         js: 'public/js/**/*.js',
-        php: ['resources/views/**/*.php', 'routes/web.php', 'App/Http/Controllers/**/*.php'],
-        images: ['public/img/*.png', 'public/img/*.gif', 'public/img/*.jpg', 'public/img/*.svg']
+        php: [
+            'resources/views/**/*.php',
+            'routes/web.php',
+            'App/Http/Controllers/**/*.php'
+        ],
+        images: [
+            'public/img/*.png',
+            'public/img/*.gif',
+            'public/img/*.jpg',
+            'public/img/*.svg'
+        ]
     },
     filenames = {
         js: 'main.js'
