@@ -94,60 +94,82 @@ $yellow: #ffa700;
     // }
 }
 @keyframes border-color-no-left {
+    // 0% {
+    //     border: $loader-google-border-width solid $blue;
+    //     border-left: 0;
+    // }
+    // 25% {
+    //     border: $loader-google-border-width solid $red;
+    //     border-left: 0;
+    // }
+    // 50% {
+    //     border: $loader-google-border-width solid $green;
+    //     border-left: 0;
+    // }
+    // 75% {
+    //     border: $loader-google-border-width solid $yellow;
+    //     border-left: 0;
+    // }
+    // 100% {
+    //     border: $loader-google-border-width solid $blue;
+    //     border-left: 0;
+    // }
+    100%,
     0% {
-        border: $loader-google-border-width solid $blue;
-        border-left: 0;
-    }
-    25% {
         border: $loader-google-border-width solid $red;
         border-left: 0;
     }
-    50% {
-        border: $loader-google-border-width solid $green;
-        border-left: 0;
-    }
-    75% {
-        border: $loader-google-border-width solid $yellow;
-        border-left: 0;
-    }
-    100% {
+    40% {
         border: $loader-google-border-width solid $blue;
         border-left: 0;
     }
-    100%,
-    0% {
-        stroke: $red;
-    }
-    40% {
-        stroke: $blue;
-    }
     66% {
-        stroke: $green;
+        border: $loader-google-border-width solid $green;
+        border-left: 0;
     }
     80%,
     90% {
-        stroke: $yellow;
+        border: $loader-google-border-width solid $yellow;
+        border-left: 0;
     }
 }
 @keyframes border-color-no-right {
+    // 0% {
+    //     border: $loader-google-border-width solid $blue;
+    //     border-right: 0;
+    // }
+    // 25% {
+    //     border: $loader-google-border-width solid $red;
+    //     border-right: 0;
+    // }
+    // 50% {
+    //     border: $loader-google-border-width solid $green;
+    //     border-right: 0;
+    // }
+    // 75% {
+    //     border: $loader-google-border-width solid $yellow;
+    //     border-right: 0;
+    // }
+    // 100% {
+    //     border: $loader-google-border-width solid $blue;
+    //     border-right: 0;
+    // }
+    100%,
     0% {
-        border: $loader-google-border-width solid $blue;
-        border-right: 0;
-    }
-    25% {
         border: $loader-google-border-width solid $red;
         border-right: 0;
     }
-    50% {
+    40% {
+        border: $loader-google-border-width solid $blue;
+        border-right: 0;
+    }
+    66% {
         border: $loader-google-border-width solid $green;
         border-right: 0;
     }
-    75% {
+    80%,
+    90% {
         border: $loader-google-border-width solid $yellow;
-        border-right: 0;
-    }
-    100% {
-        border: $loader-google-border-width solid $blue;
         border-right: 0;
     }
 }
