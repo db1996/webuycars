@@ -19,7 +19,7 @@
 @import 'layout/mobile-nav';
 @import 'layout/navbar';
 @import 'layout/desktop-nav';
-@import 'preloader/preloader';
+@import 'layout/preloader';
 
 // all components
 @import 'components/c-btn';
@@ -33,3 +33,6 @@
 @import 'components/c-single-review';
 @import 'components/c-stars';
 @import 'components/c-grid-content';
+
+// section
+@import 'preloader/loaders';

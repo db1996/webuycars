@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
 var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
-var wait = require('gulp-wait')
+var wait = require('gulp-wait');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
@@ -64,7 +64,7 @@ function handleError(err) {
 }
 // json object to specify folders and files it watches
 var srcs = {
-        scss: 'resources/assets/sass/*.scss',
+        scss: 'resources/assets/sass/**/*.scss',
         js: 'resources/assets/js/*.js'
     },
     dests = {
@@ -78,17 +78,8 @@ var srcs = {
     watchs = {
         scss: 'public/css/**/*.css',
         js: 'public/js/**/*.js',
-        php: [
-            'resources/views/**/*.php',
-            'routes/web.php',
-            'App/Http/Controllers/**/*.php'
-        ],
-        images: [
-            'public/img/*.png',
-            'public/img/*.gif',
-            'public/img/*.jpg',
-            'public/img/*.svg'
-        ]
+        php: ['resources/views/**/*.php', 'routes/web.php', 'App/Http/Controllers/**/*.php'],
+        images: ['public/img/*.png', 'public/img/*.gif', 'public/img/*.jpg', 'public/img/*.svg']
     },
     filenames = {
         js: 'main.js'

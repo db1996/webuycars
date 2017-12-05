@@ -1,19 +1,21 @@
 <div class="preloader js-preloader-loaded">
-    <div class="preloader__container">
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
-        <span class="preloader__line"></span>
+    <div class="c-loading c-loading--square-wave">
+        <span class="c-loading__square-wave"></span>
+        <span class="c-loading__square-wave"></span>
+        <span class="c-loading__square-wave"></span>
+        <span class="c-loading__square-wave"></span>
+        <span class="c-loading__square-wave"></span>
+        {{-- <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span>
+        <span class="c-loading__wave"></span> --}}
     </div>
 </div>

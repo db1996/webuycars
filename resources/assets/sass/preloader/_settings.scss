@@ -1,0 +1,21 @@
+// Animation length, If you want more than one loader on your page and both animation lengths need to be different you can change them independently
+$loader-animation-length: 0.7s; /* Master length */
+
+// Wave  (lines)
+$loader-wave-amount-of-lines: 5;
+$loader-wave-width: 5px;
+$loader-wave-max-height: 80px;
+$loader-wave-min-height: $loader-wave-max-height / 5;
+$loader-wave-line-gap: 10px;
+$loader-wave-background-color: white;
+$loader-wave-animation-length: $loader-animation-length;
+
+// Wave (squares)
+$loader-square-wave-amount-of-squares: 5;
+$loader-square-wave-width: 20px;
+$loader-square-wave-height: 20px;
+$loader-square-wave-gap: 20px;
+$loader-square-wave-background-color: white;
+$loader-square-wave-animation-length: $loader-animation-length;
+$loader-square-wave-jump-distanceY: -15px;
+$loader-square-wave-jump-distanceX: 0;
