@@ -5,13 +5,13 @@
             <div class="row row--no-width">
                 <div class="col col-sm-6 col-offset-sm-4">
                     <form class="c-form c-form--home" action="{{url('/kenteken/create')}}"  method="get">
-
-                        <div class="c-loading--square-wave">
-                            <span class="c-loading__square-wave"></span>
-                            <span class="c-loading__square-wave"></span>
-                            <span class="c-loading__square-wave"></span>
-                            <span class="c-loading__square-wave"></span>
-                            <span class="c-loading__square-wave"></span>
+                        <div class="name--name">
+                            <div class="name--name__dot"></div>
+                            <div class="name--name__dot"></div>
+                            <div class="name--name__dot"></div>
+                            <div class="name--name__dot"></div>
+                            <div class="name--name__dot"></div>
+                            <div class="name--name__dot"></div>
                         </div>
                         <p>Voer hier je kenteken in:</p>
                         <input
