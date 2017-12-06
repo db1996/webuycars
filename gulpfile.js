@@ -9,13 +9,16 @@ var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
 var wait = require('gulp-wait');
 var cleanCSS = require('gulp-clean-css');
+var checkCSS = require('gulp-check-unused-css');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
+gulp.task('checkCSS', function() {
+    return gulp.src([dests.css, 'resources/views/**/*.php']).pipe(checkCSS());
+});
 gulp.task('minify-css', function() {
     return gulp
         .src(srcs.scss)
-        .pipe(sourcemaps.init())
         .pipe(sass())
         .on('error', handleError)
         .pipe(autoprefixer(autoprefixerOptions))
@@ -30,9 +33,7 @@ gulp.task('minify-css', function() {
                 console.log(`${details.name}: ${details.stats.minifiedSize}`);
             })
         )
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(dests.cssmin))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest(dests.cssmin));
 });
 gulp.task('build-css', function() {
     return gulp
@@ -92,7 +93,7 @@ var srcs = {
     },
     dests = {
         css: 'public/css/',
-        cssmin: 'public/css/min/',
+        cssmin: 'public/css/min',
         js: 'public/js/'
     },
     buildwatch = {
