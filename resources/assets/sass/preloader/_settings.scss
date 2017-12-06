@@ -1,15 +1,12 @@
-// Animation length, If you want more than one loader on your page and both animation lengths need to be different you can change them independently
-$loader-animation-length: 0.7s; /* Master length, Gooey and google does not use this variable */
-
-// DO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
+// TODO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
 // Wave  (lines)
-$loader-wave-amount-of-lines: 3;
+$loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
-$loader-wave-max-height: 20px;
+$loader-wave-max-height: 40px;
 $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: white;
-$loader-wave-animation-length: $loader-animation-length;
+$loader-wave-animation-length: 0.7s;
 
 // Wave (squares)
 $loader-square-wave-amount-of-squares: 5;
@@ -17,7 +14,7 @@ $loader-square-wave-width: 20px;
 $loader-square-wave-height: 20px;
 $loader-square-wave-gap: 20px;
 $loader-square-wave-background-color: white;
-$loader-square-wave-animation-length: $loader-animation-length;
+$loader-square-wave-animation-length: 0.7s;
 $loader-square-wave-jump-distanceY: -15px;
 $loader-square-wave-jump-distanceX: 0;
 $loader-square-wave-min-opacity: 0.5;
@@ -29,7 +26,8 @@ $loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 
 $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
-$loader-gooey-animation-length: 2s;
+$loader-gooey-animation-length: 4s;
+$loader-gooey-full-circle-width: 200px;
 
 // Google spinner
 $loader-google-size: 100px;
@@ -38,3 +36,12 @@ $loader-google-green: #008744;
 $loader-google-blue: #0057e7;
 $loader-google-red: #d62d20;
 $loader-google-yellow: #ffa700;
+
+// Windows dots
+$loader-dots-amount-dots: 6;
+$loader-dots-size: 10px;
+$loader-dots-circle-size: 80px;
+$loader-dots-rotate-animation: 2.5s; /* Time it takes to animate the dots 2 full rounds (speed ups and slow downs are calculated) */
+$loader-dots-between-full-animation-delay: 1.2s; /* Delay between every 2 full rotations */
+$loader-dots-between-dots-delay: 0.12s; /* Delay in when the animation starts between every dot in seconds */
+$loader-dots-color: white;

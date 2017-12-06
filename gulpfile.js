@@ -8,9 +8,32 @@ var autoprefixer = require('gulp-autoprefixer');
 var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
 var wait = require('gulp-wait');
+var cleanCSS = require('gulp-clean-css');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
+gulp.task('minify-css', function() {
+    return gulp
+        .src(srcs.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .on('error', handleError)
+        .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(
+            combineMq({
+                beautify: false
+            })
+        )
+        .pipe(
+            cleanCSS({ debug: true }, details => {
+                console.log(`${details.name}: ${details.stats.originalSize}`);
+                console.log(`${details.name}: ${details.stats.minifiedSize}`);
+            })
+        )
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(dests.cssmin))
+        .pipe(browserSync.reload({ stream: true }));
+});
 gulp.task('build-css', function() {
     return gulp
         .src(srcs.scss)
@@ -69,6 +92,7 @@ var srcs = {
     },
     dests = {
         css: 'public/css/',
+        cssmin: 'public/css/min/',
         js: 'public/js/'
     },
     buildwatch = {
@@ -78,17 +102,8 @@ var srcs = {
     watchs = {
         scss: 'public/css/**/*.css',
         js: 'public/js/**/*.js',
-        php: [
-            'resources/views/**/*.php',
-            'routes/web.php',
-            'App/Http/Controllers/**/*.php'
-        ],
-        images: [
-            'public/img/*.png',
-            'public/img/*.gif',
-            'public/img/*.jpg',
-            'public/img/*.svg'
-        ]
+        php: ['resources/views/**/*.php', 'routes/web.php', 'App/Http/Controllers/**/*.php'],
+        images: ['public/img/*.png', 'public/img/*.gif', 'public/img/*.jpg', 'public/img/*.svg']
     },
     filenames = {
         js: 'main.js'

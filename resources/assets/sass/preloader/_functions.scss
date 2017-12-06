@@ -1,9 +1,0 @@
-@function getpixels-bywidth($r-or-l) {
-    @if $r-or-l < 5 {
-        @return $r-or-l * -1 + 0px;
-    } @else if $r-or-l == 5 {
-        @return -4px;
-    } @else {
-        @return -5px;
-    }
-}
