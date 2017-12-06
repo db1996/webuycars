@@ -1,16 +1,8 @@
-$green: #008744;
-$blue: #0057e7;
-$red: #d62d20;
-$yellow: #ffa700;
-
-// scaling... any units
-$width: 100px;
-
 .c-loading {
     &--google-circular {
         position: relative;
         margin: 0 auto;
-        width: $width;
+        width: $loader-google-size;
         &:before {
             content: '';
             display: block;
@@ -34,7 +26,7 @@ $width: 100px;
         stroke-dashoffset: 0;
         animation: dash 2s ease-in-out infinite, color 8s ease-in-out infinite;
         stroke-linecap: round;
-        stroke-width: 5px;
+        stroke-width: $loader-google-border-width !important;
     }
 }
 
@@ -62,16 +54,16 @@ $width: 100px;
 @keyframes color {
     100%,
     0% {
-        stroke: $red;
+        stroke: $loader-google-red;
     }
     40% {
-        stroke: $blue;
+        stroke: $loader-google-blue;
     }
     66% {
-        stroke: $green;
+        stroke: $loader-google-green;
     }
     80%,
     90% {
-        stroke: $yellow;
+        stroke: $loader-google-yellow;
     }
 }

@@ -32,7 +32,9 @@ $loader-gooey-dot3-bcolor: green;
 $loader-gooey-animation-length: 2s;
 
 // Google spinner
-$loader-google-size: 50px;
-$loader-google-border-width: 8px;
-$loader-google-shrink-grow-animation: 1.5s;
-$loader-google-color-animation: $loader-google-shrink-grow-animation * 4;
+$loader-google-size: 100px;
+$loader-google-border-width: 5px; /* > 10 will break the round shape */
+$loader-google-green: #008744;
+$loader-google-blue: #0057e7;
+$loader-google-red: #d62d20;
+$loader-google-yellow: #ffa700;

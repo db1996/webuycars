@@ -9,10 +9,10 @@
         position: absolute;
         background-color: white;
         font-size: 100px;
-        animation: rot 3s linear; /*, opac 1s infinite linear;*/
+        animation: rot 3.5s infinite linear; /*, opac 1s infinite linear;*/
         @for $i from 1 through 5 {
             &:nth-child(#{$i}) {
-                animation-delay: 2s / 10 * $i;
+                animation-delay: 0.15s * $i;
             }
         }
     }
@@ -21,21 +21,28 @@
 @keyframes rot {
     0% {
         transform: rotate(-90deg) translateX(-25px);
+        opacity: 1;
     }
-    5% {
+    3.25% {
         transform: rotate(0deg) translateX(-25px);
     }
-    45% {
+    29.25% {
         transform: rotate(180deg) translateX(-25px);
     }
-    55% {
+    35.75% {
         transform: rotate(360deg) translateX(-25px);
     }
-    95% {
-        transform: rotate(450deg) translateX(-25px);
+    61.75% {
+        transform: rotate(540deg) translateX(-25px);
+        opacity: 1;
+    }
+    65% {
+        transform: rotate(630deg) translateX(-25px);
+        opacity: 0;
     }
     100% {
-        transform: rotate(540deg) translateX(-25px);
+        transform: rotate(630deg) translateX(-25px);
+        opacity: 0;
     }
 }
 @keyframes opac {
