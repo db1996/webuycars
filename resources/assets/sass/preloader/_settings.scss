@@ -7,6 +7,8 @@ $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: white;
 $loader-wave-animation-length: 0.7s;
+@include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height,
+$loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
 
 // Wave (squares)
 $loader-square-wave-amount-of-squares: 5;
@@ -38,6 +40,12 @@ $loader-google-red: #d62d20;
 $loader-google-yellow: #ffa700;
 
 // Windows dots
+/*
+    If you only need one you can just create a wrapper div with the class "loading-dots"  and the dots classed "loading-dots__dot"
+    change the settings here to get that one to change.
+
+    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+*/
 $loader-dots-amount-dots: 6;
 $loader-dots-size: 10px;
 $loader-dots-circle-size: 80px;
@@ -45,3 +53,7 @@ $loader-dots-rotate-animation: 2.5s; /* Time it takes to animate the dots 2 full
 $loader-dots-between-full-animation-delay: 1.2s; /* Delay between every 2 full rotations */
 $loader-dots-between-dots-delay: 0.12s; /* Delay in when the animation starts between every dot in seconds */
 $loader-dots-color: white;
+@include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
+ $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
+ $loader-dots-between-dots-delay, $loader-dots-color);
+@include create-dots-elem ('name--name', 4, 5px, 40px, 2.5s, 1.2s, 0.12s, red);

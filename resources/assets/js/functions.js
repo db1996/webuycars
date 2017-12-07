@@ -2,7 +2,7 @@ var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 $(document).ready(function() {
-    $('.js-preloader-loaded').addClass('preloader--loaded');
+    // $('.js-preloader-loaded').addClass('preloader--loaded');
     var flashMesBot;
     var flashMesTop;
     if ($('.c-flash-message').length) {

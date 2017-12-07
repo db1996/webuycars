@@ -1,10 +1,18 @@
+// one mixin used in all of the below
+@mixin create-keyframe($animationName) {
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// Import all different loader mixins
+@import 'loaders/dots';
+@import 'loaders/wave';
+
 // import the settings
 @import 'settings';
 
-// Import all different loaders
-// @import 'loaders/wave';
-// @import 'loaders/square-wave';
-// @import 'loaders/gooey-loader';
-// @import 'loaders/google-spinner';
-@import 'loaders/dots';
-@include name ('name--name', 6, 5px, 70px, 2.5s, 1.2s, 0.12s, red);
+// load the loaders without mixins
+@import 'loaders/square-wave';
+@import 'loaders/gooey-loader';
+@import 'loaders/google-spinner';
