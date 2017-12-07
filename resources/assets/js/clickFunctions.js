@@ -3,14 +3,12 @@ function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
 }
 $('.errtooltip').on('input', function() {
-    // console.log('yaaas');
     $(this)
         .removeClass('inputerror')
         .tooltip('destroy');
 });
 $('.c-stars__input').on('click', function() {
     var thisName = $(this).attr('name');
-    console.log('yaas');
     if ($("input:radio[name='" + thisName + "']").is(':checked')) {
         $(this)
             .parent()
@@ -38,9 +36,12 @@ $('.check-stap').on('click', function() {
             $(toggleElem).attr('data-toggle', '');
         }, 1);
         if ($(this).attr('type') == 'submit') {
-            $('.c-load-icon').addClass('c-load-icon--show');
-            $('.c-load-icon').removeClass('--disnone');
-            $('#all-form').submit();
+            var p_elem = $(this).find('p');
+            $(p_elem).html('');
+            $('.js-stap3-dots').removeClass('--disnone');
+            setTimeout(function() {
+                $('#all-form').submit();
+            }, 10000);
         }
         return;
     }

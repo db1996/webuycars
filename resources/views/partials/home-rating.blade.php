@@ -2,7 +2,7 @@
     <div class="c-review-faces__wrap">
         @for ($i=0; $i < $num; $i++)
             <div class="c-review-faces__single">
-                <img class="c-review-faces__img" src="{{asset('img/review-face.png')}}" alt="">
+                <img class="c-review-faces__img" src="{{asset('img/review-face.png')}}" alt="review-plaatje">
             </div>
         @endfor
         @for ($i=0; $i < 5 - $num; $i++)

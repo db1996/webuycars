@@ -78,7 +78,7 @@
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
                     <span class="c-input c-input__currency errtooltip {{ $errorarray['errorclasses']['price'] }}" data-toggle="tooltip" data-placement="right"
                     title="{{ $errorarray['errornames']['price'] }}">€
-                        <input class="c-input--currency js-parent" required type="number" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's.....">
+                        <input class="c-input--currency js-parent" required type="text" name="price" value="{{old('price')}}" placeholder="Verwachte prijs in euro's.....">
                     </span>
                 </div>
             </div>
@@ -89,14 +89,13 @@
             </div>
             <div class="row">
                 <div class="col hidden-sm col-sm-3"></div><div class="col col-md-6 col-sm-12">
-                    <button type="submit" class="c-btn check-stap">
+                    <button type="submit" class="c-btn c-btn--scale check-stap">
                         <p>Volgende</p>
-                        <div class="c-loading--wave --disnone js-loading-wave">
-                            <span class="c-loading__wave"></span>
-                            <span class="c-loading__wave"></span>
-                            <span class="c-loading__wave"></span>
+                        <div class="stap3-dots js-stap3-dots --disnone">
+                            <div class="stap3-dots__dot"></div>
+                            <div class="stap3-dots__dot"></div>
+                            <div class="stap3-dots__dot"></div>
                         </div>
-                        <img class="c-load-icon" src="{{asset('img/Spinner.svg')}}" alt="">
                     </button>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 <div class="preloader js-preloader-loaded">
-    <div class="loading-waves">
-        <div class="loading-waves__wave"></div>
-        <div class="loading-waves__wave"></div>
-        <div class="loading-waves__wave"></div>
-        <div class="loading-waves__wave"></div>
-        <div class="loading-waves__wave"></div>
+    <div class="loading-dots">
+        <div class="loading-dots__dot"></div>
+        <div class="loading-dots__dot"></div>
+        <div class="loading-dots__dot"></div>
+        <div class="loading-dots__dot"></div>
+        <div class="loading-dots__dot"></div>
     </div>
 </div>

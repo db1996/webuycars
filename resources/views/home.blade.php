@@ -20,19 +20,19 @@
     </div>
     <div class="c-card c-card--instructies">
         <div class="col col-sm-4">
-            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="stappenplan afbeelding">
             <h2 class="c-card__subtitle c-card__subtitle--big">Meld je aan</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
         </div>
         <div class="col col-sm-4">
-            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="stappenplan afbeelding">
             <h2 class="c-card__subtitle c-card__subtitle--big">Prijs aanbieding</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
         </div>
         <div class="col col-sm-4">
-            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="">
+            <img class="c-card__image" src="{{asset("img/stappenplan1.png")}}" alt="stappenplan afbeelding">
             <h2 class="c-card__subtitle c-card__subtitle--big">Zorgeloos Verkocht</h2>
             <p>Wacht niet langer en meld je vrijblijvend aan.</p>
             <p>Wij bieden altijd de juiste prijs.</p>
@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row h--align-vertical">
                 <div class="col-md-6 c-card__imgcol c-card__imgcol--tabletdown c-card--center">
-                    <img src="{{ asset('img/pose1.png') }}" alt="">
+                    <img src="{{ asset('img/pose1.png') }}" alt="Vrolijk mannetje">
                 </div>
                 <div class="col-md-6 c-list">
                     <div class="c-list__item">

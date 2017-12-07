@@ -1,5 +1,8 @@
 // TODO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
 // Wave  (lines)
+/*
+    first argument is classname
+*/
 $loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
 $loader-wave-max-height: 40px;
@@ -56,4 +59,5 @@ $loader-dots-color: white;
 @include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
  $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
  $loader-dots-between-dots-delay, $loader-dots-color);
-@include create-dots-elem ('name--name', 4, 5px, 40px, 2.5s, 1.2s, 0.12s, red);
+
+@include create-dots-elem ('stap3-dots', 3, 5px, 20px, 1.7s, .8s, .18s, $loader-dots-color);

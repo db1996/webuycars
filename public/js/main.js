@@ -3,14 +3,12 @@ function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
 }
 $('.errtooltip').on('input', function() {
-    // console.log('yaaas');
     $(this)
         .removeClass('inputerror')
         .tooltip('destroy');
 });
 $('.c-stars__input').on('click', function() {
     var thisName = $(this).attr('name');
-    console.log('yaas');
     if ($("input:radio[name='" + thisName + "']").is(':checked')) {
         $(this)
             .parent()
@@ -38,9 +36,12 @@ $('.check-stap').on('click', function() {
             $(toggleElem).attr('data-toggle', '');
         }, 1);
         if ($(this).attr('type') == 'submit') {
-            $('.c-load-icon').addClass('c-load-icon--show');
-            $('.c-load-icon').removeClass('--disnone');
-            $('#all-form').submit();
+            var p_elem = $(this).find('p');
+            $(p_elem).html('');
+            $('.js-stap3-dots').removeClass('--disnone');
+            setTimeout(function() {
+                $('#all-form').submit();
+            }, 10000);
         }
         return;
     }
@@ -138,7 +139,7 @@ var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
 $(document).ready(function() {
-    // $('.js-preloader-loaded').addClass('preloader--loaded');
+    $('.js-preloader-loaded').addClass('preloader--loaded');
     var flashMesBot;
     var flashMesTop;
     if ($('.c-flash-message').length) {
@@ -216,7 +217,9 @@ function expandMobileNav(mode = 0) {
 }
 function checkInput(name, mode = 0, ermode = 0) {
     var test = {
-        email: [/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i],
+        email: [
+            /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+        ],
         pos: [/^[1-9]{1}[0-9]{3} ?[A-Z]{2}$/i],
         tel: [
             /^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\+31|0|0031|31)[1-9][0-9][-]?[1-9][0-9]{6}))$/,
@@ -290,7 +293,12 @@ function combi(Licenseplate) {
                 '-' +
                 Licenseplate.slice(Licenseplate.length - 1, Licenseplate.length);
         } else {
-            var newstr = Licenseplate.slice(0, 2) + '-' + Licenseplate.slice(2, 4) + '-' + Licenseplate.slice(4);
+            var newstr =
+                Licenseplate.slice(0, 2) +
+                '-' +
+                Licenseplate.slice(2, 4) +
+                '-' +
+                Licenseplate.slice(4);
         }
     }
 }

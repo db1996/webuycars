@@ -1,3 +1,8 @@
+img[alt=''],
+img:not([alt]) {
+    border: 10px dashed red !important;
+}
+
 .--no-margin {
     margin: 0;
 }

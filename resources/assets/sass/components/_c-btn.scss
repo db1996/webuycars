@@ -9,6 +9,7 @@
     color: white;
     transition: 0.2s ease;
     text-align: center;
+    outline: none;
     &:focus {
         color: white;
         background-color: lighten($pink-col-hex, 10%);
@@ -29,6 +30,12 @@
         &:hover,
         &:focus {
             background-color: rgba(0, 0, 0, 1);
+        }
+    }
+    &--scale:hover {
+        transform: scale(1, 1.1);
+        .stap3-dots {
+            transform: scale(1, 1 / 1.1);
         }
     }
     // modifier
