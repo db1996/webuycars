@@ -1,5 +1,5 @@
 .c-box {
-    width: 100%;
+    width: 50%;
     margin-bottom: 20px;
     border-top: 3px solid #d2d6de;
     border-radius: 3px;
@@ -24,5 +24,15 @@
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
         padding: 10px;
+    }
+    &__footer {
+        padding: 10px;
+        .fa-plus-circle {
+            font-size: 24px;
+            transition: 0.2s ease;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
     }
 }

@@ -12,22 +12,13 @@
     <meta name="description" content="Alle admin onderdelen te vinden in 1 URL">
 
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('img')}}/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/img/favicon/nmap2')}}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/img/favicon/nmap2')}}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/img/favicon/nmap2')}}/favicon-16x16.png">
+    <link rel="manifest" href="{{asset('/img/favicon/nmap2')}}/manifest.json">
+    <link rel="mask-icon" href="{{asset('/img/favicon/nmap2')}}/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{asset('/img/favicon/nmap2')}}/favicon.ico">
+    <meta name="msapplication-config" content="{{asset('/img/favicon/nmap2')}}/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Bootstrap 3.3.2 -->
@@ -81,8 +72,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js"></script>
-    <script src="{{ asset ("/bower_components/admin-lte/dist/js/app.min.js") }}"></script>
-
+    <script src="{{ asset('js/main.js') }}"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
     Both of these plugins are recommended to enhance the
     user experience -->

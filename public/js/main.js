@@ -1,4 +1,5 @@
 var url = 'http://localhost:3000/webuycars/public/';
+var newUsers = [];
 function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
 }
@@ -134,6 +135,28 @@ $('.hamburger').on('click', function() {
 $('.js-mobile-nav').on('click', function() {
     expandMobileNav();
 });
+
+$('.js-add-user-admin').on('click', function() {
+    var rand = randomString2(10, 'r-');
+    var isIn = $.inArray(rand, newUsers);
+    if (isIn > -1) {
+        do {
+            rand = randomString2(10, 'r-');
+            isIn = $.inArray(rand, newUsers);
+        } while (isIn > -1);
+    }
+    $('.js-users').append('<div class="user-info" id="' + rand + '"></div>');
+    newUsers.push(rand);
+});
+function randomString2(len, beforestr, charSet) {
+    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomString = '';
+    for (var i = 0; i < len; i++) {
+        var randomPoz = Math.floor(Math.random() * charSet.length);
+        randomString += charSet.substring(randomPoz, randomPoz + 1);
+    }
+    return beforestr + randomString;
+}
 
 var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
