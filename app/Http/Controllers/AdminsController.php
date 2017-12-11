@@ -29,4 +29,12 @@ class AdminsController extends Controller
             return redirectHome();
         }
     }
+    public function ajaxsave(Request $request){
+        $response = array(
+            'status' => 'success',
+            'msg' => 'Setting created successfully',
+        );
+        sleep(5);
+        return \Response::json($response);
+    }
 }

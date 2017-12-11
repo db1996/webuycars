@@ -8,6 +8,13 @@
         margin-right: $circle-size / 2 + $size;
         margin-bottom: $circle-size / 2 + $size;
         margin-left: $circle-size / 2;
+        &--nomarg {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &--inline {
+            display: inline-block;
+        }
         &__dot {
             width: $size;
             height: $size;

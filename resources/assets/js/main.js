@@ -1,12 +1,6 @@
 var check = [];
 var lastScrolltop = 0;
 $('.file-caption-name').attr('placeholder', 'Voeg afbeeldingen toe...');
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip(); // initializes bootstrap tooltips
-    checkInput('email');
-    checkInput('pos');
-    checkInput('tel');
-});
 $('#emailTB').on('input', function() {
     checkInput('email');
 });
@@ -18,6 +12,10 @@ $('#telTB').on('input', function() {
 });
 // Controls the navigation
 $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip(); // initializes bootstrap tooltips
+    checkInput('email');
+    checkInput('pos');
+    checkInput('tel');
     $('[data-toggle="tooltip"]').tooltip();
     var didScroll;
     var lastScrollTop = 0;

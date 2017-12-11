@@ -1,4 +1,4 @@
-var url = 'http://localhost:3000/webuycars/public/';
+var url = '/';
 var newUsers = [];
 function isNumber(n) {
     return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
@@ -145,9 +145,104 @@ $('.js-add-user-admin').on('click', function() {
             isIn = $.inArray(rand, newUsers);
         } while (isIn > -1);
     }
-    $('.js-users').append('<div class="user-info" id="' + rand + '"></div>');
+    $('.js-users').append(
+        '<div class="user-info user-info--is-edit" id="' + rand + '_wrap"></div>'
+    );
+    var strNaam = '';
+    strNaam +=
+        '<span class="--user-edit"><input type="text" id="' +
+        rand +
+        '_naam-tb" value="John Doe"></span>';
+    strNaam += '<span class="--user-view">John Doe</span>';
+
+    var strMail = '';
+    strMail +=
+        '<span class="--user-edit"><input type="email" id="' +
+        rand +
+        '_email-tb" value="johndoe@example.com"></span>';
+    strMail += '<span class="--user-view">johndoe@example.com</span>';
+
+    var strIcon = '';
+    strIcon +=
+        '<i class="fa fa-pencil-square-o user-info__icon js-user-view-edit --user-view" aria-hidden="true"></i>';
+    strIcon +=
+        '<i class="fa fa-floppy-o user-info__icon js-user-view-view --user-edit" id="' +
+        rand +
+        '" aria-hidden="true"></i>';
+    var strLoad = '';
+    strLoad += '<div class="loading-dots2 loading-dots2--nomarg --user-load">';
+    strLoad += '<div class="loading-dots2__dot"></div>';
+    strLoad += '<div class="loading-dots2__dot"></div>';
+    strLoad += '<div class="loading-dots2__dot"></div>';
+    strLoad += '<div class="loading-dots2__dot"></div>';
+    strLoad += '<div class="loading-dots2__dot"></div>';
+    strLoad += '</div>';
+    strIcon += strLoad;
+
+    $('#' + rand + '_wrap').append('<div class="user-info__naam" id="' + rand + '_naam"></div>');
+    $('#' + rand + '_naam').append(strNaam);
+    $('#' + rand + '_wrap').append('<div class="user-info__email" id="' + rand + '_email"></div>');
+    $('#' + rand + '_email').append(strMail);
+    $('#' + rand + '_wrap').append(
+        '<div class="user-info__bevestigd" id="' + rand + '_bevestigd">nee</div>'
+    );
+    $('#' + rand + '_wrap').append('<div class="user-info__edit" id="' + rand + '_edit"></div>');
+    $('#' + rand + '_edit').append(strIcon);
+    $('.js-user-view-edit').on('click', function() {
+        js_user_view_edit(this);
+    });
+    $('.js-user-view-view').on('click', function() {
+        js_user_view_view(this);
+    });
     newUsers.push(rand);
 });
+$('.js-user-view-edit').on('click', function() {
+    js_user_view_edit(this);
+});
+$('.js-user-view-view').on('click', function() {
+    js_user_view_view(this);
+});
+
+function js_user_view_edit(elem) {
+    $(elem)
+        .parent()
+        .parent()
+        .removeClass('user-info--is-view')
+        .addClass('user-info--is-edit');
+}
+function js_user_view_view(elem) {
+    $(elem)
+        .parent()
+        .parent()
+        .addClass('user-info--is-load')
+        .addClass('user-info--is-view')
+        .removeClass('user-info--is-edit');
+    var elemid = $(elem).attr('id');
+    var nameVal = $('#' + elemid + '_naam-tb').val();
+    var emailVal = $('#' + elemid + '_email-tb').val();
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        url: url + 'admin/ajaxsave',
+        data: { naam: nameVal, email: emailVal },
+        success: function(msg) {
+            console.log(msg);
+            $(elem)
+                .parent()
+                .parent()
+                .removeClass('user-info--is-load');
+        }
+    });
+}
+
+var transitionval = $('.mobile-nav').css('transition-duration');
+transitionval = transitionval.replace('s', '');
+transitionval = transitionval * 1000;
 function randomString2(len, beforestr, charSet) {
     charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var randomString = '';
@@ -157,10 +252,6 @@ function randomString2(len, beforestr, charSet) {
     }
     return beforestr + randomString;
 }
-
-var transitionval = $('.mobile-nav').css('transition-duration');
-transitionval = transitionval.replace('s', '');
-transitionval = transitionval * 1000;
 $(document).ready(function() {
     $('.js-preloader-loaded').addClass('preloader--loaded');
     var flashMesBot;
@@ -343,12 +434,6 @@ function removeTooltip(elem) {
 var check = [];
 var lastScrolltop = 0;
 $('.file-caption-name').attr('placeholder', 'Voeg afbeeldingen toe...');
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip(); // initializes bootstrap tooltips
-    checkInput('email');
-    checkInput('pos');
-    checkInput('tel');
-});
 $('#emailTB').on('input', function() {
     checkInput('email');
 });
@@ -360,6 +445,10 @@ $('#telTB').on('input', function() {
 });
 // Controls the navigation
 $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip(); // initializes bootstrap tooltips
+    checkInput('email');
+    checkInput('pos');
+    checkInput('tel');
     $('[data-toggle="tooltip"]').tooltip();
     var didScroll;
     var lastScrollTop = 0;

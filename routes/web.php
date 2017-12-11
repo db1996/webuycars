@@ -11,4 +11,5 @@ Route::get('password/reset', [
   'as' => 'password.request',
   'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
 ]);
-route::get('/admin', 'AdminsController@index');
+Route::get('/admin', 'AdminsController@index');
+Route::post('/admin/ajaxsave', 'AdminsController@ajaxsave');

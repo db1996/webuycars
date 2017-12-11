@@ -1,0 +1,63 @@
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    text-align: center;
+    &__naam {
+        width: 25%;
+    }
+    &__email {
+        width: 25%;
+    }
+    &__bevestigd {
+        width: 25%;
+    }
+    &__edit {
+        width: 25%;
+    }
+    &--header-row {
+        padding: 15px 0px;
+        margin-top: 0px;
+        border-radius: 5px;
+        color: white;
+        background-color: #3c8dbc;
+        font-weight: bold;
+    }
+    &__icon {
+        cursor: pointer;
+        font-size: 16px;
+    }
+    &--is-view {
+        .--user-view {
+            display: inline-block;
+        }
+        .--user-edit {
+            display: none;
+        }
+        .--user-load {
+            display: none;
+        }
+    }
+    &--is-edit {
+        .--user-edit {
+            display: inline-block;
+        }
+        .--user-view {
+            display: none;
+        }
+        .--user-load {
+            display: none;
+        }
+    }
+    &--is-load {
+        .--user-view.fa {
+            display: none;
+        }
+        .--user-load {
+            display: inline-block;
+        }
+    }
+}
+.--user-load {
+    display: none;
+}

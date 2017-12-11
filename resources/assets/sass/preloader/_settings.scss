@@ -59,5 +59,6 @@ $loader-dots-color: white;
 @include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
  $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
  $loader-dots-between-dots-delay, $loader-dots-color);
+@include create-dots-elem ('loading-dots2', 3, 5px, 20px, 1.7s, .8s, .18s, black);
 
 @include create-dots-elem ('stap3-dots', 3, 5px, 20px, 1.7s, .8s, .18s, $loader-dots-color);

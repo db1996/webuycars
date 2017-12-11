@@ -9,61 +9,32 @@ var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
 var wait = require('gulp-wait');
 var cleanCSS = require('gulp-clean-css');
-var checkCSS = require('gulp-check-unused-css');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
-gulp.task('checkCSS', function() {
-    return gulp.src([dests.css, 'resources/views/**/*.php']).pipe(checkCSS());
-});
-gulp.task('minify-css', function() {
-    return gulp
-        .src(srcs.scss)
-        .pipe(sass())
-        .on('error', handleError)
-        .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(
-            combineMq({
-                beautify: false
-            })
-        )
-        .pipe(
-            cleanCSS({ debug: true }, details => {
-                console.log(`${details.name}: ${details.stats.originalSize}`);
-                console.log(`${details.name}: ${details.stats.minifiedSize}`);
-            })
-        )
-        .pipe(gulp.dest(dests.cssmin));
-});
+var production = !!gutil.env.production;
+console.log(production ? 'yas' : 'nope');
 gulp.task('build-css', function() {
     return gulp
         .src(srcs.scss)
-        .pipe(sourcemaps.init())
+        .pipe(production === true ? gutil.noop() : sourcemaps.init())
         .pipe(sass())
         .on('error', handleError)
         .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(
-            combineMq({
-                beautify: true
-            })
-        )
-        .pipe(sourcemaps.write())
+        .pipe(production === true ? cleanCSS({ level: 2 }) : gutil.noop())
+        .pipe(production === true ? gutil.noop() : sourcemaps.write())
         .pipe(gulp.dest(dests.css))
         .pipe(browserSync.reload({ stream: true }));
 });
 gulp.task('build-css-timeout', function() {
     return gulp
         .src(srcs.scss)
-        .pipe(sourcemaps.init())
+        .pipe(production === true ? gutil.noop() : sourcemaps.init())
         .pipe(sass())
         .on('error', handleError)
         .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(
-            combineMq({
-                beautify: true
-            })
-        )
-        .pipe(sourcemaps.write())
+        .pipe(production === true ? cleanCSS({ level: 2 }) : gutil.noop())
+        .pipe(production === true ? gutil.noop() : sourcemaps.write())
         .pipe(wait(2500))
         .pipe(gulp.dest(dests.css))
         .pipe(browserSync.reload({ stream: true }));
