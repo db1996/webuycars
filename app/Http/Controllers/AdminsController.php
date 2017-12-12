@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
-
+use App\User;
 function redirectHome(){
     session()->flash("flashmessage", "Deze pagina is alleen beschikbaar voor admins");
     session()->flash("kindOfMes", "danger");
@@ -31,10 +31,23 @@ class AdminsController extends Controller
     }
     public function ajaxsave(Request $request){
         $response = array(
-            'status' => 'success',
-            'msg' => 'Setting created successfully',
+            'name' => $request->naam,
+            'mail' => $request->email,
         );
-        sleep(5);
-        return \Response::json($response);
+        if (substr($request->id, 0, 1) == "e" ){
+            $id = substr($request->id,2,strlen($request->id));
+            $response['edited'] = $id;
+            DB::table('users')->where('id', $id)->update(['name' => $request->naam, 'email' => $request->email]);
+        }
+        else{
+            $user = new User;
+            $user->role = "autodealer";
+            $user->name = $request->naam;
+            $user->email = $request->email;
+            $user->confirmation_code = str_random(40);
+            $user->save();
+            $response['id'] = $user->id;
+        }
+        return json_encode($response);
     }
 }

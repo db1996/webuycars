@@ -1,15 +1,7 @@
 var transitionval = $('.mobile-nav').css('transition-duration');
 transitionval = transitionval.replace('s', '');
 transitionval = transitionval * 1000;
-function randomString2(len, beforestr, charSet) {
-    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var randomString = '';
-    for (var i = 0; i < len; i++) {
-        var randomPoz = Math.floor(Math.random() * charSet.length);
-        randomString += charSet.substring(randomPoz, randomPoz + 1);
-    }
-    return beforestr + randomString;
-}
+
 $(document).ready(function() {
     $('.js-preloader-loaded').addClass('preloader--loaded');
     var flashMesBot;

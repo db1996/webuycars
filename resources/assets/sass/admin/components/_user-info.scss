@@ -1,8 +1,19 @@
 .user-info {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    padding: 15px 0;
     text-align: center;
+    transition: all 0.2s ease;
+    input {
+        text-align: center;
+    }
+    &:nth-child(odd) {
+        background-color: rgba(#3c8dbc, 0.125);
+    }
+    &:nth-child(1) {
+        background-color: transparent;
+    }
     &__naam {
         width: 25%;
     }
@@ -14,14 +25,31 @@
     }
     &__edit {
         width: 25%;
+        display: flex;
+        justify-content: center;
+    }
+    &__error {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0 - 100px;
+        width: 100px;
+        height: 100%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: rgba(red, 0.2) !important;
+        &--show {
+            display: block;
+        }
     }
     &--header-row {
         padding: 15px 0px;
         margin-top: 0px;
         border-radius: 5px;
         color: white;
-        background-color: #3c8dbc;
+        background-color: #3c8dbc !important;
         font-weight: bold;
+        border: 0px;
     }
     &__icon {
         cursor: pointer;
@@ -56,6 +84,12 @@
         .--user-load {
             display: inline-block;
         }
+    }
+    &--is-error {
+        background-color: rgba(red, 0.2) !important;
+    }
+    &--is-success {
+        background-color: rgba(green, 0.2) !important;
     }
 }
 .--user-load {
