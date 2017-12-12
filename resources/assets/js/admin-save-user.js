@@ -57,6 +57,7 @@ $('.js-add-user-admin').on('click', function() {
     htmlStr += '<div class="loading-dots2__dot"></div>';
     htmlStr += '</div>';
     htmlStr += '</div>';
+    htmlStr += '<div class="user-info__error" id="' + rand + '_error"></div>';
     htmlStr += '</div>';
     $('.js-users').append(htmlStr);
     $('.js-user-view-edit').on('click', function() {
@@ -75,19 +76,15 @@ $('.js-user-view-view').on('click', function() {
 });
 
 function js_user_view_edit(elem) {
-    $(elem)
-        .parent()
-        .parent()
-        .removeClass('user-info--is-view')
-        .addClass('user-info--is-edit');
+    addOrRemoveClasses($(elem), 2, ['user-info--is-edit'], ['user-info--is-view']);
 }
 function js_user_view_view(elem) {
-    $(elem)
-        .parent()
-        .parent()
-        .addClass('user-info--is-load')
-        .addClass('user-info--is-view')
-        .removeClass('user-info--is-edit');
+    addOrRemoveClasses(
+        $(elem),
+        2,
+        ['user-info--is-load', 'user-info--is-view'],
+        ['user-info--is-edit']
+    );
     var elemid = $(elem).attr('id');
     var nameVal = $('#' + elemid + '_naam-tb').val();
     $('#' + elemid + '_naam-tb')
@@ -112,42 +109,64 @@ function js_user_view_view(elem) {
         success: function(msg) {
             var obj = JSON.parse(msg);
             console.log(obj);
-            if (typeof obj.edited === 'undefined') {
-                $('#' + elemid + '_naam-tb').attr('id', 'e-' + obj.id + '_naam-tb');
-                $('#' + elemid + '_email-tb').attr('id', 'e-' + obj.id + '_email-tb');
-                $(elem).attr('id', 'e-' + obj.id);
-                console.log('created');
+            console.log(obj.err);
+            if (obj.err === undefined) {
+                if (typeof obj.edited === 'undefined') {
+                    $('#' + elemid + '_naam-tb').attr('id', 'e-' + obj.id + '_naam-tb');
+                    $('#' + elemid + '_error').attr('id', 'e-' + obj.id + '_error');
+                    $('#' + elemid + '_email-tb').attr('id', 'e-' + obj.id + '_email-tb');
+                    $(elem).attr('id', 'e-' + obj.id);
+                }
+                addOrRemoveClasses($(elem), 2, ['user-info--is-success'], ['user-info--is-load']);
+                setTimeout(function() {
+                    addOrRemoveClasses($(elem), 2, [], ['user-info--is-success']);
+                }, 3000);
             } else {
-                console.log('edited');
+                addOrRemoveClasses($('#' + elemid + '_error'), 0, ['user-info__error--show']);
+                $('#' + elemid + '_error').html(obj.err);
+                addOrRemoveClasses(
+                    $(elem),
+                    2,
+                    ['user-info--is-error', 'user-info--is-edit'],
+                    ['user-info--is-load', 'user-info--is-view']
+                );
+                setTimeout(function() {
+                    addOrRemoveClasses($(elem), 2, [], ['user-info--is-error']);
+                    addOrRemoveClasses(
+                        $('#' + elemid + '_error'),
+                        0,
+                        [],
+                        ['user-info__error--show']
+                    );
+                }, 3000);
             }
-            $(elem)
-                .parent()
-                .parent()
-                .removeClass('user-info--is-load')
-                .addClass('user-info--is-success');
-            setTimeout(function() {
-                $(elem)
-                    .parent()
-                    .parent()
-                    .removeClass('user-info--is-success');
-            }, 3000);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr);
             console.log(thrownError);
-            $(elem)
-                .parent()
-                .parent()
-                .removeClass('user-info--is-load')
-                .removeClass('user-info--is-view')
-                .addClass('user-info--is-error')
-                .addClass('user-info--is-edit');
+            addOrRemoveClasses(
+                $(elem),
+                2,
+                ['user-info--is-error', 'user-info--is-edit'],
+                ['user-info--is-load', 'user-info--is-view']
+            );
             setTimeout(function() {
-                $(elem)
-                    .parent()
-                    .parent()
-                    .removeClass('user-info--is-error');
+                addOrRemoveClasses($(elem), 2, [], ['user-info--is-error']);
             }, 3000);
         }
     });
+}
+function addOrRemoveClasses(elem, parentnum = 0, addAr = [], removeArr = []) {
+    var tempelem = elem;
+    if (parentnum > 0) {
+        for (var i = 0; i < parentnum; i++) {
+            tempelem = $(tempelem).parent();
+        }
+    }
+    for (var i = 0; i < addAr.length; i++) {
+        $(tempelem).addClass(addAr[i]);
+    }
+    for (var i = 0; i < removeArr.length; i++) {
+        $(tempelem).removeClass(removeArr[i]);
+    }
 }

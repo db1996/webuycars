@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 15px 0;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     input {
         text-align: center;
     }
@@ -30,16 +30,22 @@
     }
     &__error {
         position: absolute;
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
         top: 0;
-        right: 0 - 100px;
-        width: 100px;
+        right: 0;
+        padding: 0 25px;
         height: 100%;
+        transform: translateX(100%);
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         background-color: rgba(red, 0.2) !important;
+        color: white;
+        transition: all 0.5s ease;
         &--show {
-            display: block;
+            opacity: 1;
         }
     }
     &--header-row {

@@ -38,7 +38,7 @@
                                     <div class="loading-dots2__dot"></div>
                                 </div>
                             </div>
-                            <div class="user-info__error">
+                            <div class="user-info__error" id="e-{{$autodealer->id}}_error">
 
                             </div>
                         </div>
