@@ -64,6 +64,7 @@ class KentekensController extends Controller
             $originalExtension = substr(strrchr($originalfilename, '.'), 1);
             $randomFilename = str_random(30) . "." . $originalExtension;
             $file->move(public_path() . '/img/kentekens/'. $kenteken->kenteken . '/', $randomFilename);
+
             $image = Image::create([
                 'kenteken_id' => $kenteken->id,
                 'kenteken' => $_POST['kenteken'],
