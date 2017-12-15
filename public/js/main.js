@@ -1,15 +1,27 @@
+/*
+Creates a random number of given length.
+OPTIONS
+len            = INT the length of the random created string *NOT OPTIONAL
+beforestr      = STRING that is placed before the random string *OPTIONAL
+arraytocheck   = ARRAY that the function will check. If the random generated string is already in that array it will loop to create a new one, until it finds a unique one. *OPTIONAL
+*/
 function randomString2(len, beforestr = '', arraytocheck = null) {
+    // Charset, every character in this string is an optional one it can use as a random character.
     var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var randomString = '';
+    console.log(arraytocheck);
     for (var i = 0; i < len; i++) {
+        // creates a random number between 0 and the charSet length. Rounds it down to a whole number
         var randomPoz = Math.floor(Math.random() * charSet.length);
         randomString += charSet.substring(randomPoz, randomPoz + 1);
     }
+    // If an array is given it will check the array, and if the generated string exists in it it will create a new one until a unique one is found *WATCH OUT. If all available options are used it will cause a loop it cannot break out*
     if (arraytocheck == null) {
         return beforestr + randomString;
     } else {
-        var isIn = $.inArray(beforestr + randomString, arraytocheck);
+        var isIn = $.inArray(beforestr + randomString, arraytocheck); // checks if the string is in the array, returns a position
         if (isIn > -1) {
+            // if the position is not -1 (meaning, it is not in the array) it will start doing a loop
             var count = 0;
             do {
                 randomString = '';
@@ -28,9 +40,26 @@ function randomString2(len, beforestr = '', arraytocheck = null) {
     }
 }
 $('.js-add-user-admin').on('click', function() {
-    var rand = randomString2(10, 'r-', newUsers);
+    // creates a random string to give it a random id. Uses a self-written function
+    var rand = randomString2(10, 'r-', newUsers, 1);
+    newUsers.push(rand); // pushes the newly created random string in the global array.
+    // Will create a long string to make the new user-info element
     var htmlStr = '';
-    htmlStr += '<div class="user-info user-info--is-edit">';
+    htmlStr += '<div class="user-info user-info--is-edit delete-overlay">';
+    htmlStr += '<div class="delete-overlay__deletecontainer">';
+    htmlStr +=
+        '<p class="delete-overlay__child delete-overlay__text">Je staat op het punt om deze autodealer te verwijderen. Weet je het zeker?</p>';
+    htmlStr += '<div class="delete-overlay__child">';
+    htmlStr +=
+        '<a href="#" data-id="' +
+        rand +
+        '" id="' +
+        rand +
+        '_delete-ref"  class="alert-link js-delete-yes">Ja</a>';
+    htmlStr += '<a href="#" class="alert-link js-delete-no">Nee</a>';
+    htmlStr += '</div>';
+    htmlStr += '</div>';
+
     htmlStr += '<div class="user-info__naam">';
     htmlStr += '<span class="--user-edit">';
     htmlStr += '<input type="text" id="' + rand + '_naam-tb" value="John Doe">';
@@ -51,6 +80,8 @@ $('.js-add-user-admin').on('click', function() {
         '<i class="fa fa-floppy-o user-info__icon js-user-view-view --user-edit" id="' +
         rand +
         '" aria-hidden="true"></i>';
+    htmlStr +=
+        '<i class="fa fa-trash-o js-user-delete user-info__icon user-info__icon--marginl --user-view"  aria-hidden="true"></i>';
     htmlStr += '<div class="loading-dots2 loading-dots2--nomarg --user-load">';
     htmlStr += '<div class="loading-dots2__dot"></div>';
     htmlStr += '<div class="loading-dots2__dot"></div>';
@@ -66,7 +97,15 @@ $('.js-add-user-admin').on('click', function() {
     $('.js-user-view-view').on('click', function() {
         js_user_view_view(this);
     });
-    newUsers.push(rand);
+    $('.js-user-delete').on('click', function() {
+        js_user_delete(this);
+    });
+    $('.js-delete-no').on('click', function() {
+        js_user_delete_no(this);
+    });
+    $('.js-delete-yes').on('click', function() {
+        js_user_delete_yes(this);
+    });
 });
 $('.js-user-view-edit').on('click', function() {
     js_user_view_edit(this);
@@ -115,6 +154,8 @@ function js_user_view_view(elem) {
                     $('#' + elemid + '_naam-tb').attr('id', 'e-' + obj.id + '_naam-tb');
                     $('#' + elemid + '_error').attr('id', 'e-' + obj.id + '_error');
                     $('#' + elemid + '_email-tb').attr('id', 'e-' + obj.id + '_email-tb');
+                    $('#' + elemid + '_delete-ref').attr('data-id', 'e-' + obj.id);
+                    $('#' + elemid + '_delete-ref').attr('id', '');
                     $(elem).attr('id', 'e-' + obj.id);
                 }
                 addOrRemoveClasses($(elem), 2, ['user-info--is-success'], ['user-info--is-load']);
@@ -170,6 +211,59 @@ function addOrRemoveClasses(elem, parentnum = 0, addAr = [], removeArr = []) {
         $(tempelem).removeClass(removeArr[i]);
     }
 }
+
+// Delete button and everything associated with it
+function js_user_delete(elem) {
+    addOrRemoveClasses($(elem), 2, ['delete-overlay--delete']);
+}
+function js_user_delete_no(elem) {
+    addOrRemoveClasses($(elem), 3, [], ['delete-overlay--delete']);
+}
+function js_user_delete_yes(elem) {
+    var idToDel = $(elem).attr('data-id');
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        url: url + 'admin/delete-dealer',
+        data: { id: idToDel },
+        success: function(msg) {
+            var obj = JSON.parse(msg);
+            console.log(obj);
+            console.log(obj.err);
+            if (obj.err === undefined) {
+                addOrRemoveClasses(elem, 3, ['delete-overlay--is-deleted'], []);
+                setTimeout(function() {
+                    addOrRemoveClasses(elem, 3, ['user-info--is-deleted'], []);
+                    setTimeout(function() {
+                        $(elem)
+                            .parent()
+                            .parent()
+                            .parent()
+                            .remove();
+                    }, 200);
+                }, 200);
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(thrownError);
+        }
+    });
+}
+$('.js-user-delete').on('click', function() {
+    js_user_delete(this);
+});
+$('.js-delete-no').on('click', function() {
+    js_user_delete_no(this);
+});
+$('.js-delete-yes').on('click', function() {
+    js_user_delete_yes(this);
+});
 
 var url = '/';
 var newUsers = [];

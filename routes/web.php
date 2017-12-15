@@ -13,3 +13,4 @@ Route::get('password/reset', [
 ]);
 Route::get('/admin', 'AdminsController@index');
 Route::post('/admin/ajaxsave', 'AdminsController@ajaxsave');
+Route::post('/admin/delete-dealer', 'AdminsController@deleteDealer');

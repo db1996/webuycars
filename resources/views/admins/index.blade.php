@@ -15,7 +15,14 @@
                         <div class="user-info__edit">Aanpassen</div>
                     </div>
                     @foreach($autodealers as $autodealer)
-                        <div class="user-info user-info--is-view">
+                        <div class="user-info user-info--is-view delete-overlay">
+                            <div class="delete-overlay__deletecontainer">
+                                <p class="delete-overlay__child delete-overlay__text">Je staat op het punt om deze autodealer te verwijderen. Weet je het zeker?</p>
+                                <div class="delete-overlay__child">
+                                    <a href="#" data-id="e-{{$autodealer->id}}" class="alert-link js-delete-yes">Ja</a>
+                                    <a href="#" class="alert-link js-delete-no">Nee</a>
+                                </div>
+                            </div>
                             <div class="user-info__naam">
                                 <span class="--user-edit">
                                     <input id="e-{{$autodealer->id}}_naam-tb" type="text" value="{{$autodealer->name }}">
@@ -32,6 +39,7 @@
                             <div class="user-info__edit">
                                 <i class="fa fa-pencil-square-o user-info__icon js-user-view-edit --user-view" aria-hidden="true"></i>
                                 <i class="fa fa-floppy-o user-info__icon js-user-view-view --user-edit" id="e-{{$autodealer->id}}" aria-hidden="true"></i>
+                                <i class="fa fa-trash-o js-user-delete user-info__icon user-info__icon--marginl --user-view"  aria-hidden="true"></i>
                                 <div class="loading-dots2 loading-dots2--nomarg --user-load">
                                     <div class="loading-dots2__dot"></div>
                                     <div class="loading-dots2__dot"></div>

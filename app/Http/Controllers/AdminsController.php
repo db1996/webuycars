@@ -67,4 +67,14 @@ class AdminsController extends Controller
         }
         return json_encode($response);
     }
+
+    public function deleteDealer(Request $request){
+        $id = str_replace('e-', '', $request->id);
+        $response = array(
+            'id-trimmed' => $id,
+        );
+        $user = User::find($id);
+        $user->delete();
+        return json_encode($response);
+    }
 }
