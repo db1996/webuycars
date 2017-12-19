@@ -3,6 +3,12 @@
 /*
     first argument is classname
 */
+/*
+    If you only need one you can just create a wrapper div with the class "loading-waves"  and the dots classed "loading-waves__wave"
+    change the settings here to get that one to change.
+
+    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+*/
 $loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
 $loader-wave-max-height: 40px;
@@ -26,8 +32,8 @@ $loader-square-wave-min-opacity: 0.5;
 
 // Gooey loader
 // Don't fiddle around too much with the _gooey-loader.scss file. It usually does not do what you expect it to do.
-$loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
-$loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
+$loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect */
+$loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect */
 $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
@@ -60,5 +66,31 @@ $loader-dots-color: white;
  $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
  $loader-dots-between-dots-delay, $loader-dots-color);
 @include create-dots-elem ('loading-dots2', 3, 5px, 15px, 1.6s, 1s, .16s, black);
+@include create-dots-elem ('stap3-dots', 3, 5px, 20px, 1.7s, .8s, .18s, white);
 
-@include create-dots-elem ('stap3-dots', 3, 5px, 20px, 1.7s, .8s, .18s, $loader-dots-color);
+// Horizontal moving dots
+$loader-horizontal-dots-size: 10px;
+$loader-horizontal-dots-color: blue;
+$loader-horizontal-dots-width: 100%;
+$loader-horizontal-dots-animation-length: 1.5s;
+$loader-horizontal-dots-amount-dots: 5;
+@include create-horizontal-dots-elem('l-dots', $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length, $loader-horizontal-dots-amount-dots);
+
+/*
+    Spinner (2 halves)
+*/
+// Vars for the big circle
+$loader-spinner-size: 90px;
+$loader-spinner-border-size: 2px;
+$loader-spinner-color: black;
+$loader-spinner-animation-length: 1.5s;
+$loader-spinner-animation-direction: reverse; // It will standard be normal, reverse will make it spin oposite direction
+
+// Vars for the small circle. If you leave these all out of the mixin, they will all have standard values based on the big circle
+$loader-spinner-small-size: 60px; // Standard: Big size - 20px
+$loader-spinner-small-border-size: 2px; // Standard: Same as big circle border size
+$loader-spinner-small-color: black; // Standard: Same as big circle color
+$loader-spinner-small-animation-length: 1.5s; // Standard: Same as big circle animation length
+$loader-spinner-small-animation-direction: normal; // Standard: reverse. Because it usually goes the opposite way of the big circle
+
+@include create-spinner-elem('loading-spinner', $loader-spinner-size, $loader-spinner-border-size, $loader-spinner-color, $loader-spinner-animation-length, $loader-spinner-animation-direction, $loader-spinner-small-size, $loader-spinner-small-border-size, $loader-spinner-small-color, $loader-spinner-small-animation-length, $loader-spinner-small-animation-direction);

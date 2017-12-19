@@ -8,6 +8,7 @@
                     <h3 class="c-box__title --no-margin">Auto dealers</h3>
                 </div> <!-- /.c-box__header -->
                 <div class="c-box__body js-users">
+
                     <div class="user-info user-info--header-row">
                         <div class="user-info__naam">Naam</div>
                         <div class="user-info__email">E-Mail</div>
@@ -46,15 +47,13 @@
                                     <div class="loading-dots2__dot"></div>
                                 </div>
                             </div>
-                            <div class="user-info__error" id="e-{{$autodealer->id}}_error">
-
-                            </div>
+                            <div class="user-info__error" id="e-{{$autodealer->id}}_error"></div>
                         </div>
                     @endforeach
                 </div> <!-- /.c-box__body-->
                 <div class="c-box__footer">
                     <i class="fa fa-plus-circle js-add-user-admin  user-info__icon --user-view" aria-hidden="true"></i>
-
+                    <div class="loading-spinner"></div>
                 </div> <!-- /.c-box__Footer-->
             </div>  <!-- /.c-box -->
         </div><!-- /.col -->

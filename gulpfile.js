@@ -1,18 +1,21 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util');
 sass = require('gulp-sass');
+uglify = require('gulp-uglify-es').default;
 concat = require('gulp-concat');
 sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
-var combineMq = require('gulp-combine-mq');
 var devip = require('dev-ip');
 var wait = require('gulp-wait');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
+
 var production = !!gutil.env.production;
+var jsmin = !!gutil.env.jsmin;
+
 console.log(production ? 'yas' : 'nope');
 gulp.task('build-css', function() {
     return gulp
@@ -47,8 +50,10 @@ gulp.task('reload-img', function() {
 gulp.task('build-js', function() {
     return gulp
         .src(srcs.js)
-        .pipe(sourcemaps.init())
+        .pipe(jsmin === true ? gutil.noop() : sourcemaps.init())
         .pipe(concat(filenames.js))
+        .pipe(jsmin === true ? uglify().on('error', gutil.log) : gutil.noop())
+        .pipe(jsmin === true ? gutil.noop() : sourcemaps.write())
         .pipe(gulp.dest(dests.js))
         .pipe(browserSync.reload({ stream: true }));
 });
