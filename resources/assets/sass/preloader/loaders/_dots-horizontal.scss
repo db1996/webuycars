@@ -1,4 +1,4 @@
-@mixin create-horizontal-dots-elem($c, $s, $co, $w, $al, $am) {
+@mixin create-horizontal-dots-elem($c, $am, $s, $col, $w, $al, $ad) {
     .#{$c} {
         position: relative;
         width: $w;
@@ -14,7 +14,7 @@
                     &:before {
                         content: '';
                         position: absolute;
-                        background-color: $co;
+                        background-color: $col;
                         border-radius: 50%;
                         height: $s;
                         width: $s;

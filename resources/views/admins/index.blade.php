@@ -53,7 +53,6 @@
                 </div> <!-- /.c-box__body-->
                 <div class="c-box__footer">
                     <i class="fa fa-plus-circle js-add-user-admin  user-info__icon --user-view" aria-hidden="true"></i>
-                    <div class="loading-spinner"></div>
                 </div> <!-- /.c-box__Footer-->
             </div>  <!-- /.c-box -->
         </div><!-- /.col -->

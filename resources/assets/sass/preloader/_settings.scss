@@ -16,19 +16,19 @@ $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: white;
 $loader-wave-animation-length: 0.7s;
-@include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height,
-$loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
+// @include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height,$loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
 
 // Wave (squares)
 $loader-square-wave-amount-of-squares: 5;
 $loader-square-wave-width: 20px;
 $loader-square-wave-height: 20px;
 $loader-square-wave-gap: 20px;
-$loader-square-wave-background-color: white;
+$loader-square-wave-background-color: black;
 $loader-square-wave-animation-length: 0.7s;
 $loader-square-wave-jump-distanceY: -15px;
 $loader-square-wave-jump-distanceX: 0;
 $loader-square-wave-min-opacity: 0.5;
+// @include create-square-wave-elem('loading-square-waves', $loader-square-wave-amount-of-squares, $loader-square-wave-width, $loader-square-wave-height, $loader-square-wave-gap, $loader-square-wave-background-color, $loader-square-wave-animation-length, $loader-square-wave-jump-distanceY, $loader-square-wave-jump-distanceX, $loader-square-wave-min-opacity);
 
 // Gooey loader
 // Don't fiddle around too much with the _gooey-loader.scss file. It usually does not do what you expect it to do.
@@ -39,14 +39,17 @@ $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
 $loader-gooey-animation-length: 4s;
 $loader-gooey-full-circle-width: 200px;
+// @include create-gooey-loader-elem('loading-gooey', $loader-gooey-dot-width, $loader-gooey-dot-height, $loader-gooey-dot1-bcolor, $loader-gooey-dot2-bcolor, $loader-gooey-dot3-bcolor, $loader-gooey-animation-length, $loader-gooey-full-circle-width);
 
+// Google spinner
 // Google spinner
 $loader-google-size: 100px;
 $loader-google-border-width: 5px; /* > 10 will break the round shape */
+$loader-google-red: #d62d20; // You can make all the colors one color to make it not transition
 $loader-google-green: #008744;
 $loader-google-blue: #0057e7;
-$loader-google-red: #d62d20;
 $loader-google-yellow: #ffa700;
+// @include create-google-spinner-elem('loading-google-spinner', $loader-google-size, $loader-google-border-width, $loader-google-red,$loader-google-green, $loader-google-blue, $loader-google-yellow);
 
 // Windows dots
 /*
@@ -74,7 +77,7 @@ $loader-horizontal-dots-color: blue;
 $loader-horizontal-dots-width: 100%;
 $loader-horizontal-dots-animation-length: 1.5s;
 $loader-horizontal-dots-amount-dots: 5;
-@include create-horizontal-dots-elem('l-dots', $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length, $loader-horizontal-dots-amount-dots);
+// @include create-horizontal-dots-elem('l-dots', $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length, $loader-horizontal-dots-amount-dots);
 
 /*
     Spinner (2 halves)
@@ -93,4 +96,4 @@ $loader-spinner-small-color: black; // Standard: Same as big circle color
 $loader-spinner-small-animation-length: 1.5s; // Standard: Same as big circle animation length
 $loader-spinner-small-animation-direction: normal; // Standard: reverse. Because it usually goes the opposite way of the big circle
 
-@include create-spinner-elem('loading-spinner', $loader-spinner-size, $loader-spinner-border-size, $loader-spinner-color, $loader-spinner-animation-length, $loader-spinner-animation-direction, $loader-spinner-small-size, $loader-spinner-small-border-size, $loader-spinner-small-color, $loader-spinner-small-animation-length, $loader-spinner-small-animation-direction);
+// @include create-spinner-elem('loading-spinner', $loader-spinner-size, $loader-spinner-border-size, $loader-spinner-color, $loader-spinner-animation-length, $loader-spinner-animation-direction, $loader-spinner-small-size, $loader-spinner-small-border-size, $loader-spinner-small-color, $loader-spinner-small-animation-length, $loader-spinner-small-animation-direction);

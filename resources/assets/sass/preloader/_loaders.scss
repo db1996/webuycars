@@ -8,13 +8,11 @@
 // Import all different loader mixins
 @import 'loaders/dots';
 @import 'loaders/wave';
+@import 'loaders/square-wave';
+@import 'loaders/gooey-loader';
+@import 'loaders/google-spinner';
 @import 'loaders/dots-horizontal';
 @import 'loaders/spinner';
 
 // import the settings
 @import 'settings';
-
-// load the loaders without mixins
-// @import 'loaders/square-wave';
-// @import 'loaders/gooey-loader';
-// @import 'loaders/google-spinner';
