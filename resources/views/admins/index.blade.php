@@ -36,7 +36,7 @@
                                 </span>
                                 <span class="--user-view">{{$autodealer->email }}</span>
                             </div>
-                            <div class="user-info__bevestigd">{{($autodealer->confirmed == 0) ? "Mail verstuurd" : "Ja"}}</div>
+                            <div class="user-info__bevestigd">{{($autodealer->password == NULL) ? "Nog geen wachtwoord" : "Ja"}}</div>
                             <div class="user-info__edit">
                                 <i class="fa fa-pencil-square-o user-info__icon js-user-view-edit --user-view" aria-hidden="true"></i>
                                 <i class="fa fa-floppy-o user-info__icon js-user-view-view --user-edit" id="e-{{$autodealer->id}}" aria-hidden="true"></i>

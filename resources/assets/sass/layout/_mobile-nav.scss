@@ -15,6 +15,7 @@ $button-opac: 0.45;
     transition: $transition;
     opacity: 0.95;
     overflow-y: scroll;
+    transition: all 0.4s ease;
     @include custom(0px, 320px) {
         flex-direction: column;
         width: 100%;

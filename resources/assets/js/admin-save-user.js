@@ -39,6 +39,7 @@ function randomString2(len, beforestr = '', arraytocheck = null) {
         }
     }
 }
+// If the + symbol is clicked a new element is created
 $('.js-add-user-admin').on('click', function() {
     // creates a random string to give it a random id. Uses a self-written function
     var rand = randomString2(10, 'r-', newUsers, 1);
@@ -55,8 +56,8 @@ $('.js-add-user-admin').on('click', function() {
         rand +
         '" id="' +
         rand +
-        '_delete-ref"  class="alert-link js-delete-yes">Ja</a>';
-    htmlStr += '<a href="#" class="alert-link js-delete-no">Nee</a>';
+        '_delete-ref"   class="alert-link js-delete-yes">Ja</a>';
+    htmlStr += '<a id="' + rand + '_delete-no" href="#" class="alert-link js-delete-no">Nee</a>';
     htmlStr += '</div>';
     htmlStr += '</div>';
 
@@ -68,20 +69,24 @@ $('.js-add-user-admin').on('click', function() {
     htmlStr += '</div>';
     htmlStr += '<div class="user-info__email">';
     htmlStr += '<span class="--user-edit">';
-    htmlStr += '<input type="email" id="' + rand + '_email-tb" value="johndoe@example.com">';
+    htmlStr += '<input type="email" id="' + rand + '_email-tb" value="' + rand + '@example.com">';
     htmlStr += '</span>';
     htmlStr += '<span class="--user-view">johndoe@example.com</span>';
     htmlStr += '</div>';
-    htmlStr += '<div class="user-info__bevestigd">nee</div>';
+    htmlStr += '<div class="user-info__bevestigd" id="' + rand + '_bevestigd">nee</div>';
     htmlStr += '<div class="user-info__edit">';
     htmlStr +=
-        '<i class="fa fa-pencil-square-o user-info__icon js-user-view-edit --user-view" aria-hidden="true"></i>';
+        '<i id="' +
+        rand +
+        '_edit" class="fa fa-pencil-square-o user-info__icon js-user-view-edit --user-view" aria-hidden="true"></i>';
     htmlStr +=
         '<i class="fa fa-floppy-o user-info__icon js-user-view-view --user-edit" id="' +
         rand +
         '" aria-hidden="true"></i>';
     htmlStr +=
-        '<i class="fa fa-trash-o js-user-delete user-info__icon user-info__icon--marginl --user-view"  aria-hidden="true"></i>';
+        '<i  id="' +
+        rand +
+        '_delete" class="fa fa-trash-o js-user-delete user-info__icon user-info__icon--marginl --user-view"  aria-hidden="true"></i>';
     htmlStr += '<div class="loading-dots2 loading-dots2--nomarg --user-load">';
     htmlStr += '<div class="loading-dots2__dot"></div>';
     htmlStr += '<div class="loading-dots2__dot"></div>';
@@ -91,22 +96,24 @@ $('.js-add-user-admin').on('click', function() {
     htmlStr += '<div class="user-info__error" id="' + rand + '_error"></div>';
     htmlStr += '</div>';
     $('.js-users').append(htmlStr);
-    $('.js-user-view-edit').on('click', function() {
+    // Re initiates all the click functions that requires javascript
+    $('#' + rand + '_edit').on('click', function() {
         js_user_view_edit(this);
     });
-    $('.js-user-view-view').on('click', function() {
+    $('#' + rand).on('click', function() {
         js_user_view_view(this);
     });
-    $('.js-user-delete').on('click', function() {
+    $('#' + rand + '_delete').on('click', function() {
         js_user_delete(this);
     });
-    $('.js-delete-no').on('click', function() {
+    $('#' + rand + '_delete-no').on('click', function() {
         js_user_delete_no(this);
     });
-    $('.js-delete-yes').on('click', function() {
+    $('#' + rand + '_delete-ref').on('click', function() {
         js_user_delete_yes(this);
     });
 });
+
 $('.js-user-view-edit').on('click', function() {
     js_user_view_edit(this);
 });
@@ -114,9 +121,11 @@ $('.js-user-view-view').on('click', function() {
     js_user_view_view(this);
 });
 
+// What happens when the edit button is clicked
 function js_user_view_edit(elem) {
     addOrRemoveClasses($(elem), 2, ['user-info--is-edit'], ['user-info--is-view']);
 }
+// When the save button is clicked
 function js_user_view_view(elem) {
     addOrRemoveClasses(
         $(elem),
@@ -126,6 +135,7 @@ function js_user_view_view(elem) {
     );
     var elemid = $(elem).attr('id');
     var nameVal = $('#' + elemid + '_naam-tb').val();
+    // gets both textbox values
     $('#' + elemid + '_naam-tb')
         .parent()
         .siblings()
@@ -136,6 +146,11 @@ function js_user_view_view(elem) {
         .siblings()
         .html(emailVal);
     var token = $('meta[name="csrf-token"]').attr('content');
+    // Ajax to start saving the new/edited user
+    $(elem)
+        .parent()
+        .parent()
+        .attr('class', 'user-info delete-overlay user-info--is-load user-info--is-view');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': token
@@ -143,25 +158,41 @@ function js_user_view_view(elem) {
     });
     $.ajax({
         type: 'POST',
-        url: url + 'admin/ajaxsave',
+        url: url + 'admin/ajaxsave', // The route AJAX is going to use
         data: { naam: nameVal, email: emailVal, id: elemid },
         success: function(msg) {
+            // If the AJAX didn't give a weird error it gets the return json and pases it to an object
             var obj = JSON.parse(msg);
-            console.log(obj);
-            console.log(obj.err);
+            console.log('Frist one yes');
+            // IF the "err" value is in it, it means there's something wrong with the given values, such as Email exists
             if (obj.err === undefined) {
+                // If the user is CREATED it changes all id's from r-randomstr to e-id
                 if (typeof obj.edited === 'undefined') {
                     $('#' + elemid + '_naam-tb').attr('id', 'e-' + obj.id + '_naam-tb');
                     $('#' + elemid + '_error').attr('id', 'e-' + obj.id + '_error');
                     $('#' + elemid + '_email-tb').attr('id', 'e-' + obj.id + '_email-tb');
+                    $('#' + elemid + '_bevestigd')
+                        .attr('id', 'e-' + obj.id + '_bevestigd')
+                        .html('Mail wordt verzonden');
                     $('#' + elemid + '_delete-ref').attr('data-id', 'e-' + obj.id);
-                    $('#' + elemid + '_delete-ref').attr('id', '');
                     $(elem).attr('id', 'e-' + obj.id);
+                    // Adds a yellow overlay to show it's still in progress and sends the email
+                    addOrRemoveClasses($(elem), 2, ['user-info--is-yellow']);
+                    ajaxsendEmail(obj.id, elem, token); // function to do another ajax request to send the email
+                } else {
+                    // Adds a green overlay to show it's a success
+                    addOrRemoveClasses(
+                        $(elem),
+                        2,
+                        ['user-info--is-success'],
+                        ['user-info--is-load']
+                    );
+                    // After 3 seconds the green overlay dissapears
+                    setTimeout(function() {
+                        addOrRemoveClasses($(elem), 2, [], ['user-info--is-success']);
+                    }, 3000);
                 }
-                addOrRemoveClasses($(elem), 2, ['user-info--is-success'], ['user-info--is-load']);
-                setTimeout(function() {
-                    addOrRemoveClasses($(elem), 2, [], ['user-info--is-success']);
-                }, 3000);
+                // If the 'err' is returned it adds a red overlay with the error message
             } else {
                 addOrRemoveClasses($('#' + elemid + '_error'), 0, ['user-info__error--show']);
                 $('#' + elemid + '_error').html(obj.err);
@@ -171,6 +202,7 @@ function js_user_view_view(elem) {
                     ['user-info--is-error', 'user-info--is-edit'],
                     ['user-info--is-load', 'user-info--is-view']
                 );
+                // After 5 seconds the red overlay dissapears
                 setTimeout(function() {
                     addOrRemoveClasses($(elem), 2, [], ['user-info--is-error']);
                     addOrRemoveClasses(
@@ -179,7 +211,7 @@ function js_user_view_view(elem) {
                         [],
                         ['user-info__error--show']
                     );
-                }, 3000);
+                }, 5000);
             }
         },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -197,6 +229,62 @@ function js_user_view_view(elem) {
         }
     });
 }
+function ajaxsendEmail(id2, elem, token) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        url: url + 'admin/sendcreatepass',
+        data: { id: id2 },
+        success: function(msg) {
+            console.log('second one yes');
+            var obj = JSON.parse(msg);
+            if (obj.err === undefined) {
+                // Adds a green overlay to show it's a success
+                addOrRemoveClasses(
+                    $(elem),
+                    2,
+                    ['user-info--is-success'],
+                    ['user-info--is-yellow', 'user-info--is-load']
+                );
+                $('#e-' + id2 + '_bevestigd').html('Mail is verzonden');
+                // After 3 seconds the green overlay dissapears
+                setTimeout(function() {
+                    addOrRemoveClasses($(elem), 2, [], ['user-info--is-success']);
+                    $('#e-' + id2 + '_bevestigd').html('Nog geen wachtwoord');
+                }, 3000);
+                // If the 'err' is returned it adds a red overlay with the error message
+            } else {
+                addOrRemoveClasses($('#' + elemid + '_error'), 0, ['user-info__error--show']);
+                $('#' + elemid + '_error').html(obj.err);
+                addOrRemoveClasses(
+                    $(elem),
+                    2,
+                    ['user-info--is-error', 'user-info--is-edit'],
+                    ['user-info--is-load', 'user-info--is-view']
+                );
+                // After 5 seconds the red overlay dissapears
+                setTimeout(function() {
+                    addOrRemoveClasses($(elem), 2, [], ['user-info--is-error']);
+                    addOrRemoveClasses(
+                        $('#' + elemid + '_error'),
+                        0,
+                        [],
+                        ['user-info__error--show']
+                    );
+                }, 5000);
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(thrownError);
+        }
+    });
+}
+
 function addOrRemoveClasses(elem, parentnum = 0, addAr = [], removeArr = []) {
     var tempelem = elem;
     if (parentnum > 0) {
