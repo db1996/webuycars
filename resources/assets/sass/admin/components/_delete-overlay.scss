@@ -19,7 +19,7 @@ $deleted-transition-time: 0.2s;
         background-color: #f2dede;
         color: #a94442;
         transition: $transition-time ease;
-        transition-delay: $text-transition-times;
+        transition-delay: $text-transition-time;
         overflow: hidden;
     }
     &__child {

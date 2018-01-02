@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
+@section('pagetype', 'static-nav')
 @section('content')
     {{-- {{ dd(App::getLocale()) }} --}}
 <div class="container">

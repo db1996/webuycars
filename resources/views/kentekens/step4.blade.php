@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
+@section('pagetype', 'static-nav')
 @section('content')
     <div class="c-card c-card--small">
         <h1 class="c-card__title c-card__title--small">Je aanmelding is compleet</h1>

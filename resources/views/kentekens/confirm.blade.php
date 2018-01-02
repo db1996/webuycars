@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
+@section('pagetype', 'static-nav')
 @section('content')
     {{-- {{dd($kenteken)}} --}}
     <div class="c-card c-card--small">

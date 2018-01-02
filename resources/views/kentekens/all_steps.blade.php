@@ -12,7 +12,7 @@ $activetabs = activetabs($errors);
 $errorarray = errors($errors);
 @endphp
 @extends('layouts.app')
-@section('pagetype', 'jouwauto-page')
+@section('pagetype', 'static-nav')
 @section('content')
     @include('partials.createinput')
     @include('partials.errors')
